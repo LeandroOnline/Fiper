@@ -1,0 +1,52 @@
+
+*{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+
+}
+
+.App{
+  width: 100vw;
+  height: 100vh;
+  background-color: aqua;
+  box-sizing: border-box;
+
+}
+
+video {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  position: fixed;
+  z-index: -1;
+  filter: blur(15px) contrast(110%) saturate(30%);
+}
+
+/* Preparo el desenfoque para varios tamaños de pantalla */
+@media (min-width: 700px){
+  video{
+  filter: blur(15px) contrast(110%) saturate(30%);
+  }
+}
+@media (min-width: 1300px){
+  video{
+  filter: blur(25px) contrast(110%) saturate(30%);
+  }
+}
+@media (min-width: 1600px){
+  video{
+  filter: blur(35px) contrast(110%) saturate(30%);
+  }
+}
+@media (min-width: 2000px){
+  video{
+  filter: blur(55px) contrast(110%) saturate(30%);
+  }
+}
+@media (min-width: 3000px){
+  video{
+  filter: blur(85px) contrast(110%) saturate(30%);
+  }
+}
