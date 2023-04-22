@@ -1,0 +1,12 @@
+.listcontainer{
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.listElement{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}

@@ -1,12 +1,13 @@
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
   return (
     <div className="navcontainer">
-      <h1 className="title">FiPe</h1>
+      <h1 className="title">~ FIPE ~</h1>
       <div className="menu">
-        <p>Entrada</p>
-        <p>Tendencia</p>
+        <Link to='/'>DashBoard</Link>
+        <Link to='/login'>Login</Link>
       </div>
     </div>
   );
