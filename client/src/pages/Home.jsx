@@ -7,10 +7,18 @@ import "./Home.css";
 const Home = () => {
   return (
     <div className="homecontainer">
-      <Grafica />
-      <Input />
+      <div>
+        <Input />
+        <Total />
+        <progress max="100" value="80" />
+        <br />
+        <meter value="75" min="0" max="100"></meter>
+        <br />
+      </div>
+
       <ListInputs />
-      <Total />
+
+      <Grafica />
     </div>
   );
 };

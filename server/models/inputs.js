@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 // Describo como es el dato que ingresa con un Schema
 
-const dbSchema = new mongoose.Schema({
+const InputsSchema = new mongoose.Schema({
   tipo: {
     type: String,
     required: true,
@@ -21,4 +21,4 @@ const dbSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("db", dbSchema);
+module.exports = mongoose.model("Inputs", InputsSchema);

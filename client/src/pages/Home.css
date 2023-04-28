@@ -4,6 +4,12 @@
     align-items: center;
     justify-content: center;
     color: white;
+    flex-direction: row;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
 }
 
 .homeform{

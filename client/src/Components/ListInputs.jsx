@@ -21,7 +21,11 @@ const ListInputs = () => {
 
   const deleteItem = async (id) => {
     if (window.confirm("Eliminar Item?"))
-      await axios.delete(API + "/delete/" + id).then(() => setReset(!reset));
+      await axios
+        .delete(API + "/delete/" + id, {
+          withCredentials: true,
+        })
+        .then(() => setReset(!reset));
   };
 
   const updateItem = async (e) => {
@@ -49,14 +53,14 @@ const ListInputs = () => {
       Entradas:
       {inputs.map((element, key) => (
         <div key={key} className="listElement">
-          <button onClick={() => deleteItem(element._id)}>E</button>
+          <button onClick={() => deleteItem(element._id)}>Eliminar</button>
           <button
             onClick={() => {
               setModificar(true);
               setIdElemento(element._id);
             }}
           >
-            M
+            Modificar
           </button>
           <p>{element.tipo}</p>
           <p>{element.input}</p>

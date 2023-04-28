@@ -9,7 +9,6 @@ a:hover{
 button{
   border:none;
   background-color: rgb(83,30,30);
-  color: white;
   border-radius: 5px;
   padding-left: 5px;
   padding-right: 5px;
@@ -32,6 +31,7 @@ input{
   font-family: 'Sofia Sans Condensed', sans-serif;
   font-size: 25px;
   font-weight: 400;
+  color: white;
 }
 
 .App{

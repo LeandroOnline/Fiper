@@ -11,11 +11,18 @@ const Input = () => {
   const post = async (e) => {
     e.preventDefault();
     await axios
-      .post(API, {
-        tipo: e.target.tipo.value,
-        input: e.target.input.value,
-        detalle: e.target.detalle.value,
-      })
+      .post(
+        API,
+        {
+          tipo: e.target.tipo.value,
+          input: e.target.input.value,
+          detalle: e.target.detalle.value,
+        },
+        {
+          withCredentials: true,
+          // para que el post envie credenciales como son las cookies es necesario agregar este withCredentials: true,
+        }
+      )
       .then(() => setReset(!reset));
     document.getElementById("myForm").reset();
   };
