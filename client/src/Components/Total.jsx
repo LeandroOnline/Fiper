@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { context } from "../App";
 import "./Total.css";
+
 const API = "http://localhost:3000/api";
 
 const Total = () => {
@@ -16,7 +17,15 @@ const Total = () => {
 
   useEffect(() => {
     const get = async () =>
-      await axios.get(API + "/getall").then((data) => setTotal(data.data));
+      await axios
+        .get(API + "/getall")
+        .then((data) => setTotal(data.data))
+        .catch((err) => {
+          console.log(err);
+          window.alert(
+            "Error pedir los datos del servidor, contacte al administrador"
+          );
+        });
     get();
   }, [reset]);
 

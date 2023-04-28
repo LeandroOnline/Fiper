@@ -9,10 +9,11 @@ export const context = createContext();
 
 function App() {
   const [reset, setReset] = useState(false);
+  const [logged, setLogged] = useState(false);
 
   return (
     <div className="App">
-      <context.Provider value={{ reset, setReset }}>
+      <context.Provider value={{ reset, setReset, logged, setLogged }}>
         <BrowserRouter>
           <Navbar />
           <Routes>

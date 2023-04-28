@@ -23,7 +23,13 @@ const Input = () => {
           // para que el post envie credenciales como son las cookies es necesario agregar este withCredentials: true,
         }
       )
-      .then(() => setReset(!reset));
+      .then(() => setReset(!reset))
+      .catch((err) => {
+        console.log(err);
+        window.alert(
+          "Error al enviar datos del servidor, contacte al administrador"
+        );
+      });
     document.getElementById("myForm").reset();
   };
 

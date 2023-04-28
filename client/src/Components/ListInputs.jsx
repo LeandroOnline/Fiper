@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState, memo } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import "./ListInputs.css";
 import { context } from "../App";
@@ -10,13 +10,22 @@ const ListInputs = () => {
   const [inputs, setInputs] = useState([0]);
   const [modificar, setModificar] = useState(false);
   const [idElemento, setIdElemento] = useState("");
+  // const navigate = useNavigate();
 
   let { reset, setReset } = useContext(context);
 
   const clearTrue = async () => {
     if (window.confirm("SEGURO queres eliminar todas las Entradas?"))
       if (window.confirm("Seguro?, no hay vuelta atras!"))
-        await axios.delete(API + "/deleteall").then(() => setReset(!reset));
+        await axios
+          .delete(API + "/deleteall")
+          .then(() => setReset(!reset))
+          .catch((err) => {
+            console.log(err);
+            window.alert(
+              "Error al borrar los datos del servidor, contacte al administrador"
+            );
+          });
   };
 
   const deleteItem = async (id) => {
@@ -25,7 +34,13 @@ const ListInputs = () => {
         .delete(API + "/delete/" + id, {
           withCredentials: true,
         })
-        .then(() => setReset(!reset));
+        .then(() => setReset(!reset))
+        .catch((err) => {
+          console.log(err);
+          window.alert(
+            "Error al eliminar los datos del servidor, contacte al administrador"
+          );
+        });
   };
 
   const updateItem = async (e) => {
@@ -39,13 +54,31 @@ const ListInputs = () => {
       .then(() => {
         setReset(!reset);
         setModificar(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        window.alert(
+          "Error al actualizar los datos del servidor, contacte al administrador"
+        );
       });
   };
 
   useEffect(() => {
     const get = async () =>
-      await axios.get(API + "/getall").then((data) => setInputs(data.data));
+      await axios
+        .get(API + "/getall", {
+          withCredentials: true,
+        })
+        .then((data) => setInputs(data.data))
+        .catch((err) => {
+          console.log(err);
+          window.alert(
+            "Error al cargar los datos del servidor, contacte al administrador"
+          );
+
+        });
     get();
+    // ver que cuando llegue una lista vacia no tire error, el error surge de eliminar el usuario e intentar cargar los datos del usuario eliminado
   }, [reset]);
 
   return (
