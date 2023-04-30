@@ -8,22 +8,25 @@ const SignUp = () => {
   const Sign = async (e) => {
     e.preventDefault();
     await axios
-      .post(API + '/adduser', {
+      .post(API + "/adduser", {
         email: e.target.email.value,
         password: e.target.password.value,
       })
-      .then((data) => {console.log(data); window.alert("Usuario Agregado"); navigate('/login') });
+      .then((data) => {
+        window.alert("Usuario Agregado");
+        navigate("/login");
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
     <div>
-      <h1>Sign Up</h1>
       <form onSubmit={(e) => Sign(e)}>
         <input placeholder="email" name="email" />
         <br />
-        <input placeholder="contraseña" name="password" />
+        <input placeholder="contraseña" name="password" type="password"/>
         <br />
-        <button type="submit">Sign Up</button>
+        <button type="submit">Registrarse</button>
       </form>
     </div>
   );

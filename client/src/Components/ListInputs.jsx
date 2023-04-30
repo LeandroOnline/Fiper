@@ -3,14 +3,12 @@ import axios from "axios";
 import "./ListInputs.css";
 import { context } from "../App";
 import Categorias from "./Categorias";
-
-const API = "http://localhost:3000/api";
+import { API } from "../App";
 
 const ListInputs = () => {
   const [inputs, setInputs] = useState([0]);
   const [modificar, setModificar] = useState(false);
   const [idElemento, setIdElemento] = useState("");
-  // const navigate = useNavigate();
 
   let { reset, setReset } = useContext(context);
 
@@ -18,7 +16,9 @@ const ListInputs = () => {
     if (window.confirm("SEGURO queres eliminar todas las Entradas?"))
       if (window.confirm("Seguro?, no hay vuelta atras!"))
         await axios
-          .delete(API + "/deleteall")
+          .delete(API + "/deleteall", {
+            withCredentials: true,
+          })
           .then(() => setReset(!reset))
           .catch((err) => {
             console.log(err);
@@ -75,7 +75,6 @@ const ListInputs = () => {
           window.alert(
             "Error al cargar los datos del servidor, contacte al administrador"
           );
-
         });
     get();
     // ver que cuando llegue una lista vacia no tire error, el error surge de eliminar el usuario e intentar cargar los datos del usuario eliminado

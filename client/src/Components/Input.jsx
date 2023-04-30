@@ -2,8 +2,7 @@ import axios from "axios";
 import { useContext } from "react";
 import { context } from "../App";
 import Categorias from "./Categorias";
-
-const API = "http://localhost:3000/api/add";
+import { API } from "../App";
 
 const Input = () => {
   const { reset, setReset } = useContext(context);
@@ -12,7 +11,7 @@ const Input = () => {
     e.preventDefault();
     await axios
       .post(
-        API,
+        API + '/add',
         {
           tipo: e.target.tipo.value,
           input: e.target.input.value,
@@ -20,7 +19,6 @@ const Input = () => {
         },
         {
           withCredentials: true,
-          // para que el post envie credenciales como son las cookies es necesario agregar este withCredentials: true,
         }
       )
       .then(() => setReset(!reset))

@@ -2,8 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { context } from "../App";
 import "./Total.css";
-
-const API = "http://localhost:3000/api";
+import {API} from '../App';
 
 const Total = () => {
   const [total, setTotal] = useState([]);

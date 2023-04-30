@@ -109,16 +109,27 @@ controllers.getusers = async (req, res) => {
 
 controllers.deleteall = async (req, res) => {
   try {
-    const deleted = await Inputs.deleteMany({});
-    const user = await User.deleteMany({});
-    for (let cookie in req.cookies) {
-      res.clearCookie(cookie);
+    // Obtenemos el usuario
+    const user = await User.findById(req.cookies.user);
+    // Eliminamos cada tarea del usuario
+    for (let i = 0; i < user.inputs.length; i++) {
+      await Inputs.findByIdAndDelete(user.inputs[i]);
     }
-    for (let header in req.headers) {
-      res.removeHeader(header);
-    }
+    // Actualizamos el usuario sin tareas
+    await User.findByIdAndUpdate(req.cookies.user, {
+      $set: { inputs: [] },
+    });
+    res.send("Se eliminaron todos los Items");
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
 
-    res.send("Se elimino todo");
+controllers.deleteUser = async (req, res) => {
+  try {
+    // Obtenemos el usuario
+    const user = await User.findByIdAndDelete(req.cookies.user);
+    res.send("Se elimino el usuario");
   } catch (err) {
     res.status(500).send(err);
   }

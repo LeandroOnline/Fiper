@@ -3,8 +3,7 @@ import "./Login.css";
 import axios from "axios";
 import { useContext } from "react";
 import { context } from "../App";
-
-const API = "http://localhost:3000/api";
+import { API } from "../App";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -37,7 +36,7 @@ const Login = () => {
       .catch((err) => {
         console.log(err);
         window.alert(
-          "Error al borrar los datos del servidor, contacte al administrador"
+          "Error al conectar el usuario al servidor, contacte al administrador"
         );
       });
   };
@@ -53,15 +52,13 @@ const Login = () => {
         <>Ya estas Logueado</>
       ) : (
         <>
-          {" "}
-          <h1>Log In</h1>
           <form onSubmit={(e) => Login(e)}>
             <input placeholder="email" name="email" />
-            <input placeholder="contraseña" name="password" />
-            <button type="submit">Login</button>
+            <input placeholder="contraseña" name="password" type="password"/>
+            <button type="submit">Ingresar</button>
           </form>
           <Link to="/signup">
-            <button>Sign Up</button>
+            <button>Registrarse</button>
           </Link>
         </>
       )}

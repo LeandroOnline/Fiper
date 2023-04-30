@@ -7,6 +7,8 @@ import SignUp from "./pages/SignUp";
 
 export const context = createContext();
 
+export const API = "http://localhost:3000/api";
+
 function App() {
   const [reset, setReset] = useState(false);
   const [logged, setLogged] = useState(false);
