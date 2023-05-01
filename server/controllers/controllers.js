@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcryptjs = require("bcryptjs");
 const controllers = {};
 // DB
 const Inputs = require("../models/inputs");
@@ -37,10 +38,14 @@ controllers.adduser = async (req, res) => {
     if (exist) {
       res.send("Usuario existente");
     } else {
+      const randomKey = await bcryptjs.genSalt();
+      const passwordCrypt = bcryptjs.hashSync(req.body.password, randomKey);
+
       const newuser = new User({
         email: req.body.email,
-        password: req.body.password,
+        password: passwordCrypt,
       });
+
       await newuser.save();
       res.send("Added");
     }
@@ -53,7 +58,11 @@ controllers.login = async (req, res) => {
   try {
     const found = await User.findOne({ email: req.body.email });
     if (found) {
-      found.password === req.body.password
+      const passwordOk = bcryptjs.compareSync(
+        req.body.password,
+        found.password
+      );
+      passwordOk
         ? res.cookie("user", found._id).send("OK")
         : res.send("Incorrect pasword");
     } else {
