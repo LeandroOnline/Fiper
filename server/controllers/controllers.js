@@ -33,12 +33,17 @@ controllers.add = async (req, res) => {
 
 controllers.adduser = async (req, res) => {
   try {
-    const newuser = new User({
-      email: req.body.email,
-      password: req.body.password,
-    });
-    await newuser.save();
-    res.send("Added");
+    const exist = await User.findOne({ email: req.body.email });
+    if (exist) {
+      res.send("Usuario existente");
+    } else {
+      const newuser = new User({
+        email: req.body.email,
+        password: req.body.password,
+      });
+      await newuser.save();
+      res.send("Added");
+    }
   } catch (err) {
     res.status(500).send(err);
   }
