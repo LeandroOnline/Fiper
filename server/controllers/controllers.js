@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcryptjs = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 const controllers = {};
 // DB
 const Inputs = require("../models/inputs");
@@ -15,7 +16,7 @@ controllers.add = async (req, res) => {
     });
     await newadd.save();
 
-    const id = req.cookies.user;
+    const {id} = jwt.verify(req.cookies.user, process.env.SECRET_KEY);
     const user = await User.findById(id);
     user.inputs.push(newadd);
     await user.save();
@@ -62,9 +63,13 @@ controllers.login = async (req, res) => {
         req.body.password,
         found.password
       );
-      passwordOk
-        ? res.cookie("user", found._id).send("OK")
-        : res.send("Incorrect pasword");
+      if (passwordOk) {
+        const payload = {id: found._id};
+        const token = jwt.sign(payload, process.env.SECRET_KEY);
+        res.cookie("user", token).send("OK");
+      } else {
+        res.send("Incorrect pasword");
+      }
     } else {
       res.send("User not found");
     }
@@ -98,7 +103,7 @@ controllers.update = async (req, res) => {
 
 controllers.getall = async (req, res) => {
   try {
-    const id = req.cookies.user;
+    const {id} = jwt.verify(req.cookies.user, process.env.SECRET_KEY);
     if (id) {
       const user = await User.findById(id).populate("inputs");
       //populate agrega los valores de los objetId de los inputs en lugar de solo los objetId, esto me permite extraerlos y mostrarlos.
@@ -124,13 +129,14 @@ controllers.getusers = async (req, res) => {
 controllers.deleteall = async (req, res) => {
   try {
     // Obtenemos el usuario
-    const user = await User.findById(req.cookies.user);
+    const {id} = jwt.verify(req.cookies.user, process.env.SECRET_KEY);
+    const user = await User.findById(id);
     // Eliminamos cada tarea del usuario
     for (let i = 0; i < user.inputs.length; i++) {
       await Inputs.findByIdAndDelete(user.inputs[i]);
     }
     // Actualizamos el usuario sin tareas
-    await User.findByIdAndUpdate(req.cookies.user, {
+    await User.findByIdAndUpdate(id, {
       $set: { inputs: [] },
     });
     res.send("Se eliminaron todos los Items");
@@ -142,7 +148,8 @@ controllers.deleteall = async (req, res) => {
 controllers.deleteUser = async (req, res) => {
   try {
     // Obtenemos el usuario
-    const user = await User.findByIdAndDelete(req.cookies.user);
+    const {id} = jwt.verify(req.cookies.user, process.env.SECRET_KEY);
+    const user = await User.findByIdAndDelete(id);
     res.send("Se elimino el usuario");
   } catch (err) {
     res.status(500).send(err);
@@ -155,7 +162,8 @@ controllers.deleteItem = async (req, res) => {
     await Inputs.findByIdAndDelete(req.params.id);
 
     // Actualizo el usuario sin la tarea eliminada
-    await User.findByIdAndUpdate(req.cookies.user, {
+    const {id} = jwt.verify(req.cookies.user, process.env.SECRET_KEY);
+    await User.findByIdAndUpdate(id, {
       $pull: { inputs: req.params.id },
     });
     res.send("Se elimino el Item");

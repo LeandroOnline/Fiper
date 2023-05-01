@@ -17,12 +17,12 @@ const Total = () => {
   useEffect(() => {
     const get = async () =>
       await axios
-        .get(API + "/getall")
+        .get(API + "/getall" ,{withCredentials: true})
         .then((data) => setTotal(data.data))
         .catch((err) => {
           console.log(err);
           window.alert(
-            "Error pedir los datos del servidor, contacte al administrador"
+            "Error al pedir los datos del servidor, contacte al administrador"
           );
         });
     get();
