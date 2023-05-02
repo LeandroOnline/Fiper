@@ -29,7 +29,7 @@ const Login = () => {
           ? window.alert("Contraseña incorrecta, ingresa nuevamente")
           : data.data === "User not found"
           ? window.alert(
-              "Usuario no encontrado, si no tienes cuenta registrate"
+              "Usuario no encontrado"
             )
           : console.log("algo salio mal")
       )

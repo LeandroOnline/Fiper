@@ -5,6 +5,7 @@ const API = "http://localhost:3000/api";
 
 const SignUp = () => {
   const navigate = useNavigate();
+
   const Sign = async (e) => {
     e.preventDefault();
     await axios
