@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const loginValidate = require("../middlewares/loginvalidate");
+const clearCookies = require("../middlewares/clearCookies");
 
 const {
   add,
@@ -16,7 +17,7 @@ const {
 
 router.route("/add").post(loginValidate, add); // add inputs
 router.route("/adduser").post(adduser); // add inputs
-router.route("/login").post(login); // add inputs
+router.route("/login").post(clearCookies, login); // add inputs
 router.route("/logout").get(logout); // add inputs
 router.route("/update/:id").put(loginValidate, update); // add inputs
 router.route("/getall").get(loginValidate, getall); // get all = negative+positive from Inputs
