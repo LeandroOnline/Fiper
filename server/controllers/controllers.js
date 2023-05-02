@@ -16,7 +16,7 @@ controllers.add = async (req, res) => {
     });
     await newadd.save();
 
-    const {id} = jwt.verify(req.cookies.user, process.env.SECRET_KEY);
+    const { id } = jwt.verify(req.cookies.user, process.env.SECRET_KEY);
     const user = await User.findById(id);
     user.inputs.push(newadd);
     await user.save();
@@ -64,7 +64,7 @@ controllers.login = async (req, res) => {
         found.password
       );
       if (passwordOk) {
-        const payload = {id: found._id};
+        const payload = { id: found._id };
         const token = jwt.sign(payload, process.env.SECRET_KEY);
         res.cookie("user", token).send("OK");
       } else {
@@ -73,6 +73,16 @@ controllers.login = async (req, res) => {
     } else {
       res.send("User not found");
     }
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
+
+controllers.logout = async (req, res) => {
+  try {
+    res
+      .clearCookie("user")
+      .send("Log out ok");
   } catch (err) {
     res.status(500).send(err);
   }
@@ -103,7 +113,7 @@ controllers.update = async (req, res) => {
 
 controllers.getall = async (req, res) => {
   try {
-    const {id} = jwt.verify(req.cookies.user, process.env.SECRET_KEY);
+    const { id } = jwt.verify(req.cookies.user, process.env.SECRET_KEY);
     if (id) {
       const user = await User.findById(id).populate("inputs");
       //populate agrega los valores de los objetId de los inputs en lugar de solo los objetId, esto me permite extraerlos y mostrarlos.
@@ -129,7 +139,7 @@ controllers.getusers = async (req, res) => {
 controllers.deleteall = async (req, res) => {
   try {
     // Obtenemos el usuario
-    const {id} = jwt.verify(req.cookies.user, process.env.SECRET_KEY);
+    const { id } = jwt.verify(req.cookies.user, process.env.SECRET_KEY);
     const user = await User.findById(id);
     // Eliminamos cada tarea del usuario
     for (let i = 0; i < user.inputs.length; i++) {
@@ -148,9 +158,9 @@ controllers.deleteall = async (req, res) => {
 controllers.deleteUser = async (req, res) => {
   try {
     // Obtenemos el usuario
-    const {id} = jwt.verify(req.cookies.user, process.env.SECRET_KEY);
+    const { id } = jwt.verify(req.cookies.user, process.env.SECRET_KEY);
     const user = await User.findByIdAndDelete(id);
-    res.send("Se elimino el usuario");
+    res.clearCookie("user").send("Se elimino el usuario");
   } catch (err) {
     res.status(500).send(err);
   }
@@ -162,7 +172,7 @@ controllers.deleteItem = async (req, res) => {
     await Inputs.findByIdAndDelete(req.params.id);
 
     // Actualizo el usuario sin la tarea eliminada
-    const {id} = jwt.verify(req.cookies.user, process.env.SECRET_KEY);
+    const { id } = jwt.verify(req.cookies.user, process.env.SECRET_KEY);
     await User.findByIdAndUpdate(id, {
       $pull: { inputs: req.params.id },
     });
