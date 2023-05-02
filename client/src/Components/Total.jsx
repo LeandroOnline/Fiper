@@ -40,8 +40,9 @@ const Total = () => {
     <div className="totalcontainer">
       <h1>Total: {result()}</h1>
       <div className="porcentcontainer">
-        <input type="number" placeholder="n%" onChange={(e) => Porcent(e)} />
-        <h2>% {porcent}</h2>
+        <h2>%</h2>
+        <input type="number" placeholder="xxx" onChange={(e) => Porcent(e)} />
+        <h2>={porcent}</h2>
       </div>
     </div>
   );
