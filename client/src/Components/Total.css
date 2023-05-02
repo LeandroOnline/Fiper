@@ -4,3 +4,12 @@
     border-radius: 5px;
     padding: 10px;
 }
+
+.porcentcontainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.porcentcontainer input{
+   width: 100px;
+}

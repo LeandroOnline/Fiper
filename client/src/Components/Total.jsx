@@ -2,10 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { context } from "../App";
 import "./Total.css";
-import {API} from '../App';
+import { API } from "../App";
 
 const Total = () => {
   const [total, setTotal] = useState([]);
+  const [porcent, setPorcent] = useState();
   let { reset } = useContext(context);
 
   const result = () => {
@@ -17,7 +18,7 @@ const Total = () => {
   useEffect(() => {
     const get = async () =>
       await axios
-        .get(API + "/getall" ,{withCredentials: true})
+        .get(API + "/getall", { withCredentials: true })
         .then((data) => setTotal(data.data))
         .catch((err) => {
           console.log(err);
@@ -28,6 +29,21 @@ const Total = () => {
     get();
   }, [reset]);
 
-  return <div className="totalcontainer">Total: {result()}</div>;
+  const Porcent = (e) => {
+    const total = result();
+    const porcent = e.target.value;
+    const subtotal = (porcent * total) / 100;
+    setPorcent(subtotal);
+  };
+
+  return (
+    <div className="totalcontainer">
+      <h1>Total: {result()}</h1>
+      <div className="porcentcontainer">
+        <input type="number" placeholder="n%" onChange={(e) => Porcent(e)} />
+        <h2>% {porcent}</h2>
+      </div>
+    </div>
+  );
 };
 export default Total;
