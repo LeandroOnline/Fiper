@@ -66,7 +66,8 @@ controllers.login = async (req, res) => {
       if (passwordOk) {
         const payload = { id: found._id };
         const token = jwt.sign(payload, process.env.SECRET_KEY);
-        res.cookie("user", token).send("OK");
+        res.cookie("user", token, { maxAge: 86400000 }).send("OK");
+        // La cookie expira en 24hs
       } else {
         res.send("Incorrect pasword");
       }
@@ -80,9 +81,7 @@ controllers.login = async (req, res) => {
 
 controllers.logout = async (req, res) => {
   try {
-    res
-      .clearCookie("user")
-      .send("Log out ok");
+    res.clearCookie("user").send("Log out ok");
   } catch (err) {
     res.status(500).send(err);
   }
