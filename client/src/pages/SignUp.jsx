@@ -29,10 +29,12 @@ const SignUp = () => {
   return (
     <div>
       <form onSubmit={(e) => Sign(e)}>
-        <input placeholder="email" name="email" />
-        <br />
-        <input placeholder="contraseña" name="password" type="password" />
-        <br />
+        <input placeholder="email" name="email" required/>
+        <input placeholder="contraseña" name="password" type="password" required/>
+        <p>Su contraseña debe contener como minimo: </p><br />
+        <p>- Siete caracteres</p>
+        <p>- Una letra mayuscula</p>
+        <p>- Un numero</p>
         <button type="submit">Registrarse</button>
       </form>
     </div>
