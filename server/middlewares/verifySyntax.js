@@ -20,4 +20,4 @@ const verifySyntax = (req, res, next) => {
   }
 };
 
-export default verifySyntax;
+module.exports= verifySyntax;

@@ -14,7 +14,7 @@ const {
   deleteUser,
   logout,
 } = require("../controllers/controllers");
-const { default: verifySyntax } = require("../middlewares/verifySyntax");
+const verifySyntax = require("../middlewares/verifySyntax");
 
 router.route("/add").post(loginValidate, add);
 router.route("/adduser").post(verifySyntax, adduser);
