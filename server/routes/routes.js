@@ -13,6 +13,7 @@ const {
   deleteall,
   deleteUser,
   logout,
+  get
 } = require("../controllers/controllers");
 const verifySyntax = require("../middlewares/verifySyntax");
 const Sanitize = require("../middlewares/sanitize");
@@ -27,5 +28,8 @@ router.route("/getusers").get(getusers);
 router.route("/deleteall").delete(loginValidate, deleteall);
 router.route("/delete/:id").delete(loginValidate, deleteItem);
 router.route("/deleteuser").delete(loginValidate, deleteUser);
+
+
+router.route("/get").get(get);
 
 module.exports = router;
