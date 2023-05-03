@@ -4,6 +4,7 @@ import axios from "axios";
 import { useContext } from "react";
 import { context } from "../App";
 import { API } from "../App";
+import useVerify from "../hooks/useVerify";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -11,34 +12,40 @@ const Login = () => {
 
   const Login = async (e) => {
     e.preventDefault();
-    await axios
-      .post(
-        API + "/login",
-        {
-          email: e.target.email.value,
-          password: e.target.password.value,
-        },
-        {
-          withCredentials: true,
-        }
-      )
-      .then((data) =>
-        data.data === "OK"
-          ? Logged()
-          : data.data === "Incorrect pasword"
-          ? window.alert("Contraseña incorrecta, ingresa nuevamente")
-          : data.data === "User not found"
-          ? window.alert(
-              "Usuario no encontrado"
-            )
-          : console.log("algo salio mal")
-      )
-      .catch((err) => {
-        console.log(err);
-        window.alert(
-          "Error al conectar el usuario al servidor, contacte al administrador"
-        );
-      });
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    const verify = useVerify(email, password);
+    if (verify) {
+      await axios
+        .post(
+          API + "/login",
+          {
+            email: email,
+            password: password,
+          },
+          {
+            withCredentials: true,
+          }
+        )
+        .then((data) =>
+          data.data === "OK"
+            ? Logged()
+            : data.data === "Incorrect pasword"
+            ? window.alert("Contraseña incorrecta, ingresa nuevamente")
+            : data.data === "User not found"
+            ? window.alert("Usuario no encontrado")
+            : console.log("algo salio mal")
+        )
+        .catch((err) => {
+          console.log(err);
+          window.alert(
+            "Error al conectar el usuario al servidor, contacte al administrador"
+          );
+        });
+    } else {
+      window.alert("Ingresos invalidos");
+    }
   };
 
   const Logged = () => {
@@ -54,7 +61,7 @@ const Login = () => {
         <>
           <form onSubmit={(e) => Login(e)}>
             <input placeholder="email" name="email" />
-            <input placeholder="contraseña" name="password" type="password"/>
+            <input placeholder="contraseña" name="password" type="password" />
             <button type="submit">Ingresar</button>
           </form>
           <Link to="/signup">
