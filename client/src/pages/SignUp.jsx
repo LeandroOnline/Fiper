@@ -11,7 +11,7 @@ const SignUp = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-
+    // useVerify verificara el email y password para ingresos correctos desde lado cliente
     const verify = useVerify(email, password);
 
     if (verify) {
