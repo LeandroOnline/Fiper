@@ -25,6 +25,7 @@ const Grafica = () => {
       }
     });
   };
+  result();
 
   useEffect(() => {
     const get = async () =>
