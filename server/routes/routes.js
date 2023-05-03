@@ -14,16 +14,17 @@ const {
   deleteUser,
   logout,
 } = require("../controllers/controllers");
+const { default: verifySyntax } = require("../middlewares/verifySyntax");
 
-router.route("/add").post(loginValidate, add); // add inputs
-router.route("/adduser").post(adduser); // add inputs
-router.route("/login").post(clearCookies, login); // add inputs
-router.route("/logout").get(logout); // add inputs
-router.route("/update/:id").put(loginValidate, update); // add inputs
-router.route("/getall").get(loginValidate, getall); // get all = negative+positive from Inputs
-router.route("/getusers").get(getusers); // get users
-router.route("/deleteall").delete(loginValidate, deleteall); // delete all the data base
-router.route("/delete/:id").delete(loginValidate, deleteItem); // delete item
-router.route("/deleteuser").delete(loginValidate, deleteUser); // delete item
+router.route("/add").post(loginValidate, add);
+router.route("/adduser").post(verifySyntax, adduser);
+router.route("/login").post(clearCookies, verifySyntax, login);
+router.route("/logout").get(logout);
+router.route("/update/:id").put(loginValidate, update);
+router.route("/getall").get(loginValidate, getall);
+router.route("/getusers").get(getusers);
+router.route("/deleteall").delete(loginValidate, deleteall);
+router.route("/delete/:id").delete(loginValidate, deleteItem);
+router.route("/deleteuser").delete(loginValidate, deleteUser);
 
 module.exports = router;
