@@ -16,7 +16,7 @@ const verifySyntax = (req, res, next) => {
   if (cleanEmail && cleanPassword) {
     next();
   } else {
-    res.status(400).send("Hacking");
+    res.status(400).send("Hacking, adding your ip to the watch list, if this is an error ignore the message");
   }
 };
 
