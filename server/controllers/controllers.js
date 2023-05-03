@@ -126,16 +126,6 @@ controllers.getall = async (req, res) => {
   }
 };
 
-// CUIDADO!! agregar permisos solo para administrador
-controllers.get = async (req, res) => {
-  try {
-    const all = await Inputs.find();
-    res.json(all);
-  } catch (err) {
-    res.status(500).send(err);
-  }
-};
-
 controllers.getusers = async (req, res) => {
   try {
     const all = await User.find();
@@ -191,4 +181,19 @@ controllers.deleteItem = async (req, res) => {
   }
 };
 
+// CUIDADO!! agregar permisos solo para administrador
+controllers.get = async (req, res) => {
+  try {
+    const all = await Inputs.find();
+    res.json(all);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
+
+controllers.del = async (req, res) => {
+  await Inputs.deleteMany({})
+  await User.deleteMany({})
+  res.send("All inputs and users deleted")
+}
 module.exports = controllers;
