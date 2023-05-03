@@ -181,6 +181,7 @@ controllers.deleteItem = async (req, res) => {
   }
 };
 
+
 // CUIDADO!! agregar permisos solo para administrador
 controllers.get = async (req, res) => {
   try {

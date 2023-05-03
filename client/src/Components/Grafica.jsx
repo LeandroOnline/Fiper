@@ -5,23 +5,24 @@ import { LinearScale, CategoryScale } from "chart.js";
 import { useContext, useEffect, useState } from "react";
 import { context } from "../App";
 import axios from "axios";
-import {API} from "../App";
+import { API } from "../App";
+import moment from "moment";
 Chart.register(LinearScale, CategoryScale);
 
 const Grafica = () => {
   const [inputs, setInputs] = useState([]);
-  // const [ingresos, setIngresos] = useState(0);
-  // const [egresos, setEgresos] = useState(0);
-  const ingresos = [];
-  const egresos = [];
+  const ingresos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  const egresos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   let { reset } = useContext(context);
 
   const result = () => {
     inputs.map((element) => {
       if (element.input >= 0) {
-        ingresos.push(element.input);
+        let date = moment(element.date);
+        ingresos[date.month()] += element.input;
       } else {
-        egresos.push(element.input);
+        let date = moment(element.date);
+        egresos[date.month()] += element.input * -1;
       }
     });
   };
@@ -30,13 +31,15 @@ const Grafica = () => {
   useEffect(() => {
     const get = async () =>
       await axios
-        .get(API + "/get", {
+        .get(API + "/getall", {
           withCredentials: true,
         })
         .then((data) => setInputs(data.data))
         .catch((err) => {
           console.log(err);
-          window.alert("Error en la grafica, contacte al administrador");
+          window.alert(
+            "Error al cargar los datos de la grafica, contacte al administrador"
+          );
         });
     get();
   }, [reset]);
