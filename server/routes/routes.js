@@ -15,12 +15,13 @@ const {
   logout,
 } = require("../controllers/controllers");
 const verifySyntax = require("../middlewares/verifySyntax");
+const Sanitize = require("../middlewares/sanitize");
 
-router.route("/add").post(loginValidate, add); //
+router.route("/add").post(loginValidate, Sanitize, add);
 router.route("/adduser").post(verifySyntax, adduser);
 router.route("/login").post(clearCookies, verifySyntax, login);
 router.route("/logout").get(logout);
-router.route("/update/:id").put(loginValidate, update); //
+router.route("/update/:id").put(loginValidate, Sanitize, update);
 router.route("/getall").get(loginValidate, getall);
 router.route("/getusers").get(getusers);
 router.route("/deleteall").delete(loginValidate, deleteall);
