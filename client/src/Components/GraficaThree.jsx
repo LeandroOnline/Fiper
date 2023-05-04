@@ -64,10 +64,10 @@ const Grafica = () => {
     ],
     datasets: [
       {
-        label: "Ingresos",
-        data: ingresos,
-        borderColor: 'rgb(75,192,192)',
-        backgroundColor: 'rgb(75,192,192)',
+        label: "Egresos",
+        data: egresos,
+        borderColor: 'rgb(255,100,132)',
+        backgroundColor: 'rgb(255,100,132)',
       },
     ],
   };

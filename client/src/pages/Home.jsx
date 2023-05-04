@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import Grafica from "../Components/Grafica";
 import GraficaTwo from "../Components/GraficaTwo";
+import GraficaThree from "../Components/GraficaThree";
 import Input from "../Components/Input";
 import ListInputs from "../Components/ListInputs";
 import Total from "../Components/Total";
@@ -26,6 +27,7 @@ const Home = () => {
           <div>
             <Grafica />
             <GraficaTwo />
+            <GraficaThree />
           </div>
         </>
       ) : (
