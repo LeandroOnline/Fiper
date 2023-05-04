@@ -40,7 +40,7 @@ const Grafica = () => {
         .catch((err) => {
           console.log(err);
           window.alert(
-            "Error al cargar los datos de la grafica, contacte al administrador"
+            "Error al cargar los datos de la grafica2, contacte al administrador"
           );
         });
     get();
