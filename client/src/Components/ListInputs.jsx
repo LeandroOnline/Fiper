@@ -46,11 +46,17 @@ const ListInputs = () => {
   const updateItem = async (e) => {
     e.preventDefault();
     await axios
-      .put(API + "/update/" + idElemento, {
-        tipo: e.target.tipo.value,
-        input: e.target.input.value,
-        detalle: e.target.detalle.value,
-      })
+      .put(
+        API + "/update/" + idElemento,
+        {
+          tipo: e.target.tipo.value,
+          input: e.target.input.value,
+          detalle: e.target.detalle.value,
+        },
+        {
+          withCredentials: true,
+        }
+      )
       .then(() => {
         setReset(!reset);
         setModificar(false);

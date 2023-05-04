@@ -181,7 +181,6 @@ controllers.deleteItem = async (req, res) => {
   }
 };
 
-
 // CUIDADO!! agregar permisos solo para administrador
 controllers.get = async (req, res) => {
   try {
@@ -193,8 +192,8 @@ controllers.get = async (req, res) => {
 };
 
 controllers.del = async (req, res) => {
-  await Inputs.deleteMany({})
-  await User.deleteMany({})
-  res.send("All inputs and users deleted")
-}
+  await Inputs.deleteMany({});
+  await User.deleteMany({});
+  res.send("All inputs and users deleted");
+};
 module.exports = controllers;
