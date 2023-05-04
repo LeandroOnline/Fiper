@@ -30,6 +30,14 @@ const Grafica = () => {
   };
   result();
 
+  const neto = () => {
+    const result = [];
+    for (let i = 0; i < inputs.length; i++) {
+      result.push(ingresos[i] - egresos[i]);
+    }
+    return result;
+  };
+
   useEffect(() => {
     const get = async () =>
       await axios
@@ -65,9 +73,9 @@ const Grafica = () => {
     datasets: [
       {
         label: "Neto",
-        data: ingresos,
-        borderColor: 'rgb(192, 75, 161)',
-        backgroundColor: 'rgb(192, 75, 161)',
+        data: neto(),
+        borderColor: "rgb(192, 75, 161)",
+        backgroundColor: "rgb(192, 75, 161)",
       },
     ],
   };
