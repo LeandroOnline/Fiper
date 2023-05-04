@@ -8,7 +8,7 @@ import moment from "moment";
 //Chart
 import Chart from "chart.js/auto";
 import { LinearScale, CategoryScale } from "chart.js";
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 Chart.register(LinearScale, CategoryScale);
 
 const Grafica = () => {
@@ -68,11 +68,11 @@ const Grafica = () => {
         data: ingresos,
         backgroundColor: "rgba(75,192,192,1)",
       },
-      {
-        label: "Egresos",
-        data: egresos,
-        backgroundColor: "rgba(255,99,132,1)",
-      },
+      // {
+      //   label: "Egresos",
+      //   data: egresos,
+      //   backgroundColor: "rgba(255,99,132,1)",
+      // },
     ],
   };
 
@@ -86,7 +86,7 @@ const Grafica = () => {
 
   return (
     <div className="graficacontainer">
-      <Bar data={data} options={options} />
+      <Line data={data} options={options} />
     </div>
   );
 };
