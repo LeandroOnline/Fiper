@@ -21,7 +21,7 @@ const ListInputs = () => {
           })
           .then(() => setReset(!reset))
           .catch((err) => {
-            console.log(err);
+            console.log(err.response.data);
             window.alert(
               "Error al borrar los datos del servidor, contacte al administrador"
             );
@@ -36,7 +36,7 @@ const ListInputs = () => {
         })
         .then(() => setReset(!reset))
         .catch((err) => {
-          console.log(err);
+          console.log(err.response.data);
           window.alert(
             "Error al eliminar los datos del servidor, contacte al administrador"
           );
@@ -56,7 +56,7 @@ const ListInputs = () => {
         setModificar(false);
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.response.data);
         window.alert(
           "Error al actualizar los datos del servidor, contacte al administrador"
         );

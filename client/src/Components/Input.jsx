@@ -23,7 +23,7 @@ const Input = () => {
       )
       .then(() => setReset(!reset))
       .catch((err) => {
-        console.log(err);
+        console.log(err.response.data);
         window.alert(
           "Error al enviar datos del servidor, contacte al administrador"
         );

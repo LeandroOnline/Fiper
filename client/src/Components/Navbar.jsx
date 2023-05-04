@@ -42,8 +42,6 @@ const Navbar = () => {
       <div className="menu">
         {logged ? (
           <>
-            <Link to="/">DashBoard</Link>
-
             <div onClick={() => {setLogged(false); logout()}}>Salir</div>
             <div onClick={() => deleteUser()}>Eliminar Usuario</div>
           </>

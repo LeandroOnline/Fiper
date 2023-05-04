@@ -1,4 +1,4 @@
-const loginvalidate = async (req, res, next) => {
+const loginvalidate = (req, res, next) => {
   const token = req.cookies.user;
   if (token) {
     next();
