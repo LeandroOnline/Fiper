@@ -15,7 +15,8 @@ const Grafica = () => {
 
   let { reset, ingresos, egresos } = useContext(context);
   separe(inputs, ingresos, egresos);
-
+  
+ 
   useEffect(() => {
     axiosGetAllInputs().then((data) => setInputs(data));
   }, [reset]);
