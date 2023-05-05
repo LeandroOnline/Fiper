@@ -1,1 +1,0 @@
-aqui van las funciones que se usan en archivos "utils"
