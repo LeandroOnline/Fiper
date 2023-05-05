@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { context } from "../App";
 import "./Total.css";
-import { API } from "../App";
+import { API } from "../utils/api";
 
 const Total = () => {
   const [total, setTotal] = useState([]);

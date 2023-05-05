@@ -4,19 +4,18 @@ import useSanitize from "../hooks/useSanitize";
 import { context } from "../App";
 
 const Categorias = () => {
-  const [detalleValue, setDetalleValue] = useState('')
+  const [detalleValue, setDetalleValue] = useState("");
 
   let { reset } = useContext(context);
 
+  const detalle = (e) => {
+    const sanitize = useSanitize(e.target.value);
+    setDetalleValue(sanitize);
+  };
 
-const detalle = (e)=>{
-  const sanitize= useSanitize(e.target.value)
-  setDetalleValue(sanitize)
-}
-
-useEffect(()=>{
-  setDetalleValue("")
-},[reset])
+  useEffect(() => {
+    setDetalleValue("");
+  }, [reset]);
 
   return (
     <>
@@ -28,8 +27,13 @@ useEffect(()=>{
           Egresos
         </option>
       </select>
-      <input placeholder="$" type="number" name="input" autoFocus/>
-      <input placeholder="Detalle" name="detalle" value={detalleValue} onChange={(e)=>detalle(e)}/>
+      <input placeholder="$" type="number" name="input" autoFocus />
+      <input
+        placeholder="Detalle"
+        name="detalle"
+        value={detalleValue}
+        onChange={(e) => detalle(e)}
+      />
     </>
   );
 };

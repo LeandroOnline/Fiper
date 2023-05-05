@@ -1,8 +1,7 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import useVerify from "../hooks/useVerify";
-
-const API = "http://localhost:3000/api";
+import { API } from "../utils/api";
 
 const SignUp = () => {
   const navigate = useNavigate();

@@ -13,14 +13,10 @@ const Home = () => {
     <div className="homecontainer">
       {logged ? (
         <>
-          {" "}
           <div>
             <Input />
             <Total />
             <progress max="100" value="80" />
-            <br />
-            <meter value="75" min="0" max="100"></meter>
-            <br />
           </div>
           <ListInputs />
           <div>

@@ -3,7 +3,7 @@ import "./Navbar.css";
 import { useContext } from "react";
 import { context } from "../App";
 import axios from "axios";
-import { API } from "../App";
+import { API } from "../utils/api";
 
 const Navbar = () => {
   const { logged, setLogged } = useContext(context);

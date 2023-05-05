@@ -8,20 +8,23 @@ import Cookies from "js-cookie";
 
 export const context = createContext();
 
-export const API = "http://localhost:3000/api";
-
 function App() {
   const [reset, setReset] = useState(false);
   const [logged, setLogged] = useState(false);
+  const ingresos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  const egresos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  const neto = 0;
 
   useEffect(() => {
-    const login = Cookies.get("user")
-    if(login) setLogged(true);
-  },[])
+    const login = Cookies.get("user");
+    if (login) setLogged(true);
+  }, []);
 
   return (
     <div className="App">
-      <context.Provider value={{ reset, setReset, logged, setLogged }}>
+      <context.Provider
+        value={{ reset, setReset, logged, setLogged, ingresos, egresos, neto }}
+      >
         <BrowserRouter>
           <Navbar />
           <Routes>
