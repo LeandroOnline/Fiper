@@ -3,7 +3,7 @@ import "./Login.css";
 import axios from "axios";
 import { useContext } from "react";
 import { context } from "../contexts/Contexts";
-import { API } from "../utils/api";
+import API from "../api/apiUrl";
 import useVerify from "../hooks/useVerify";
 
 const Login = () => {

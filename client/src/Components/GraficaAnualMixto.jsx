@@ -1,9 +1,8 @@
 import "./Grafica.css";
 import { useContext, useEffect, useState } from "react";
 import { context } from "../contexts/Contexts";
-import { API } from "../utils/api";
-import axios from "axios";
-import moment from "moment";
+import axiosGetAllInputs from "../api/axiosGetAllInputs";
+import separe from "../helpers/separe";
 
 //Chart
 import Chart from "chart.js/auto";
@@ -13,35 +12,12 @@ Chart.register(LinearScale, CategoryScale);
 
 const Grafica = () => {
   const [inputs, setInputs] = useState([]);
-  let { reset, ingresos, egresos } = useContext(context);
 
-  const result = () => {
-    inputs.map((element) => {
-      if (element.input >= 0) {
-        let date = moment(element.date);
-        ingresos[date.month()] += element.input;
-      } else {
-        let date = moment(element.date);
-        egresos[date.month()] += element.input * -1;
-      }
-    });
-  };
-  result();
+  let { reset, ingresos, egresos } = useContext(context);
+  separe(inputs, ingresos, egresos);
 
   useEffect(() => {
-    const get = async () =>
-      await axios
-        .get(API + "/getall", {
-          withCredentials: true,
-        })
-        .then((data) => setInputs(data.data))
-        .catch((err) => {
-          console.log(err);
-          window.alert(
-            "Error al cargar los datos de la grafica, contacte al administrador"
-          );
-        });
-    get();
+    axiosGetAllInputs().then((data) => setInputs(data));
   }, [reset]);
 
   // Chart

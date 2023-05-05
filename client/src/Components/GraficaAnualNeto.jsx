@@ -1,7 +1,7 @@
 import "./Grafica.css";
 import { useContext, useEffect, useState } from "react";
 import { context } from "../contexts/Contexts";
-import { API } from "../utils/api";
+import API from "../api/apiUrl";
 import axios from "axios";
 import moment from "moment";
 
@@ -13,9 +13,7 @@ Chart.register(LinearScale, CategoryScale);
 
 const Grafica = () => {
   const [inputs, setInputs] = useState([]);
-  const ingresos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-  const egresos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-  let { reset } = useContext(context);
+  let { reset, ingresos, egresos } = useContext(context);
 
   const result = () => {
     inputs.map((element) => {

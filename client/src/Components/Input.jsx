@@ -2,7 +2,7 @@ import axios from "axios";
 import { useContext } from "react";
 import { context } from "../contexts/Contexts";
 import Categorias from "./Categorias";
-import { API } from "../utils/api";
+import API from "../api/apiUrl";
 
 const Input = () => {
   const { reset, setReset } = useContext(context);

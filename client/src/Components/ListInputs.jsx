@@ -3,7 +3,7 @@ import axios from "axios";
 import "./ListInputs.css";
 import { context } from "../contexts/Contexts";
 import Categorias from "./Categorias";
-import { API } from "../utils/api";
+import API from "../api/apiUrl";
 
 const ListInputs = () => {
   const [inputs, setInputs] = useState([0]);

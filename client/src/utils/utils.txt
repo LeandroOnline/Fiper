@@ -1,0 +1,13 @@
+Funciones de ayuda (helper functions) - por ejemplo, funciones para formatear datos o para realizar cálculos matemáticos.
+
+Archivos de configuración - como archivos de configuración de Firebase o de otras API que el proyecto pueda utilizar.
+
+Archivos de constantes - como un archivo con definiciones de colores o de tamaños de fuente que se utilizan en todo el proyecto.
+
+Funciones de manejo de errores - por ejemplo, funciones para manejar errores en las solicitudes de la API o para mostrar mensajes de error al usuario.
+
+Funciones de autenticación - por ejemplo, funciones para verificar si un usuario está autenticado o para manejar el inicio de sesión y el registro de usuarios.
+
+Archivos de funciones de enrutamiento - por ejemplo, un archivo con funciones que manejan el enrutamiento de la aplicación.
+
+Funciones de formularios - por ejemplo, funciones para validar formularios o para manejar la entrada de datos.

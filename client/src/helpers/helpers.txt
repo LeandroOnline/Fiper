@@ -1,0 +1,15 @@
+Funciones de formato de fecha y hora - por ejemplo, funciones para formatear fechas y horas de diferentes maneras.
+
+Funciones de formateo de texto - por ejemplo, funciones para capitalizar palabras, convertir texto a mayúsculas o minúsculas, y otras operaciones de manipulación de texto.
+
+Funciones de validación - por ejemplo, funciones para validar direcciones de correo electrónico, números de teléfono o direcciones.
+
+Funciones de generación de datos aleatorios - por ejemplo, funciones para generar nombres, direcciones y otros datos aleatorios para fines de prueba.
+
+Funciones de interacción con la API - por ejemplo, funciones para hacer solicitudes HTTP a la API y manejar las respuestas.
+
+Funciones de autenticación - por ejemplo, funciones para manejar la autenticación y autorización de los usuarios.
+
+Funciones de enrutamiento - por ejemplo, funciones para manejar el enrutamiento de la aplicación y para navegar entre las diferentes vistas.
+
+En general, la carpeta "helpers" se utiliza para almacenar funciones auxiliares que no están directamente relacionadas con la presentación de la interfaz de usuario, pero que son útiles para realizar diferentes tareas en el proyecto.
