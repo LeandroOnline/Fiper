@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import { useContext } from "react";
-import { context } from "../App";
+import { context } from "../contexts/Contexts";
 import axios from "axios";
 import { API } from "../utils/api";
 
@@ -29,10 +29,12 @@ const Navbar = () => {
   const logout = async () => {
     await axios
       .get(API + "/logout", { withCredentials: true })
-      .then(() => navigate('/'))
+      .then(() => navigate("/"))
       .catch((err) => {
         console.log(err);
-        window.alert("Error al eliminar cookie de sesion, contacte al administrador");
+        window.alert(
+          "Error al eliminar cookie de sesion, contacte al administrador"
+        );
       });
   };
 
@@ -42,7 +44,14 @@ const Navbar = () => {
       <div className="menu">
         {logged ? (
           <>
-            <div onClick={() => {setLogged(false); logout()}}>Salir</div>
+            <div
+              onClick={() => {
+                setLogged(false);
+                logout();
+              }}
+            >
+              Salir
+            </div>
             <div onClick={() => deleteUser()}>Eliminar Usuario</div>
           </>
         ) : (

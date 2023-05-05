@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import { context } from "../App";
+import { context } from "../contexts/Contexts";
 import "./Total.css";
 import { API } from "../utils/api";
 

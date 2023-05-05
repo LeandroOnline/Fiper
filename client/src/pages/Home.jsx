@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import Grafica from "../Components/GraficaAnualMixto";
-import GraficaTwo from "../Components/GraficaAnualNeto";
-import Input from "../Components/Input";
-import ListInputs from "../Components/ListInputs";
-import Total from "../Components/Total";
+import Grafica from "../components/GraficaAnualMixto";
+import GraficaTwo from "../components/GraficaAnualNeto";
+import Input from "../components/Input";
+import ListInputs from "../components/ListInputs";
+import Total from "../components/Total";
 import "./Home.css";
-import { context } from "../App";
+import { context } from "../contexts/Contexts";
 
 const Home = () => {
   const { logged } = useContext(context);

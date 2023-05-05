@@ -1,6 +1,6 @@
 import "./Grafica.css";
 import { useContext, useEffect, useState } from "react";
-import { context } from "../App";
+import { context } from "../contexts/Contexts";
 import { API } from "../utils/api";
 import axios from "axios";
 import moment from "moment";

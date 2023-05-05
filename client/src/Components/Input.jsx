@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useContext } from "react";
-import { context } from "../App";
+import { context } from "../contexts/Contexts";
 import Categorias from "./Categorias";
 import { API } from "../utils/api";
 
@@ -11,7 +11,7 @@ const Input = () => {
     e.preventDefault();
     await axios
       .post(
-        API + '/add',
+        API + "/add",
         {
           tipo: e.target.tipo.value,
           input: e.target.input.value,

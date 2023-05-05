@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import "./ListInputs.css";
-import { context } from "../App";
+import { context } from "../contexts/Contexts";
 import Categorias from "./Categorias";
 import { API } from "../utils/api";
 

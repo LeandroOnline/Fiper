@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import axios from "axios";
 import { useContext } from "react";
-import { context } from "../App";
+import { context } from "../contexts/Contexts";
 import { API } from "../utils/api";
 import useVerify from "../hooks/useVerify";
 

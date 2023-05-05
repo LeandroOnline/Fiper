@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import "./Categorias.css";
 import useSanitize from "../hooks/useSanitize";
-import { context } from "../App";
+import { context } from "../contexts/Contexts";
 
 const Categorias = () => {
   const [detalleValue, setDetalleValue] = useState("");
