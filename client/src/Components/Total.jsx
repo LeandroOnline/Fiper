@@ -15,17 +15,19 @@ const Total = () => {
     return value;
   };
 
-  const get = async () =>
-    await axios
-      .get(API + "/getall", { withCredentials: true })
-      .then((data) => setTotal(data.data))
-      .catch((err) => {
-        console.log(err.response.data);
-        window.alert(
-          "Error al pedir los datos del servidor, contacte al administrador"
-        );
-      });
-  get();
+  useEffect(() => {
+    const get = async () =>
+      await axios
+        .get(API + "/getall", { withCredentials: true })
+        .then((data) => setTotal(data.data))
+        .catch((err) => {
+          console.log(err.response.data);
+          window.alert(
+            "Error al pedir los datos del servidor, contacte al administrador"
+          );
+        });
+    get();
+  }, [reset]);
 
   const Porcent = (e) => {
     const total = result();

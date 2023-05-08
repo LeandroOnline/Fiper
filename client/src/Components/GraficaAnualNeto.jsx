@@ -4,7 +4,6 @@ import { context } from "../contexts/Contexts";
 import moment from "moment";
 import axiosGetAllInputs from "../api/axiosGetAllInputs";
 
-
 //Chart
 import Chart from "chart.js/auto";
 import { LinearScale, CategoryScale } from "chart.js";
@@ -38,7 +37,9 @@ const Grafica = () => {
     return result;
   };
 
-  axiosGetAllInputs().then((data) => setInputs(data));
+  useEffect(() => {
+    axiosGetAllInputs().then((data) => setInputs(data));
+  }, [reset]);
 
   // Chart
   const data = {

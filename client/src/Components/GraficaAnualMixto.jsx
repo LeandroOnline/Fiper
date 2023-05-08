@@ -12,6 +12,7 @@ Chart.register(LinearScale, CategoryScale);
 
 const Grafica = () => {
   const [inputs, setInputs] = useState([]);
+  console.log("se renderizo grafica")
 
   let { reset } = useContext(context);
   const ingresos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -19,7 +20,9 @@ const Grafica = () => {
   separe(inputs, ingresos, egresos);
   
  
-  axiosGetAllInputs().then((data) => setInputs(data));
+  useEffect(() => {
+    axiosGetAllInputs().then((data) => setInputs(data));
+  }, [reset]);
 
   // Chart
   const data = {

@@ -37,7 +37,7 @@ const Navbar = () => {
         );
       });
   };
-
+console.log("Render navbar")
   return (
     <div className="navcontainer">
       <h1 className="title">~ FIPE ~</h1>

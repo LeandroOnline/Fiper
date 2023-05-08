@@ -69,19 +69,21 @@ const ListInputs = () => {
       });
   };
 
-  const get = async () =>
-    await axios
-      .get(API + "/getall", {
-        withCredentials: true,
-      })
-      .then((data) => setInputs(data.data))
-      .catch((err) => {
-        console.log(err);
-        window.alert(
-          "Error al cargar los datos del servidor, contacte al administrador"
-        );
-      });
-  get();
+  useEffect(() => {
+    const get = async () =>
+      await axios
+        .get(API + "/getall", {
+          withCredentials: true,
+        })
+        .then((data) => setInputs(data.data))
+        .catch((err) => {
+          console.log(err);
+          window.alert(
+            "Error al cargar los datos del servidor, contacte al administrador"
+          );
+        });
+    get();
+  }, [reset]);
 
   return (
     <div className="listcontainer">
