@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Contexts from "./contexts/Contexts";
+import Routes from "./routes/Routes"
 import "./resetcss.css"
 
-ReactDOM.createRoot(document.getElementById("root")).render(<Contexts />);
+ReactDOM.createRoot(document.getElementById("root")).render(<Routes />);
