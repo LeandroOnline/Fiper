@@ -7,9 +7,7 @@ export const context = createContext();
 const Contexts = () => {
   const [reset, setReset] = useState(false);
   const [logged, setLogged] = useState(false);
-  const ingresos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-  const egresos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-  const neto = 0;
+  
 
   useEffect(() => {
     const login = Cookies.get("user");
@@ -18,7 +16,7 @@ const Contexts = () => {
 
   return (
     <context.Provider
-      value={{ reset, setReset, logged, setLogged, ingresos, egresos, neto }}
+      value={{ reset, setReset, logged, setLogged }}
     >
       <Routes />
     </context.Provider>

@@ -13,7 +13,9 @@ Chart.register(LinearScale, CategoryScale);
 
 const Grafica = () => {
   const [inputs, setInputs] = useState([]);
-  let { reset, ingresos, egresos } = useContext(context);
+  let { reset } = useContext(context);
+  const ingresos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  const egresos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
   const result = () => {
     inputs.map((element) => {
