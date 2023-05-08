@@ -6,7 +6,7 @@ import API from "../api/apiUrl";
 
 const Input = () => {
   const { reset, setReset } = useContext(context);
- 
+
   const post = async (e) => {
     e.preventDefault();
     await axios

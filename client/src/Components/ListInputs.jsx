@@ -69,22 +69,19 @@ const ListInputs = () => {
       });
   };
 
-  useEffect(() => {
-    const get = async () =>
-      await axios
-        .get(API + "/getall", {
-          withCredentials: true,
-        })
-        .then((data) => setInputs(data.data))
-        .catch((err) => {
-          console.log(err);
-          window.alert(
-            "Error al cargar los datos del servidor, contacte al administrador"
-          );
-        });
-    get();
-    // ver que cuando llegue una lista vacia no tire error, el error surge de eliminar el usuario e intentar cargar los datos del usuario eliminado
-  }, [reset]);
+  const get = async () =>
+    await axios
+      .get(API + "/getall", {
+        withCredentials: true,
+      })
+      .then((data) => setInputs(data.data))
+      .catch((err) => {
+        console.log(err);
+        window.alert(
+          "Error al cargar los datos del servidor, contacte al administrador"
+        );
+      });
+  get();
 
   return (
     <div className="listcontainer">

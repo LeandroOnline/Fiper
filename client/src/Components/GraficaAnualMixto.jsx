@@ -19,9 +19,7 @@ const Grafica = () => {
   separe(inputs, ingresos, egresos);
   
  
-  useEffect(() => {
-    axiosGetAllInputs().then((data) => setInputs(data));
-  }, [reset]);
+  axiosGetAllInputs().then((data) => setInputs(data));
 
   // Chart
   const data = {

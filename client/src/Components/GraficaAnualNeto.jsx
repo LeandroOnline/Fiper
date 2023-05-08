@@ -1,9 +1,9 @@
 import "./Grafica.css";
 import { useContext, useEffect, useState } from "react";
 import { context } from "../contexts/Contexts";
-import API from "../api/apiUrl";
-import axios from "axios";
 import moment from "moment";
+import axiosGetAllInputs from "../api/axiosGetAllInputs";
+
 
 //Chart
 import Chart from "chart.js/auto";
@@ -13,7 +13,7 @@ Chart.register(LinearScale, CategoryScale);
 
 const Grafica = () => {
   const [inputs, setInputs] = useState([]);
-  let { reset } = useContext(context);
+  let { reset } = useContext(context); // cuando el valor de reset cambie se vuelve a renderizar el componente
   const ingresos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   const egresos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
@@ -38,21 +38,7 @@ const Grafica = () => {
     return result;
   };
 
-  useEffect(() => {
-    const get = async () =>
-      await axios
-        .get(API + "/getall", {
-          withCredentials: true,
-        })
-        .then((data) => setInputs(data.data))
-        .catch((err) => {
-          console.log(err);
-          window.alert(
-            "Error al cargar los datos de la grafica2, contacte al administrador"
-          );
-        });
-    get();
-  }, [reset]);
+  axiosGetAllInputs().then((data) => setInputs(data));
 
   // Chart
   const data = {
