@@ -3,18 +3,8 @@ import Navbar from "../components/Navbar";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
-import { useEffect } from "react";
-import useGlobalStore from "../store/Store";
-import Cookies from "js-cookie";
 
 function App() {
-  const { setLogged } = useGlobalStore();
-
-  useEffect(() => {
-    const login = Cookies.get("user");
-    if (login) setLogged();
-  }, []);
-
   console.log("Routes");
 
   return (

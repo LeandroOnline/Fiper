@@ -3,9 +3,10 @@ import "./Navbar.css";
 import useGlobalStore from "../store/Store";
 import axiosDeleteUser from "../api/axiosDeleteUser";
 import axiosLogout from "../api/axiosLogout";
+import { memo } from "react";
 
-const Navbar = () => {
-  const { logged, setLogged } = useGlobalStore();
+const Navbar = memo(() => {
+  const { logged, setLogged, login } = useGlobalStore();
   const navigate = useNavigate();
 
   const deleteUser = async () => {
@@ -29,7 +30,7 @@ const Navbar = () => {
     <div className="navcontainer">
       <h1 className="title">~ FIPE ~</h1>
       <div className="menu">
-        {logged ? (
+        {login && logged? (
           <>
             <div
               onClick={() => {
@@ -49,5 +50,5 @@ const Navbar = () => {
       </div>
     </div>
   );
-};
+});
 export default Navbar;
