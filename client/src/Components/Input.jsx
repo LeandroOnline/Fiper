@@ -4,7 +4,7 @@ import API from "../api/apiUrl";
 import useGlobalStore from "../store/Store";
 
 const Input = () => {
-  const setReset = useGlobalStore((state)=>state.setReset);
+  const setReset = useGlobalStore((state) => state.setReset);
 
   const post = async (e) => {
     e.preventDefault();

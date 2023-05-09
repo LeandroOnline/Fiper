@@ -6,7 +6,7 @@ import axiosGetAllInputs from "../api/axiosGetAllInputs";
 const Total = () => {
   const [inputs, setInputs] = useState([]);
   const [porcent, setPorcent] = useState();
-  const { reset } = useGlobalStore();
+  const reset = useGlobalStore((state) => state.reset);
 
   const total = () => {
     let value = 0;
