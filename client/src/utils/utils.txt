@@ -1,13 +1,16 @@
-Funciones de ayuda (helper functions) - por ejemplo, funciones para formatear datos o para realizar cálculos matemáticos.
 
-Archivos de configuración - como archivos de configuración de Firebase o de otras API que el proyecto pueda utilizar.
+Funciones de formato de fecha y hora - por ejemplo, funciones para formatear fechas y horas de diferentes maneras.
 
-Archivos de constantes - como un archivo con definiciones de colores o de tamaños de fuente que se utilizan en todo el proyecto.
+Funciones de formateo de texto - por ejemplo, funciones para capitalizar palabras, convertir texto a mayúsculas o minúsculas, y otras operaciones de manipulación de texto.
 
-Funciones de manejo de errores - por ejemplo, funciones para manejar errores en las solicitudes de la API o para mostrar mensajes de error al usuario.
+Funciones de validación - por ejemplo, funciones para validar direcciones de correo electrónico, números de teléfono o direcciones.
 
-Funciones de autenticación - por ejemplo, funciones para verificar si un usuario está autenticado o para manejar el inicio de sesión y el registro de usuarios.
+Funciones de generación de datos aleatorios - por ejemplo, funciones para generar nombres, direcciones y otros datos aleatorios para fines de prueba.
 
-Archivos de funciones de enrutamiento - por ejemplo, un archivo con funciones que manejan el enrutamiento de la aplicación.
+Funciones de interacción con la API - por ejemplo, funciones para hacer solicitudes HTTP a la API y manejar las respuestas.
 
-Funciones de formularios - por ejemplo, funciones para validar formularios o para manejar la entrada de datos.
+Funciones de autenticación - por ejemplo, funciones para manejar la autenticación y autorización de los usuarios.
+
+Funciones de enrutamiento - por ejemplo, funciones para manejar el enrutamiento de la aplicación y para navegar entre las diferentes vistas.
+
+En general, la carpeta "helpers" se utiliza para almacenar funciones auxiliares que no están directamente relacionadas con la presentación de la interfaz de usuario, pero que son útiles para realizar diferentes tareas en el proyecto.

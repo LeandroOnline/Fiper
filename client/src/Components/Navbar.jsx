@@ -1,54 +1,44 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
-// import { useContext } from "react";
-// import { context } from "../contexts/Contexts";
-import axios from "axios";
-import API from "../api/apiUrl";
-import { useGlobalStore } from "../store/store";
+import useGlobalStore from "../store/Store";
+import axiosDeleteUser from "../api/axiosDeleteUser";
+import axiosLogout from "../api/axiosLogout";
+import { memo } from "react";
+import { shallow } from "zustand/shallow";
 
-const Navbar = () => {
-  // const { logged, setLogged } = useContext(context);
-  const { logged, setLogged } = useGlobalStore();
-
+const Navbar = memo(() => {
+  const { logged, setLogged, login } = useGlobalStore(
+    (state) => ({
+      logged: state.logged,
+      setLogged: state.setLogged,
+      login: state.login,
+    }),
+    shallow
+  );
   const navigate = useNavigate();
 
   const deleteUser = async () => {
     if (window.confirm("Seguro desea eliminar el usuario y sus entradas?")) {
-      await axios
-        .delete(API + "/deleteuser", { withCredentials: true })
-        .then(() => {
-          window.alert("Usuario eliminado");
-          setLogged();
-        })
-        .catch((err) => {
-          console.log(err);
-          window.alert(
-            "Error al eliminar el usuario, contacte al administrador"
-          );
-        });
+      await axiosDeleteUser().then(() => {
+        window.alert("Usuario eliminado");
+        setLogged();
+      });
     }
   };
 
-  const logout = async () => {
-    await axios
-      .get(API + "/logout", { withCredentials: true })
-      .then(() => {
-        navigate("/");
-        setLogged();
-      })
-      .catch((err) => {
-        console.log(err);
-        window.alert(
-          "Error al eliminar cookie de sesion, contacte al administrador"
-        );
-      });
-  };
-  console.log("Render navbar");
+  const logout = async () =>
+    await axiosLogout().then(() => {
+      navigate("/");
+      setLogged();
+    });
+
+  console.log("Navbar");
+
   return (
     <div className="navcontainer">
       <h1 className="title">~ FIPE ~</h1>
       <div className="menu">
-        {logged ? (
+        {login && logged ? (
           <>
             <div
               onClick={() => {
@@ -68,5 +58,5 @@ const Navbar = () => {
       </div>
     </div>
   );
-};
+});
 export default Navbar;

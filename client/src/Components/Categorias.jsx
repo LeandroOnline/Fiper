@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./Categorias.css";
 import useSanitize from "../hooks/useSanitize";
 // import { context } from "../contexts/Contexts";
-import { useGlobalStore } from "../store/store";
+import useGlobalStore from "../store/Store";
 
 const Categorias = () => {
   const [detalleValue, setDetalleValue] = useState("");

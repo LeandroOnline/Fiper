@@ -3,8 +3,8 @@ import axios from "axios";
 import "./ListInputs.css";
 import Categorias from "./Categorias";
 import API from "../api/apiUrl";
-import { useGlobalStore } from "../store/store";
-import axiosGetAllInputs from "../api/axiosGetAllInputs"
+import useGlobalStore from "../store/Store";
+import axiosGetAllInputs from "../api/axiosGetAllInputs";
 
 const ListInputs = () => {
   const [inputs, setInputs] = useState([0]);
@@ -12,7 +12,6 @@ const ListInputs = () => {
   const [idElemento, setIdElemento] = useState("");
 
   let { reset, setReset } = useGlobalStore();
-
 
   const clearTrue = async () => {
     if (window.confirm("SEGURO queres eliminar todas las Entradas?"))
@@ -74,6 +73,8 @@ const ListInputs = () => {
   useEffect(() => {
     axiosGetAllInputs().then((data) => setInputs(data));
   }, [reset]);
+
+  console.log("ListInputs")
 
   return (
     <div className="listcontainer">

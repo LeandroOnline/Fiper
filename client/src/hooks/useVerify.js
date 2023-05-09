@@ -14,6 +14,4 @@ const useVerify = (email = "", password = "") => {
 
 export default useVerify;
 
-
-
 // useVerify devuelve true cuando el email y el password son correctos a la vez

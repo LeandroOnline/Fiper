@@ -7,7 +7,7 @@ import axiosGetAllInputs from "../api/axiosGetAllInputs";
 import Chart from "chart.js/auto";
 import { LinearScale, CategoryScale } from "chart.js";
 import { Line } from "react-chartjs-2";
-import { useGlobalStore } from "../store/store";
+import useGlobalStore from "../store/Store";
 Chart.register(LinearScale, CategoryScale);
 
 const Grafica = () => {
@@ -29,6 +29,7 @@ const Grafica = () => {
   };
   result();
 
+  //Hay que corregir el neto para que marque correctamente al iniciar
   const neto = () => {
     const result = [];
     for (let i = 0; i < inputs.length; i++) {
@@ -74,6 +75,8 @@ const Grafica = () => {
       },
     },
   };
+
+  console.log("GraficaNet");
 
   return (
     <div className="graficacontainer">

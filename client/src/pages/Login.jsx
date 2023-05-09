@@ -1,15 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import axios from "axios";
-// import { useContext } from "react";
-// import { context } from "../contexts/Contexts";
 import API from "../api/apiUrl";
 import useVerify from "../hooks/useVerify";
-import { useGlobalStore } from "../store/store";
+import useGlobalStore from "../store/Store";
 
 const Login = () => {
   const navigate = useNavigate();
-  // const { logged, setLogged } = useContext(context);
   const { logged, setLogged } = useGlobalStore();
 
   const Log = async (e) => {
