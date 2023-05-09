@@ -1,11 +1,14 @@
 import axios from "axios";
-import { useContext } from "react";
-import { context } from "../contexts/Contexts";
+// import { useContext } from "react";
+// import { context } from "../contexts/Contexts";
 import Categorias from "./Categorias";
 import API from "../api/apiUrl";
+import { useGlobalStore } from "../store/store";
 
 const Input = () => {
-  const { reset, setReset } = useContext(context);
+  // const { reset, setReset } = useContext(context);
+  const { setReset } = useGlobalStore();
+
 
   const post = async (e) => {
     e.preventDefault();
@@ -21,7 +24,7 @@ const Input = () => {
           withCredentials: true,
         }
       )
-      .then(() => setReset(!reset))
+      .then(() => setReset())
       .catch((err) => {
         console.log(err.response.data);
         window.alert(

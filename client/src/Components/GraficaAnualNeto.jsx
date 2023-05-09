@@ -1,6 +1,5 @@
 import "./Grafica.css";
-import { useContext, useEffect, useState } from "react";
-import { context } from "../contexts/Contexts";
+import { useEffect, useState } from "react";
 import moment from "moment";
 import axiosGetAllInputs from "../api/axiosGetAllInputs";
 
@@ -8,11 +7,12 @@ import axiosGetAllInputs from "../api/axiosGetAllInputs";
 import Chart from "chart.js/auto";
 import { LinearScale, CategoryScale } from "chart.js";
 import { Line } from "react-chartjs-2";
+import { useGlobalStore } from "../store/store";
 Chart.register(LinearScale, CategoryScale);
 
 const Grafica = () => {
   const [inputs, setInputs] = useState([]);
-  let { reset } = useContext(context); // cuando el valor de reset cambie se vuelve a renderizar el componente
+  const { reset } = useGlobalStore();
   const ingresos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   const egresos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 

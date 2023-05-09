@@ -1,12 +1,15 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
-import { useContext } from "react";
-import { context } from "../contexts/Contexts";
+// import { useContext } from "react";
+// import { context } from "../contexts/Contexts";
 import axios from "axios";
 import API from "../api/apiUrl";
+import { useGlobalStore } from "../store/store";
 
 const Navbar = () => {
-  const { logged, setLogged } = useContext(context);
+  // const { logged, setLogged } = useContext(context);
+  const { logged, setLogged } = useGlobalStore();
+
   const navigate = useNavigate();
 
   const deleteUser = async () => {
@@ -15,7 +18,7 @@ const Navbar = () => {
         .delete(API + "/deleteuser", { withCredentials: true })
         .then(() => {
           window.alert("Usuario eliminado");
-          setLogged(false);
+          setLogged();
         })
         .catch((err) => {
           console.log(err);
@@ -29,7 +32,10 @@ const Navbar = () => {
   const logout = async () => {
     await axios
       .get(API + "/logout", { withCredentials: true })
-      .then(() => navigate("/"))
+      .then(() => {
+        navigate("/");
+        setLogged();
+      })
       .catch((err) => {
         console.log(err);
         window.alert(
@@ -37,7 +43,7 @@ const Navbar = () => {
         );
       });
   };
-console.log("Render navbar")
+  console.log("Render navbar");
   return (
     <div className="navcontainer">
       <h1 className="title">~ FIPE ~</h1>
@@ -46,7 +52,6 @@ console.log("Render navbar")
           <>
             <div
               onClick={() => {
-                setLogged(false);
                 logout();
               }}
             >

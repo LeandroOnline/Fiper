@@ -1,13 +1,12 @@
-import { useContext, useEffect, useState } from "react";
-import axios from "axios";
-import { context } from "../contexts/Contexts";
+import { useEffect, useState } from "react";
 import "./Total.css";
-import API from "../api/apiUrl";
+import { useGlobalStore } from "../store/store";
+import axiosGetAllInputs from "../api/axiosGetAllInputs";
 
 const Total = () => {
   const [total, setTotal] = useState([]);
   const [porcent, setPorcent] = useState();
-  let { reset } = useContext(context);
+  const { reset } = useGlobalStore();
 
   const result = () => {
     let value = 0;
@@ -16,17 +15,7 @@ const Total = () => {
   };
 
   useEffect(() => {
-    const get = async () =>
-      await axios
-        .get(API + "/getall", { withCredentials: true })
-        .then((data) => setTotal(data.data))
-        .catch((err) => {
-          console.log(err.response.data);
-          window.alert(
-            "Error al pedir los datos del servidor, contacte al administrador"
-          );
-        });
-    get();
+    axiosGetAllInputs().then((data) => setTotal(data));
   }, [reset]);
 
   const Porcent = (e) => {

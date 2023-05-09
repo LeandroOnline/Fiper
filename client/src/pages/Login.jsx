@@ -1,20 +1,21 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import axios from "axios";
-import { useContext } from "react";
-import { context } from "../contexts/Contexts";
+// import { useContext } from "react";
+// import { context } from "../contexts/Contexts";
 import API from "../api/apiUrl";
 import useVerify from "../hooks/useVerify";
+import { useGlobalStore } from "../store/store";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { logged, setLogged } = useContext(context);
+  // const { logged, setLogged } = useContext(context);
+  const { logged, setLogged } = useGlobalStore();
 
-  const Login = async (e) => {
+  const Log = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-
     const verify = useVerify(email, password);
     if (verify) {
       await axios
@@ -49,7 +50,7 @@ const Login = () => {
   };
 
   const Logged = () => {
-    setLogged(true);
+    setLogged();
     navigate("/");
   };
 
@@ -59,7 +60,7 @@ const Login = () => {
         <>Ya estas Logueado</>
       ) : (
         <>
-          <form onSubmit={(e) => Login(e)}>
+          <form onSubmit={(e) => Log(e)}>
             <input placeholder="email" name="email" />
             <input placeholder="contraseña" name="password" type="password" />
             <button type="submit">Ingresar</button>
