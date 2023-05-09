@@ -1,16 +1,19 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import "./ListInputs.css";
-import { context } from "../contexts/Contexts";
 import Categorias from "./Categorias";
 import API from "../api/apiUrl";
+import { useGlobalStore } from "../store/store";
+// import { context } from "../contexts/Contexts";
 
 const ListInputs = () => {
   const [inputs, setInputs] = useState([0]);
   const [modificar, setModificar] = useState(false);
   const [idElemento, setIdElemento] = useState("");
 
-  let { reset, setReset } = useContext(context);
+  // let { reset, setReset } = useContext(context);
+  let { reset, setReset } = useGlobalStore();
+
 
   const clearTrue = async () => {
     if (window.confirm("SEGURO queres eliminar todas las Entradas?"))
@@ -19,7 +22,7 @@ const ListInputs = () => {
           .delete(API + "/deleteall", {
             withCredentials: true,
           })
-          .then(() => setReset(!reset))
+          .then(() => setReset())
           .catch((err) => {
             console.log(err.response.data);
             window.alert(
@@ -34,7 +37,7 @@ const ListInputs = () => {
         .delete(API + "/delete/" + id, {
           withCredentials: true,
         })
-        .then(() => setReset(!reset))
+        .then(() => setReset())
         .catch((err) => {
           console.log(err.response.data);
           window.alert(
@@ -58,7 +61,7 @@ const ListInputs = () => {
         }
       )
       .then(() => {
-        setReset(!reset);
+        setReset();
         setModificar(false);
       })
       .catch((err) => {
@@ -70,19 +73,7 @@ const ListInputs = () => {
   };
 
   useEffect(() => {
-    const get = async () =>
-      await axios
-        .get(API + "/getall", {
-          withCredentials: true,
-        })
-        .then((data) => setInputs(data.data))
-        .catch((err) => {
-          console.log(err);
-          window.alert(
-            "Error al cargar los datos del servidor, contacte al administrador"
-          );
-        });
-    get();
+    axiosGetAllInputs().then((data) => setInputs(data));
   }, [reset]);
 
   return (
