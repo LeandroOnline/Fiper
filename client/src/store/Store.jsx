@@ -1,6 +1,6 @@
-import create from "zustand";
+import {create} from "zustand";
 
-export const useGlobalStore = create((set, get) => ({
+const useGlobalStore = create((set, get) => ({
   reset: false,
   logged: false,
   inputs: [],
@@ -9,4 +9,7 @@ export const useGlobalStore = create((set, get) => ({
   neto: 0,
   setLogged: () => set({ logged: !get().logged }),
   setReset: () => set({ reset: !get().reset }),
+  setIngresos: (value) => set({ ingresos: value}),
 }));
+
+export default useGlobalStore;

@@ -8,12 +8,11 @@ import separe from "../helpers/separe";
 import Chart from "chart.js/auto";
 import { LinearScale, CategoryScale } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import { useGlobalStore } from "../store/store";
+import useGlobalStore from "../store/Store";
 Chart.register(LinearScale, CategoryScale);
 
 const Grafica = () => {
   const [inputs, setInputs] = useState([]);
-  console.log("se renderizo grafica")
 
   // let { reset } = useContext(context);
   const { reset } = useGlobalStore();
@@ -21,8 +20,7 @@ const Grafica = () => {
   const ingresos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   const egresos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   separe(inputs, ingresos, egresos);
-  
- 
+
   useEffect(() => {
     axiosGetAllInputs().then((data) => setInputs(data));
   }, [reset]);
@@ -64,6 +62,8 @@ const Grafica = () => {
       },
     },
   };
+
+  console.log("GraficaMix");
 
   return (
     <div className="graficacontainer">

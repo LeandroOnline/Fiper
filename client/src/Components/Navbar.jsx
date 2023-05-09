@@ -1,15 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
-// import { useContext } from "react";
-// import { context } from "../contexts/Contexts";
 import axios from "axios";
 import API from "../api/apiUrl";
-import { useGlobalStore } from "../store/store";
+import useGlobalStore from "../store/Store";
 
 const Navbar = () => {
-  // const { logged, setLogged } = useContext(context);
   const { logged, setLogged } = useGlobalStore();
-
   const navigate = useNavigate();
 
   const deleteUser = async () => {
@@ -43,7 +39,9 @@ const Navbar = () => {
         );
       });
   };
-  console.log("Render navbar");
+
+  console.log("Navbar");
+
   return (
     <div className="navcontainer">
       <h1 className="title">~ FIPE ~</h1>

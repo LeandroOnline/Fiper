@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Total.css";
-import { useGlobalStore } from "../store/store";
+import useGlobalStore from "../store/Store";
 import axiosGetAllInputs from "../api/axiosGetAllInputs";
 
 const Total = () => {
@@ -24,6 +24,8 @@ const Total = () => {
     const subtotal = (porcent * total) / 100;
     setPorcent(subtotal);
   };
+
+  console.log("Total");
 
   return (
     <div className="totalcontainer">

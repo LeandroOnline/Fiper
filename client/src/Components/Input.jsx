@@ -1,14 +1,10 @@
 import axios from "axios";
-// import { useContext } from "react";
-// import { context } from "../contexts/Contexts";
 import Categorias from "./Categorias";
 import API from "../api/apiUrl";
-import { useGlobalStore } from "../store/store";
+import useGlobalStore from "../store/Store";
 
 const Input = () => {
-  // const { reset, setReset } = useContext(context);
   const { setReset } = useGlobalStore();
-
 
   const post = async (e) => {
     e.preventDefault();
