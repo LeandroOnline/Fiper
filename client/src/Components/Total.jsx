@@ -1,13 +1,15 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { context } from "../contexts/Contexts";
+// import { context } from "../contexts/Contexts";
 import "./Total.css";
 import API from "../api/apiUrl";
+import { useGlobalStore } from "../store/store";
 
 const Total = () => {
   const [total, setTotal] = useState([]);
   const [porcent, setPorcent] = useState();
-  let { reset } = useContext(context);
+  // let { reset } = useContext(context);
+  const { reset } = useGlobalStore;
 
   const result = () => {
     let value = 0;
