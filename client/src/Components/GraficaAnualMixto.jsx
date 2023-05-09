@@ -1,6 +1,6 @@
 import "./Grafica.css";
-import { useContext, useEffect, useState } from "react";
-import { context } from "../contexts/Contexts";
+import { useEffect, useState } from "react";
+// import { context } from "../contexts/Contexts";
 import axiosGetAllInputs from "../api/axiosGetAllInputs";
 import separe from "../helpers/separe";
 
@@ -8,13 +8,16 @@ import separe from "../helpers/separe";
 import Chart from "chart.js/auto";
 import { LinearScale, CategoryScale } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import { useGlobalStore } from "../store/store";
 Chart.register(LinearScale, CategoryScale);
 
 const Grafica = () => {
   const [inputs, setInputs] = useState([]);
   console.log("se renderizo grafica")
 
-  let { reset } = useContext(context);
+  // let { reset } = useContext(context);
+  const { reset } = useGlobalStore();
+
   const ingresos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   const egresos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   separe(inputs, ingresos, egresos);
