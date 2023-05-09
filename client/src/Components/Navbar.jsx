@@ -1,8 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
-import axios from "axios";
-import API from "../api/apiUrl";
 import useGlobalStore from "../store/Store";
+import axiosDeleteUser from "../api/axiosDeleteUser";
+import axiosLogout from "../api/axiosLogout";
 
 const Navbar = () => {
   const { logged, setLogged } = useGlobalStore();
@@ -10,35 +10,18 @@ const Navbar = () => {
 
   const deleteUser = async () => {
     if (window.confirm("Seguro desea eliminar el usuario y sus entradas?")) {
-      await axios
-        .delete(API + "/deleteuser", { withCredentials: true })
-        .then(() => {
-          window.alert("Usuario eliminado");
-          setLogged();
-        })
-        .catch((err) => {
-          console.log(err);
-          window.alert(
-            "Error al eliminar el usuario, contacte al administrador"
-          );
-        });
+      await axiosDeleteUser().then(() => {
+        window.alert("Usuario eliminado");
+        setLogged();
+      });
     }
   };
 
-  const logout = async () => {
-    await axios
-      .get(API + "/logout", { withCredentials: true })
-      .then(() => {
-        navigate("/");
-        setLogged();
-      })
-      .catch((err) => {
-        console.log(err);
-        window.alert(
-          "Error al eliminar cookie de sesion, contacte al administrador"
-        );
-      });
-  };
+  const logout = async () =>
+    await axiosLogout().then(() => {
+      navigate("/");
+      setLogged();
+    });
 
   console.log("Navbar");
 

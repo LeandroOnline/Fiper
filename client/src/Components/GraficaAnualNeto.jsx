@@ -29,6 +29,7 @@ const Grafica = () => {
   };
   result();
 
+  //Hay que corregir el neto para que marque correctamente al iniciar
   const neto = () => {
     const result = [];
     for (let i = 0; i < inputs.length; i++) {
