@@ -4,7 +4,7 @@ import API from "../api/apiUrl";
 import useGlobalStore from "../store/Store";
 
 const Input = () => {
-  const { setReset } = useGlobalStore();
+  const setReset = useGlobalStore((state)=>state.setReset);
 
   const post = async (e) => {
     e.preventDefault();
@@ -29,6 +29,8 @@ const Input = () => {
       });
     document.getElementById("myForm").reset();
   };
+
+  console.log("Input");
 
   return (
     <form className="homeform" onSubmit={(e) => post(e)} id="myForm">

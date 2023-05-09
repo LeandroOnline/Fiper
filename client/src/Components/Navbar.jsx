@@ -4,9 +4,17 @@ import useGlobalStore from "../store/Store";
 import axiosDeleteUser from "../api/axiosDeleteUser";
 import axiosLogout from "../api/axiosLogout";
 import { memo } from "react";
+import { shallow } from "zustand/shallow";
 
 const Navbar = memo(() => {
-  const { logged, setLogged, login } = useGlobalStore();
+  const { logged, setLogged, login } = useGlobalStore(
+    (state) => ({
+      logged: state.logged,
+      setLogged: state.setLogged,
+      login: state.login,
+    }),
+    shallow
+  );
   const navigate = useNavigate();
 
   const deleteUser = async () => {
@@ -30,7 +38,7 @@ const Navbar = memo(() => {
     <div className="navcontainer">
       <h1 className="title">~ FIPE ~</h1>
       <div className="menu">
-        {login && logged? (
+        {login && logged ? (
           <>
             <div
               onClick={() => {

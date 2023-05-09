@@ -74,6 +74,8 @@ const ListInputs = () => {
     axiosGetAllInputs().then((data) => setInputs(data));
   }, [reset]);
 
+  console.log("ListInputs")
+
   return (
     <div className="listcontainer">
       Entradas:
