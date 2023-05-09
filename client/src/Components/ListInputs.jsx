@@ -4,14 +4,13 @@ import "./ListInputs.css";
 import Categorias from "./Categorias";
 import API from "../api/apiUrl";
 import { useGlobalStore } from "../store/store";
-// import { context } from "../contexts/Contexts";
+import axiosGetAllInputs from "../api/axiosGetAllInputs"
 
 const ListInputs = () => {
   const [inputs, setInputs] = useState([0]);
   const [modificar, setModificar] = useState(false);
   const [idElemento, setIdElemento] = useState("");
 
-  // let { reset, setReset } = useContext(context);
   let { reset, setReset } = useGlobalStore();
 
 

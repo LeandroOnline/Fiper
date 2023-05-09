@@ -7,6 +7,6 @@ export const useGlobalStore = create((set, get) => ({
   ingresos: 0,
   egresos: 0,
   neto: 0,
-  setLogged: ()=>set({logged: !logged}),
-  setReset: ()=>set({reset: !reset}),
+  setLogged: () => set({ logged: !get().logged }),
+  setReset: () => set({ reset: !get().reset }),
 }));
