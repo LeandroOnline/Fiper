@@ -1,19 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./Total.css";
 import useGlobalStore from "../store/Store";
-import axiosGetAllInputs from "../api/axiosGetAllInputs";
 
 const Total = () => {
   const [porcent, setPorcent] = useState();
   const inputs = useGlobalStore((state) => state.inputs);
   const setInputs = useGlobalStore((state) => state.setInputs);
-
-  // si saco el setInputs entonces no activo el setInputs
-  useEffect(() => {
-    const get = async () =>
-      await axiosGetAllInputs().then((response) => setInputs(response));
-      get();
-  }, []);
 
   const total = () => {
     let value = 0;

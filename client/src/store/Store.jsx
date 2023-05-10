@@ -1,7 +1,8 @@
 import { create } from "zustand";
 import Cookies from "js-cookie";
-// import { persist } from "zustand/middleware";
+import axiosGetAllInputs from "../api/axiosGetAllInputs";
 
+// import { persist } from "zustand/middleware";
 // const useGlobalStore = create(
 //   persist(
 //     (set, get) => ({
@@ -31,6 +32,8 @@ const useGlobalStore = create((set, get) => ({
   ingresos: 0,
   egresos: 0,
   neto: 0,
+  axiosGetAllInputs: async () =>
+    await axiosGetAllInputs().then((data) => set({ inputs: data })),
   setLogged: () => set({ logged: !get().logged }),
   setReset: () => set({ reset: !get().reset }),
   setIngresos: (value) => set({ ingresos: value }),
