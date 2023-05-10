@@ -7,11 +7,11 @@ import useGlobalStore from "../store/Store";
 import axiosGetAllInputs from "../api/axiosGetAllInputs";
 
 const ListInputs = () => {
-  const [inputs, setInputs] = useState([0]);
+  // const [inputs, setInputs] = useState([0]);
   const [modificar, setModificar] = useState(false);
   const [idElemento, setIdElemento] = useState("");
 
-  let { reset, setReset } = useGlobalStore();
+  let { inputs, setInputs, reset, setReset } = useGlobalStore();
 
   const clearTrue = async () => {
     if (window.confirm("SEGURO queres eliminar todas las Entradas?"))
@@ -71,7 +71,9 @@ const ListInputs = () => {
   };
 
   useEffect(() => {
-    axiosGetAllInputs().then((data) => setInputs(data));
+    const get = async () =>
+    await axiosGetAllInputs().then((response) => setInputs(response));
+    get();
   }, [reset]);
 
   console.log("ListInputs")

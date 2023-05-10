@@ -4,19 +4,22 @@ import useGlobalStore from "../store/Store";
 import axiosGetAllInputs from "../api/axiosGetAllInputs";
 
 const Total = () => {
-  const [inputs, setInputs] = useState();
   const [porcent, setPorcent] = useState();
-  const reset = useGlobalStore((state) => state.reset);
+  const inputs = useGlobalStore((state) => state.inputs);
+  const setInputs = useGlobalStore((state) => state.setInputs);
+
+  // si saco el setInputs entonces no activo el setInputs
+  useEffect(() => {
+    const get = async () =>
+      await axiosGetAllInputs().then((response) => setInputs(response));
+      get();
+  }, []);
 
   const total = () => {
     let value = 0;
     inputs.map((element) => (value += element.input));
     return value;
   };
-
-  useEffect(() => {
-    axiosGetAllInputs().then((data) => setInputs(data));
-  }, [reset]);
 
   const Porcent = (e) => {
     const total = result();
