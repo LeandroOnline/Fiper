@@ -30,9 +30,7 @@ const ListInputs = () => {
   };
 
   useEffect(() => {
-    const get = async () =>
-      await axiosGetAllInputs().then((response) => setInputs(response));
-    get();
+    axiosGetAllInputs().then((response) => setInputs(response));
   }, [reset]);
 
   console.log("ListInputs");
