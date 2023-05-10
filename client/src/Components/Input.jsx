@@ -1,32 +1,14 @@
-import axios from "axios";
 import Categorias from "./Categorias";
-import API from "../api/apiUrl";
 import useGlobalStore from "../store/Store";
+import axiosAdd from "../api/axiosAdd"
 
 const Input = () => {
   const setReset = useGlobalStore((state) => state.setReset);
 
   const post = async (e) => {
     e.preventDefault();
-    await axios
-      .post(
-        API + "/add",
-        {
-          tipo: e.target.tipo.value,
-          input: e.target.input.value,
-          detalle: e.target.detalle.value,
-        },
-        {
-          withCredentials: true,
-        }
-      )
-      .then(() => setReset())
-      .catch((err) => {
-        console.log(err.response.data);
-        window.alert(
-          "Error al enviar datos del servidor, contacte al administrador"
-        );
-      });
+    await axiosAdd(e);
+    setReset();
     document.getElementById("myForm").reset();
   };
 
