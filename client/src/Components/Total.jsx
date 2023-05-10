@@ -4,7 +4,7 @@ import useGlobalStore from "../store/Store";
 import axiosGetAllInputs from "../api/axiosGetAllInputs";
 
 const Total = () => {
-  const [inputs, setInputs] = useState([]);
+  const [inputs, setInputs] = useState();
   const [porcent, setPorcent] = useState();
   const reset = useGlobalStore((state) => state.reset);
 
@@ -29,7 +29,7 @@ const Total = () => {
 
   return (
     <div className="totalcontainer">
-      <h1>Total: {total()}</h1>
+      <h1>Total: {inputs?total():null}</h1>
       <div className="porcentcontainer">
         <p>%</p>
         <input type="number" placeholder="xxx" onChange={(e) => Porcent(e)} />
