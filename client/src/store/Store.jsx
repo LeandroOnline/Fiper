@@ -12,6 +12,7 @@ const useGlobalStore = create((set, get) => ({
   setLogged: () => set({ logged: !get().logged }),
   setReset: () => set({ reset: !get().reset }),
   setIngresos: (value) => set({ ingresos: value }),
+  setInputs: (inputs)=> set({ inputs : inputs }),
 }));
 
 console.log("Store");
