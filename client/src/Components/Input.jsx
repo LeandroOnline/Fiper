@@ -10,6 +10,7 @@ const Input = () => {
   // pero si el setInput modifica el inputs entonces si  renderiza el Total
   // para esto puedo hacer una propiedad del store que solo carga el inputs
   // charge data on post
+  
   const post = async (e) => {
     e.preventDefault();
     await axiosAdd(e);

@@ -5,7 +5,6 @@ import useGlobalStore from "../store/Store";
 const Total = () => {
   const [porcent, setPorcent] = useState();
   const inputs = useGlobalStore((state) => state.inputs);
-  const setInputs = useGlobalStore((state) => state.setInputs);
 
   const total = () => {
     let value = 0;
