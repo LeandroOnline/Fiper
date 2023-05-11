@@ -1,0 +1,16 @@
+Como la recibo desde el back
+->  [{date,detalle,input,tipo},{}]
+
+Como debo pasar la info
+->  {
+     name: 'Berlin',
+     月份: 'Jan.',
+     月均降雨量: 12.4,
+    }
+
+->  [ 264, 412, 492, 467, 513, 546, 983, 340, 539, 243, 226, 192]
+  
+->  {
+     "timePeriod": "2006 Q4",
+     "value": 1.08
+    },
