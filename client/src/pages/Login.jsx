@@ -7,7 +7,7 @@ import useGlobalStore from "../store/Store";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { logged, setLogged, login } = useGlobalStore();
+  const { login, setLogin } = useGlobalStore();
 
   const Log = async (e) => {
     e.preventDefault();
@@ -47,13 +47,13 @@ const Login = () => {
   };
 
   const Logged = () => {
-    setLogged();
+    setLogin();
     navigate("/");
   };
 
   return (
     <div className="logincontainer">
-      {logged && login? (
+      { login? (
         <>Ya estas Logueado</>
       ) : (
         <>

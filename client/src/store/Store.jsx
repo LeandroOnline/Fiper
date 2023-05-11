@@ -27,17 +27,17 @@ import axiosGetAllInputs from "../api/axiosGetAllInputs";
 const useGlobalStore = create((set, get) => ({
   reset: false,
   login: Cookies.get("user"),
-  logged: true,
   inputs: [],
   ingresos: 0,
   egresos: 0,
   neto: 0,
+  setLogin: () => set({ login: Cookies.get("user") }),
   storeGetAllInputs: async () =>
     await axiosGetAllInputs().then((data) => set({ inputs: data })),
-  setLogged: () => set({ logged: !get().logged }),
+  setLogged: () => set({ login: false }),
   setReset: () => {
     set({ reset: !get().reset });
-  }, // en cada reset cargar los inputs
+  },
   setIngresos: (value) => set({ ingresos: value }),
   setInputs: (inputs) => set({ inputs: inputs }),
 }));

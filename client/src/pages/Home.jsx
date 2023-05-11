@@ -7,13 +7,12 @@ import useGlobalStore from "../store/Store";
 import "./Home.css";
 
 const Home = () => {
-  const logged = useGlobalStore((state) => state.logged);
   const login = useGlobalStore((state) => state.login);
 
   console.log("Home");
   return (
     <div className="homecontainer">
-      {login && logged ? (
+      {login ? (
         <>
           <div>
             <Input />

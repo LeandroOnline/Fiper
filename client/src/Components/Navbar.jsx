@@ -7,7 +7,7 @@ import { memo } from "react";
 import { shallow } from "zustand/shallow";
 
 const Navbar = memo(() => {
-  const { logged, setLogged, login } = useGlobalStore(
+  const { setLogged, login } = useGlobalStore(
     (state) => ({
       logged: state.logged,
       setLogged: state.setLogged,
@@ -38,7 +38,7 @@ const Navbar = memo(() => {
     <div className="navcontainer">
       <h1 className="title">~ FIPE ~</h1>
       <div className="menu">
-        {login && logged ? (
+        {login ? (
           <>
             <div
               onClick={() => {
