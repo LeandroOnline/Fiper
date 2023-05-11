@@ -28,8 +28,8 @@ const useGlobalStore = create((set, get) => ({
   reset: false,
   login: Cookies.get("user"),
   inputs: [],
-  ingresos: 0,
-  egresos: 0,
+  ingresos: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  egresos: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   neto: 0,
   setLogin: () => set({ login: Cookies.get("user") }),
   storeGetAllInputs: async () =>

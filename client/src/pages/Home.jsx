@@ -1,5 +1,4 @@
 import Grafica from "../components/GraficaAnualMixto";
-import GraficaTwo from "../components/GraficaAnualNeto";
 import Input from "../components/Input";
 import ListInputs from "../components/ListInputs";
 import Total from "../components/Total";
@@ -22,7 +21,6 @@ const Home = () => {
           <ListInputs />
           <div>
             <Grafica />
-            <GraficaTwo />
           </div>
         </>
       ) : (
