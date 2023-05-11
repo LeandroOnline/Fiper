@@ -1,7 +1,6 @@
-import axios from "axios";
+import axiosSign from "../api/axiosSign";
 import { useNavigate } from "react-router-dom";
 import useVerify from "../hooks/useVerify";
-import API from "../api/apiUrl";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -10,26 +9,13 @@ const SignUp = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    // useVerify verificara el email y password para ingresos correctos desde lado cliente
     const verify = useVerify(email, password);
-
     if (verify) {
-      await axios
-        .post(API + "/adduser", {
-          email: email,
-          password: password,
-        })
-        .then((data) => {
-          if (data.data === "Usuario existente") {
-            window.alert(
-              "Usuario 'Existente', prueve otro email o inicie sesion"
-            );
-          } else {
-            window.alert("Usuario Agregado");
-            navigate("/login");
-          }
-        })
-        .catch((err) => console.log(err));
+      const send = {
+        email: email,
+        password: password,
+      };
+      axiosSign(send).then(() => navigate("/login"));
     } else {
       window.alert("Email o contraseña invalidos");
     }
