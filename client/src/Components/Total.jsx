@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import "./Total.css";
 import useGlobalStore from "../store/Store";
 
-const Total = () => {
+const Total = memo(() => {
   const [porcent, setPorcent] = useState();
   const inputs = useGlobalStore((state) => state.inputs);
 
@@ -23,7 +23,7 @@ const Total = () => {
 
   return (
     <div className="totalcontainer">
-      <h1>Total: {inputs?total():null}</h1>
+      <h1>Total: {inputs ? total() : null}</h1>
       <div className="porcentcontainer">
         <p>%</p>
         <input type="number" placeholder="xxx" onChange={(e) => Porcent(e)} />
@@ -31,5 +31,5 @@ const Total = () => {
       </div>
     </div>
   );
-};
+});
 export default Total;
