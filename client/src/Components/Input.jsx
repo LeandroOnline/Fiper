@@ -1,12 +1,15 @@
 import Categorias from "./Categorias";
 import axiosAdd from "../api/axiosAdd";
 import { memo } from "react";
+import useGlobalStore from "../store/Store";
 
-const Input = memo(() => {
+const Input = () => {
+  const setReset = useGlobalStore((state)=>state.setReset);
   
   const post = async (e) => {
     e.preventDefault();
     await axiosAdd(e);
+    setReset();
     console.log("Input -> Post");
     document.getElementById("myForm").reset();
   };
@@ -19,5 +22,5 @@ const Input = memo(() => {
       <button type="submit">Cargar</button>
     </form>
   );
-})
+};
 export default Input;
