@@ -2,15 +2,13 @@ import "./Grafica.css";
 import { useEffect } from "react";
 import separe from "../helpers/separe";
 
-//Chart
-
 import useGlobalStore from "../store/Store";
 const Grafica = () => {
-  const { ingresos, egresos, inputs } = useGlobalStore();
+  const { inputs } = useGlobalStore();
 
-  separe(inputs, ingresos, egresos);
+  // separe(inputs, ingresos, egresos);
 
-  useEffect(() => {}, [inputs]);
+  // useEffect(() => {}, [inputs]);
   console.log(inputs);
 
   // como la recibo desde el back
@@ -30,10 +28,6 @@ const Grafica = () => {
 
   console.log("GraficaMix");
 
-  return (
-    <div className="graficacontainer">
-      {/* <Bar data={data} options={options} /> */}
-    </div>
-  );
+  return <div className="graficacontainer">grafica</div>;
 };
 export default Grafica;
