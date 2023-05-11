@@ -16,7 +16,7 @@ const columnDataFormat = (inputs) => {
 
 export default columnDataFormat;
 
-// La grafica esta hecha para mostrar totales por date, sino tomara el ultimo valor
+// La grafica esta hecha para mostrar totales pr date, sino tomara el ultimo valor
 
 // Asi recibo los datos desde el back
 // inputs = [{date,detalle,input,tipo},{}]
