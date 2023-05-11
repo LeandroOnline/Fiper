@@ -1,22 +1,16 @@
-import { useEffect, useState } from "react";
+import { memo, useState } from "react";
 import "./Total.css";
 import useGlobalStore from "../store/Store";
-import axiosGetAllInputs from "../api/axiosGetAllInputs";
 
-const Total = () => {
-  const [inputs, setInputs] = useState([]);
+const Total = memo(() => {
   const [porcent, setPorcent] = useState();
-  const reset = useGlobalStore((state) => state.reset);
+  const inputs = useGlobalStore((state) => state.inputs);
 
   const total = () => {
     let value = 0;
     inputs.map((element) => (value += element.input));
     return value;
   };
-
-  useEffect(() => {
-    axiosGetAllInputs().then((data) => setInputs(data));
-  }, [reset]);
 
   const Porcent = (e) => {
     const total = result();
@@ -29,7 +23,7 @@ const Total = () => {
 
   return (
     <div className="totalcontainer">
-      <h1>Total: {total()}</h1>
+      <h1>Total: {inputs ? total() : null}</h1>
       <div className="porcentcontainer">
         <p>%</p>
         <input type="number" placeholder="xxx" onChange={(e) => Porcent(e)} />
@@ -37,5 +31,5 @@ const Total = () => {
       </div>
     </div>
   );
-};
+});
 export default Total;

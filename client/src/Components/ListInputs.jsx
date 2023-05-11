@@ -1,80 +1,39 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import "./ListInputs.css";
 import Categorias from "./Categorias";
-import API from "../api/apiUrl";
 import useGlobalStore from "../store/Store";
 import axiosGetAllInputs from "../api/axiosGetAllInputs";
+import axiosClear from "../api/axiosClear";
+import axiosDeleteItem from "../api/axiosDeleteItem";
+import axiosUpdateItem from "../api/axiosUpdateItem";
 
 const ListInputs = () => {
-  const [inputs, setInputs] = useState([0]);
   const [modificar, setModificar] = useState(false);
   const [idElemento, setIdElemento] = useState("");
 
-  let { reset, setReset } = useGlobalStore();
+  const { inputs, reset, setReset, storeGetAllInputs } = useGlobalStore();
 
   const clearTrue = async () => {
     if (window.confirm("SEGURO queres eliminar todas las Entradas?"))
       if (window.confirm("Seguro?, no hay vuelta atras!"))
-        await axios
-          .delete(API + "/deleteall", {
-            withCredentials: true,
-          })
-          .then(() => setReset())
-          .catch((err) => {
-            console.log(err.response.data);
-            window.alert(
-              "Error al borrar los datos del servidor, contacte al administrador"
-            );
-          });
+        await axiosClear().then(() => setReset());
   };
 
   const deleteItem = async (id) => {
     if (window.confirm("Eliminar Item?"))
-      await axios
-        .delete(API + "/delete/" + id, {
-          withCredentials: true,
-        })
-        .then(() => setReset())
-        .catch((err) => {
-          console.log(err.response.data);
-          window.alert(
-            "Error al eliminar los datos del servidor, contacte al administrador"
-          );
-        });
+      await axiosDeleteItem(id).then(() => setReset());
   };
 
   const updateItem = async (e) => {
     e.preventDefault();
-    await axios
-      .put(
-        API + "/update/" + idElemento,
-        {
-          tipo: e.target.tipo.value,
-          input: e.target.input.value,
-          detalle: e.target.detalle.value,
-        },
-        {
-          withCredentials: true,
-        }
-      )
-      .then(() => {
-        setReset();
-        setModificar(false);
-      })
-      .catch((err) => {
-        console.log(err.response.data);
-        window.alert(
-          "Error al actualizar los datos del servidor, contacte al administrador"
-        );
-      });
+    await axiosUpdateItem(idElemento, e).then(() => setReset());
   };
 
   useEffect(() => {
-    axiosGetAllInputs().then((data) => setInputs(data));
+    storeGetAllInputs();
   }, [reset]);
 
-  console.log("ListInputs")
+  console.log("ListInputs");
 
   return (
     <div className="listcontainer">
@@ -84,7 +43,7 @@ const ListInputs = () => {
           <button onClick={() => deleteItem(element._id)}>Eliminar</button>
           <button
             onClick={() => {
-              setModificar(true);
+              setModificar(!modificar);
               setIdElemento(element._id);
             }}
           >
@@ -101,7 +60,7 @@ const ListInputs = () => {
             <Categorias />
             <div>
               <button type="submit">Aplicar</button>
-              <button onClick={() => setModificar(false)}>Cancelar</button>
+              <button onClick={() => setModificar(!modificar)}>Cancelar</button>
             </div>
           </form>
         </>

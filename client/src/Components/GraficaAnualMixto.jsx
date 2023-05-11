@@ -1,6 +1,5 @@
 import "./Grafica.css";
 import { useEffect, useState } from "react";
-// import { context } from "../contexts/Contexts";
 import axiosGetAllInputs from "../api/axiosGetAllInputs";
 import separe from "../helpers/separe";
 
@@ -13,8 +12,6 @@ Chart.register(LinearScale, CategoryScale);
 
 const Grafica = () => {
   const [inputs, setInputs] = useState([]);
-
-  // let { reset } = useContext(context);
   const { reset } = useGlobalStore();
 
   const ingresos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
