@@ -11,7 +11,7 @@ const ListInputs = () => {
   const [modificar, setModificar] = useState(false);
   const [idElemento, setIdElemento] = useState("");
 
-  const { inputs, setInputs, reset, setReset } = useGlobalStore();
+  const { inputs, reset, setReset, storeGetAllInputs } = useGlobalStore();
 
   const clearTrue = async () => {
     if (window.confirm("SEGURO queres eliminar todas las Entradas?"))
@@ -29,9 +29,8 @@ const ListInputs = () => {
     await axiosUpdateItem(idElemento, e).then(() => setReset());
   };
 
-  // la primera carga de los inputs de hace aca por eso vuelve a renderizar el total
   useEffect(() => {
-    axiosGetAllInputs().then((response) => setInputs(response));
+    storeGetAllInputs();
   }, [reset]);
 
   console.log("ListInputs");
