@@ -1,5 +1,4 @@
-import Grafica from "../components/GraficaAnualMixto";
-import GraficaTwo from "../components/GraficaAnualNeto";
+import ColumnGraph from "../components/ColumnGraph";
 import Input from "../components/Input";
 import ListInputs from "../components/ListInputs";
 import Total from "../components/Total";
@@ -17,12 +16,11 @@ const Home = () => {
           <div>
             <Input />
             <Total />
-            <progress max="100" value="80" />
+            {/* <progress max="100" value="80" /> */}
           </div>
           <ListInputs />
           <div>
-            <Grafica />
-            <GraficaTwo />
+            <ColumnGraph />
           </div>
         </>
       ) : (
