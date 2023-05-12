@@ -8,17 +8,16 @@ import configColumnGraph from "../utils/configColumnGraph";
 const ColumnGraph = () => {
   const { inputs } = useGlobalStore();
   const [graph, setGraph] = useState("graph");
-
-  const data = columnDataFormat(inputs);
   console.log(inputs);
 
-  console.log("ColumnGraph");
-  const config = configColumnGraph(data);
+  const data = columnDataFormat(inputs);
+  console.log(data);
 
+  console.log("ColumnGraph");
 
   return (
     <div className="graficacontainer">
-      <Column {...config} />
+      <Column {...configColumnGraph(data)} />
     </div>
   );
 };

@@ -1,4 +1,5 @@
 const columnDataFormat = (inputs) => {
+ 
   const monthNumber = [
     "Enero",
     "Febrero",
@@ -13,11 +14,16 @@ const columnDataFormat = (inputs) => {
     "Noviembre",
     "Diciembre",
   ];
-  const data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  const data = [
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  ]; // 12 ingresos y 12 egresos = 12 meses = 24 datos / 1ro Ingresos y 2do Egresos
+  
   inputs.map((input) => {
     const datee = new Date(input.date);
     let month = datee.getMonth();
-    console.log(month);
+
+    // console.log(month);
     data[month] = {
       name: input.tipo,
       date: monthNumber[month],
