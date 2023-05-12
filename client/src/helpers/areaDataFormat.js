@@ -20,8 +20,7 @@ const format = (inputs) => {
   ];
 
   const data = []; // data sin formato
-  const initialValue = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-  // const initialValue = Array.from({})
+  const initialValue = Array.from({ length: 12 }, () => 0);
 
   // sumo los ingresos y egresos para tener el valor neto por mes
   inputs.map((input) => {
