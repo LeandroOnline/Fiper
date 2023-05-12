@@ -12,6 +12,7 @@ const columnDataFormat = (inputs) => {
   });
 
   return data;
+  
 };
 
 export default columnDataFormat;
