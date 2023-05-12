@@ -16,6 +16,7 @@ const columnDataFormat = (inputs) => {
 
 export default columnDataFormat;
 
+
 // Sumar los ingresos y egresos por separado y luego devolver un data = [ingresos,egresos] , Sumados por fechaa por ej:
 // data = [ ingresosMayo , egresosMayo , ingresosJunio, egresosJunio]
 
