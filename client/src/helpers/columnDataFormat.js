@@ -1,5 +1,4 @@
 const columnDataFormat = (inputs) => {
- 
   const monthNumber = [
     "Enero",
     "Febrero",
@@ -14,30 +13,37 @@ const columnDataFormat = (inputs) => {
     "Noviembre",
     "Diciembre",
   ];
-
-  const data = [
+  const totalPerMonth = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  ]; // 12 ingresos y 12 egresos = 12 meses = 24 datos / 1ro Ingresos y 2do Egresos
-  
-  inputs.map((input) => {
-    const datee = new Date(input.date);
-    let month = datee.getMonth();
+  ]; // 12 (0-11) ingresos y 12 (12-23) egresos = 12 meses = 24 datos
 
-    // console.log(month);
-    data[month] = {
-      name: input.tipo,
-      date: monthNumber[month],
-      value: input.input < 0 ? input.input * -1 : input.input,
-    };
+  inputs.map((input) => {
+    let date = new Date(input.date);
+    let month = date.getMonth();
+
+    // sumo los ingresos y egresos por separado asignando el indice dependiendo del mes
+    // totalPerMonth = [ ingresosEnero , ingresosEnero , egresosEnero, egresosEnero]
+    // [...12 ingresos, ...12 egresos]
+
+    if (input.input >= 0) {
+      totalPerMonth[month] += input.input;
+    } else {
+      totalPerMonth[month + 12] += input.input * -1;
+    }
   });
 
-  return data;
+  // Formateo la data para ser leida por la grafica
+  for (let i = 0; i < totalPerMonth.length; i++) {
+    totalPerMonth[i] = {
+      name: i < 12 ? "Ingresos" : "Egresos",
+      date: i < 12 ? monthNumber[i]: monthNumber[i-12],
+      value: totalPerMonth[i],
+    };
+  }
+  return totalPerMonth;
 };
 
 export default columnDataFormat;
-
-// Sumar los ingresos y egresos por separado y luego devolver un data = [ingresos,egresos] , Sumados por fechaa por ej:
-// data = [ ingresosMayo , egresosMayo , ingresosJunio, egresosJunio]
 
 // La grafica esta hecha para mostrar totales pr date, sino tomara el ultimo valor
 
