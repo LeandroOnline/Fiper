@@ -3,6 +3,7 @@ import ColumnGraph from "../components/ColumnGraph";
 import Input from "../components/Input";
 import ListInputs from "../components/ListInputs";
 import Total from "../components/Total";
+import FixedCosts from "../components/FixedCosts";
 import useGlobalStore from "../store/Store";
 import "./Home.css";
 
@@ -23,6 +24,7 @@ const Home = () => {
           <div>
             <ColumnGraph />
             <AreaGraph />
+            <FixedCosts />
           </div>
         </>
       ) : (
