@@ -5,7 +5,7 @@ const columnDataFormat = (inputs) => {
     let month = datee.getMonth();
     console.log(month);
     data[month] = {
-      name: input.tipo, // Sumar los ingresos y egresoos por separado y luego devolver un data = [ingresos,egresos] , Ssumados por fechaa por ej: data = [ ingresosMayo , egresosMayo , ingresosJunio, egresosJunio] para formatearlo correctamente
+      name: input.tipo, // Sumar los ingresos y egresoos por separado y luego devolver un data = [ingresos,egresos] , Ssumados por fechaa por ej: data = [ ingresosMayo , egresosMayo , ingresosJunio, egresosJunio] para formatearlo correctamentee
       date: month,
       value: input.input < 0 ? input.input * -1 : input.input,
     };
