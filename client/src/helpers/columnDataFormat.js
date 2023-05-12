@@ -1,5 +1,18 @@
 const columnDataFormat = (inputs) => {
-  
+  const monthNumber = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
+  ];
   const data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   inputs.map((input) => {
     const datee = new Date(input.date);
@@ -7,17 +20,15 @@ const columnDataFormat = (inputs) => {
     console.log(month);
     data[month] = {
       name: input.tipo,
-      date: month,
+      date: monthNumber[month],
       value: input.input < 0 ? input.input * -1 : input.input,
     };
   });
 
   return data;
-
 };
 
 export default columnDataFormat;
-
 
 // Sumar los ingresos y egresos por separado y luego devolver un data = [ingresos,egresos] , Sumados por fechaa por ej:
 // data = [ ingresosMayo , egresosMayo , ingresosJunio, egresosJunio]
