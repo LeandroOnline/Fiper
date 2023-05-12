@@ -1,4 +1,5 @@
 const columnDataFormat = (inputs) => {
+  
   const data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   inputs.map((input) => {
     const datee = new Date(input.date);
@@ -12,7 +13,7 @@ const columnDataFormat = (inputs) => {
   });
 
   return data;
-  
+
 };
 
 export default columnDataFormat;
