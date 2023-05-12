@@ -1,3 +1,4 @@
+import AreaGraph from "../components/AreaGraph";
 import ColumnGraph from "../components/ColumnGraph";
 import Input from "../components/Input";
 import ListInputs from "../components/ListInputs";
@@ -21,6 +22,7 @@ const Home = () => {
           <ListInputs />
           <div>
             <ColumnGraph />
+            <AreaGraph />
           </div>
         </>
       ) : (
