@@ -4,6 +4,7 @@ import Input from "../components/Input";
 import ListInputs from "../components/ListInputs";
 import Total from "../components/Total";
 import useGlobalStore from "../store/Store";
+import TinyArea from "../components/TinyArea";
 import "./Home.css";
 
 const Home = () => {
@@ -14,16 +15,19 @@ const Home = () => {
     <div className="homecontainer">
       {login ? (
         <>
-          <div>
-            <Input />
-            <Total />
-            {/* <progress max="100" value="80" /> */}
+          <div className="inputsGraph">
+            <div className="inputTotal">
+              <Input />
+              <Total />
+            </div>
+
+            <div className="graphs">
+              <ColumnGraph />
+              <AreaGraph />
+            </div>
           </div>
+          <TinyArea />
           <ListInputs />
-          <div>
-            <ColumnGraph />
-            <AreaGraph />
-          </div>
         </>
       ) : (
         <>Usuario no Logueado</>

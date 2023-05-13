@@ -3,13 +3,33 @@
     border-style: solid;
     border-radius: 5px;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: calc(100%-20px);
 }
 
 .porcentcontainer{
     display: flex;
     flex-direction: row;
+    gap: 15px;
+    align-items:center;
+    justify-content:space-between;
 }
 
 .porcentcontainer input{
-   width: 100px;
+   width: 80px;
+   background-color: rgba(240, 248, 255, 0.069);
+   border-radius: 5px;
 }
+.porcentcontainer input:hover{
+    background-color: rgba(240, 248, 255, 0.301);  
+ }
+ .porcentcontainer input:focus{
+    outline: none;
+ }
+ .graph{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+ }

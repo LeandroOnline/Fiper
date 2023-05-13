@@ -13,7 +13,7 @@ const DemoRingProgress = (props) => {
   return (
     <>
       <RingProgress {...config} ></RingProgress>
-      <p>{props.result}</p>
+      {/* <p>{props.result}</p> */}
     </>
   );
 };

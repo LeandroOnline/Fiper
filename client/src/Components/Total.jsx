@@ -28,10 +28,13 @@ const Total = memo(() => {
       <div className="porcentcontainer">
         <input
           type="number"
-          placeholder="%xxx"
+          placeholder="%..."
           value={porcent}
           onChange={(e) => setPorcent(e.target.value)}
         />
+        <p>={Porcent(porcent)}</p>
+      </div>
+      <div className="graph">
         <PorcentCircle porcent={porcent} result={Porcent(porcent)} />
       </div>
     </div>
