@@ -44,15 +44,16 @@ const Navbar = memo(() => {
               onClick={() => {
                 logout();
               }}
+              className="navbutton"
             >
               Salir
             </div>
-            <div onClick={() => deleteUser()}>Eliminar Usuario</div>
+            <div onClick={() => deleteUser()} className="navbutton">Eliminar Usuario</div>
           </>
         ) : (
           <>
-            <Link to="/login">Entrar</Link>
-            <Link to="/signup">Registrarse</Link>
+            <Link to="/login" className="navbutton">Entrar</Link>
+            <Link to="/signup" className="navbutton">Registrarse</Link>
           </>
         )}
       </div>

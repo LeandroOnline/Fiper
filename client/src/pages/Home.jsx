@@ -26,7 +26,10 @@ const Home = () => {
               <AreaGraph />
             </div>
           </div>
-          <TinyArea />
+          <div className="tinys">
+            <TinyArea />
+            <TinyArea />
+          </div>
           <ListInputs />
         </>
       ) : (
