@@ -15,7 +15,7 @@ const columnDataFormat = (inputs) => {
   ];
   // 12 (0-11) ingresos y 12 (12-23) egresos = 12 meses = 24 datos
   const totalPerMonth = Array.from({ length: 24 }, () => 0);
-  
+
   inputs.map((input) => {
     let date = new Date(input.date);
     let month = date.getMonth();
@@ -30,12 +30,11 @@ const columnDataFormat = (inputs) => {
       totalPerMonth[month + 12] += input.input * -1;
     }
   });
-
   // Formateo la data para ser leida por la grafica
   for (let i = 0; i < totalPerMonth.length; i++) {
     totalPerMonth[i] = {
       name: i < 12 ? "Ingresos" : "Egresos",
-      date: i < 12 ? monthNumber[i]: monthNumber[i-12],
+      date: i < 12 ? monthNumber[i] : monthNumber[i - 12],
       value: totalPerMonth[i],
     };
   }
