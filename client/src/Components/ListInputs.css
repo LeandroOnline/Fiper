@@ -27,7 +27,7 @@ button {
   justify-content: center;
 }
 
-img {
+.img {
   width: 20px;
   filter: invert();
 }

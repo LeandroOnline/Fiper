@@ -42,7 +42,7 @@ const ListInputs = () => {
       {inputs.map((element, key) => (
         <div key={key} className="listElement">
           <button onClick={() => deleteItem(element._id)}>
-            <img src={del} alt="" />
+            <img className="img" src={del} alt="" />
           </button>
           <button
             onClick={() => {
@@ -50,7 +50,7 @@ const ListInputs = () => {
               setIdElemento(element._id);
             }}
           >
-            <img src={modify} alt="" />
+            <img className="img" src={modify} alt="" />
           </button>
           <p>{element.tipo}</p>
           <p className={element.input > -1 ? "positive" : "negative"}>

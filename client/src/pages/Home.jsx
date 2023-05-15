@@ -6,9 +6,12 @@ import Total from "../components/Total";
 import useGlobalStore from "../store/Store";
 import TinyArea from "../components/TinyArea";
 import "./Home.css";
+import DolarBlue from "../components/DolarBlue";
 
 const Home = () => {
   const login = useGlobalStore((state) => state.login);
+
+
 
   console.log("Home");
   return (
@@ -27,7 +30,8 @@ const Home = () => {
             </div>
           </div>
           <div className="tinys">
-            <TinyArea />
+            {/* <TinyArea dolarBlue={true} /> */}
+            <DolarBlue />
             <TinyArea />
             <TinyArea />
           </div>
