@@ -4,9 +4,9 @@ import Input from "../components/Input";
 import ListInputs from "../components/ListInputs";
 import Total from "../components/Total";
 import useGlobalStore from "../store/Store";
-import TinyArea from "../components/TinyAreaInputPorcent";
 import "./Home.css";
 import DolarBlue from "../components/DolarBlue";
+import Interest from "../components/Interest";
 
 const Home = () => {
   const login = useGlobalStore((state) => state.login);
@@ -30,10 +30,8 @@ const Home = () => {
             </div>
           </div>
           <div className="tinys">
-            {/* <TinyArea dolarBlue={true} /> */}
             <DolarBlue />
-            <TinyArea />
-            <TinyArea />
+            <Interest/>
           </div>
           <ListInputs />
         </>

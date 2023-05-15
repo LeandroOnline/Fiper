@@ -1,0 +1,49 @@
+.interescontainer {
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+  height: 120px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.calculadoraText {
+  font-size: 15px;
+}
+
+.interesImg {
+  width: 50px;
+}
+
+.interestInputs {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: rgba(240, 248, 255, 0.109);
+  border-radius: 5px;
+}
+
+.columns {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.interestInputsContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.interest {
+  display: flex;
+  flex-direction: column;
+}

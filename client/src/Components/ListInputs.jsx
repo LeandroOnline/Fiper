@@ -68,7 +68,12 @@ const ListInputs = () => {
               <button type="submit" onClick={() => setSend(true)}>
                 Aplicar
               </button>
-              <button onClick={() => {setModificar(!modificar);setSend(false)}}>
+              <button
+                onClick={() => {
+                  setModificar(!modificar);
+                  setSend(false);
+                }}
+              >
                 {send ? "Cerrar" : "Cancelar"}
               </button>
             </div>
