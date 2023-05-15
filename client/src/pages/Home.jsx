@@ -16,7 +16,7 @@ const Home = () => {
   console.log("Home");
   return (
     <div className="homecontainer">
-      <Header />
+      {/* <Header /> */}
       {login ? (
         <>
           <div className="inputsGraph">
@@ -39,7 +39,7 @@ const Home = () => {
       ) : (
         <>Usuario no Logueado</>
       )}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
