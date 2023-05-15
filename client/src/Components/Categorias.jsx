@@ -3,6 +3,7 @@ import "./Categorias.css";
 import useSanitize from "../hooks/useSanitize";
 import useGlobalStore from "../store/Store";
 
+
 const Categorias = () => {
   const [detalleValue, setDetalleValue] = useState("");
   const { reset } = useGlobalStore();

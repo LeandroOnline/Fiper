@@ -16,13 +16,6 @@
   width: calc(70% + 24px);
 }
 
-.tinyArea {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-between;
-}
-
 .graphs {
   display: flex;
   flex-direction: column;

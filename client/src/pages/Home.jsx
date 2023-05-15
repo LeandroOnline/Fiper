@@ -29,6 +29,7 @@ const Home = () => {
           <div className="tinys">
             <TinyArea />
             <TinyArea />
+            <TinyArea />
           </div>
           <ListInputs />
         </>

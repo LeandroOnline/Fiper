@@ -1,6 +1,5 @@
 import Categorias from "./Categorias";
 import axiosAdd from "../api/axiosAdd";
-import { memo } from "react";
 import useGlobalStore from "../store/Store";
 
 const Input = () => {
