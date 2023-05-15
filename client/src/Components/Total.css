@@ -1,6 +1,6 @@
 .totalcontainer {
   border-width: 2px;
-  border-style: solid;
+  /* border-style: solid; */
   border-radius: 5px;
   padding: 10px;
   display: flex;
@@ -8,6 +8,7 @@
   align-items: center;
   gap: 15px;
   width: calc(100%-20px);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .total{

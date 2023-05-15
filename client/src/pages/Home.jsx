@@ -7,15 +7,16 @@ import useGlobalStore from "../store/Store";
 import "./Home.css";
 import DolarBlue from "../components/DolarBlue";
 import Interest from "../components/Interest";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 const Home = () => {
   const login = useGlobalStore((state) => state.login);
 
-
-
   console.log("Home");
   return (
     <div className="homecontainer">
+      <Header />
       {login ? (
         <>
           <div className="inputsGraph">
@@ -31,13 +32,14 @@ const Home = () => {
           </div>
           <div className="tinys">
             <DolarBlue />
-            <Interest/>
+            <Interest />
           </div>
           <ListInputs />
         </>
       ) : (
         <>Usuario no Logueado</>
       )}
+      <Footer />
     </div>
   );
 };

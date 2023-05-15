@@ -1,11 +1,11 @@
 .listcontainer {
   border-width: 2px;
-  border-style: solid;
   border-radius: 5px;
   padding: 10px;
   width: calc(70% + 24px);
   height: 300px;
   overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .listElement {

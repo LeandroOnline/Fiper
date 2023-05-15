@@ -1,0 +1,25 @@
+.footerContainer {
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgb(0, 0, 0, 0.5));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  gap: 30px;
+  backdrop-filter: blur(5px);
+
+}
+
+.footerContainer p,
+a {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.footerIcons {
+  width: 30px;
+  filter: invert();
+  opacity: 30%;
+}
