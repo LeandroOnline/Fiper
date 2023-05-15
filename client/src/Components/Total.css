@@ -5,6 +5,7 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 15px;
   width: calc(100%-20px);
 }
@@ -19,13 +20,20 @@
    filter: invert();
    width: 50px;
 }
+.porcentimg{
+   filter: invert();
+   width: 30px;
+}
 
 .porcentcontainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 15px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  background-color: rgba(240, 248, 255, 0.1);
+  border-radius: 5px;
+  padding: 15px;
 }
 
 .porcentcontainer input {
@@ -40,4 +48,12 @@
 
 .porcentcontainer input:focus {
   outline: none;
+}
+
+.circleValue{
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   gap: 15px;
 }
