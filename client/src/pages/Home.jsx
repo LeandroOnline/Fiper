@@ -4,7 +4,7 @@ import Input from "../components/Input";
 import ListInputs from "../components/ListInputs";
 import Total from "../components/Total";
 import useGlobalStore from "../store/Store";
-import TinyArea from "../components/TinyArea";
+import TinyArea from "../components/TinyAreaInputPorcent";
 import "./Home.css";
 import DolarBlue from "../components/DolarBlue";
 

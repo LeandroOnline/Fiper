@@ -38,3 +38,18 @@ button {
 .negative {
   color: red;
 }
+
+.buttons{
+  display: flex;
+  gap: 15px;
+}
+
+.homeformList {
+  display: flex;
+  flex-direction: column;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 5px;
+  padding: 10px;
+  width: calc(100%-20px);
+}
