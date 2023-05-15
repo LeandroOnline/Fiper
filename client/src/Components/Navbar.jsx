@@ -3,10 +3,14 @@ import "./Navbar.css";
 import useGlobalStore from "../store/Store";
 import axiosDeleteUser from "../api/axiosDeleteUser";
 import axiosLogout from "../api/axiosLogout";
-import { memo } from "react";
+import { memo, useState } from "react";
 import { shallow } from "zustand/shallow";
 
+import flechas from "../assets/flechas.png";
+import flechasizq from "../assets/flechaizq.png";
+
 const Navbar = memo(() => {
+  const [menu, setMenu] = useState(true);
   const { setLogged, login } = useGlobalStore(
     (state) => ({
       logged: state.logged,
@@ -36,24 +40,41 @@ const Navbar = memo(() => {
 
   return (
     <div className="navcontainer">
-      <h1 className="title">~ FIPE ~</h1>
       <div className="menu">
+        <p className="title" onClick={() => setMenu(!menu)}>
+          FIPE
+          {menu ? (
+            <img className="menuflechas" src={flechasizq} alt="" />
+          ) : (
+            <img className="menuflechas" src={flechas} alt="" />
+          )}
+        </p>
+        <div className={menu ? "blur" : "hide"}></div>
         {login ? (
           <>
             <div
               onClick={() => {
                 logout();
               }}
-              className="navbutton"
+              className={menu ? "navbutton" : "hide"}
             >
               Salir
             </div>
-            <div onClick={() => deleteUser()} className="navbutton">Eliminar Usuario</div>
+            <div
+              onClick={() => deleteUser()}
+              className={menu ? "navbutton" : "hide"}
+            >
+              Configuracion
+            </div>
           </>
         ) : (
           <>
-            <Link to="/login" className="navbutton">Entrar</Link>
-            <Link to="/signup" className="navbutton">Registrarse</Link>
+            <Link to="/login" className={menu ? "navbutton" : "hide"}>
+              Entrar
+            </Link>
+            <Link to="/signup" className={menu ? "navbutton" : "hide"}>
+              Registrarse
+            </Link>
           </>
         )}
       </div>
