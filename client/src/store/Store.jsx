@@ -28,15 +28,16 @@ const useGlobalStore = create((set, get) => ({
   reset: false,
   login: Cookies.get("user"),
   inputs: [],
+  profits: [],
+  losses: [],
+  netPerMonth: [],
+  setNetPerMonth: (net) => set({ netPerMonth: net }),
+  setReset: () => set({ reset: !get().reset }),
+  setProfitsAndLosses: (profit, loss) => set({ profits: profit, losses: loss }),
+  setLogged: () => set({ login: false }),
   setLogin: () => set({ login: Cookies.get("user") }),
   storeGetAllInputs: async () =>
     await axiosGetAllInputs().then((data) => set({ inputs: data })),
-  setLogged: () => set({ login: false }),
-  setReset: () => {
-    set({ reset: !get().reset });
-  },
 }));
-
-console.log("Store");
 
 export default useGlobalStore;

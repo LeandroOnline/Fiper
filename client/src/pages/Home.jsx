@@ -32,6 +32,7 @@ const Home = () => {
           </div>
           <div className="tinys">
             <DolarBlue />
+            <DolarBlue />
             <Interest />
           </div>
           <ListInputs />

@@ -1,8 +1,3 @@
-//Entrada-> inputs = [{date,detalle,input,tipo},{}]
-//Salida->  {
-//     "timePeriod": "2006 Q3",
-//     "value": 1
-//   },
 const format = (inputs) => {
   const monthNumber = [
     "Enero",
@@ -20,22 +15,22 @@ const format = (inputs) => {
   ];
 
   const data = []; // data sin formato
-  const initialValue = Array.from({ length: 12 }, () => 0);
+  const netPerMonth = Array.from({ length: 12 }, () => 0);
 
   // sumo los ingresos y egresos para tener el valor neto por mes
   inputs.map((input) => {
     const date = new Date(input.date);
     const month = date.getMonth();
-    initialValue[month] += input.input;
+    netPerMonth[month] += input.input;
   });
 
   // formateo data con los valores neto
   for (let i = 0; i < 13; i++) {
     data[i] = {
       timePeriod: monthNumber[i],
-      value: initialValue[i],
+      value: netPerMonth[i],
     };
   }
-  return data;
+  return { data, netPerMonth };
 };
 export default format;
