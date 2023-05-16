@@ -7,11 +7,10 @@ import { useEffect } from "react";
 
 const ColumnGraph = () => {
   const { inputs, setProfitsAndLosses } = useGlobalStore();
-  const data = columnDataFormat(inputs);
+  const { data, profits, losses } = columnDataFormat(inputs);
   console.log("ColumnGraph");
-
   useEffect(() => {
-    setProfitsAndLosses()
+    setProfitsAndLosses(profits, losses);
   }, [inputs]);
 
   return (
