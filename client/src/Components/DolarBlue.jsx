@@ -16,8 +16,10 @@ const DolarBlue = () => {
     <div className="dolarcontainer">
       <img src={dolares} alt="" />
       <div>
-        <p>Dolar Blue: ${dolar}</p>
-        <p>Neto en U$D: {totalEnUSD}</p>
+        <div>
+          <p className="parr">Dolar Blue: </p> <p className="usd">${dolar}</p>
+        </div>
+        <p className="parr">Neto en U$D: {totalEnUSD}</p>
       </div>
     </div>
   );

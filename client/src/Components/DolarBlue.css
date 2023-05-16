@@ -1,6 +1,5 @@
 .dolarcontainer {
     border-width: 2px;
-    /* border-style: solid; */
     border-radius: 5px;
     padding: 5px;
     width: 100%;
@@ -13,7 +12,13 @@
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-.dolarcontainer p{
+.usd{
+    font-size: 25px;
+    text-align: center;
+    color: rgb(165, 165, 165);
+}
+
+.parr{
     text-align: center;
     font-size: 20px;
 }

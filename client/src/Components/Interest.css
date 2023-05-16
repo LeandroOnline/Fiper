@@ -1,6 +1,5 @@
 .interescontainer {
   border-width: 2px;
-  /* border-style: solid; */
   border-radius: 5px;
   padding: 5px;
   width: 100%;
@@ -22,7 +21,7 @@
 }
 
 .interestInputs {
-  width: 100px;
+  width: 70px;
   display: flex;
   flex-direction: column;
   gap: 10px;

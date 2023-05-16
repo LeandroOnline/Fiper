@@ -41,14 +41,14 @@ const Interest = () => {
             <input
               className="interestInputs"
               type="text"
-              placeholder="Cap. inicial"
+              placeholder="Cap.Inicial"
               value={capitalInicial ? capitalInicial : ""}
               onChange={(e) => setCapitalInicial(e.target.value)}
             />
             <input
               className="interestInputs"
               type="text"
-              placeholder="Cant. x Año"
+              placeholder="Cant.xAño"
               value={periodos ? periodos : ""}
               onChange={(e) => setPeriodos(e.target.value)}
             />
