@@ -8,15 +8,17 @@ a:hover{
 
 button{
   border:none;
-  background-color: rgb(83,30,30);
+  background-color: rgb(39,37,59);
   border-radius: 5px;
   padding-left: 5px;
   padding-right: 5px;
   cursor: pointer;
+  transition: 0.5s;
 }
 
 button:hover{
-  background-color: rgba(83, 30, 30, 0.481);
+  background-color: rgb(55, 52, 83);
+  transition: 0.5s;
 }
 
 input{

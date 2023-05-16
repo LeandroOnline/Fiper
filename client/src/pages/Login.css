@@ -1,7 +1,37 @@
-.logincontainer{
+.logincontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 150px);
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
     border-width: 2px;
-    border-style: solid;
     border-radius: 5px;
-    padding: 10px;
-    border-color: white;
+    padding: 15px;
+    width: 300px;
+    height: 400px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    gap: 15px;
+}
+
+.login form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.buttonforms{
+    display: flex;
+    flex-direction: row;
+}
+
+.imglogin{
+    width: 200px;
 }

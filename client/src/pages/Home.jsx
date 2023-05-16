@@ -57,7 +57,7 @@ const Home = () => {
               <img className="planDeNegocios" src={documento} alt="" />
             </div>
             <div className="Utilities">
-              <p className="subtitle"> Analiza y optimiza tus ingresos</p>
+              <p className="subtitle"> Calcula interes compuesto</p>
               <img className="planDeNegocios" src={ganancia} alt="" />
             </div>
           </div>

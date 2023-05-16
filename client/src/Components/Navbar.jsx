@@ -41,7 +41,10 @@ const Navbar = memo(() => {
   return (
     <div className="navcontainer">
       <div className="menu">
-        <p className={menu? "title" : "titleTransparent"} onClick={() => setMenu(!menu)}>
+        <p
+          className={menu ? "title" : "titleTransparent"}
+          onClick={() => setMenu(!menu)}
+        >
           FIPE
           {menu ? (
             <img className="menuflechas" src={flechasizq} alt="" />
@@ -50,6 +53,15 @@ const Navbar = memo(() => {
           )}
         </p>
         <div className={menu ? "blur" : "hide"}></div>
+        <Link
+          to="/"
+          onClick={() => {
+            logout();
+          }}
+          className={menu ? "navbutton" : "hide"}
+        >
+          DashBoard
+        </Link>
         {login ? (
           <>
             <div
