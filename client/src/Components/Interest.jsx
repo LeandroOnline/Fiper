@@ -16,10 +16,18 @@ const Interest = () => {
     periodos,
     tiempo
   ) {
-    const tasaInteresDecimal = tasaInteres / 100;
-    const factorCapitalizacion = 1 + tasaInteresDecimal / periodos;
-    const totalAcumulado =
-      capitalInicial * Math.pow(factorCapitalizacion, periodos * tiempo);
+    let totalAcumulado = 0;
+    if (tiempo) {
+      const tasaInteresDecimal = tasaInteres / 100;
+      const factorCapitalizacion = 1 + tasaInteresDecimal / periodos;
+      totalAcumulado =
+        capitalInicial * Math.pow(factorCapitalizacion, periodos * tiempo);
+    } else {
+      const tasaInteresMensual = tasaInteresAnual / 12 / 100;
+      totalAcumulado =
+        capitalInicial * Math.pow(1 + tasaInteresMensual, periodos);
+    }
+
     return totalAcumulado.toFixed(2);
   }
 
@@ -48,7 +56,7 @@ const Interest = () => {
             <input
               className="interestInputs"
               type="text"
-              placeholder="Cant.xAño"
+              placeholder="Meses"
               value={periodos ? periodos : ""}
               onChange={(e) => setPeriodos(e.target.value)}
             />
@@ -70,7 +78,7 @@ const Interest = () => {
             />
           </div>
         </div>
-        <p>={total}</p>
+        <p className="calculadoraTextResult">={total}</p>
       </div>
     </div>
   );

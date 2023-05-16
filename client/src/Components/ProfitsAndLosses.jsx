@@ -28,10 +28,16 @@ const ProfitsAndLosses = () => {
       <img src={porcentaje2} alt="" />
       <div className="difference">
         <h1>Diferencia: </h1>
-        <h2 className={profitsIncrement>=0? "porcentPositive" : "porcentNegative"}>
-          {profitsIncrement > 0
-            ? "+%" + profitsIncrement
-            : "-%" + profitsIncrement * -1}
+        <h2
+          className={
+            profitsIncrement >= 0 ? "porcentPositive" : "porcentNegative"
+          }
+        >
+          {profitsIncrement
+            ? profitsIncrement >= 0
+              ? "+%" + profitsIncrement
+              : "-%" + profitsIncrement * -1
+            : "-"}
         </h2>
         <h3>En relacion al mes anterior</h3>
       </div>

@@ -41,7 +41,6 @@ const Home = () => {
       ) : (
         <>Usuario no Logueado</>
       )}
-      {/* <Footer /> */}
     </div>
   );
 };
