@@ -1,6 +1,7 @@
 import Categorias from "./Categorias";
 import axiosAdd from "../api/axiosAdd";
 import useGlobalStore from "../store/Store";
+import "./Input.css"
 
 const Input = () => {
   const setReset = useGlobalStore((state)=>state.setReset);
