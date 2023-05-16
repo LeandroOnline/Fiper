@@ -8,7 +8,7 @@ import dolares from "../assets/dolar.png";
 
 const DolarBlue = () => {
   const [dolar, setDolar] = useState("");
-  const dolarBlueHoy = dolarBlue().then((data) => setDolar(data));
+  dolarBlue().then((data) => setDolar(data));
   const inputs = useGlobalStore((state) => state.inputs);
   const totalEnUSD = (totalNeto(inputs) / dolar).toFixed(2);
 
