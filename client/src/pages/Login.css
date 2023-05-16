@@ -1,37 +1,50 @@
 .logincontainer {
   display: flex;
+  border-width: 2px;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: calc(100vh - 150px);
 }
 
-.login{
-    display: flex;
-    flex-direction: column;
-    border-width: 2px;
-    border-radius: 5px;
-    padding: 15px;
-    width: 300px;
-    height: 400px;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.4);
-    gap: 15px;
+.login {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  padding: 15px;
+  width: 300px;
+  height: 450px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  gap: 15px;
+  transition: 1s;
 }
 
-.login form{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.login:hover {
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.4);
+  transition: 1s;
 }
 
-.buttonforms{
-    display: flex;
-    flex-direction: row;
+.login form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.imglogin{
-    width: 200px;
+.buttonforms {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.imglogin {
+  width: 200px;
+}
+
+.login input {
+  background-color: rgba(255, 255, 255, 0.134);
+  border-radius: 5px;
+  padding: 15px;
 }

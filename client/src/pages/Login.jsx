@@ -5,7 +5,7 @@ import API from "../api/apiUrl";
 import useVerify from "../hooks/useVerify";
 import useGlobalStore from "../store/Store";
 
-import log from "../assets/login.png"
+import log from "../assets/login.png";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -56,21 +56,19 @@ const Login = () => {
   return (
     <div className="logincontainer">
       {login ? (
-        <>Ya estas Logueado</>
+        <div className="login">Ya estas Logueado</div>
       ) : (
-        <div className="login">
-          <form onSubmit={(e) => Log(e)}>
-            <img className="imglogin" src={log} alt="" />
-            <input placeholder="email" name="email" />
-            <input placeholder="contraseña" name="password" type="password" />
-            <div className="buttonforms">
-              <button type="submit">Ingresar</button>
-              <Link to="/signup">
-                <button>Registrarse</button>
-              </Link>
-            </div>
-          </form>
-        </div>
+        <form className="login" onSubmit={(e) => Log(e)}>
+          <img className="imglogin" src={log} alt="" />
+          <input placeholder="email" name="email" />
+          <input placeholder="contraseña" name="password" type="password" />
+          <div className="buttonforms">
+            <button type="submit">Ingresar</button>
+            <Link to="/signup">
+              <button>Registrarse</button>
+            </Link>
+          </div>
+        </form>
       )}
     </div>
   );
