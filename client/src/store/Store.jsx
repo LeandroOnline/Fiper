@@ -32,8 +32,8 @@ const useGlobalStore = create((set, get) => ({
   losses: [],
   netPerMonth: [],
   setNetPerMonth: (net) => set({ netPerMonth: net }),
-  setReset: () => set({ reset: !get().reset }),
   setProfitsAndLosses: (profit, loss) => set({ profits: profit, losses: loss }),
+  setReset: () => set({ reset: !get().reset }),
   setLogged: () => set({ login: false }),
   setLogin: () => set({ login: Cookies.get("user") }),
   storeGetAllInputs: async () =>

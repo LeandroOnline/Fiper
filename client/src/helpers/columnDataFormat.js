@@ -13,8 +13,10 @@ const columnDataFormat = (inputs) => {
     "Noviembre",
     "Diciembre",
   ];
-  // 12 (0-11) ingresos y 12 (12-23) egresos = 12 meses = 24 datos
+
   const totalPerMonth = Array.from({ length: 24 }, () => 0);
+  const profits = Array.from({ length: 12 }, () => 0);
+  const losses = Array.from({ length: 12 }, () => 0);
 
   inputs.map((input) => {
     let date = new Date(input.date);
@@ -22,6 +24,7 @@ const columnDataFormat = (inputs) => {
 
     if (input.input >= 0) {
       totalPerMonth[month] += input.input;
+      profits.push(input.input);
     } else {
       totalPerMonth[month + 12] += input.input * -1;
     }
