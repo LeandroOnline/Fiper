@@ -9,6 +9,7 @@ import DolarBlue from "../components/DolarBlue";
 import Interest from "../components/Interest";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import ProfitsAndLosses from "../components/ProfitsAndLosses";
 
 const Home = () => {
   const login = useGlobalStore((state) => state.login);
@@ -31,7 +32,7 @@ const Home = () => {
             </div>
           </div>
           <div className="tinys">
-            <DolarBlue />
+            <ProfitsAndLosses />
             <DolarBlue />
             <Interest />
           </div>

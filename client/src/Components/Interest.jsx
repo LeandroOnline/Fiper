@@ -5,8 +5,6 @@ import "./Interest.css";
 import interes from "../assets/interes.png";
 
 const Interest = () => {
-  //   const inputs = useGlobalStore((state) => state.inputs);
-  //   const totalEnUSD = (totalNeto(inputs) / dolar).toFixed(2);
   const [capitalInicial, setCapitalInicial] = useState();
   const [tasaInteresAnual, setTasaInteresAnual] = useState();
   const [periodos, setPeriodos] = useState();
