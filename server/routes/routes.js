@@ -30,8 +30,8 @@ router.route("/delete/:id").delete(loginValidate, deleteItem);
 router.route("/deleteuser").delete(loginValidate, deleteUser);
 
 // deben tener permisos de administrador
-router.route("/getusers").get(getusers);
-router.route("/get").get(get);
-router.route("/del").delete(del);
+// router.route("/getusers").get(getusers);
+// router.route("/get").get(get);
+// router.route("/del").delete(del);
 
 module.exports = router;
