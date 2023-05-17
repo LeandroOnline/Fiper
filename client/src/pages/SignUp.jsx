@@ -1,6 +1,9 @@
 import axiosSign from "../api/axiosSign";
 import { useNavigate } from "react-router-dom";
 import useVerify from "../hooks/useVerify";
+import "./SignUp.css";
+
+import proteger from "../assets/proteger.png";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -22,12 +25,15 @@ const SignUp = () => {
   };
 
   return (
-    <div>
-      <p>Su contraseña debe contener como minimo: </p>
-      <p>- Siete caracteres</p>
-      <p>- Una letra mayuscula</p>
-      <p>- Un numero</p>
-      <form onSubmit={(e) => Sign(e)}>
+    <div className="signcontainer">
+      <form className="sign" onSubmit={(e) => Sign(e)}>
+        <img className="imgsign" src={proteger} alt="" />
+        <div className="SignAllText">
+          <p className="SignText"> Su contraseña debe contener: </p>
+          <p className="SignText">- Minimo siete caracteres</p>
+          <p className="SignText">- Al menos una mayuscula</p>
+          <p className="SignText">- Al menos un numero</p>
+        </div>
         <input placeholder="email" name="email" required />
         <input
           placeholder="contraseña"

@@ -55,9 +55,6 @@ const Navbar = memo(() => {
         <div className={menu ? "blur" : "hide"}></div>
         <Link
           to="/"
-          onClick={() => {
-            logout();
-          }}
           className={menu ? "navbutton" : "hide"}
         >
           DashBoard

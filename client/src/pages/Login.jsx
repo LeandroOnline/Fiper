@@ -56,10 +56,11 @@ const Login = () => {
   return (
     <div className="logincontainer">
       {login ? (
-        <div className="login">Ya estas Logueado</div>
+        <div className="login">Ya has ingresado</div>
       ) : (
         <form className="login" onSubmit={(e) => Log(e)}>
           <img className="imglogin" src={log} alt="" />
+          <p className="SignText">Inicio de Sesión</p>
           <input placeholder="email" name="email" />
           <input placeholder="contraseña" name="password" type="password" />
           <div className="buttonforms">
