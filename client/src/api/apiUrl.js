@@ -1,3 +1,3 @@
-const API = "https://fipe-fa4i.vercel.app/api";
+const API = "https://fipe-cn67.vercel.app/";
 
 export default API;
