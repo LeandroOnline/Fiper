@@ -71,7 +71,7 @@ const Navbar = memo(() => {
               onClick={() => deleteUser()}
               className={menu ? "navbutton" : "hide"}
             >
-              Configuracion
+              Elim.Cuenta
             </div>
           </>
         ) : (
