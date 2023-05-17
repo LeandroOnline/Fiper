@@ -70,7 +70,7 @@ controllers.login = async (req, res) => {
           .cookie("user", token, {
             maxAge: 86400000,
             secure: true,
-            domain: ".vercel.app",
+            domain: "",
             sameSite: "none",
             path: "/",
           })
