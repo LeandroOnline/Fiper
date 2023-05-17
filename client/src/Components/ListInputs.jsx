@@ -40,6 +40,7 @@ const ListInputs = () => {
   return (
     <div className="listcontainer">
       Entradas:
+      <button onClick={() => clearTrue()}>Limpiar todo</button>
       {inputs.map((element, key) => (
         <div key={key} className="listElement">
           <button onClick={() => deleteItem(element._id)}>
