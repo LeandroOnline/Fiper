@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar.jsx";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
@@ -8,7 +8,6 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 function App() {
-
   return (
     <div className="App">
       <BrowserRouter>
