@@ -78,3 +78,58 @@
   width: 60%;
   height: 100%;
 }
+
+@media (max-width: 915px) {
+  .tinys,
+  .inputsGraph,
+  .listcontainer {
+    width: 90%;
+  }
+  .graphs {
+    width: 100%;
+  }
+  .inputsGraph {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .inputTotal {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .tinys {
+    width: 90%;
+    flex-direction: column;
+  }
+  .homeform {
+    justify-content: space-evenly;
+    height: 270px;
+  }
+  .graficacontainer,
+  .areacontainer {
+    /* height: 400px; */
+    width: 100%;
+  }
+}
+@media (max-width: 550px) {
+  .inputTotal {
+    flex-direction: column;
+  }
+  .homeform,
+  .totalcontainer {
+    width: 100%;
+  }
+  .menu {
+    flex-direction: column;
+    top: 10px;
+  }
+  .blur,
+  .menu {
+    padding: 0;
+  }
+  .footerContainer {
+    padding: 15px;
+  }
+}
