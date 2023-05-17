@@ -37,7 +37,7 @@ const Interest = () => {
     periodos,
     tiempo
   );
-  console.log("Total acumulado:", total);
+  console.log("total tipo : "+ typeof(total));
 
   return (
     <div className="interescontainer">
@@ -78,7 +78,7 @@ const Interest = () => {
             />
           </div>
         </div>
-        <p className="calculadoraTextResult">={total}</p>
+        <p className="calculadoraTextResult">={total==="NaN"? 0 : total}</p>
       </div>
     </div>
   );
