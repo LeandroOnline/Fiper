@@ -72,6 +72,7 @@ controllers.login = async (req, res) => {
             secure: true,
             domain: ".vercel.app",
             sameSite: "none",
+            path: "/",
           })
           .send("Logged");
         // La cookie expira en 24hs
