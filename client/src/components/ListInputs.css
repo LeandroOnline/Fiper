@@ -1,0 +1,55 @@
+.listcontainer {
+  border-width: 2px;
+  border-radius: 5px;
+  padding: 15px;
+  width: calc(70% + 24px);
+  height: 300px;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.listElement {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  margin: 5px 0 5px 0;
+  padding: 10px;
+}
+
+.listElement:hover {
+  background-color: rgba(255, 255, 255, 0.078);
+  transition: 0.5s;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img {
+  width: 20px;
+  filter: invert();
+}
+
+.positive {
+  color: green;
+}
+.negative {
+  color: red;
+}
+
+.buttons{
+  display: flex;
+  gap: 15px;
+}
+
+.homeformList {
+  display: flex;
+  flex-direction: column;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 5px;
+  padding: 10px;
+  width: calc(100%-20px);
+}
