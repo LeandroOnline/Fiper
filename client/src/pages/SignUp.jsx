@@ -4,15 +4,19 @@ import useVerify from "../hooks/useVerify";
 import "./SignUp.css";
 
 import proteger from "../assets/proteger.png";
+import { useState } from "react";
 
 const SignUp = () => {
   const navigate = useNavigate();
+  const [pass1, setPass1] = useState("");
+  const [pass2, setPass2] = useState("");
 
   const Sign = async (e) => {
     e.preventDefault();
+    console.log(e)
     const email = e.target.email.value;
     const password = e.target.password.value;
-    const verify = useVerify(email, password);
+    const verify = useVerify(email, password) && pass1 === pass2;
     if (verify) {
       const send = {
         email: email,
@@ -34,12 +38,22 @@ const SignUp = () => {
           <p className="SignText">- Al menos una mayuscula</p>
           <p className="SignText">- Al menos un numero</p>
         </div>
-        <input placeholder="email" name="email" required />
+        <input placeholder="... email" name="email" required />
         <input
-          placeholder="contraseña"
+          placeholder="... contraseña"
           name="password"
           type="password"
           required
+          value={pass1}
+          onChange={(e) => setPass1(e.target.value)}
+        />
+        <input
+          placeholder="... repita la contraseña"
+          name="password2"
+          type="password"
+          required
+          value={pass2}
+          onChange={(e) => setPass2(e.target.value)}
         />
         <button type="submit">Registrarse</button>
       </form>

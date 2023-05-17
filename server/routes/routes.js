@@ -25,12 +25,12 @@ router.route("/login").post(clearCookies, verifySyntax, login);
 router.route("/logout").get(logout);
 router.route("/update/:id").put(loginValidate, Sanitize, update);
 router.route("/getall").get(loginValidate, getall);
-router.route("/getusers").get(getusers);
 router.route("/deleteall").delete(loginValidate, deleteall);
 router.route("/delete/:id").delete(loginValidate, deleteItem);
 router.route("/deleteuser").delete(loginValidate, deleteUser);
 
 // deben tener permisos de administrador
+router.route("/getusers").get(getusers);
 router.route("/get").get(get);
 router.route("/del").delete(del);
 

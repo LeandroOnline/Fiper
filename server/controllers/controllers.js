@@ -126,15 +126,6 @@ controllers.getall = async (req, res) => {
   }
 };
 
-controllers.getusers = async (req, res) => {
-  try {
-    const all = await User.find();
-    res.json(all);
-  } catch (err) {
-    res.status(500).send(err);
-  }
-};
-
 controllers.deleteall = async (req, res) => {
   try {
     // Obtenemos el usuario
@@ -195,5 +186,14 @@ controllers.del = async (req, res) => {
   await Inputs.deleteMany({});
   await User.deleteMany({});
   res.send("All inputs and users deleted");
+};
+
+controllers.getusers = async (req, res) => {
+  try {
+    const all = await User.find();
+    res.json(all);
+  } catch (err) {
+    res.status(500).send(err);
+  }
 };
 module.exports = controllers;
