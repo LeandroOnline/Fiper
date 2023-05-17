@@ -35,12 +35,12 @@ const ListInputs = () => {
     storeGetAllInputs();
   }, [reset]);
 
-  console.log("ListInputs");
-
   return (
     <div className="listcontainer">
       Entradas:
-      <button onClick={() => clearTrue()}>Limpiar todo</button>
+      {inputs.length>0 ? (
+        <button onClick={() => clearTrue()}>Limpiar todo</button>
+      ) : null}
       {inputs.map((element, key) => (
         <div key={key} className="listElement">
           <button onClick={() => deleteItem(element._id)}>
@@ -81,7 +81,9 @@ const ListInputs = () => {
           </form>
         </>
       ) : null}
-      <button onClick={() => clearTrue()}>Limpiar todo</button>
+      {inputs.length>0 ? (
+        <button onClick={() => clearTrue()}>Limpiar todo</button>
+      ) : null}
     </div>
   );
 };

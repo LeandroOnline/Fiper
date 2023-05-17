@@ -10,11 +10,8 @@ const Input = () => {
     e.preventDefault();
     await axiosAdd(e);
     setReset();
-    console.log("Input -> Post");
     document.getElementById("myForm").reset();
   };
-
-  console.log("Input");
 
   return (
     <form className="homeform" onSubmit={(e) => post(e)} id="myForm">

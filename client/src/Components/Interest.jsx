@@ -37,7 +37,6 @@ const Interest = () => {
     periodos,
     tiempo
   );
-  console.log("total tipo : "+ typeof(total));
 
   return (
     <div className="interescontainer">

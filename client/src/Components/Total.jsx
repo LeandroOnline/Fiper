@@ -21,8 +21,6 @@ const Total = memo(() => {
     }
   };
 
-  console.log("Total");
-
   return (
     <div className="totalcontainer">
       <div className="total">

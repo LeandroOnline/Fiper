@@ -17,7 +17,6 @@ import ganancia from "../assets/ganancia.png";
 const Home = () => {
   const login = useGlobalStore((state) => state.login);
 
-  console.log("Home");
   return (
     <div className="homecontainer">
       {login ? (

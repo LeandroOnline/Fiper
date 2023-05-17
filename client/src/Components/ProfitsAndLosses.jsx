@@ -8,8 +8,6 @@ const ProfitsAndLosses = () => {
   const profits = useGlobalStore((state) => state.profits);
   const [profitsIncrement, setProfitsIncrement] = useState(0);
 
-  console.log("Profits%");
-
   const porcentProfits = (profits) => {
     const lastMonth = profits[profits.length - 1];
     const previousMonth = profits[profits.length - 2];

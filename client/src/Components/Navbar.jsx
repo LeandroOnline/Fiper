@@ -36,8 +36,6 @@ const Navbar = memo(() => {
       setLogged();
     });
 
-  console.log("Navbar");
-
   return (
     <div className="navcontainer">
       <div className="menu">
