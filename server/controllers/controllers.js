@@ -70,7 +70,7 @@ controllers.login = async (req, res) => {
           .cookie("user", token, {
             maxAge: 86400000,
             secure: true,
-            domain: "fipes.vercel.app",
+            domain: ".fipes.vercel.app",
           })
           .send("Logged");
         // La cookie expira en 24hs
