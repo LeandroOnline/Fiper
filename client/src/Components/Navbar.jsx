@@ -43,7 +43,7 @@ const Navbar = memo(() => {
           className={menu ? "title" : "titleTransparent"}
           onClick={() => setMenu(!menu)}
         >
-          FIPE
+          FIPES
           {menu ? (
             <img className="menuflechas" src={flechasizq} alt="" />
           ) : (
