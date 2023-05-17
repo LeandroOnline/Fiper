@@ -66,7 +66,7 @@ controllers.login = async (req, res) => {
       if (passwordOk) {
         const payload = { id: found._id };
         const token = jwt.sign(payload, process.env.SECRET_KEY);
-        res.cookie("user", token, { maxAge: 86400000 }).send("Logged");
+        res.cookie("user", token, { maxAge: 86400000 }).res.header('Access-Control-Allow-Credentials', 'true').send("Logged");
         // La cookie expira en 24hs
       } else {
         res.send("Incorrect pasword");
