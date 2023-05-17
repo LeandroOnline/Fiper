@@ -29,7 +29,7 @@ const Login = () => {
           }
         )
         .then((data) =>
-          data.data === "OK"
+          data.data === "Logged"
             ? Logged()
             : data.data === "Incorrect pasword"
             ? window.alert("Contraseña incorrecta, ingresa nuevamente")
