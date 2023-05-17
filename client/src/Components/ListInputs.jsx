@@ -8,13 +8,15 @@ import axiosUpdateItem from "../api/axiosUpdateItem";
 
 import modify from "../assets/modificar.png";
 import del from "../assets/eliminar.png";
+import Search from "./Search";
 
 const ListInputs = () => {
   const [modificar, setModificar] = useState(false);
   const [idElemento, setIdElemento] = useState("");
   const [send, setSend] = useState(false);
 
-  const { inputs, reset, setReset, storeGetAllInputs } = useGlobalStore();
+  const { inputs, reset, setReset, storeGetAllInputs, filtered } =
+    useGlobalStore();
 
   const clearTrue = async () => {
     if (window.confirm("SEGURO queres eliminar todas las Entradas?"))
@@ -33,15 +35,18 @@ const ListInputs = () => {
   };
   useEffect(() => {
     storeGetAllInputs();
-  }, [reset]);
+  }, [reset, filtered]);
+
+  const search = filtered ? filtered : inputs;
 
   return (
     <div className="listcontainer">
       Entradas:
-      {inputs.length>0 ? (
+      <Search />
+      {inputs.length > 0 ? (
         <button onClick={() => clearTrue()}>Limpiar todo</button>
       ) : null}
-      {inputs.map((element, key) => (
+      {search.map((element, key) => (
         <div key={key} className="listElement">
           <button onClick={() => deleteItem(element._id)}>
             <img className="img" src={del} alt="" />
@@ -81,7 +86,7 @@ const ListInputs = () => {
           </form>
         </>
       ) : null}
-      {inputs.length>0 ? (
+      {inputs.length > 0 ? (
         <button onClick={() => clearTrue()}>Limpiar todo</button>
       ) : null}
     </div>
