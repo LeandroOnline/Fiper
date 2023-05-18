@@ -9,7 +9,8 @@ const app = express();
 // app.use(cors());
 app.use(
   cors({
-    origin: "https://fipes.vercel.app",
+    // origin: "https://fipes.vercel.app",
+    origin: "http://localhost:5173",
     credentials: true,
   })
 );

@@ -69,9 +69,9 @@ controllers.login = async (req, res) => {
         res
           .cookie("user", token, {
             maxAge: 86400000,
-            secure: true,
-            domain: "fipes.vercel.app",
-            sameSite: "lax",
+            // secure: true,
+            // domain: "fipes.vercel.app",
+            // sameSite: "lax",
             path: "/",
           })
           .send("Logged");

@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
 
-// Describo como es el dato que ingresa con un Schema
-
 const InputsSchema = new mongoose.Schema({
   tipo: {
     type: String,
