@@ -71,7 +71,7 @@ controllers.login = async (req, res) => {
             maxAge: 86400000,
             secure: true,
             domain: "fipes.vercel.app",
-            sameSite: "none",
+            sameSite: "lax",
             path: "/",
           })
           .send("Logged");
