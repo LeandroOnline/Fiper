@@ -5,7 +5,7 @@
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "https://fipe-cn67.vercel.app/api"
+          "value": "https://.server.fipe.savat.ar/api"
         },
         {
           "key": "Access-Control-Allow-Credentials",
