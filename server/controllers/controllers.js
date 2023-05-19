@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const controllers = {};
-// DB
 const Inputs = require("../models/inputs");
 const User = require("../models/user");
 
@@ -24,13 +23,6 @@ controllers.add = async (req, res) => {
   } catch (err) {
     res.status(500).send(err);
   }
-
-  // hasta el momento la tarea se crea pero sobre ningun usuario
-  // si queremos agregar un input al usuario hay dos maneras, usando findByIdAndUpdate o ingresando a los inputs y usando push, el 1er metodo seria:
-  // User.findByIdAndUpdate(
-  //      'id_del_usuario',
-  //      { $push: { inputs: { /* Propiedades de la nueva input */ } } },
-  //      { new: true }, )
 };
 
 controllers.adduser = async (req, res) => {
@@ -75,7 +67,6 @@ controllers.login = async (req, res) => {
             path: "/",
           })
           .send("Logged");
-        // La cookie expira en 24hs
       } else {
         res.send("Incorrect pasword");
       }
@@ -123,7 +114,6 @@ controllers.getall = async (req, res) => {
     const { id } = jwt.verify(req.cookies.user, process.env.SECRET_KEY);
     if (id) {
       const user = await User.findById(id).populate("inputs");
-      //populate agrega los valores de los objetId de los inputs en lugar de solo los objetId, esto me permite extraerlos y mostrarlos.
       res.json(user.inputs);
     } else {
       const all = await Inputs.find();
@@ -180,7 +170,7 @@ controllers.deleteItem = async (req, res) => {
   }
 };
 
-// CUIDADO!! agregar permisos solo para administrador
+// Admin
 // controllers.get = async (req, res) => {
 //   try {
 //     const all = await Inputs.find();
