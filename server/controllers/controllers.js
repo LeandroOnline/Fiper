@@ -66,7 +66,6 @@ controllers.login = async (req, res) => {
             // sameSite: "true",
             path: "/",
           })
-          .setHeader("Access-Control-Allow-Origin", "https://fipe.savat.ar")
           .send("Logged");
       } else {
         res.send("Incorrect pasword");
