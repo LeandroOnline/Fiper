@@ -63,9 +63,10 @@ controllers.login = async (req, res) => {
             maxAge: 86400000,
             secure: true,
             domain: ".fipe.savat.ar",
-            sameSite: "lax",
+            // sameSite: "true",
             path: "/",
           })
+          .setHeader("Access-Control-Allow-Origin", "https://fipe.savat.ar")
           .send("Logged");
       } else {
         res.send("Incorrect pasword");
