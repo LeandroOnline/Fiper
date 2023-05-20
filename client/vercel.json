@@ -5,7 +5,7 @@
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "https://serverfipe.savat.ar"
+          "value": "https://server.fipe.savat.ar"
         },
         {
           "key": "Access-Control-Allow-Credentials",
