@@ -62,8 +62,7 @@ controllers.login = async (req, res) => {
           .cookie("user", token, {
             maxAge: 86400000,
             secure: true,
-            domain: "fipe.savat.ar", // pruebo con .savat.ar nomas
-            // sameSite: "none",
+            domain: ".savat.ar", // pruebo con .savat.ar nomas
             path: "/",
           })
           .send("Logged");

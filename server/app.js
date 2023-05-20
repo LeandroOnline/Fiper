@@ -6,7 +6,7 @@ const cookieParser = require("cookie-parser");
 const app = express();
 
 //midlewares
-// app.use(cors());
+
 app.use(
   cors({
     origin: "https://fipe.savat.ar",
@@ -14,14 +14,7 @@ app.use(
     credentials: true,
   })
 );
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Credentials', 'true');
-//   next();
-// });
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', 'https://fipe.savat.ar');
-//   next();
-// });
+app.set("trust proxy", 1);
 
 app.use(cookieParser());
 app.use(express.json());
