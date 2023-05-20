@@ -63,6 +63,7 @@ controllers.login = async (req, res) => {
             maxAge: 86400000,
             secure: true,
             domain: ".fipe.savat.ar", // pruebo con .savat.ar nomas
+            sameSite: "none",
             path: "/",
           })
           .send("Logged");
