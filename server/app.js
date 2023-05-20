@@ -9,19 +9,19 @@ const app = express();
 // app.use(cors());
 app.use(
   cors({
-    origin: "https://fipe.savat.ar",
+    origin: "fipe.savat.ar",
     // origin: "http://localhost:5173",
     credentials: true,
   })
 );
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Credentials', 'true');
-  next();
-});
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://fipe.savat.ar');
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Credentials', 'true');
+//   next();
+// });
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', 'https://fipe.savat.ar');
+//   next();
+// });
 
 app.use(cookieParser());
 app.use(express.json());
