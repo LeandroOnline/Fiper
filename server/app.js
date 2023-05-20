@@ -28,6 +28,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //routes
+app.use("/", (req, res) => {res.send("Server ON")});
 app.use("/api", require("./routes/routes"));
 
 module.exports = app;
