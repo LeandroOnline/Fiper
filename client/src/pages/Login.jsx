@@ -35,7 +35,7 @@ const Login = () => {
             ? window.alert("Contraseña incorrecta, ingresa nuevamente")
             : data.data === "User not found"
             ? window.alert("Usuario no encontrado")
-            : console.log("algo salio mal: " + data)
+            : console.log(data)
         )
         .catch((err) => {
           console.log(err);
