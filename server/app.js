@@ -7,11 +7,6 @@ const app = express();
 
 //midlewares
 
-const front =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:5173"
-    : "https://fipe.savat.ar";
-
 app.use(
   cors({
     origin: ['http://localhost:5173', 'https://fipe.savat.ar'],
