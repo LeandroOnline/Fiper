@@ -70,7 +70,7 @@ controllers.login = async (req, res) => {
                 maxAge: 86400000,
                 secure: true,
                 domain: ".savat.ar",
-                sameSite: "lax",
+                sameSite: "none",
               })
               .send("Logged");
       } else {
@@ -91,6 +91,9 @@ controllers.logout = async (req, res) => {
       : res
           .cookie("user", {
             maxAge: 1,
+            secure: true,
+            domain: ".savat.ar",
+            sameSite: "none",
           })
           .send("Log out ok from production");
   } catch (err) {
