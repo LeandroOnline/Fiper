@@ -90,8 +90,8 @@ controllers.logout = async (req, res) => {
     process.env.NODE_ENV === "development"
       ? res.clearCookie("user").send("Log out ok from localhost")
       : res
-          .clearCookie("user", {
-            maxAge: 86400000,
+          .cookie("user", {
+            maxAge: 1,
             secure: true,
             domain: ".savat.ar",
             sameSite: "none",
