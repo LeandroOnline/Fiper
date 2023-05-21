@@ -91,7 +91,10 @@ controllers.logout = async (req, res) => {
       ? res.clearCookie("user").send("Log out ok")
       : res
           .clearCookie("user", {
+            maxAge: 86400000,
+            secure: true,
             domain: ".savat.ar",
+            sameSite: "none",
             path: "/",
           })
           .send("Log out ok");
