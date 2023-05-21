@@ -13,7 +13,6 @@ const Total = memo(() => {
   const Porcent = (porcent) => {
     if (porcent > 100) {
       setPorcent(porcent / 10);
-      console.log("control: " + porcent);
     } else {
       const total = totalNeto(inputs);
       const result = (porcent * total) / 100;

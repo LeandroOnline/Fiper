@@ -13,7 +13,6 @@ const SignUp = () => {
 
   const Sign = async (e) => {
     e.preventDefault();
-    console.log(e)
     const email = e.target.email.value;
     const password = e.target.password.value;
     const verify = useVerify(email, password) && pass1 === pass2;

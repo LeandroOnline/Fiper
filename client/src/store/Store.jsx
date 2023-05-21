@@ -31,5 +31,4 @@ const useGlobalStore = create(
   // )
 );
 
-console.log(Cookies.get("user"));
 export default useGlobalStore;
