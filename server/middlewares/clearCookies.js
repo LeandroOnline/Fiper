@@ -6,7 +6,7 @@ const clearCookies = async (req, res, next) => {
       : res.clearCookie("user", {
         maxAge: 86400000,
         secure: true,
-        domain: ".savat.ar",
+        domain: "fipe.savat.ar",
         sameSite: "none",
         path: "/",
         });

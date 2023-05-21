@@ -69,7 +69,7 @@ controllers.login = async (req, res) => {
               .cookie("user", token, {
                 maxAge: 86400000,
                 secure: true,
-                domain: ".savat.ar",
+                domain: "fipe.savat.ar",
                 sameSite: "none",
                 path: "/",
               })
@@ -93,7 +93,7 @@ controllers.logout = async (req, res) => {
           .cookie("user", {
             maxAge: 1,
             secure: true,
-            domain: ".savat.ar",
+            domain: "fipe.savat.ar",
             sameSite: "none",
             path: "/",
           })
