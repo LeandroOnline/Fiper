@@ -6,7 +6,7 @@ const logout = async () => {
   const log = await axios
     .get(API + "/logout", { withCredentials: true })
     .then((data) => {
-      Cookies.get("user") ? Cookies.remove("user") : null;
+      data;
     })
     .catch((err) => {
       console.log(err);
@@ -14,6 +14,8 @@ const logout = async () => {
         "Error al eliminar cookie de sesion, contacte al administrador"
       );
     });
+  const user= Cookies.get("user") 
+  if(user) Cookies.remove("user");
   return log;
 };
 
