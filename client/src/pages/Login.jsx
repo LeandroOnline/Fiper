@@ -1,9 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
-import axios from "axios";
-import API from "../api/apiUrl";
 import useVerify from "../hooks/useVerify";
 import useGlobalStore from "../store/Store";
+import axiosLogin from "../api/axiosLogin";
 
 import log from "../assets/login.png";
 
@@ -17,32 +16,7 @@ const Login = () => {
     const password = e.target.password.value;
     const verify = useVerify(email, password);
     if (verify) {
-      await axios
-        .post(
-          API + "/login",
-          {
-            email: email,
-            password: password,
-          },
-          {
-            withCredentials: true,
-          }
-        )
-        .then((data) =>
-          data.data === "Logged"
-            ? Logged()
-            : data.data === "Incorrect pasword"
-            ? window.alert("Contraseña incorrecta, ingresa nuevamente")
-            : data.data === "User not found"
-            ? window.alert("Usuario no encontrado")
-            : console.log(data)
-        )
-        .catch((err) => {
-          console.log(err);
-          window.alert(
-            "Error al conectar el usuario al servidor, contacte al administrador"
-          );
-        });
+      axiosLogin(email, password).then((res) => Logged());
     } else {
       window.alert("Ingresos invalidos");
     }
