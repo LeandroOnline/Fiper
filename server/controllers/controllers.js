@@ -70,7 +70,7 @@ controllers.login = async (req, res) => {
                 maxAge: 86400000,
                 secure: true,
                 domain: ".fipe.savat.ar",
-                sameSite: "none",
+                sameSite: "lax",
               })
               .send("Logged");
       } else {
