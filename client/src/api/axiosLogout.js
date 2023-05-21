@@ -1,11 +1,12 @@
 import API from "./apiUrl";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const logout = async () => {
   const log = await axios
     .get(API + "/logout", { withCredentials: true })
     .then((data) => {
-      data.data
+      Cookies.get("user") ? Cookies.remove("user") : null;
     })
     .catch((err) => {
       console.log(err);
