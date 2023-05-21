@@ -91,9 +91,6 @@ controllers.logout = async (req, res) => {
       : res
           .cookie("user", {
             maxAge: 1,
-            secure: true,
-            domain: ".savat.ar",
-            sameSite: "lax",
           })
           .send("Log out ok from production");
   } catch (err) {
