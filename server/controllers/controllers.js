@@ -93,7 +93,7 @@ controllers.logout = async (req, res) => {
             maxAge: 1,
             secure: true,
             domain: ".savat.ar",
-            sameSite: "none",
+            sameSite: "lax",
           })
           .send("Log out ok from production");
   } catch (err) {
