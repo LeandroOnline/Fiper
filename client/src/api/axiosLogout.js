@@ -14,8 +14,8 @@ const logout = async () => {
         "Error al eliminar cookie de sesion, contacte al administrador"
       );
     });
-  const user= Cookies.get("user") 
-  if(user) Cookies.remove("user");
+  // const user= Cookies.get("user") 
+  // if(user) Cookies.remove("user");
   return log;
 };
 

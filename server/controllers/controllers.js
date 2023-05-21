@@ -93,7 +93,7 @@ controllers.logout = async (req, res) => {
           .clearCookie("user", {
             maxAge: 86400000,
             secure: true,
-            domain: ".savat.ar",
+            domain: "fipe.savat.ar",
             sameSite: "none",
             path: "/",
           })
