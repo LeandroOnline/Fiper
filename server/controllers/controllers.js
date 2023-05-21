@@ -69,9 +69,8 @@ controllers.login = async (req, res) => {
               .cookie("user", token, {
                 maxAge: 86400000,
                 secure: true,
-                domain: ".savat.ar",
+                domain: "fipe.savat.ar",
                 sameSite: "none",
-                path: "/",
               })
               .send("Logged");
       } else {
@@ -95,7 +94,6 @@ controllers.logout = async (req, res) => {
             secure: true,
             domain: "fipe.savat.ar",
             sameSite: "none",
-            path: "/",
           })
           .send("Log out ok from production");
   } catch (err) {
