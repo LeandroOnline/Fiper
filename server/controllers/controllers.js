@@ -88,7 +88,7 @@ controllers.login = async (req, res) => {
 controllers.logout = async (req, res) => {
   try {
     process.env.NODE_ENV === "development"
-      ? res.clearCookie("user").send("Log out ok")
+      ? res.clearCookie("user").send("Log out ok from localhost")
       : res
           .clearCookie("user", {
             maxAge: 86400000,
@@ -97,7 +97,7 @@ controllers.logout = async (req, res) => {
             sameSite: "none",
             path: "/",
           })
-          .send("Log out ok");
+          .send("Log out ok from production");
   } catch (err) {
     res.status(500).send(err);
   }

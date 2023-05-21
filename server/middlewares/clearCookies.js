@@ -4,8 +4,11 @@ const clearCookies = async (req, res, next) => {
     process.env.NODE_ENV === "development"
       ? res.clearCookie("user")
       : res.clearCookie("user", {
-          domain: ".savat.ar",
-          path: "/",
+        maxAge: 86400000,
+        secure: true,
+        domain: ".savat.ar",
+        sameSite: "none",
+        path: "/",
         });
   } else {
     next();
