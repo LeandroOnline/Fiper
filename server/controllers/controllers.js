@@ -87,7 +87,14 @@ controllers.login = async (req, res) => {
 
 controllers.logout = async (req, res) => {
   try {
-    res.clearCookie("user").send("Log out ok");
+    process.env.NODE_ENV === "development"
+      ? res.clearCookie("user").send("Log out ok")
+      : res
+          .clearCookie("user", {
+            domain: ".savat.ar",
+            path: "/",
+          })
+          .send("Log out ok");
   } catch (err) {
     res.status(500).send(err);
   }
