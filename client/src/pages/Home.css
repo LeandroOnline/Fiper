@@ -121,14 +121,17 @@
   .totalcontainer {
     width: 100%;
   }
-  .menu {
-    flex-direction: column;
-    top: 10px;
-  }
   .blur,
   .menu {
-    padding: 0;
+    padding: 10px;
+    font-size: 10px;
   }
+
+  .navbutton {
+    font-size: 10px;
+    margin: 5px;
+  }
+
   .footerContainer {
     padding: 15px;
   }
