@@ -48,7 +48,7 @@ const Interest = () => {
             <input
               className="interestInputs"
               type="text"
-              placeholder="Cap.Inicial"
+              placeholder="Capital"
               value={capitalInicial ? capitalInicial : ""}
               onChange={(e) => setCapitalInicial(e.target.value)}
             />

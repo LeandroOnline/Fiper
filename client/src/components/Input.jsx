@@ -14,7 +14,7 @@ const Input = () => {
   };
 
   return (
-    <form className="homeform" onSubmit={(e) => post(e)} id="myForm">
+    <form className="input" onSubmit={(e) => post(e)} id="myForm">
       <Categorias />
       <button type="submit">Cargar</button>
     </form>

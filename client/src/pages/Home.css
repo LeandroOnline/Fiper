@@ -14,14 +14,14 @@
   display: flex;
   flex-direction: row;
   gap: 15px;
-  width: calc(70% + 24px);
+  width: 70%;
 }
 
 .graphs {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  width: 70%;
+  width: 65%;
 }
 
 .planDeNegocios {
@@ -31,14 +31,14 @@
 .inputTotal {
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 35%;
   gap: 15px;
 }
 
 .tinys {
   display: flex;
   gap: 15px;
-  width: calc(70% + 24px);
+  width: 70%;
 }
 
 .noLogged {
@@ -55,14 +55,19 @@
   display: flex;
   flex-direction: column;
   border-width: 2px;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 15px;
-  width: 300px;
-  height: 300px;
-  justify-content: space-evenly;
+  width: 40%;
+  height: 40%;
+  justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(255, 255, 255, 0.05);
   gap: 15px;
+  box-sizing: border-box;
+}
+
+.Utilities img{
+  width: 60%;
 }
 
 .subtitle {

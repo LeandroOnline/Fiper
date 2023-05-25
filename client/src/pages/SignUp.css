@@ -1,61 +1,61 @@
 .signcontainer {
-    display: flex;
-    border-width: 2px;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: calc(100vh - 150px);
-  }
-  
-  .sign {
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    padding: 15px;
-    width: 300px;
-    height: 650px;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.4);
-    gap: 15px;
-    transition: 1s;
-  }
-  
-  .sign:hover {
-    box-shadow: 0 0 100px rgba(0, 0, 0, 0.4);
-    transition: 1s;
-  }
-  
-  .sign form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  .buttonforms {
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-  }
-  
-  .imgsign {
-    width: 200px;
-  }
-  
-  .signinput {
-    background-color: rgba(255, 255, 255, 0.134);
-    border-radius: 5px;
-    padding: 5px;
-  }
+  display: flex;
+  border-width: 2px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 150px);
+}
 
-  .sign input {
-    background-color: rgba(255, 255, 255, 0.134);
-    border-radius: 5px;
-    padding: 15px;
-  }
+.sign {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 15px;
+  width: 300px;
+  height: 650px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  gap: 15px;
+  transition: 1s;
+}
 
-  .SignAllText{
-   text-align: center;
-  }
-  
+.sign:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  transition: 1s;
+}
+
+.sign form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.buttonforms {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.imgsign {
+  width: 200px;
+}
+
+.signinput {
+  background-color: rgba(255, 255, 255, 0.134);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.sign input {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.SignText {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5)
+}
