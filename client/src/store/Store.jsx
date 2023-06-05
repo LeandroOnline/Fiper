@@ -7,7 +7,7 @@ const useGlobalStore = create(
   // persist(
   (set, get) => ({
     reset: false,
-    login: Cookies.get("user"),
+    login: sessionStorage.getItem("user"),
     inputs: [],
     profits: [],
     losses: [],
@@ -18,8 +18,7 @@ const useGlobalStore = create(
     setProfitsAndLosses: (profit, loss) =>
       set({ profits: profit, losses: loss }),
     setReset: () => set({ reset: !get().reset }),
-    setLogged: () => set({ login: false }),
-    setLogin: () => set({ login: Cookies.get("user") }),
+    setLogin: (res) => set({ login: res }),
     storeGetAllInputs: async () =>
       await axiosGetAllInputs().then((data) => set({ inputs: data })),
   })

@@ -3,8 +3,8 @@ import axios from 'axios';
 
 const axiosGetAllInputs = async () => {
   let inputs = await axios
-    .get(API + "/getall", {
-      withCredentials: true,
+    .post(API + "/getall", {
+      token: sessionStorage.getItem("user")
     })
     .then((data) => data.data)
     .catch((err) => {

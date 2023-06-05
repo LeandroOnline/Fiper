@@ -3,7 +3,9 @@ import axios from "axios";
 
 const logout = async () => {
   const log = await axios
-    .get(API + "/logout", { withCredentials: true })
+    .get(API + "/logout", {
+      token: sessionStorage.getItem("user"),
+    })
     .then((data) => {
       data;
     })

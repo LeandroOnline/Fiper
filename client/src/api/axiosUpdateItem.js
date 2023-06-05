@@ -11,7 +11,7 @@ const update = async (idElement,e) => {
         detalle: e.target.detalle.value,
       },
       {
-        withCredentials: true,
+        token: sessionStorage.getItem("user")
       }
     )
     .then((data) => data)

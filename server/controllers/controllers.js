@@ -15,7 +15,7 @@ controllers.add = async (req, res) => {
     });
     await newadd.save();
 
-    const { id } = jwt.verify(req.cookies.user, process.env.SECRET_KEY);
+    const { id } = jwt.verify(req.body.token, process.env.SECRET_KEY);
     const user = await User.findById(id);
     user.inputs.push(newadd);
     await user.save();
@@ -58,26 +58,12 @@ controllers.login = async (req, res) => {
       if (passwordOk) {
         const payload = { id: found._id };
         const token = jwt.sign(payload, process.env.SECRET_KEY);
-
-        process.env.NODE_ENV === "development"
-          ? res
-              .cookie("user", token, {
-                maxAge: 86400000,
-              })
-              .send("Logged")
-          : res
-              .cookie("user", token, {
-                maxAge: 86400000,
-                secure: true,
-                domain: ".savat.ar",
-                sameSite: "none",
-              })
-              .send("Logged");
+        res.send({ status: "Logged", token: token });
       } else {
-        res.send("Incorrect pasword");
+        res.send({ status: "Incorrect pasword", token: null });
       }
     } else {
-      res.send("User not found");
+      res.send({ status: "User not found", token: null });
     }
   } catch (err) {
     res.status(500).send(err);
@@ -126,7 +112,7 @@ controllers.update = async (req, res) => {
 
 controllers.getall = async (req, res) => {
   try {
-    const { id } = jwt.verify(req.cookies.user, process.env.SECRET_KEY);
+    const { id } = jwt.verify(req.body.token, process.env.SECRET_KEY);
     if (id) {
       const user = await User.findById(id).populate("inputs");
       res.json(user.inputs);
@@ -142,7 +128,7 @@ controllers.getall = async (req, res) => {
 controllers.deleteall = async (req, res) => {
   try {
     // Obtenemos el usuario
-    const { id } = jwt.verify(req.cookies.user, process.env.SECRET_KEY);
+    const { id } = jwt.verify(req.body.token, process.env.SECRET_KEY);
     const user = await User.findById(id);
     // Eliminamos cada tarea del usuario
     for (let i = 0; i < user.inputs.length; i++) {
@@ -161,7 +147,7 @@ controllers.deleteall = async (req, res) => {
 controllers.deleteUser = async (req, res) => {
   try {
     // Obtenemos el usuario
-    const { id } = jwt.verify(req.cookies.user, process.env.SECRET_KEY);
+    const { id } = jwt.verify(req.body.token, process.env.SECRET_KEY);
     const user = await User.findByIdAndDelete(id);
     res.clearCookie("user").send("Se elimino el usuario");
   } catch (err) {
@@ -175,7 +161,7 @@ controllers.deleteItem = async (req, res) => {
     await Inputs.findByIdAndDelete(req.params.id);
 
     // Actualizo el usuario sin la tarea eliminada
-    const { id } = jwt.verify(req.cookies.user, process.env.SECRET_KEY);
+    const { id } = jwt.verify(req.body.token, process.env.SECRET_KEY);
     await User.findByIdAndUpdate(id, {
       $pull: { inputs: req.params.id },
     });

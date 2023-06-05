@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import useGlobalStore from "../store/Store";
 import axiosDeleteUser from "../api/axiosDeleteUser";
-import axiosLogout from "../api/axiosLogout";
 import { memo, useState } from "react";
 import { shallow } from "zustand/shallow";
 
@@ -11,10 +10,9 @@ import flechasizq from "../assets/flechaizq.png";
 
 const Navbar = memo(() => {
   const [menu, setMenu] = useState(true);
-  const { setLogged, login } = useGlobalStore(
+  const { setLogin, login } = useGlobalStore(
     (state) => ({
-      logged: state.logged,
-      setLogged: state.setLogged,
+      setLogin: state.setLogin,
       login: state.login,
     }),
     shallow
@@ -25,16 +23,16 @@ const Navbar = memo(() => {
     if (window.confirm("Seguro desea eliminar el usuario y sus entradas?")) {
       await axiosDeleteUser().then(() => {
         window.alert("Usuario eliminado");
-        setLogged();
+        setLogin(null);
       });
     }
   };
 
-  const logout = async () =>
-    await axiosLogout().then(() => {
-      navigate("/");
-      setLogged();
-    });
+  const logout = () => {
+    sessionStorage.removeItem("user");
+    setLogin(null);
+    navigate("/login");
+  };
 
   return (
     <div className="navcontainer">
@@ -51,10 +49,7 @@ const Navbar = memo(() => {
           )}
         </p>
         <div className={menu ? "blur" : "hide"}></div>
-        <Link
-          to="/"
-          className={menu ? "navbutton" : "hide"}
-        >
+        <Link to="/" className={menu ? "navbutton" : "hide"}>
           DashBoard
         </Link>
         {login ? (

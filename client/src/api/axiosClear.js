@@ -4,7 +4,7 @@ import axios from "axios";
 const clear = async () => {
     return await axios
     .delete(API + "/deleteall", {
-      withCredentials: true,
+      token: sessionStorage.getItem("user")
     })
     .then((data) => data)
     .catch((err) => {

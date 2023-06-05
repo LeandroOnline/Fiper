@@ -3,7 +3,9 @@ import axios from "axios";
 
 const deleteUser = async () => {
   const del = await axios
-    .delete(API + "/deleteuser", { withCredentials: true })
+    .delete(API + "/deleteuser", {
+      data:{token: sessionStorage.getItem("user")},
+    })
     .then((data) => data.data)
     .catch((err) => {
       console.log(err);
