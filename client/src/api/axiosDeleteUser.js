@@ -4,9 +4,12 @@ import axios from "axios";
 const deleteUser = async () => {
   const del = await axios
     .delete(API + "/deleteuser", {
-      data:{token: sessionStorage.getItem("user")},
+      data: { token: sessionStorage.getItem("user") },
     })
-    .then((data) => data.data)
+    .then((data) => {
+      sessionStorage.removeItem("user");
+      data.data;
+    })
     .catch((err) => {
       console.log(err);
       window.alert("Error al eliminar el usuario, contacte al administrador");
