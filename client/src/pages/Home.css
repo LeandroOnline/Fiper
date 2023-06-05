@@ -72,6 +72,7 @@
 
 .subtitle {
   color: rgb(161, 161, 161);
+  font-size: 20px;
 }
 
 .grid {
@@ -126,18 +127,25 @@
   .totalcontainer {
     width: 100%;
   }
-  .blur,
-  .menu {
-    padding: 10px;
-    font-size: 10px;
-  }
 
   .navbutton {
-    font-size: 10px;
-    margin: 5px;
+    font-size: 15px;
+    padding: 10px;
   }
 
   .footerContainer {
     padding: 15px;
+  }
+
+  .Utilities{
+    width: 100%;
+  }
+
+  .noLogged {
+    margin-top: 50px;
+  }
+
+  .signcontainer{
+    margin: 80px 0;
   }
 }

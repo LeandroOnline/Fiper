@@ -6,7 +6,7 @@ import whatsapp from "../assets/whatsapp.png";
 const Footer = () => {
   return (
     <div className="footerContainer">
-      <p>© 2023, Made with ❤️ by Leandro Savat</p>
+      <p>©2023 LeandroSavat</p>
       <a href="https://www.linkedin.com/in/leandrosavat/" target="_blank">
         <img className="footerIcons" src={linkedin} alt="" />
       </a>

@@ -34,7 +34,6 @@
   border-radius: 5px;
   padding: 0 20px;
   cursor: pointer;
-
 }
 
 .menu {
@@ -61,12 +60,16 @@
   padding-left: 15px;
 }
 
+.hide {
+  opacity: 0;
+  width: 0;
+  transition: 2s;
+}
+
 .navbutton {
   width: 100%;
   padding: 0 15px;
-  margin: 0 15px;
-  display: flex;
-  justify-content: center;
+  margin: 0 5px;
   transition: 1s;
   color: rgb(167, 167, 167);
 }
@@ -75,12 +78,6 @@
   transition: 0.5s;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 5px;
-}
-
-.hide {
-  opacity: 0;
-  width: 0;
-  transition: 2s;
 }
 
 .menuflechas{

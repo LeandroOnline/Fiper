@@ -56,14 +56,14 @@ const Navbar = memo(() => {
           <>
             <div
               onClick={() => {
-                logout();
+                menu ? logout() : null;
               }}
               className={menu ? "navbutton" : "hide"}
             >
               Salir
             </div>
             <div
-              onClick={() => deleteUser()}
+              onClick={() => (menu ? deleteUser() : null)}
               className={menu ? "navbutton" : "hide"}
             >
               Elim.Cuenta
