@@ -4,7 +4,8 @@
   width: 70%;
   height: 300px;
   overflow: auto;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.1);
+
 }
 
 .listElement {
