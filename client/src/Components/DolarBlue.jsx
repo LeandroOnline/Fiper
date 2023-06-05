@@ -19,7 +19,7 @@ const DolarBlue = () => {
         <div>
           <p className="parr">Dolar Blue: </p> <p className="usd">${dolar}</p>
         </div>
-        <p className="parr">Neto en U$D: {totalEnUSD}</p>
+        <p className="calculadoraText">Neto en U$D: {totalEnUSD}</p>
       </div>
     </div>
   );

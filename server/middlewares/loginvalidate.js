@@ -2,14 +2,14 @@ const jwt = require("jsonwebtoken");
 
 const loginvalidate = async (req, res, next) => {
   try {
-    const { id } = jwt.verify(req.cookies.user, process.env.SECRET_KEY);
+    const { id } = jwt.verify(req.body.token, process.env.SECRET_KEY);
     if (id) {
       next();
     } else {
-      next();
+      res.status(400).send("Usuario no autorizado");
     }
   } catch (err) {
-    next();
+    res.status(400).send("Usuario no autorizado");
   }
 };
 
