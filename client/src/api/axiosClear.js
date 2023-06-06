@@ -2,9 +2,11 @@ import API from "./apiUrl";
 import axios from "axios";
 
 const clear = async () => {
-    return await axios
+  return await axios
     .delete(API + "/deleteall", {
-      token: sessionStorage.getItem("user")
+      data: {
+        token: sessionStorage.getItem("user"),
+      },
     })
     .then((data) => data)
     .catch((err) => {
@@ -13,5 +15,5 @@ const clear = async () => {
         "Error al borrar los datos del servidor, contacte al administrador"
       );
     });
-}
+};
 export default clear;
