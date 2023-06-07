@@ -5,43 +5,6 @@ const controllers = {};
 const Inputs = require("../models/inputs");
 const User = require("../models/user");
 
-controllers.update = async (req, res) => {
-  try {
-    const input = await Inputs.findById(req.params.id);
-    const negar =
-      req.body.tipo === "Egresos"
-        ? input.input > 0
-          ? -1
-          : 1
-        : input.input < 0
-        ? -1
-        : 1;
-    const update = {
-      tipo: req.body.tipo !== "" ? req.body.tipo : input.tipo,
-      input: req.body.input ? req.body.input * negar : input.input * negar,
-      detalle: req.body.detalle !== "" ? req.body.detalle : input.detalle,
-    };
-    await Inputs.findByIdAndUpdate(req.params.id, update);
-    res.send("Updated");
-  } catch (err) {
-    res.status(500).send(err);
-  }
-};
-
-controllers.getall = async (req, res) => {
-  try {
-    const { id } = jwt.verify(req.body.token, process.env.SECRET_KEY);
-    if (id) {
-      const user = await User.findById(id).populate("inputs");
-      res.json(user.inputs);
-    } else {
-      const all = await Inputs.find();
-      res.json(all);
-    }
-  } catch (err) {
-    res.status(500).send(err);
-  }
-};
 
 controllers.deleteall = async (req, res) => {
   try {

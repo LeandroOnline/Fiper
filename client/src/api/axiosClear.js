@@ -3,7 +3,7 @@ import axios from "axios";
 
 const clear = async () => {
   return await axios
-    .delete(API + "/deleteall", {
+    .delete(API + "/deleteAllInputs", {
       data: {
         token: sessionStorage.getItem("user"),
       },

@@ -2,9 +2,6 @@ const router = require("express").Router();
 const loginValidate = require("../middlewares/loginvalidate");
 
 const {
-  login,
-  getall,
-  update,
   deleteItem,
   deleteall,
   deleteUser,
@@ -25,8 +22,8 @@ router.post(
 router.post("/addUser", verifySyntax, require("../controllers/addUser"));
 router.post("/login", verifySyntax, require("../controllers/login"));
 router.put("/update/:id", loginValidate, Sanitize, require("../controllers/updateInput"));
-router.route("/getall").post(loginValidate, getall);
-router.route("/deleteall").delete(loginValidate, deleteall);
+router.post("/getAllInputs", loginValidate, require("../controllers/getAllInputs"));
+router.route("/deleteAllInputs").delete(loginValidate, require("../controllers/deleteAllInputs"));
 router.route("/delete/:id").delete(loginValidate, deleteItem);
 router.route("/deleteuser").delete(loginValidate, deleteUser);
 
