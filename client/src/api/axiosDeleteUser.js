@@ -3,7 +3,7 @@ import axios from "axios";
 
 const deleteUser = async () => {
   const del = await axios
-    .delete(API + "/deleteuser", {
+    .delete(API + "/deleteUser", {
       data: { token: sessionStorage.getItem("user") },
     })
     .then((data) => {
