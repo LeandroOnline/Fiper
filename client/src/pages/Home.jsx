@@ -13,6 +13,7 @@ import plan_de_negocios from "../assets/plan-de-negocios.png";
 import analisis from "../assets/analisis.png";
 import documento from "../assets/documento.png";
 import ganancia from "../assets/ganancia.png";
+import capture from "../assets/capture.png";
 
 const Home = () => {
   const login = useGlobalStore((state) => state.login);
@@ -41,8 +42,9 @@ const Home = () => {
         </>
       ) : (
         <div className="noLogged">
-          <p>Usuario no Logueado, inicia sesion para empezar</p>
           <div className="grid">
+            <p>Usuario no Logueado, inicia sesion para empezar</p>
+            <img src={capture} className="capture" alt="capture" />
             <div className="Utilities">
               <p className="subtitle"> Crea tu plan de negocios</p>
               <img className="planDeNegocios" src={plan_de_negocios} alt="" />

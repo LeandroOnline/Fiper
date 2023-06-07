@@ -51,6 +51,10 @@
   width: 100vw;
 }
 
+.noLogged p{
+  font-size: 20px;
+}
+
 .Utilities {
   display: flex;
   flex-direction: column;
@@ -83,6 +87,16 @@
   gap: 15px;
   width: 60%;
   height: 100%;
+}
+
+.capture{
+  width: 80%;
+  opacity: 80%;
+  border-radius: 5px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.3);
+  margin: 20px 0;
 }
 
 @media (max-width: 915px) {
@@ -139,10 +153,6 @@
 
   .Utilities{
     width: 100%;
-  }
-
-  .noLogged {
-    margin-top: 50px;
   }
 
   .signcontainer{
