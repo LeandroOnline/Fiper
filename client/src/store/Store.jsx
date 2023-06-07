@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import Cookies from "js-cookie";
 import axiosGetAllInputs from "../api/axiosGetAllInputs";
 // import { persist } from "zustand/middleware";
 
