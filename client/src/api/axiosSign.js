@@ -5,7 +5,7 @@ import axios from "axios";
 const sign = async (send) => {
   
     await axios
-      .post(API + "/adduser", send )
+      .post(API + "/addUser", send )
       .then((data) => {
         if (data.data === "Usuario existente") {
           window.alert(
