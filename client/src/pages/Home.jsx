@@ -50,7 +50,7 @@ const Home = () => {
               <img className="planDeNegocios" src={plan_de_negocios} alt="" />
             </div>
             <div className="Utilities">
-              <p className="subtitle"> Analiza y optimiza tus ingresos</p>
+              <p className="subtitle"> Analiza tus ingresos</p>
               <img className="planDeNegocios" src={analisis} alt="" />
             </div>
             <div className="Utilities">
