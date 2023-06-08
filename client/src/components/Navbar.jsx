@@ -12,6 +12,7 @@ import config from "../assets/configuracion.png";
 const Navbar = memo(() => {
   const [menu, setMenu] = useState(true);
   const [configIsOpen, setConfigIsOpen] = useState(false);
+  const [password, setPassword] = useState(false);
   const { setLogin, login } = useGlobalStore(
     (state) => ({
       setLogin: state.setLogin,
@@ -68,7 +69,7 @@ const Navbar = memo(() => {
               src={config}
               alt=""
               className={menu ? "config" : "hide"}
-              onClick={()=>setConfigIsOpen(!configIsOpen)}
+              onClick={() => setConfigIsOpen(!configIsOpen)}
             />
           </>
         ) : (
@@ -86,8 +87,25 @@ const Navbar = memo(() => {
       <div className={configIsOpen ? "configmerge" : "configclose"}>
         <div
           className={menu ? "navbutton" : "hide"}
+          onClick={() => (password ? null : setPassword(true))}
         >
-          Cambiar Contraseña
+          {password ? (
+            <div className="newPasswordContainer">
+              <input
+                type="text"
+                className="newpassword"
+                placeholder="Contraseña Actual.."
+              />
+              <input
+                type="text"
+                className="newpassword"
+                placeholder="Contraseña Nueva.."
+              />
+              <button onClick={() => setPassword(false)}>Confirmar</button>
+            </div>
+          ) : (
+            "Cambiar Contraseña"
+          )}
         </div>
         <div
           onClick={() => (menu ? deleteUser() : null)}
