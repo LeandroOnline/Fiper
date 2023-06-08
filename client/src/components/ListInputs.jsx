@@ -47,23 +47,26 @@ const ListInputs = () => {
         <button onClick={() => clearTrue()}>Limpiar todo</button>
       ) : null}
       {search.map((element, key) => (
-        <div key={key} className="listElement">
-          <button onClick={() => deleteItem(element._id)}>
-            <img className="img" src={del} alt="" />
-          </button>
-          <button
-            onClick={() => {
-              setModificar(!modificar);
-              setIdElemento(element._id);
-            }}
-          >
-            <img className="img" src={modify} alt="" />
-          </button>
-          <p className={element.input > -1 ? "positive" : "negative"}>
-            {element.input > 0 ? "+" : null}
-            {element.input}
-          </p>
-          {element.detalle !== "" ? <p>{element.detalle}</p> : null}
+        <div key={key}>
+          <div className="listElement">
+            <button onClick={() => deleteItem(element._id)}>
+              <img className="img" src={del} alt="" />
+            </button>
+            <button
+              onClick={() => {
+                setModificar(!modificar);
+                setIdElemento(element._id);
+              }}
+            >
+              <img className="img" src={modify} alt="" />
+            </button>
+            <p className={element.input > -1 ? "positive" : "negative"}>
+              {element.input > 0 ? "+" : null}
+              {element.input}
+            </p>
+            {element.detalle !== "" ? <p>{element.detalle}</p> : null}
+          </div>
+          <div className="divide"></div>
         </div>
       ))}
       {modificar ? (
@@ -86,7 +89,7 @@ const ListInputs = () => {
           </form>
         </>
       ) : null}
-      {inputs.length > 0 ? (
+      {inputs.length > 2 ? (
         <button onClick={() => clearTrue()}>Limpiar todo</button>
       ) : null}
     </div>
