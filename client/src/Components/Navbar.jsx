@@ -37,6 +37,10 @@ const Navbar = memo(() => {
     navigate("/login");
   };
 
+  const changePassword = (currentPassword, newPassword) => {
+    setPassword(false);
+  };
+
   return (
     <div className="navcontainer">
       <div className="menu">
@@ -101,7 +105,7 @@ const Navbar = memo(() => {
                 className="newpassword"
                 placeholder="Contraseña Nueva.."
               />
-              <button onClick={() => setPassword(false)}>Confirmar</button>
+              <button onClick={() => changePassword()}>Confirmar</button>
             </div>
           ) : (
             "Cambiar Contraseña"
