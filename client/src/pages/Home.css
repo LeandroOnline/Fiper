@@ -160,7 +160,7 @@
   }
 
   .navbutton {
-    font-size: 15px;
+    font-size: 25px;
     padding: 10px;
   }
 
@@ -179,4 +179,9 @@
   .capture{
     width: 100%;
   }
+
+  .configmerge, .configclose{
+    width: 90%;
+  }
+
 }

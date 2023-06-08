@@ -3,7 +3,6 @@ import "./Categorias.css";
 import useSanitize from "../hooks/useSanitize";
 import useGlobalStore from "../store/Store";
 
-
 const Categorias = () => {
   const [detalleValue, setDetalleValue] = useState("");
   const { reset } = useGlobalStore();
@@ -29,7 +28,7 @@ const Categorias = () => {
       </select>
       <input placeholder="$" type="number" name="input" autoFocus />
       <input
-        placeholder="Detalle"
+        placeholder="detalle"
         name="detalle"
         value={detalleValue}
         onChange={(e) => detalle(e)}
