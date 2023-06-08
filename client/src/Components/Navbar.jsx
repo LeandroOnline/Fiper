@@ -85,7 +85,6 @@ const Navbar = memo(() => {
 
       <div className={configIsOpen ? "configmerge" : "configclose"}>
         <div
-          onClick={() => (menu ? deleteUser() : null)}
           className={menu ? "navbutton" : "hide"}
         >
           Cambiar Contraseña
