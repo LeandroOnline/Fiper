@@ -6,7 +6,13 @@ a:hover {
   cursor: pointer;
 }
 
-h1, h3, .parr, .calculadoraText, .listcontainer, p, .interestInputs{
+h1,
+h3,
+.parr,
+.calculadoraText,
+.listcontainer,
+p,
+.interestInputs {
   color: rgba(255, 255, 255, 0.6);
   font-family: Ubuntu;
   text-align: center;
@@ -46,13 +52,13 @@ input {
 }
 
 body {
-  /* background-color: rgb(37, 1, 34); */
+  background-color: rgb(50, 1, 48);
   background-image: linear-gradient(
-  45deg,
-  hsl(270, 96%, 11%) 0%,
-  hsl(330, 98%, 18%) 50%,
-  hsl(302, 100%, 14%) 100%
-);
+    0deg,
+    hsl(302, 96%, 10%) 0%,
+    hsl(330, 96%, 22%) 50%,
+    hsl(302, 96%, 10%) 100%
+  );
 }
 
 .App {

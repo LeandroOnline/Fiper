@@ -32,6 +32,7 @@ const Navbar = memo(() => {
       await axiosDeleteUser().then(() => {
         window.alert("Usuario eliminado");
         setLogin(null);
+        setConfigIsOpen(false);
       });
     }
   };
