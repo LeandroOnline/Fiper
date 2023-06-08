@@ -44,10 +44,10 @@ const Home = () => {
         </>
       ) : (
         <div className="noLogged">
+          <div className="grid">
           <Link to="/login" className="IniciaSesion">
             Inicia sesion para visualizar el DashBoard
           </Link>
-          <div className="grid">
             <div className="Utilities">
               <p className="subtitle"> Crea</p>
               <img className="planDeNegocios" src={plan_de_negocios} alt="" />
@@ -71,10 +71,10 @@ const Home = () => {
               hacia la estabilidad y la prosperidad.
             </p>
             <img src={capture} className="capture" alt="capture" />
+            <Link to="/login" className="IniciaSesion">
+              Inicia sesion
+            </Link>
           </div>
-          <Link to="/login" className="IniciaSesion">
-            Inicia sesion
-          </Link>
         </div>
       )}
     </div>

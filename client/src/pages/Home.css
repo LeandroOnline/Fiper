@@ -64,7 +64,7 @@
   height: 20%;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.10);
   gap: 15px;
   box-sizing: border-box;
 }
@@ -98,10 +98,12 @@
 }
 
 .IniciaSesion{
-  background-color: rgba(255, 255, 255, 0.20);
+  background-color: rgba(255, 255, 255, 0.10);
   padding: 5px 10px;
   border-radius: 5px;
-  color: rgba(0, 0, 0, 0.8)
+  color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  text-align: center;
 }
 
 .IniciaSesion:hover{
@@ -144,7 +146,6 @@
   }
   .graficacontainer,
   .areacontainer {
-    /* height: 400px; */
     width: 100%;
   }
 }
@@ -167,7 +168,11 @@
   }
 
   .Utilities{
-    width: 100%;
+    width: 40%;
+  }
+
+  .grid{
+    width: 90%;
   }
 
   .capture{
