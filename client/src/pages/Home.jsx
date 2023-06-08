@@ -45,9 +45,15 @@ const Home = () => {
       ) : (
         <div className="noLogged">
           <div className="grid">
-          <Link to="/login" className="IniciaSesion">
-            Inicia sesion para visualizar el DashBoard
-          </Link>
+            <Link to="/login" className="IniciaSesion">
+              Inicia sesion para visualizar el DashBoard
+            </Link>
+            <p className="initialText">
+              Encuentra el equilibrio perfecto entre tus sueños y tus metas
+              financieras con esta plataforma intuitiva y poderosa. Aquí, puedes
+              tomar el control total de tus finanzas y trazar un camino claro
+              hacia la estabilidad y la prosperidad.
+            </p>
             <div className="Utilities">
               <p className="subtitle"> Crea</p>
               <img className="planDeNegocios" src={plan_de_negocios} alt="" />
@@ -64,12 +70,7 @@ const Home = () => {
               <p className="subtitle"> Calcula</p>
               <img className="planDeNegocios" src={ganancia} alt="" />
             </div>
-            <p className="initialText">
-              Encuentra el equilibrio perfecto entre tus sueños y tus metas
-              financieras con esta plataforma intuitiva y poderosa. Aquí, puedes
-              tomar el control total de tus finanzas y trazar un camino claro
-              hacia la estabilidad y la prosperidad.
-            </p>
+
             <img src={capture} className="capture" alt="capture" />
             <Link to="/login" className="IniciaSesion">
               Inicia sesion
