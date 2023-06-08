@@ -1,9 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
-import useGlobalStore from "../store/Store";
-import axiosDeleteUser from "../api/axiosDeleteUser";
+import { Link, useNavigate } from "react-router-dom";
 import { memo, useState } from "react";
 import { shallow } from "zustand/shallow";
+import useGlobalStore from "../store/Store";
+import axiosDeleteUser from "../api/axiosDeleteUser";
+import axiosUpdatePassword from "../api/axiosUpdatePassword";
 
 import flechas from "../assets/flechas.png";
 import flechasizq from "../assets/flechaizq.png";
@@ -13,6 +14,9 @@ const Navbar = memo(() => {
   const [menu, setMenu] = useState(true);
   const [configIsOpen, setConfigIsOpen] = useState(false);
   const [password, setPassword] = useState(false);
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+
   const { setLogin, login } = useGlobalStore(
     (state) => ({
       setLogin: state.setLogin,
@@ -20,6 +24,7 @@ const Navbar = memo(() => {
     }),
     shallow
   );
+
   const navigate = useNavigate();
 
   const deleteUser = async () => {
@@ -37,8 +42,18 @@ const Navbar = memo(() => {
     navigate("/login");
   };
 
-  const changePassword = (currentPassword, newPassword) => {
-    setPassword(false);
+  const changePassword = async (currentPassword, newPassword) => {
+    await axiosUpdatePassword(currentPassword, newPassword).then((data) => {
+      if (data.data === "Password changed") {
+        window.alert("Contraseña actualizada");
+        setPassword(false);
+        setConfigIsOpen(false);
+        setCurrentPassword("");
+        setNewPassword("");
+      } else if (data.data === "Incorrect current password") {
+        window.alert("Contraseña actual incorrecta");
+      }
+    });
   };
 
   return (
@@ -64,6 +79,7 @@ const Navbar = memo(() => {
             <div
               onClick={() => {
                 menu ? logout() : null;
+                setConfigIsOpen(false);
               }}
               className={menu ? "navbutton" : "hide"}
             >
@@ -73,7 +89,10 @@ const Navbar = memo(() => {
               src={config}
               alt=""
               className={menu ? "config" : "hide"}
-              onClick={() => setConfigIsOpen(!configIsOpen)}
+              onClick={() => {
+                setConfigIsOpen(!configIsOpen);
+                setPassword(false);
+              }}
             />
           </>
         ) : (
@@ -96,16 +115,24 @@ const Navbar = memo(() => {
           {password ? (
             <div className="newPasswordContainer">
               <input
-                type="text"
+                type="password"
                 className="newpassword"
                 placeholder="Contraseña Actual.."
+                value={currentPassword}
+                onChange={(e) => setCurrentPassword(e.target.value)}
               />
               <input
-                type="text"
+                type="password"
                 className="newpassword"
                 placeholder="Contraseña Nueva.."
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
               />
-              <button onClick={() => changePassword()}>Confirmar</button>
+              <button
+                onClick={() => changePassword(currentPassword, newPassword)}
+              >
+                Confirmar
+              </button>
             </div>
           ) : (
             "Cambiar Contraseña"

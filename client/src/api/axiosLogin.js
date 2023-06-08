@@ -14,7 +14,7 @@ const login = async (email, password) =>
       data.data.status === "Logged"
         ? data.data.token
         : data.data.status === "Incorrect pasword"
-        ? window.alert("Contraseña incorrecta, ingresa nuevamente")
+        ? window.alert("Contraseña incorrecta, intenta nuevamente")
         : data.data.status === "User not found"
         ? window.alert("Usuario no encontrado")
         : console.log(data)

@@ -16,16 +16,16 @@ const Login = () => {
     const password = e.target.password.value;
     const verify = useVerify(email, password);
     if (verify) {
-      axiosLogin(email, password).then((token) => Logged(token));
+      axiosLogin(email, password).then((token) => {
+        if (token) {
+          sessionStorage.setItem("user", token);
+          setLogin(token);
+          navigate("/");
+        }
+      });
     } else {
       window.alert("Ingresos invalidos");
     }
-  };
-
-  const Logged = (token) => {
-    sessionStorage.setItem("user", token);
-    setLogin(token);
-    navigate("/");
   };
 
   return (

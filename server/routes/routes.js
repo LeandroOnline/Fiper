@@ -21,7 +21,7 @@ router.post("/getAllInputs", loginValidate, require("../controllers/getAllInputs
 router.route("/deleteAllInputs").delete(loginValidate, require("../controllers/deleteAllInputs"));
 router.delete("/delete/:id", loginValidate, require("../controllers/deleteItem"));
 router.delete("/deleteUser",loginValidate, require("../controllers/deleteUser"));
-router.put("/updatePassword", loginValidate, Sanitize, require("../controllers/updatePassword"));
+router.put("/updatePassword", loginValidate, require("../controllers/updatePassword"));
 
 // deben tener permisos de administrador
 // router.route("/getusers").get(getusers);
