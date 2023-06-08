@@ -41,8 +41,8 @@ const ListInputs = () => {
 
   return (
     <div className="listcontainer">
-      Entradas:
-      <Search />
+      {inputs.length == 0 ? "Sin entradas" : "Entradas:"}
+      {inputs.length !== 0 ? <Search /> : null}
       {inputs.length > 0 ? (
         <button onClick={() => clearTrue()}>Limpiar todo</button>
       ) : null}
