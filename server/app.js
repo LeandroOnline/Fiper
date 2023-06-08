@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv").config();
-const cookieParser = require("cookie-parser");
 
 const app = express();
 
@@ -15,7 +14,6 @@ app.use(
 );
 app.set("trust proxy", 1);
 
-app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
