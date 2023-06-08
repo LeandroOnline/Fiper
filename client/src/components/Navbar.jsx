@@ -7,9 +7,11 @@ import { shallow } from "zustand/shallow";
 
 import flechas from "../assets/flechas.png";
 import flechasizq from "../assets/flechaizq.png";
+import config from "../assets/configuracion.png";
 
 const Navbar = memo(() => {
   const [menu, setMenu] = useState(true);
+  const [configIsOpen, setConfigIsOpen] = useState(false);
   const { setLogin, login } = useGlobalStore(
     (state) => ({
       setLogin: state.setLogin,
@@ -62,12 +64,12 @@ const Navbar = memo(() => {
             >
               Salir
             </div>
-            <div
-              onClick={() => (menu ? deleteUser() : null)}
-              className={menu ? "navbutton" : "hide"}
-            >
-              Elim.Cuenta
-            </div>
+            <img
+              src={config}
+              alt=""
+              className={menu ? "config" : "hide"}
+              onClick={()=>setConfigIsOpen(!configIsOpen)}
+            />
           </>
         ) : (
           <>
@@ -79,6 +81,21 @@ const Navbar = memo(() => {
             </Link>
           </>
         )}
+      </div>
+
+      <div className={configIsOpen ? "configmerge" : "configclose"}>
+        <div
+          onClick={() => (menu ? deleteUser() : null)}
+          className={menu ? "navbutton" : "hide"}
+        >
+          Cambiar Contraseña
+        </div>
+        <div
+          onClick={() => (menu ? deleteUser() : null)}
+          className={menu ? "navbutton" : "hide"}
+        >
+          Eliminar Cuenta
+        </div>
       </div>
     </div>
   );
