@@ -60,8 +60,8 @@
   border-width: 2px;
   border-radius: 10px;
   padding: 15px;
-  width: 40%;
-  height: 40%;
+  width: 20%;
+  height: 20%;
   justify-content: center;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.05);
@@ -70,7 +70,7 @@
 }
 
 .Utilities img{
-  width: 60%;
+  width: 100%;
 }
 
 .subtitle {
@@ -84,17 +84,33 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 15px;
-  width: 60%;
+  width: 70%;
   height: 100%;
 }
 
 .capture{
-  width: 80%;
-  opacity: 80%;
+  width: 100%;
   border-radius: 5px;
-  border-width: 2px;
+  box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5);
   border-style: solid;
+  border-width: 2px;
   border-color: rgba(255, 255, 255, 0.3);
+}
+
+.IniciaSesion{
+  background-color: rgba(255, 255, 255, 0.20);
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: rgba(0, 0, 0, 0.8)
+}
+
+.IniciaSesion:hover{
+  transition: 1s;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.initialText{
+  text-align: justify;
   margin: 20px 0;
 }
 

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import AreaGraph from "../components/AreaGraph";
 import ColumnGraph from "../components/ColumnGraph";
 import Input from "../components/Input";
@@ -42,26 +44,37 @@ const Home = () => {
         </>
       ) : (
         <div className="noLogged">
+          <Link to="/login" className="IniciaSesion">
+            Inicia sesion para visualizar el DashBoard
+          </Link>
           <div className="grid">
-            <p>Usuario no Logueado, inicia sesion para empezar</p>
-            <img src={capture} className="capture" alt="capture" />
             <div className="Utilities">
-              <p className="subtitle"> Crea tu plan de negocios</p>
+              <p className="subtitle"> Crea</p>
               <img className="planDeNegocios" src={plan_de_negocios} alt="" />
             </div>
             <div className="Utilities">
-              <p className="subtitle"> Analiza tus ingresos</p>
+              <p className="subtitle"> Analiza</p>
               <img className="planDeNegocios" src={analisis} alt="" />
             </div>
             <div className="Utilities">
-              <p className="subtitle"> Organiza ganancias y gastos</p>
+              <p className="subtitle"> Organiza</p>
               <img className="planDeNegocios" src={documento} alt="" />
             </div>
             <div className="Utilities">
-              <p className="subtitle"> Calcula interes compuesto</p>
+              <p className="subtitle"> Calcula</p>
               <img className="planDeNegocios" src={ganancia} alt="" />
             </div>
+            <p className="initialText">
+              Encuentra el equilibrio perfecto entre tus sueños y tus metas
+              financieras con esta plataforma intuitiva y poderosa. Aquí, puedes
+              tomar el control total de tus finanzas y trazar un camino claro
+              hacia la estabilidad y la prosperidad.
+            </p>
+            <img src={capture} className="capture" alt="capture" />
           </div>
+          <Link to="/login" className="IniciaSesion">
+            Inicia sesion
+          </Link>
         </div>
       )}
     </div>
