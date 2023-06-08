@@ -10,19 +10,19 @@
   height: 270px;
 }
 
-.total{
-   display: flex;
-   justify-content: center;
-   align-items: center;
+.total {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.totalimg{
-   filter: invert();
-   width: 50px;
+.totalimg {
+  filter: invert();
+  width: 50px;
 }
-.porcentimg{
-   filter: invert();
-   width: 30px;
+.porcentimg {
+  filter: invert();
+  width: 30px;
 }
 
 .porcentcontainer {
@@ -31,9 +31,8 @@
   gap: 15px;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.05);
   border-radius: 5px;
-  padding: 15px;
+box-sizing: border-box;
 }
 
 .porcentcontainer input {
@@ -50,10 +49,10 @@
   outline: none;
 }
 
-.circleValue{
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
-   align-items: center;
-   gap: 15px;
+.circleValue {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
 }

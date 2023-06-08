@@ -29,7 +29,7 @@ const Total = memo(() => {
 
       <div className="porcentcontainer">
         <div className="circleValue">
-          <img className="porcentimg" src={porcentaje} alt="" />:
+          <PorcentCircle porcent={porcent} result={Porcent(porcent)} />
           <input
             type="number"
             placeholder="..."
@@ -38,8 +38,8 @@ const Total = memo(() => {
           />
         </div>
         <div className="circleValue">
-          <PorcentCircle porcent={porcent} result={Porcent(porcent)} />
-          <p>={Porcent(porcent)}</p>
+          <img className="porcentimg" src={porcentaje} alt="" />=
+          <p>${Porcent(porcent)}</p>
         </div>
       </div>
     </div>

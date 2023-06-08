@@ -50,7 +50,7 @@
   width: 100vw;
 }
 
-.noLogged p{
+.noLogged p {
   font-size: 20px;
 }
 
@@ -64,12 +64,12 @@
   height: 20%;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.10);
+  background-color: rgba(255, 255, 255, 0.1);
   gap: 15px;
   box-sizing: border-box;
 }
 
-.Utilities img{
+.Utilities img {
   width: 100%;
 }
 
@@ -80,7 +80,7 @@
 
 .grid {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 15px;
@@ -88,7 +88,7 @@
   height: 100%;
 }
 
-.capture{
+.capture {
   width: 100%;
   border-radius: 5px;
   box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5);
@@ -97,8 +97,8 @@
   border-color: rgba(255, 255, 255, 0.3);
 }
 
-.IniciaSesion{
-  background-color: rgba(255, 255, 255, 0.10);
+.IniciaSesion {
+  background-color: rgba(255, 255, 255, 0.1);
   padding: 5px 10px;
   border-radius: 5px;
   color: rgba(0, 0, 0, 0.8);
@@ -106,12 +106,12 @@
   text-align: center;
 }
 
-.IniciaSesion:hover{
+.IniciaSesion:hover {
   transition: 1s;
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-.initialText{
+.initialText {
   text-align: justify;
 }
 
@@ -147,7 +147,7 @@
   .areacontainer {
     width: calc(100% - 30px);
     height: 150px;
-    box-sizing:content-box;
+    box-sizing: content-box;
   }
 }
 @media (max-width: 550px) {
@@ -168,20 +168,21 @@
     padding: 15px;
   }
 
-  .Utilities{
+  .Utilities {
     width: 40%;
   }
 
-  .grid{
+  .grid {
     width: 90%;
+    justify-content: space-evenly;
   }
 
-  .capture{
+  .capture {
     width: 100%;
   }
 
-  .configmerge, .configclose{
+  .configmerge,
+  .configclose {
     width: 90%;
   }
-
 }
