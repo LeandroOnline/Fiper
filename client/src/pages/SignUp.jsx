@@ -1,6 +1,6 @@
 import axiosSign from "../api/axiosSign";
 import { useNavigate } from "react-router-dom";
-import useVerify from "../hooks/useVerify";
+import useVerifySyntax from "../hooks/useVerifySyntax";
 import "./SignUp.css";
 
 import proteger from "../assets/proteger.png";
@@ -15,7 +15,7 @@ const SignUp = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    const verify = useVerify(email, password) && pass1 === pass2;
+    const verify = useVerifySyntax(email, password) && pass1 === pass2;
     if (verify) {
       const send = {
         email: email,

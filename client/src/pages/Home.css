@@ -24,10 +24,6 @@
   width: 65%;
 }
 
-.planDeNegocios {
-  width: 200px;
-}
-
 .inputTotal {
   display: flex;
   flex-direction: column;
@@ -41,43 +37,6 @@
   width: 70%;
 }
 
-.noLogged {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 15px;
-  width: 100vw;
-}
-
-.noLogged p {
-  font-size: 20px;
-}
-
-.Utilities {
-  display: flex;
-  flex-direction: column;
-  border-width: 2px;
-  border-radius: 10px;
-  padding: 15px;
-  width: 20%;
-  height: 20%;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.1);
-  gap: 15px;
-  box-sizing: border-box;
-}
-
-.Utilities img {
-  width: 100%;
-}
-
-.subtitle {
-  color: rgb(161, 161, 161);
-  font-size: 20px;
-}
-
 .grid {
   display: flex;
   justify-content: space-between;
@@ -86,33 +45,6 @@
   gap: 15px;
   width: 70%;
   height: 100%;
-}
-
-.capture {
-  width: 100%;
-  border-radius: 5px;
-  box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5);
-  border-style: solid;
-  border-width: 2px;
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-.IniciaSesion {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: rgba(0, 0, 0, 0.8);
-  width: 100%;
-  text-align: center;
-}
-
-.IniciaSesion:hover {
-  transition: 1s;
-  background-color: rgba(255, 255, 255, 0.5);
-}
-
-.initialText {
-  text-align: justify;
 }
 
 @media (max-width: 915px) {

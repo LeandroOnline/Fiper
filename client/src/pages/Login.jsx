@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
-import useVerify from "../hooks/useVerify";
+import useVerifySyntax from "../hooks/useVerifySyntax";
 import useGlobalStore from "../store/Store";
 import axiosLogin from "../api/axiosLogin";
 
@@ -14,7 +14,7 @@ const Login = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    const verify = useVerify(email, password);
+    const verify = useVerifySyntax(email, password);
     if (verify) {
       axiosLogin(email, password).then((token) => {
         if (token) {
