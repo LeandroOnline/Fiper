@@ -9,32 +9,46 @@ import Interest from "../components/Interest";
 import ProfitsAndLosses from "../components/ProfitsAndLosses";
 import NoLogged from "../components/NoLogged";
 import "./Home.css";
+import axiosCheckVerify from "../api/axiosCheckVerify";
+import Verify from "./Verify";
 
 const Home = () => {
   const login = useGlobalStore((state) => state.login);
+  const verify = useGlobalStore((state) => state.verify);
+  const setVerify = useGlobalStore((state) => state.setVerify);
+
+  const check = async () => {
+    const checkStatus = await axiosCheckVerify();
+    return checkStatus ? setVerify() : null;
+  };
+  check();
 
   return (
     <div className="homecontainer">
       {login ? (
-        <>
-          <div className="inputsGraph">
-            <div className="inputTotal">
-              <Input />
-              <Total />
-            </div>
+        verify ? (
+          <>
+            <div className="inputsGraph">
+              <div className="inputTotal">
+                <Input />
+                <Total />
+              </div>
 
-            <div className="graphs">
-              <ColumnGraph />
-              <AreaGraph />
+              <div className="graphs">
+                <ColumnGraph />
+                <AreaGraph />
+              </div>
             </div>
-          </div>
-          <div className="tinys">
-            <ProfitsAndLosses />
-            <DolarBlue />
-            <Interest />
-          </div>
-          <ListInputs />
-        </>
+            <div className="tinys">
+              <ProfitsAndLosses />
+              <DolarBlue />
+              <Interest />
+            </div>
+            <ListInputs />
+          </>
+        ) : (
+          <Verify />
+        )
       ) : (
         <NoLogged />
       )}

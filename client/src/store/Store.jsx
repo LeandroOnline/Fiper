@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import axiosGetAllInputs from "../api/axiosGetAllInputs";
+
 // import { persist } from "zustand/middleware";
 
 const useGlobalStore = create(
@@ -12,6 +13,8 @@ const useGlobalStore = create(
     losses: [],
     netPerMonth: [],
     filtered: false,
+    verify: false,
+    setVerify: () => set({ verify: true }),
     setFiltered: (values) => set({ filtered: values }),
     setNetPerMonth: (net) => set({ netPerMonth: net }),
     setProfitsAndLosses: (profit, loss) =>
