@@ -2,10 +2,11 @@ import API from "./apiUrl";
 import axios from "axios";
 
 const axiosCheckVerify = async () => {
-  //   const check= await axios.post(API + "/checkVerify", {
-  //     token: sessionStorage.getItem("user"),
-  //   }).then(()=>{}).catch((err)=>console.log(err));
-
-  return true;
+  return await axios
+    .post(API + "/checkVerify", {
+      token: sessionStorage.getItem("user"),
+    })
+    .then((data) => (data.data === "Checked" ? true : false))
+    .catch((err) => console.log(err));
 };
 export default axiosCheckVerify;

@@ -17,10 +17,11 @@ const Navbar = memo(() => {
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
 
-  const { setLogin, login } = useGlobalStore(
+  const { setLogin, login, setVerifyFalse } = useGlobalStore(
     (state) => ({
       setLogin: state.setLogin,
       login: state.login,
+      setVerifyFalse: state.setVerifyFalse,
     }),
     shallow
   );
@@ -33,6 +34,7 @@ const Navbar = memo(() => {
         window.alert("Usuario eliminado");
         setLogin(null);
         setConfigIsOpen(false);
+        setVerifyFalse();
       });
     }
   };
@@ -41,6 +43,7 @@ const Navbar = memo(() => {
     sessionStorage.removeItem("user");
     setLogin(null);
     navigate("/login");
+    setVerifyFalse();
   };
 
   const changePassword = async (currentPassword, newPassword) => {

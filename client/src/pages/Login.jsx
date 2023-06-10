@@ -3,12 +3,14 @@ import "./Login.css";
 import useVerifySyntax from "../hooks/useVerifySyntax";
 import useGlobalStore from "../store/Store";
 import axiosLogin from "../api/axiosLogin";
-
 import log from "../assets/login.png";
+import axiosSendEmail from "../api/axiosSendEmail";
+import axiosCheckVerify from "../api/axiosCheckVerify";
+import Verify from "./Verify";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { login, setLogin } = useGlobalStore();
+  const { login, setLogin, checkVerify, setVerify } = useGlobalStore();
 
   const Log = async (e) => {
     e.preventDefault();
@@ -16,11 +18,10 @@ const Login = () => {
     const password = e.target.password.value;
     const verify = useVerifySyntax(email, password);
     if (verify) {
-      axiosLogin(email, password).then((token) => {
+      await axiosLogin(email, password).then((token) => {
         if (token) {
           sessionStorage.setItem("user", token);
           setLogin(token);
-          navigate("/");
         }
       });
     } else {
@@ -28,10 +29,31 @@ const Login = () => {
     }
   };
 
+  if (login) {
+    const checkStatus = async () =>
+      await axiosCheckVerify().then((data) => {
+        if (data) {
+          setVerify();
+          navigate("/");
+        } else {
+          const send = async () =>
+            await axiosSendEmail().then(() =>
+              window.alert(
+                "Se ha enviado un email de verificacion a su cuenta de correo"
+              )
+            );
+          send();
+        }
+      });
+    checkStatus();
+  }
+
   return (
     <div className="logincontainer">
-      {login ? (
+      {login && checkVerify ? (
         <div className="login">Ya has ingresado</div>
+      ) : login && !checkVerify ? (
+        <Verify />
       ) : (
         <form className="login" onSubmit={(e) => Log(e)}>
           <img className="imglogin" src={log} alt="" />

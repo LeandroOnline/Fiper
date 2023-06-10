@@ -15,8 +15,8 @@ const SignUp = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    const verify = useVerifySyntax(email, password) && pass1 === pass2;
-    if (verify) {
+    const VerifySyntax = useVerifySyntax(email, password) && pass1 === pass2;
+    if (VerifySyntax) {
       const send = {
         email: email,
         password: password,
