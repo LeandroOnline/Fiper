@@ -19,7 +19,7 @@ const SignUp = () => {
         email: email,
         password: password,
       };
-      axiosSign(send).then(() => axiosSendEmail(email));
+      axiosSign(send).then(() => {axiosSendEmail(email);window.alert("Verifica tu correo")});
     } else {
       window.alert("Email o contraseña invalidos");
     }
