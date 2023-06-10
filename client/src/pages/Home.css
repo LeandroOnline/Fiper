@@ -92,7 +92,7 @@
   }
 
   .navbutton {
-    font-size: 25px;
+    font-size: 15px;
     padding: 10px;
   }
 
@@ -101,7 +101,7 @@
   }
 
   .Utilities {
-    width: 40%;
+    width: calc((100% - 15px) / 2);
   }
 
   .grid {

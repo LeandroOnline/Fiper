@@ -142,6 +142,7 @@ const Navbar = memo(() => {
             "Cambiar Contraseña"
           )}
         </div>
+        <div className="lineMerge"></div>
         <div
           onClick={() => (menu ? deleteUser() : null)}
           className={menu ? "navbutton" : "hide"}
