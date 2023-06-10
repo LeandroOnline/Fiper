@@ -11,9 +11,12 @@ const checkValidate = async (req, res) => {
       // Next Steep: tendria que generar un numero aleatorio y guardarlo en el schema para corroborar
       userFound.checked = true;
       await userFound.save();
-      res.send("Checked Account");
+      const payload = { id: req.params.id };
+      const token = jwt.sign(payload, process.env.SECRET_KEY);
+
+      res.send({ status: "Checked Account", token });
     } else {
-      res.send("Invalid ID, can not check account");
+      res.send({ status: "Invalid ID, can not check account" });
     }
   } catch (err) {
     res.status(500).send("Error, can not check account: " + err);

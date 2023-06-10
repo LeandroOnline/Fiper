@@ -18,7 +18,7 @@ router.route("/deleteAllInputs").delete(loginValidate, require("../controllers/d
 router.delete("/delete/:id", loginValidate, require("../controllers/deleteItem"));
 router.delete("/deleteUser",loginValidate, require("../controllers/deleteUser"));
 router.put("/updatePassword", loginValidate, require("../controllers/updatePassword"));
-router.post("/checkVerify", loginValidate, require("../controllers/checkVerify"));
+router.post("/checkVerify", require("../controllers/checkVerify"));
 router.post("/sendEmail", require("../controllers/sendEmail"));
 router.get("/checkValidate/:id", require("../controllers/checkValidate"));
 

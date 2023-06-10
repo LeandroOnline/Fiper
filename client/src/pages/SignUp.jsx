@@ -1,5 +1,4 @@
 import axiosSign from "../api/axiosSign";
-import { useNavigate } from "react-router-dom";
 import useVerifySyntax from "../hooks/useVerifySyntax";
 import axiosSendEmail from "../api/axiosSendEmail";
 import "./SignUp.css";
@@ -8,7 +7,6 @@ import proteger from "../assets/proteger.png";
 import { useState } from "react";
 
 const SignUp = () => {
-  const navigate = useNavigate();
   const [pass1, setPass1] = useState("");
   const [pass2, setPass2] = useState("");
 

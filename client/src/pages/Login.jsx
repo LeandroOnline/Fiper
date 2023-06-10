@@ -9,7 +9,10 @@ import Verify from "./Verify";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { login, setLogin, checkVerify, setVerify } = useGlobalStore();
+  const login = useGlobalStore((state) => state.login);
+  const setLogin = useGlobalStore((state) => state.setLogin);
+  const checkVerify = useGlobalStore((state) => state.checkVerify);
+  const setVerify = useGlobalStore((state) => state.setVerify);
 
   const Log = async (e) => {
     e.preventDefault();

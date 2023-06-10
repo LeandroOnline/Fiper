@@ -1,18 +1,23 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
-import "./Verify.css";
 import axiosCheckValidate from "../api/axiosCheckValidate";
 import useGlobalStore from "../store/Store";
+import "./Verify.css";
 
 const Verify = () => {
   const { id } = useParams();
-  const { login } = useGlobalStore();
+  const login = useGlobalStore((state) => state.login);
+  const setLogin = useGlobalStore((state) => state.setLogin);
+  const setVerify = useGlobalStore((state) => state.setVerify);
   const navigate = useNavigate();
 
   const tokenValidate = async () => {
     await axiosCheckValidate(id).then((data) => {
-      if (data.data === "Checked Account") {
-        window.alert("Cuenta Verificada, inicie sesion para continuar");
-        navigate("/login");
+      if (data.data.status === "Checked Account") {
+        sessionStorage.setItem("user", data.data.token);
+        setLogin(data.data.token);
+        setVerify();
+        navigate("/");
+        window.alert("Cuenta Verificada");
       } else {
         window.alert("No se pudo validar la cuenta, intente nuevamente");
       }
