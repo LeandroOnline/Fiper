@@ -16,6 +16,10 @@ const userSchema = mongoose.Schema({
       ref: "Inputs",
     },
   ],
+  checked: {
+    type: Boolean,
+    default: false,
+  }
 });
 
 module.exports = mongoose.model("User", userSchema);

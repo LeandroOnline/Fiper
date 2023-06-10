@@ -19,6 +19,8 @@ const Verify = () => {
     });
   };
 
+  // AGREGAR reenvio de email manual
+
   if (!login) tokenValidate();
 
   return (

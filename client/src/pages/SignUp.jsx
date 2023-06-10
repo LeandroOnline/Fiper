@@ -1,6 +1,7 @@
 import axiosSign from "../api/axiosSign";
 import { useNavigate } from "react-router-dom";
 import useVerifySyntax from "../hooks/useVerifySyntax";
+import axiosSendEmail from "../api/axiosSendEmail";
 import "./SignUp.css";
 
 import proteger from "../assets/proteger.png";
@@ -21,11 +22,20 @@ const SignUp = () => {
         email: email,
         password: password,
       };
-      axiosSign(send).then(() => navigate("/login"));
+      axiosSign(send).then(() => {
+        sendEmail(email);
+      });
     } else {
       window.alert("Email o contraseña invalidos");
     }
   };
+
+  const sendEmail = async (email) =>
+    await axiosSendEmail(email).then(() =>
+      window.alert(
+        "Se ha enviado un email de verificacion a su cuenta de correo"
+      )
+    );
 
   return (
     <div className="signcontainer">

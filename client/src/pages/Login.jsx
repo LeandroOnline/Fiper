@@ -4,7 +4,6 @@ import useVerifySyntax from "../hooks/useVerifySyntax";
 import useGlobalStore from "../store/Store";
 import axiosLogin from "../api/axiosLogin";
 import log from "../assets/login.png";
-import axiosSendEmail from "../api/axiosSendEmail";
 import axiosCheckVerify from "../api/axiosCheckVerify";
 import Verify from "./Verify";
 
@@ -35,14 +34,6 @@ const Login = () => {
         if (data) {
           setVerify();
           navigate("/");
-        } else {
-          const send = async () =>
-            await axiosSendEmail().then(() =>
-              window.alert(
-                "Se ha enviado un email de verificacion a su cuenta de correo"
-              )
-            );
-          send();
         }
       });
     checkStatus();

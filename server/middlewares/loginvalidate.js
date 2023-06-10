@@ -6,10 +6,10 @@ const loginvalidate = async (req, res, next) => {
     if (id) {
       next();
     } else {
-      res.status(400).send("Usuario no autorizado");
+      res.status(500).send("Usuario no autorizado");
     }
   } catch (err) {
-    res.status(400).send("Usuario no autorizado");
+    res.status(500).send("Error in login validate: " + err);
   }
 };
 

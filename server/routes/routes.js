@@ -2,9 +2,6 @@ const router = require("express").Router();
 const loginValidate = require("../middlewares/loginvalidate");
 
 const {
-  deleteItem,
-  deleteall,
-  deleteUser,
   getusers,
   get,
   del,
@@ -12,7 +9,6 @@ const {
 const verifySyntax = require("../middlewares/verifySyntax");
 const Sanitize = require("../middlewares/sanitize");
 
-// router.route("/add").post(loginValidate, Sanitize, require("../controllers/add.js"));
 router.post("/addInput", loginValidate, Sanitize, require("../controllers/addInput"));
 router.post("/addUser", verifySyntax, require("../controllers/addUser"));
 router.post("/login", verifySyntax, require("../controllers/login"));
@@ -22,10 +18,13 @@ router.route("/deleteAllInputs").delete(loginValidate, require("../controllers/d
 router.delete("/delete/:id", loginValidate, require("../controllers/deleteItem"));
 router.delete("/deleteUser",loginValidate, require("../controllers/deleteUser"));
 router.put("/updatePassword", loginValidate, require("../controllers/updatePassword"));
+router.post("/checkVerify", loginValidate, require("../controllers/checkVerify"));
+router.post("/sendEmail", require("../controllers/sendEmail"));
+router.get("/checkValidate/:id", require("../controllers/checkValidate"));
 
 // deben tener permisos de administrador
-// router.route("/getusers").get(getusers);
-// router.route("/get").get(get);
-// router.route("/del").delete(del);
+router.route("/getusers").get(getusers);
+router.route("/get").get(get);
+router.route("/del").delete(del);
 
 module.exports = router;

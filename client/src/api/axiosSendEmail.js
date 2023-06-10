@@ -1,9 +1,9 @@
 import API from "./apiUrl";
 import axios from "axios";
 
-const axiosSendEmail = async () => {
+const axiosSendEmail = async (email) => {
   await axios.post(API + "/sendEmail", {
-    token: sessionStorage.getItem("user"),
+    email: email,
   });
 };
 export default axiosSendEmail;
