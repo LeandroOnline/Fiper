@@ -3,7 +3,6 @@ const jwt = require("jsonwebtoken");
 
 const checkValidate = async (req, res) => {
   try {
-    // const { id } = jwt.verify(req.body.token, process.env.SECRET_KEY);
     const userFound = await User.findById(req.params.id);
 
     if (userFound) {

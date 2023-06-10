@@ -13,6 +13,7 @@ const Login = () => {
   const setLogin = useGlobalStore((state) => state.setLogin);
   const checkVerify = useGlobalStore((state) => state.checkVerify);
   const setVerify = useGlobalStore((state) => state.setVerify);
+  const setEmailStore = useGlobalStore((state) => state.setEmailStore);
 
   const Log = async (e) => {
     e.preventDefault();
@@ -22,25 +23,21 @@ const Login = () => {
     if (verify) {
       await axiosLogin(email, password).then((token) => {
         if (token) {
+          setEmailStore(email);
           sessionStorage.setItem("user", token);
-          setLogin(token);
+          const checkStatus = async () =>
+            await axiosCheckVerify().then((check) => {
+              if (check) setVerify();
+              setLogin(token);
+              navigate("/");
+            });
+          checkStatus();
         }
       });
     } else {
       window.alert("Ingresos invalidos");
     }
   };
-
-  if (login) {
-    const checkStatus = async () =>
-      await axiosCheckVerify().then((data) => {
-        if (data) {
-          setVerify();
-          navigate("/");
-        }
-      });
-    checkStatus();
-  }
 
   return (
     <div className="logincontainer">

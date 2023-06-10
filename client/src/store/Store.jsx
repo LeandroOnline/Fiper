@@ -14,6 +14,8 @@ const useGlobalStore = create(
       netPerMonth: [],
       filtered: false,
       checkVerify: false,
+      emailStore: "",
+      setEmailStore: (email) => set({ emailStore: email }),
       setVerifyFalse: () => set({ checkVerify: false }),
       setVerify: () => set({ checkVerify: true }),
       setFiltered: (values) => set({ filtered: values }),
