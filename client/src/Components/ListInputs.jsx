@@ -19,8 +19,8 @@ const ListInputs = () => {
     useGlobalStore();
 
   const clearTrue = async () => {
-    if (window.confirm("SEGURO queres eliminar todas las Entradas?"))
-      if (window.confirm("Seguro?, no hay vuelta atras!"))
+    if (window.confirm("Eliminar todas las Entradas?"))
+      if (window.confirm("Esta accion no se puede revertir, desea continuar?"))
         await axiosClear().then(() => setReset());
   };
 

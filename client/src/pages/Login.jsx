@@ -6,6 +6,8 @@ import axiosLogin from "../api/axiosLogin";
 import log from "../assets/login.png";
 import axiosCheckVerify from "../api/axiosCheckVerify";
 import Verify from "./Verify";
+import Popup from "../components/Popup";
+import { useState } from "react";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -14,6 +16,7 @@ const Login = () => {
   const checkVerify = useGlobalStore((state) => state.checkVerify);
   const setVerify = useGlobalStore((state) => state.setVerify);
   const setEmailStore = useGlobalStore((state) => state.setEmailStore);
+  const [popup, setPopup] = useState(false);
 
   const Log = async (e) => {
     e.preventDefault();
@@ -35,7 +38,8 @@ const Login = () => {
         }
       });
     } else {
-      window.alert("Ingresos invalidos");
+      // window.alert("Ingresos invalidos");
+      setPopup(true);
     }
   };
 
@@ -59,6 +63,14 @@ const Login = () => {
           </div>
         </form>
       )}
+      <Popup
+        text="Ingresos invalidos"
+        popupOpenClose={popup}
+        onConfirm={setPopup}
+        onCancel={setPopup}
+        toConfirm={true}
+        timer={false}
+      />
     </div>
   );
 };

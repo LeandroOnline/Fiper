@@ -14,7 +14,6 @@ h3,
 p,
 .interestInputs {
   color: rgba(255, 255, 255, 0.6);
-  font-family: Ubuntu;
   text-align: center;
 }
 
@@ -29,8 +28,7 @@ button {
   background-color: rgba(255, 255, 255, 0.3);
   color: black;
   border-radius: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 5px 10px;
   cursor: pointer;
   transition: 0.5s;
 }
