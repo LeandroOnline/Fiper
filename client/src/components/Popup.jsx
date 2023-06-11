@@ -13,12 +13,11 @@ const Popup = ({
   onCancel,
   toConfirm,
   query,
-  timer,
 }) => {
-  if (timer && popupActivate) {
+  if (!toConfirm && popupActivate) {
     setTimeout(() => {
       setPopupActivate();
-    }, timer);
+    }, 3000);
   }
 
   let img =

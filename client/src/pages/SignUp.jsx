@@ -64,9 +64,8 @@ const SignUp = () => {
       <Popup
         popupActivate={popupActivate}
         setPopupActivate={() => setPopupActivate(false)}
-        type="error"
+        type="ok"
         text={popupText}
-        timer={false}
         toConfirm={true}
         query={false}
         onConfirm={() => setPopupActivate(false)}

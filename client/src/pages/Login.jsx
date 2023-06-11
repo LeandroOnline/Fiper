@@ -67,7 +67,6 @@ const Login = () => {
         setPopupActivate={() => setPopupActivate(false)}
         type="error"
         text="Ingresos invalidos"
-        timer={2000}
         toConfirm={false}
         query={false}
         onConfirm={() => setPopupActivate(false)}

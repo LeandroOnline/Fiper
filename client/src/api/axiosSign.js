@@ -11,8 +11,6 @@ const sign = async (send) => {
           window.alert(
             "Usuario 'Existente', prueve otro email o inicie sesion"
           );
-        } else {
-          window.alert("Usuario Agregado");
         }
       })
       .catch((err) => console.log(err));
