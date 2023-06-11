@@ -4,10 +4,19 @@ import ok from "../assets/correcto.png";
 import error from "../assets/error.png";
 import question from "../assets/pregunta.png";
 
-const Popup = ({ text, type, popupActivate, onConfirm, toConfirm, timer }) => {
+const Popup = ({
+  text,
+  type,
+  popupActivate,
+  setPopupActivate,
+  onConfirm,
+  onCancel,
+  toConfirm,
+  timer,
+}) => {
   if (timer && popupActivate) {
     setTimeout(() => {
-      onConfirm(false);
+      setPopupActivate();
     }, timer);
   }
 
@@ -26,10 +35,10 @@ const Popup = ({ text, type, popupActivate, onConfirm, toConfirm, timer }) => {
       <p>{text}</p>
       {toConfirm ? (
         <div className="popupButtonsContainer">
-          <button className="popupButton" onClick={() => onConfirm(false)}>
+          <button className="popupButton" onClick={() => onCancel()}>
             Cancelar
           </button>
-          <button className="popupButton" onClick={() => onConfirm(false)}>
+          <button className="popupButton" onClick={() => onConfirm()}>
             Aceptar
           </button>
         </div>

@@ -64,12 +64,13 @@ const Login = () => {
       )}
       <Popup
         popupActivate={popupActivate}
+        setPopupActivate={() => setPopupActivate(false)}
         type="error"
         text="Ingresos invalidos"
         timer={2000}
-        toConfirm={false}
-        onConfirm={setPopupActivate}
-        onCancel={setPopupActivate}
+        toConfirm={true}
+        onConfirm={() => setPopupActivate(false)}
+        onCancel={() => setPopupActivate(false)}
       />
     </div>
   );
