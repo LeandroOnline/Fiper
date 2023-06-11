@@ -10,8 +10,13 @@ const SignUp = () => {
   const [pass1, setPass1] = useState("");
   const [pass2, setPass2] = useState("");
   const [popupActivate, setPopupActivate] = useState(false);
-  const [popupText, setPopupText] = useState("");
   const [popupChoise, setPopupChoise] = useState(null);
+  const [popupConfig, setPopupConfig] = useState({
+    type: "ok",
+    text: "popupText",
+    toConfirm: true,
+    query: false,
+  });
 
   const Sign = async (e) => {
     e.preventDefault();
@@ -25,11 +30,22 @@ const SignUp = () => {
       };
       axiosSign(send).then(() => {
         axiosSendEmail(email);
-        setPopupText("Verifica tu correo");
+        setPopupConfig({
+          type: "ok",
+          text: "Verifica tu correo",
+          toConfirm: true,
+          query: false,
+        });
         setPopupActivate(true);
       });
     } else {
-      window.alert("Email o contraseña invalidos");
+      setPopupConfig({
+        type: "error",
+        text: "Email o contraseña invalido",
+        toConfirm: false,
+        query: false,
+      });
+      setPopupActivate(true);
     }
   };
 
@@ -66,10 +82,10 @@ const SignUp = () => {
         popupActivate={popupActivate}
         setPopupActivate={() => setPopupActivate(false)}
         choise={setPopupChoise}
-        type="ok"
-        text={popupText}
-        toConfirm={true}
-        query={false}
+        type={popupConfig.type}
+        text={popupConfig.text}
+        toConfirm={popupConfig.toConfirm}
+        query={popupConfig.query}
       />
     </div>
   );

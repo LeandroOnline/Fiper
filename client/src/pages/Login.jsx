@@ -69,7 +69,7 @@ const Login = () => {
         choise={setPopupChoise}
         type="error"
         text="Ingresos invalidos"
-        toConfirm={true}
+        toConfirm={false}
         query={true}
       />
     </div>
