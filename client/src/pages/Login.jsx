@@ -16,7 +16,7 @@ const Login = () => {
   const checkVerify = useGlobalStore((state) => state.checkVerify);
   const setVerify = useGlobalStore((state) => state.setVerify);
   const setEmailStore = useGlobalStore((state) => state.setEmailStore);
-  const [popup, setPopup] = useState(false);
+  const [popupActivate, setPopupActivate] = useState(false);
 
   const Log = async (e) => {
     e.preventDefault();
@@ -38,8 +38,7 @@ const Login = () => {
         }
       });
     } else {
-      // window.alert("Ingresos invalidos");
-      setPopup(true);
+      setPopupActivate(true);
     }
   };
 
@@ -64,12 +63,13 @@ const Login = () => {
         </form>
       )}
       <Popup
+        popupActivate={popupActivate}
+        type="error"
         text="Ingresos invalidos"
-        popupOpenClose={popup}
-        onConfirm={setPopup}
-        onCancel={setPopup}
-        toConfirm={true}
-        timer={false}
+        timer={2000}
+        toConfirm={false}
+        onConfirm={setPopupActivate}
+        onCancel={setPopupActivate}
       />
     </div>
   );

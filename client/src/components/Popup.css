@@ -1,6 +1,8 @@
 .pop {
   width: 300px;
-  height: 100px;
+  height: auto;
+  padding: 15px;
+  gap:15px;
   background-color: rgba(255, 255, 255, 0.2);
   position: absolute;
   top: 100px;
@@ -16,7 +18,9 @@
 
 .pup {
   width: 300px;
-  height: 100px;
+  height: auto;
+  padding: 15px;
+  gap:15px;
   background-color: rgba(0, 0, 0, 0.2);
   position: absolute;
   top: -100px;
@@ -28,6 +32,12 @@
   transition: 0.2s;
   flex-direction: column;
   opacity: 10%;
+}
+
+.popimg{
+    width: 30px;
+    filter: invert();
+    opacity: 50%;
 }
 
 .popupButton {
