@@ -4,10 +4,13 @@ import useVerifySyntax from "../hooks/useVerifySyntax";
 import proteger from "../assets/proteger.png";
 import axiosSendEmail from "../api/axiosSendEmail";
 import "./SignUp.css";
+import Popup from "../components/Popup";
 
 const SignUp = () => {
   const [pass1, setPass1] = useState("");
   const [pass2, setPass2] = useState("");
+  const [popupActivate, setPopupActivate] = useState(false);
+  const [popupText, setPopupText] = useState("");
 
   const Sign = async (e) => {
     e.preventDefault();
@@ -19,7 +22,11 @@ const SignUp = () => {
         email: email,
         password: password,
       };
-      axiosSign(send).then(() => {axiosSendEmail(email);window.alert("Verifica tu correo")});
+      axiosSign(send).then(() => {
+        axiosSendEmail(email);
+        setPopupText("Verifica tu correo");
+        setPopupActivate(true);
+      });
     } else {
       window.alert("Email o contraseña invalidos");
     }
@@ -54,6 +61,17 @@ const SignUp = () => {
         />
         <button type="submit">Registrarse</button>
       </form>
+      <Popup
+        popupActivate={popupActivate}
+        setPopupActivate={() => setPopupActivate(false)}
+        type="error"
+        text={popupText}
+        timer={false}
+        toConfirm={true}
+        query={false}
+        onConfirm={() => setPopupActivate(false)}
+        onCancel={() => setPopupActivate(false)}
+      />
     </div>
   );
 };

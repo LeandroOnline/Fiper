@@ -68,7 +68,8 @@ const Login = () => {
         type="error"
         text="Ingresos invalidos"
         timer={2000}
-        toConfirm={true}
+        toConfirm={false}
+        query={false}
         onConfirm={() => setPopupActivate(false)}
         onCancel={() => setPopupActivate(false)}
       />

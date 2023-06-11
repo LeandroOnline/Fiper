@@ -12,6 +12,7 @@ const Popup = ({
   onConfirm,
   onCancel,
   toConfirm,
+  query,
   timer,
 }) => {
   if (timer && popupActivate) {
@@ -31,13 +32,16 @@ const Popup = ({
 
   return (
     <div className={popupActivate ? "pop" : "pup"}>
+      <div className="popupBlur"></div>
       <img className="popimg" src={img} alt="img" />
       <p>{text}</p>
       {toConfirm ? (
         <div className="popupButtonsContainer">
-          <button className="popupButton" onClick={() => onCancel()}>
-            Cancelar
-          </button>
+          {query ? (
+            <button className="popupButton" onClick={() => onCancel()}>
+              Cancelar
+            </button>
+          ) : null}
           <button className="popupButton" onClick={() => onConfirm()}>
             Aceptar
           </button>
