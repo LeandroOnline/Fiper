@@ -1,8 +1,10 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useState } from "react";
 import axiosCheckValidate from "../api/axiosCheckValidate";
 import useGlobalStore from "../store/Store";
 import "./Verify.css";
 import axiosSendEmail from "../api/axiosSendEmail";
+import Popup from "../components/Popup";
 
 const Verify = () => {
   const { id } = useParams();
@@ -10,7 +12,17 @@ const Verify = () => {
   const setLogin = useGlobalStore((state) => state.setLogin);
   const setVerify = useGlobalStore((state) => state.setVerify);
   const emailStore = useGlobalStore((state) => state.emailStore);
+  const setVerifyMessage = useGlobalStore((state) => state.setVerifyMessage);
   const navigate = useNavigate();
+
+  const [popupActivate, setPopupActivate] = useState(false);
+  const [popupChoise, setPopupChoise] = useState(null);
+  const [popupConfig, setPopupConfig] = useState({
+    type: "ok",
+    text: "popupText",
+    toConfirm: true,
+    query: false,
+  });
 
   const tokenValidate = async () => {
     await axiosCheckValidate(id).then((data) => {
@@ -18,8 +30,9 @@ const Verify = () => {
         sessionStorage.setItem("user", data.data.token);
         setLogin(data.data.token);
         setVerify();
+        // window.alert("Cuenta Verificada");
+        setVerifyMessage();
         navigate("/");
-        window.alert("Cuenta Verificada");
       } else {
         window.alert("No se pudo validar la cuenta, intente nuevamente");
       }
@@ -43,6 +56,15 @@ const Verify = () => {
       <button onClick={() => reSendEmail()}>
         Volver a solicitar correo de verificacion
       </button>
+      <Popup
+        popupActivate={popupActivate}
+        setPopupActivate={() => setPopupActivate(false)}
+        choise={setPopupChoise}
+        type={popupConfig.type}
+        text={popupConfig.text}
+        toConfirm={popupConfig.toConfirm}
+        query={popupConfig.query}
+      />
     </div>
   );
 };
