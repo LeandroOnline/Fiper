@@ -17,6 +17,7 @@ const Login = () => {
   const setVerify = useGlobalStore((state) => state.setVerify);
   const setEmailStore = useGlobalStore((state) => state.setEmailStore);
   const [popupActivate, setPopupActivate] = useState(false);
+  const [popupChoise, setPopupChoise] = useState(null);
 
   const Log = async (e) => {
     e.preventDefault();
@@ -41,7 +42,7 @@ const Login = () => {
       setPopupActivate(true);
     }
   };
-
+  console.log(popupChoise);
   return (
     <div className="logincontainer">
       {login && checkVerify ? (
@@ -65,12 +66,11 @@ const Login = () => {
       <Popup
         popupActivate={popupActivate}
         setPopupActivate={() => setPopupActivate(false)}
+        choise={setPopupChoise}
         type="error"
         text="Ingresos invalidos"
-        toConfirm={false}
-        query={false}
-        onConfirm={() => setPopupActivate(false)}
-        onCancel={() => setPopupActivate(false)}
+        toConfirm={true}
+        query={true}
       />
     </div>
   );

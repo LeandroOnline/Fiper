@@ -11,6 +11,7 @@ const SignUp = () => {
   const [pass2, setPass2] = useState("");
   const [popupActivate, setPopupActivate] = useState(false);
   const [popupText, setPopupText] = useState("");
+  const [popupChoise, setPopupChoise] = useState(null);
 
   const Sign = async (e) => {
     e.preventDefault();
@@ -64,12 +65,11 @@ const SignUp = () => {
       <Popup
         popupActivate={popupActivate}
         setPopupActivate={() => setPopupActivate(false)}
+        choise={setPopupChoise}
         type="ok"
         text={popupText}
         toConfirm={true}
         query={false}
-        onConfirm={() => setPopupActivate(false)}
-        onCancel={() => setPopupActivate(false)}
       />
     </div>
   );

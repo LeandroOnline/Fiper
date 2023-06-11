@@ -9,8 +9,7 @@ const Popup = ({
   type,
   popupActivate,
   setPopupActivate,
-  onConfirm,
-  onCancel,
+  choise,
   toConfirm,
   query,
 }) => {
@@ -37,11 +36,23 @@ const Popup = ({
       {toConfirm ? (
         <div className="popupButtonsContainer">
           {query ? (
-            <button className="popupButton" onClick={() => onCancel()}>
+            <button
+              className="popupButton"
+              onClick={() => {
+                choise(false);
+                setPopupActivate();
+              }}
+            >
               Cancelar
             </button>
           ) : null}
-          <button className="popupButton" onClick={() => onConfirm()}>
+          <button
+            className="popupButton"
+            onClick={() => {
+              choise(true);
+              setPopupActivate();
+            }}
+          >
             Aceptar
           </button>
         </div>
