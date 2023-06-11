@@ -30,20 +30,32 @@ const Verify = () => {
         sessionStorage.setItem("user", data.data.token);
         setLogin(data.data.token);
         setVerify();
-        // window.alert("Cuenta Verificada");
         setVerifyMessage();
         navigate("/");
       } else {
-        window.alert("No se pudo validar la cuenta, intente nuevamente");
+        setPopupConfig({
+          type: "error",
+          text: "No se pudo validar la cuenta, intente nuevamente",
+          toConfirm: true,
+          query: false,
+        });
+        setPopupActivate(true);
       }
     });
   };
 
   if (!login) tokenValidate();
 
-  // AGREGAR reenvio de email manual <-
   const reSendEmail = () => {
-    axiosSendEmail(emailStore).then(() => window.alert("Correo enviado"));
+    axiosSendEmail(emailStore).then(() => {
+      setPopupConfig({
+        type: "ok",
+        text: "Correo enviado",
+        toConfirm: false,
+        query: false,
+      });
+      setPopupActivate(true);
+    });
   };
 
   return (
