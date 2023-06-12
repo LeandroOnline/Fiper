@@ -13,7 +13,7 @@
 
 .addNote {
   width: calc((100% - 45px) / 4);
-  height: 150px;
+  height: 200px;
   border-radius: 5px;
   overflow: auto;
   box-shadow: 3px 5px 15px 0px rgba(0, 0, 0, 0.1);

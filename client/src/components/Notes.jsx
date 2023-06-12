@@ -9,6 +9,7 @@ import axiosAddNote from "../api/axiosAddNote";
 
 const Notes = () => {
   const storeGetNotes = useGlobalStore((state) => state.storeGetNotes);
+  const noteDeleted = useGlobalStore((state) => state.noteDeleted);
   const notes = useGlobalStore((state) => state.notes);
   const [addNoteMenu, setAddNoteMenu] = useState(false);
   const [title, setTitle] = useState("");
@@ -17,11 +18,10 @@ const Notes = () => {
 
   useEffect(() => {
     storeGetNotes();
-  }, [sendNote]);
+  }, [sendNote, noteDeleted]);
 
   const addNote = async (title, text) => {
     await axiosAddNote(title, text).then((e) => {
-      console.log(e);
       setAddNoteMenu(false);
       setTitle("");
       setText("");
@@ -77,7 +77,7 @@ const Notes = () => {
         )}
       </div>
       {notes.map((note, index) => (
-        <Note title={note.title} text={note.text} key={index} />
+        <Note title={note.title} text={note.text} key={index} id={note._id} />
       ))}
     </div>
   );
