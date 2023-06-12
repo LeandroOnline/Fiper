@@ -1,25 +1,29 @@
 .noteContainer {
-  width: 25%;
+  width: calc((100% - 45px)/4);
   height: 150px;
   border-radius: 5px;
-  overflow: auto;
+  /* overflow: auto; */
   box-shadow: 3px 5px 15px 0px rgba(0, 0, 0, 0.1);
   position: relative;
 }
 
 .noteTitle {
   width: 100%;
+  height: 35%;
   background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
   padding: 10px;
   border-top: 2px solid rgba(255, 255, 255, 0.5);
   border-bottom: 1px solid rgba(255, 255, 255, 0.01);
+  border-radius: 5px 5px 0 0;
 }
 
 .noteText {
   width: 100%;
-  height: 100%;
+  height: 65%;
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.01);
+  border-radius: 0 0 5px 5px;
+
 }
 
 .deleteNote {
