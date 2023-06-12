@@ -2,6 +2,7 @@ import { create } from "zustand";
 import axiosGetAllInputs from "../api/axiosGetAllInputs";
 
 import { persist, createJSONStorage } from "zustand/middleware";
+import apiTest from "../api/apiTest";
 
 const useGlobalStore = create(
   persist(
@@ -16,6 +17,8 @@ const useGlobalStore = create(
       checkVerify: false,
       emailStore: "",
       verifyMessage: false,
+      apiTest: "",
+      setApiTest: async () => set({ apiTest: await apiTest() }),
       setVerifyMessage: () => set({ verifyMessage: true }),
       setVerifyMessageDone: () => set({ verifyMessage: false }),
       setEmailStore: (email) => set({ emailStore: email }),

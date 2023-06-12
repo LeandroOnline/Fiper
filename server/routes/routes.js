@@ -21,6 +21,7 @@ router.put("/updatePassword", loginValidate, require("../controllers/updatePassw
 router.post("/checkVerify", require("../controllers/checkVerify"));
 router.post("/sendEmail", require("../controllers/sendEmail"));
 router.get("/checkValidate/:id", require("../controllers/checkValidate"));
+router.get("/test", require("../controllers/test"));
 
 // deben tener permisos de administrador
 router.route("/getusers").get(getusers);

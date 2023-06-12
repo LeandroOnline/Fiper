@@ -22,7 +22,6 @@ const Home = () => {
   );
 
   const [popupActivate, setPopupActivate] = useState(false);
-  const [popupChoise, setPopupChoise] = useState(null);
   const [popupConfig, setPopupConfig] = useState({
     type: "ok",
     text: "popupText",
@@ -71,7 +70,6 @@ const Home = () => {
             <Popup
               popupActivate={popupActivate}
               setPopupActivate={() => setPopupActivate(false)}
-              choise={setPopupChoise}
               type={popupConfig.type}
               text={popupConfig.text}
               toConfirm={popupConfig.toConfirm}
