@@ -33,6 +33,7 @@ const ListInputs = () => {
     e.preventDefault();
     await axiosUpdateItem(idElemento, e).then(() => setReset());
   };
+  
   useEffect(() => {
     storeGetAllInputs();
   }, [reset, filtered]);

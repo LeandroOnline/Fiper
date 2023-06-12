@@ -2,7 +2,6 @@
   width: calc((100% - 45px)/4);
   height: 150px;
   border-radius: 5px;
-  /* overflow: auto; */
   box-shadow: 3px 5px 15px 0px rgba(0, 0, 0, 0.1);
   position: relative;
 }
@@ -26,22 +25,37 @@
 
 }
 
-.deleteNote {
-  width: 30px;
+.buttonsSavedNote {
+  width: 60px;
   height: 30px;
-  border-radius: 0px 5px 0px 20px;
+  border-radius: 0px 5px 0px 15px;
   position: absolute;
   top: 0px;
-  left: calc(100% - 30px);
+  left: calc(100% - 60px);
   background-color: rgb(255, 255, 255, 0.2);
   border-top: 2px solid rgba(255, 255, 255, 0.1);
   padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .deleteImg {
-  width: 15px;
+  width: 30px;
   opacity: 70%;
-  position: absolute;
-  top: 4px;
-  left: 8px;
+  padding: 7.5px;
+  transition: 0.5s;
+  border-radius: 0 0 0 15px;
+}
+
+.modifyImg{
+  width: 30px;
+  opacity: 70%;
+  padding: 7.5px;
+  transition: 0.5s;
+}
+
+.modifyImg:hover, .deleteImg:hover{
+  transition: 0.5s;
+  background-color: rgb(255, 255, 255, 0.5);
 }

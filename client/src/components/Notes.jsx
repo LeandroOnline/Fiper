@@ -1,13 +1,85 @@
-import Note from "./Note"
-import "./Notes.css"
-import add from "../assets/agregar.png"
+import Note from "./Note";
+import "./Notes.css";
+import add from "../assets/agregar.png";
+import useGlobalStore from "../store/Store";
+import { useEffect, useState } from "react";
+import del from "../assets/eliminar.png";
+import ok from "../assets/correcto.png";
+import axiosAddNote from "../api/axiosAddNote";
+
 const Notes = () => {
+  const storeGetNotes = useGlobalStore((state) => state.storeGetNotes);
+  const notes = useGlobalStore((state) => state.notes);
+  const [addNoteMenu, setAddNoteMenu] = useState(false);
+  const [title, setTitle] = useState("");
+  const [text, setText] = useState("");
+  const [sendNote, setSendNote] = useState(false);
+
+  useEffect(() => {
+    storeGetNotes();
+  }, [sendNote]);
+
+  const addNote = async (title, text) => {
+    await axiosAddNote(title, text).then((e) => {
+      console.log(e);
+      setAddNoteMenu(false);
+      setTitle("");
+      setText("");
+      setSendNote(!sendNote);
+    });
+  };
+
   return (
     <div className="notesContainer">
-        <div className="addNote"><img className="addNoteImg" src={add} alt="add" /></div>
-        <Note/>
-
+      <div className="addNote">
+        {addNoteMenu ? (
+          <div className="noteInputs">
+            <input
+              type="text"
+              placeholder="Title:"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className="inputNote titleNote"
+            />
+            <input
+              type="text"
+              placeholder="Text:"
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              className="inputNote textNote"
+            />
+            <div className="buttonsNote">
+              <img
+                className="del"
+                onClick={() => {
+                  setAddNoteMenu(false);
+                  setTitle("");
+                  setText("");
+                }}
+                src={del}
+                alt="x"
+              />
+              <img
+                className="ok"
+                src={ok}
+                onClick={() => addNote(title, text)}
+                alt="ok"
+              />
+            </div>
+          </div>
+        ) : (
+          <img
+            className="addNoteImg"
+            src={add}
+            alt="add"
+            onClick={() => setAddNoteMenu(true)}
+          />
+        )}
+      </div>
+      {notes.map((note, index) => (
+        <Note title={note.title} text={note.text} key={index} />
+      ))}
     </div>
-  )
-}
-export default Notes
+  );
+};
+export default Notes;

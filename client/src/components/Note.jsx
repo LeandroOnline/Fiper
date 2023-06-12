@@ -1,12 +1,16 @@
 import "./Note.css";
 import del from "../assets/eliminar.png";
-const Note = () => {
+import modify from "../assets/modificar.png";
+const Note = ({ title, text }) => {
   return (
     <div className="noteContainer">
-        <button className="deleteNote"><img className="deleteImg" src={del} alt="" /></button>
-        <h1 className="noteTitle">Title</h1>
-        <p className="noteText">Text</p>
+      <div className="buttonsSavedNote">
+        <img className="deleteImg" src={del} alt="" />
+        <img className="modifyImg" src={modify} alt="" />
+      </div>
+      <h1 className="noteTitle">{title}</h1>
+      <p className="noteText">{text}</p>
     </div>
-  )
-}
-export default Note
+  );
+};
+export default Note;

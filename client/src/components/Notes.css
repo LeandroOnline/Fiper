@@ -8,10 +8,11 @@
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
+  transition: 0.5s;
 }
 
 .addNote {
-  width: calc((100% - 45px)/4);
+  width: calc((100% - 45px) / 4);
   height: 150px;
   border-radius: 5px;
   overflow: auto;
@@ -33,4 +34,69 @@
   width: 40px;
   filter: invert();
   opacity: 50%;
+}
+
+.noteInputs {
+  transition: 0.5s;
+  height: 100%;
+  position: relative;
+}
+
+.inputNote {
+  transition: 0.5s;
+  width: calc(100% - 10px);
+  padding: 0 5px;
+}
+
+.titleNote {
+  height: 35%;
+  border-bottom: 2px solid rgb(0, 0, 0, 0.1);
+}
+
+.textNote {
+  height: 65%;
+}
+
+.buttonsNote {
+  background-color: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  width: 60px;
+  height: 30px;
+  top: calc(100% - 30px);
+  left: calc(100% - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px 0 0 0;
+}
+
+.del {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  opacity: 70%;
+  z-index: 20;
+  padding: 7.5px;
+  transition: 0.5s;
+  border-radius: 15px 0 0 0;
+}
+
+.ok{
+  width: 30px;
+  height: 30px;
+  position: relative;
+  opacity: 70%;
+  z-index: 20;
+  padding: 7.5px;
+  transition: 0.5s;
+}
+
+.del:hover {
+  transition: 0.5s;
+  background-color: rgb(255, 255, 255, 0.5);
+}
+
+.ok:hover{
+  transition: 0.5s;
+  background-color: rgb(255, 255, 255, 0.5);
 }

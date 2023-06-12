@@ -1,11 +1,5 @@
 const router = require("express").Router();
 const loginValidate = require("../middlewares/loginvalidate");
-
-const {
-  getusers,
-  get,
-  del,
-} = require("../controllers/controllers");
 const verifySyntax = require("../middlewares/verifySyntax");
 const Sanitize = require("../middlewares/sanitize");
 
@@ -29,14 +23,23 @@ router.route("/deleteAllInputs").delete(loginValidate, require("../controllers/d
 router.delete("/delete/:id", loginValidate, require("../controllers/deleteItem"));
 
 // Notes
-router.get("/getNotes", loginValidate, require("../controllers/getNotes"));
+router.post("/getNotes", loginValidate, require("../controllers/getNotes"));
 router.post("/addNote", loginValidate, require("../controllers/addNote"));
 router.put("/updateNote", loginValidate, require("../controllers/updateNote"));
-router.delete("/deleteNote", loginValidate, require("../controllers/deleteNote"));
+router.delete("/deleteNote/:id", loginValidate, require("../controllers/deleteNote"));
 
 // Admin
+const {
+  getusers,
+  getAllNotes,
+  deleteAllNotes,
+  get,
+  del,
+} = require("../controllers/controllers");
 router.route("/getusers").get(getusers);
+router.route("/getAllNotes").get(getAllNotes);
 router.route("/get").get(get);
 router.route("/del").delete(del);
+router.route("/deleteAllNotes").delete(deleteAllNotes);
 
 module.exports = router;
