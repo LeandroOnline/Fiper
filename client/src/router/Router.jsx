@@ -11,7 +11,6 @@ const Router = () => {
   const apiTest = useGlobalStore((state) => state.apiTest);
   const setApiTest = useGlobalStore((state) => state.setApiTest);
   setApiTest();
-  console.log(apiTest)
   return (
     <Routes>
       <Route

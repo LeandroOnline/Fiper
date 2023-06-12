@@ -53,7 +53,6 @@ const Navbar = memo(() => {
       setPopupActivate(true);
       setConfigIsOpen(!configIsOpen);
     } else {
-      console.log(popupChoise);
       await axiosDeleteUser().then(() => {
         setPopupConfig({
           type: "ok",
