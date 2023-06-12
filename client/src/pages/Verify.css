@@ -6,3 +6,11 @@
   justify-content: center;
   flex-direction: column;
 }
+
+.verifyImg{
+  width: 300px;
+}
+
+.buttonVerify{
+  margin-top: 15px;
+}

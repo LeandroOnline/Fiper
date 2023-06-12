@@ -5,6 +5,7 @@ import useGlobalStore from "../store/Store";
 import "./Verify.css";
 import axiosSendEmail from "../api/axiosSendEmail";
 import Popup from "../components/Popup";
+import verify from "../assets/verificar.png";
 
 const Verify = () => {
   const { id } = useParams();
@@ -60,13 +61,10 @@ const Verify = () => {
 
   return (
     <div className="verifyContainer">
+      <img className="verifyImg" src={verify} alt="" />
       <h1>Verifica tu cuenta para empezar</h1>
-      <p>
-        Te enviamos un email a tu correo electronico para verificar tu cuenta
-      </p>
-      <p>No te llego el correo de verificacion?</p>
-      <button onClick={() => reSendEmail()}>
-        Volver a solicitar correo de verificacion
+      <button className="buttonVerify" onClick={() => reSendEmail()}>
+        Si no te llego el correo haz click
       </button>
       <Popup
         popupActivate={popupActivate}
