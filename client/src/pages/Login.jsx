@@ -42,7 +42,7 @@ const Login = () => {
       setPopupActivate(true);
     }
   };
-  console.log(popupChoise);
+
   return (
     <div className="logincontainer">
       {login && checkVerify ? (

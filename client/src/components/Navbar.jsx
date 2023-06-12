@@ -1,6 +1,6 @@
 import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { shallow } from "zustand/shallow";
 import useGlobalStore from "../store/Store";
 import axiosDeleteUser from "../api/axiosDeleteUser";
@@ -9,6 +9,7 @@ import axiosUpdatePassword from "../api/axiosUpdatePassword";
 import flechas from "../assets/flechas.png";
 import flechasizq from "../assets/flechaizq.png";
 import config from "../assets/configuracion.png";
+import Popup from "./Popup";
 
 const Navbar = memo(() => {
   const [menu, setMenu] = useState(true);
@@ -16,6 +17,15 @@ const Navbar = memo(() => {
   const [password, setPassword] = useState(false);
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
+
+  const [popupActivate, setPopupActivate] = useState(false);
+  const [popupChoise, setPopupChoise] = useState(null);
+  const [popupConfig, setPopupConfig] = useState({
+    type: "ok",
+    text: "popupText",
+    toConfirm: true,
+    query: false,
+  });
 
   const { setLogin, login, setVerifyFalse } = useGlobalStore(
     (state) => ({
@@ -28,10 +38,30 @@ const Navbar = memo(() => {
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    popupChoise ? deleteUser() : null;
+  }, [popupChoise]);
+
   const deleteUser = async () => {
-    if (window.confirm("Seguro desea eliminar el usuario y sus entradas?")) {
+    if (!popupChoise) {
+      setPopupConfig({
+        type: "ok",
+        text: "Desea eliminar su cuenta?",
+        toConfirm: true,
+        query: true,
+      });
+      setPopupActivate(true);
+      setConfigIsOpen(!configIsOpen);
+    } else {
+      console.log(popupChoise);
       await axiosDeleteUser().then(() => {
-        window.alert("Usuario eliminado");
+        setPopupConfig({
+          type: "ok",
+          text: "Usuario eliminado",
+          toConfirm: false,
+          query: true,
+        });
+        setPopupActivate(true);
         setLogin(null);
         setConfigIsOpen(false);
         setVerifyFalse();
@@ -49,19 +79,42 @@ const Navbar = memo(() => {
   const changePassword = async (currentPassword, newPassword) => {
     await axiosUpdatePassword(currentPassword, newPassword).then((data) => {
       if (data.data === "Password changed") {
-        window.alert("Contraseña actualizada");
+        setPopupConfig({
+          type: "ok",
+          text: "Contraseña actualizada",
+          toConfirm: false,
+          query: true,
+        });
+        setConfigIsOpen(!configIsOpen);
+        setPopupActivate(true);
         setPassword(false);
         setConfigIsOpen(false);
         setCurrentPassword("");
         setNewPassword("");
       } else if (data.data === "Incorrect current password") {
-        window.alert("Contraseña actual incorrecta");
+        setPopupConfig({
+          type: "ok",
+          text: "Contraseña actual incorrecta",
+          toConfirm: false,
+          query: true,
+        });
+        setConfigIsOpen(!configIsOpen);
+        setPopupActivate(true);
       }
     });
   };
 
   return (
     <div className="navcontainer">
+      <Popup
+        popupActivate={popupActivate}
+        setPopupActivate={() => setPopupActivate(false)}
+        choise={setPopupChoise}
+        type={popupConfig.type}
+        text={popupConfig.text}
+        toConfirm={popupConfig.toConfirm}
+        query={popupConfig.query}
+      />
       <div className="menu">
         <p
           className={menu ? "title" : "titleTransparent"}
