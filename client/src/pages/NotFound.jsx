@@ -1,14 +1,16 @@
 import { Result } from "antd";
 import { useNavigate } from "react-router-dom";
-
+import search from "../assets/buscador.png";
+import thanks from "../assets/gracias.png";
 const NotFound = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
-    <Result
-      status="404"
-      title="Lo sentimos, pagina no encontrada"
-      subTitle={<button onClick={()=>navigate("/")}>Back Home</button>}
-    />
+    <div className="maintenanceContainer">
+      <img className="imgMessage" src={search} alt="" />
+      <p>"Lo sentimos, pagina no encontrada"</p>
+      <img className="gracias" src={thanks} alt="" />
+      <button onClick={() => navigate("/")}>Back Home</button>
+    </div>
   );
 };
 export default NotFound;

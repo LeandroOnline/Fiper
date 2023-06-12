@@ -10,3 +10,7 @@
 .gracias{
     filter: invert();
 }
+
+.imgMessage{
+    width: 300px;
+}
