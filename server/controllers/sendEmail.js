@@ -1,4 +1,3 @@
-const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 const nodemailer = require("nodemailer");
 
@@ -13,8 +12,6 @@ const config = {
 
 const sendEmail = async (req, res) => {
   try {
-    // const { id } = jwt.verify(req.body.token, process.env.SECRET_KEY);
-    // tengo que validar si tiene token e intenta enviar el email luego de iniciar sesion
     const userFounded = await User.findOne({ email: req.body.email });
     const url =
       process.env.NODE_ENV === "development"
