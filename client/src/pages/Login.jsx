@@ -16,8 +16,14 @@ const Login = () => {
   const checkVerify = useGlobalStore((state) => state.checkVerify);
   const setVerify = useGlobalStore((state) => state.setVerify);
   const setEmailStore = useGlobalStore((state) => state.setEmailStore);
+
   const [popupActivate, setPopupActivate] = useState(false);
-  const [popupChoise, setPopupChoise] = useState(null);
+  const [popupConfig, setPopupConfig] = useState({
+    type: "ok",
+    text: "popupText",
+    toConfirm: true,
+    query: false,
+  });
 
   const Log = async (e) => {
     e.preventDefault();
@@ -26,7 +32,23 @@ const Login = () => {
     const verify = useVerifySyntax(email, password);
     if (verify) {
       await axiosLogin(email, password).then((token) => {
-        if (token) {
+        if (token === "Incorrect pasword") {
+          setPopupConfig({
+            type: "warning",
+            text: "Contraseña incorrecta",
+            toConfirm: false,
+            query: true,
+          });
+          setPopupActivate(true);
+        } else if (token === "User not found") {
+          setPopupConfig({
+            type: "warning",
+            text: "Usuario no encontrado",
+            toConfirm: false,
+            query: true,
+          });
+          setPopupActivate(true);
+        } else {
           setEmailStore(email);
           sessionStorage.setItem("user", token);
           const checkStatus = async () =>
@@ -39,6 +61,12 @@ const Login = () => {
         }
       });
     } else {
+      setPopupConfig({
+        type: "error",
+        text: "Ingreso invalido",
+        toConfirm: false,
+        query: true,
+      });
       setPopupActivate(true);
     }
   };
@@ -66,11 +94,10 @@ const Login = () => {
       <Popup
         popupActivate={popupActivate}
         setPopupActivate={() => setPopupActivate(false)}
-        choise={setPopupChoise}
-        type="error"
-        text="Ingresos invalidos"
-        toConfirm={false}
-        query={true}
+        type={popupConfig.type}
+        text={popupConfig.text}
+        toConfirm={popupConfig.toConfirm}
+        query={popupConfig.query}
       />
     </div>
   );
