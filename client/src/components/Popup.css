@@ -19,7 +19,7 @@
 }
 
 .popupBlur {
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(7px);
   height: 100%;
   width: 100%;
   position: absolute;

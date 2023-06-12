@@ -48,6 +48,14 @@ const Login = () => {
             query: true,
           });
           setPopupActivate(true);
+        } else if (token === "error") {
+          setPopupConfig({
+            type: "error",
+            text: "Lo sentimos, estamos en mantenimiento",
+            toConfirm: false,
+            query: true,
+          });
+          setPopupActivate(true);
         } else {
           setEmailStore(email);
           sessionStorage.setItem("user", token);

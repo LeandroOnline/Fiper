@@ -19,12 +19,9 @@ const login = async (email, password) =>
         ? "User not found"
         : console.log(data)
     )
-
     .catch((err) => {
       console.log(err);
-      window.alert(
-        "Error al conectar el usuario al servidor, contacte al administrador"
-      );
+      return "error"
     });
 
 export default login;

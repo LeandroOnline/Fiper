@@ -29,14 +29,25 @@ const SignUp = () => {
         password: password,
       };
       axiosSign(send).then(() => {
-        axiosSendEmail(email);
-        setPopupConfig({
-          type: "ok",
-          text: "Verifica tu correo",
-          toConfirm: true,
-          query: false,
-        });
-        setPopupActivate(true);
+        axiosSendEmail(email)
+          .then(() => {
+            setPopupConfig({
+              type: "ok",
+              text: "Verifica tu correo",
+              toConfirm: true,
+              query: false,
+            });
+            setPopupActivate(true);
+          })
+          .catch(() => {
+            setPopupConfig({
+              type: "error",
+              text: "Lo sentimos, estamos en mantenimiento",
+              toConfirm: false,
+              query: false,
+            });
+            setPopupActivate(true);
+          });
       });
     } else {
       setPopupConfig({
