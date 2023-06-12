@@ -16,6 +16,12 @@ const userSchema = mongoose.Schema({
       ref: "Inputs",
     },
   ],
+  notes: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Note",
+    },
+  ],
   checked: {
     type: Boolean,
     default: false,

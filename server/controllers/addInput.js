@@ -16,7 +16,7 @@ const addInput = async (req, res) => {
     const user = await User.findById(id);
     user.inputs.push(newadd);
     await user.save();
-    res.send("Added");
+    res.send("Added input");
   } catch (err) {
     res.status(500).send(err);
   }

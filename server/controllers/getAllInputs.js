@@ -8,9 +8,6 @@ const getAllInputs = async (req, res) => {
     if (id) {
       const user = await User.findById(id).populate("inputs");
       res.json(user.inputs);
-    } else {
-      const all = await Inputs.find();
-      res.json(all);
     }
   } catch (err) {
     res.status(500).send(err);

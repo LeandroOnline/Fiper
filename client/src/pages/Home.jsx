@@ -12,6 +12,7 @@ import "./Home.css";
 import Verify from "./Verify";
 import { useState } from "react";
 import Popup from "../components/Popup";
+import Notes from "../components/Notes";
 
 const Home = () => {
   const login = useGlobalStore((state) => state.login);
@@ -67,6 +68,7 @@ const Home = () => {
               <Interest />
             </div>
             <ListInputs />
+            <Notes/>
             <Popup
               popupActivate={popupActivate}
               setPopupActivate={() => setPopupActivate(false)}
