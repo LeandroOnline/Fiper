@@ -79,6 +79,9 @@ const Login = () => {
     }
   };
 
+  const Remember = async () => {
+    console.log("remember");
+  };
   return (
     <div className="logincontainer">
       {login && checkVerify ? (
@@ -86,18 +89,34 @@ const Login = () => {
       ) : login && !checkVerify ? (
         <Verify />
       ) : (
-        <form className="login" onSubmit={(e) => Log(e)}>
-          <img className="imglogin" src={log} alt="" />
-          <p className="SignText">Inicio de Sesión</p>
-          <input className="loginInput" placeholder="... email" name="email" />
-          <input className="loginInput" placeholder="... contraseña" name="password" type="password" />
-          <div className="buttonforms">
-            <button type="submit" className="loginButtons">Ingresar</button>
-            <Link to="/signup" className="loginButtons">
-              <button className="buttonSign">Registrarse</button>
-            </Link>
-          </div>
-        </form>
+        <div className="login">
+          <form className="loginForm" onSubmit={(e) => Log(e)}>
+            <img className="imglogin" src={log} alt="" />
+            <p className="SignText">Inicio de Sesión</p>
+            <input
+              className="loginInput"
+              placeholder="... email"
+              name="email"
+            />
+            <input
+              className="loginInput"
+              placeholder="... contraseña"
+              name="password"
+              type="password"
+            />
+            <div className="buttonforms">
+              <button type="submit" className="loginButtons">
+                Ingresar
+              </button>
+              <Link to="/signup" className="loginButtons">
+                <button className="buttonSign">Registrarse</button>
+              </Link>
+            </div>
+          </form>
+          <button className="remember" onClick={() => Remember()}>
+            Olvido la contraseña?
+          </button>
+        </div>
       )}
       <Popup
         popupActivate={popupActivate}

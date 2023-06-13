@@ -15,8 +15,13 @@
   width: 300px;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.05);
-  gap: 15px;
   transition: 1s;
+}
+
+.loginForm{
+  gap: 15px;
+  width: 300px;
+  padding: 15px;
 }
 
 .login:hover {
@@ -30,9 +35,11 @@
   align-items: center;
   flex-direction: column;
 }
+
 .loginInput{
   width: calc(100% - 30px);
 }
+
 .loginButtons {
   width: 50%;
 }
@@ -55,4 +62,16 @@
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 5px;
   padding: 15px;
+}
+
+.remember{
+  color: rgba(125, 125, 255, 0.6);
+  background: none;
+  transition: 0.5s;
+}
+
+.remember:hover{
+  color: rgba(125, 125, 255, 1);
+  background: none;
+  transition: 0.5s;
 }
