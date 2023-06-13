@@ -31,10 +31,18 @@
   flex-direction: column;
 }
 
+.loginButtons {
+  width: 50%;
+}
+
+.buttonSign{
+  width: 100%;
+}
+
 .buttonforms {
   display: flex;
   flex-direction: row;
-  gap: 15px;
+  width: 100%;
 }
 
 .imglogin {

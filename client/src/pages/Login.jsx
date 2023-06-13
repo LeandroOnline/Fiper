@@ -92,9 +92,9 @@ const Login = () => {
           <input placeholder="... email" name="email" />
           <input placeholder="... contraseña" name="password" type="password" />
           <div className="buttonforms">
-            <button type="submit">Ingresar</button>
-            <Link to="/signup">
-              <button>Registrarse</button>
+            <button type="submit" className="loginButtons">Ingresar</button>
+            <Link to="/signup" className="loginButtons">
+              <button className="buttonSign">Registrarse</button>
             </Link>
           </div>
         </form>
