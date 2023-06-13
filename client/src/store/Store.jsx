@@ -20,8 +20,9 @@ const useGlobalStore = create(
       verifyMessage: false,
       apiTest: "",
       notes: [{ title: "titulo", text: "texto" }],
-      noteDeleted: false,
-      setNoteDeleted: () => set({ noteDeleted: !get().noteDeleted }),
+      noteDeletedOrUpdate: false,
+      setNoteDeletedOrUpdate: () =>
+        set({ noteDeletedOrUpdate: !get().noteDeletedOrUpdate }),
       storeGetNotes: async () =>
         await axiosGetNotes().then((data) => set({ notes: data })),
       setApiTest: async () => set({ apiTest: await apiTest() }),

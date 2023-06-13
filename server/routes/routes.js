@@ -25,8 +25,9 @@ router.delete("/delete/:id", loginValidate, require("../controllers/deleteItem")
 // Notes
 router.post("/getNotes", loginValidate, require("../controllers/getNotes"));
 router.post("/addNote", loginValidate, require("../controllers/addNote"));
-router.put("/updateNote", loginValidate, require("../controllers/updateNote"));
+router.put("/updateNote/:id", loginValidate, require("../controllers/updateNote"));
 router.delete("/deleteNote/:id", loginValidate, require("../controllers/deleteNote"));
+router.put("/checkNote/:id", loginValidate, require("../controllers/checkNote"));
 
 // Admin
 const {

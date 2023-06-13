@@ -68,7 +68,7 @@ const Home = () => {
               <Interest />
             </div>
             <ListInputs />
-            <Notes/>
+            <Notes />
             <Popup
               popupActivate={popupActivate}
               setPopupActivate={() => setPopupActivate(false)}

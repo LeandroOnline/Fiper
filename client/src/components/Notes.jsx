@@ -3,13 +3,15 @@ import "./Notes.css";
 import add from "../assets/agregar.png";
 import useGlobalStore from "../store/Store";
 import { useEffect, useState } from "react";
-import del from "../assets/eliminar.png";
+import cancel from "../assets/cancelar.png";
 import ok from "../assets/correcto.png";
 import axiosAddNote from "../api/axiosAddNote";
 
 const Notes = () => {
   const storeGetNotes = useGlobalStore((state) => state.storeGetNotes);
-  const noteDeleted = useGlobalStore((state) => state.noteDeleted);
+  const noteDeletedOrUpdate = useGlobalStore(
+    (state) => state.noteDeletedOrUpdate
+  );
   const notes = useGlobalStore((state) => state.notes);
   const [addNoteMenu, setAddNoteMenu] = useState(false);
   const [title, setTitle] = useState("");
@@ -18,7 +20,7 @@ const Notes = () => {
 
   useEffect(() => {
     storeGetNotes();
-  }, [sendNote, noteDeleted]);
+  }, [sendNote, noteDeletedOrUpdate]);
 
   const addNote = async (title, text) => {
     await axiosAddNote(title, text).then((e) => {
@@ -56,7 +58,7 @@ const Notes = () => {
                   setTitle("");
                   setText("");
                 }}
-                src={del}
+                src={cancel}
                 alt="x"
               />
               <img
@@ -77,7 +79,13 @@ const Notes = () => {
         )}
       </div>
       {notes.map((note, index) => (
-        <Note title={note.title} text={note.text} key={index} id={note._id} />
+        <Note
+          title={note.title}
+          text={note.text}
+          key={index}
+          id={note._id}
+          check={note.check}
+        />
       ))}
     </div>
   );

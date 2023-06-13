@@ -8,7 +8,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
-  transition: 0.5s;
 }
 
 .addNote {
@@ -51,10 +50,12 @@
 .titleNote {
   height: 35%;
   border-bottom: 2px solid rgb(0, 0, 0, 0.1);
+  border-radius: 5px 5px 0 0;
 }
 
 .textNote {
   height: 65%;
+  border-radius: 0 0 5px 5px;
 }
 
 .buttonsNote {
@@ -99,4 +100,15 @@
 .ok:hover{
   transition: 0.5s;
   background-color: rgb(255, 255, 255, 0.5);
+}
+
+
+@media (max-width: 550px) {
+.notesContainer {
+  width: 90%;
+}
+.addNote{
+  width: calc((100% - 15px) / 2);
+
+}
 }
