@@ -4,8 +4,6 @@ const dotenv = require("dotenv").config();
 
 const app = express();
 
-//midlewares
-
 app.use(
   cors({
     origin: ['http://localhost:5173', 'https://fipe.savat.ar'],
