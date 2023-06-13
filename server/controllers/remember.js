@@ -3,7 +3,6 @@ const bcryptjs = require("bcryptjs");
 // const sendRecuperateEmail = require("../utils/sendRecuperateEmail");
 const nodemailer = require("nodemailer");
 
-
 const config = {
   host: "smtp.gmail.com",
   port: 587,
@@ -12,7 +11,7 @@ const config = {
     pass: process.env.EMAIL_PASS,
   },
 };
-
+// test with not await for transport.sendMail(menssage);
 const sendRecuperateEmail =  (email, recuperatePass) => {
   try {
     const url =
@@ -48,8 +47,9 @@ const remember = async (req, res) => {
       const randomKey = await bcryptjs.genSalt();
       const passwordCrypt = bcryptjs.hashSync(generatePassword, randomKey);
       userFound.rememberPassword = passwordCrypt;
-      await userFound.save();
-       sendRecuperateEmail(req.body.email, generatePassword);
+      // test with not await for save()
+      userFound.save();
+      sendRecuperateEmail(req.body.email, generatePassword);
       res.send("Generate password");
     } else {
       res.send("Account not found");
