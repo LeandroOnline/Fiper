@@ -5,6 +5,7 @@ import proteger from "../assets/proteger.png";
 import axiosSendEmail from "../api/axiosSendEmail";
 import "./SignUp.css";
 import Popup from "../components/Popup";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const [pass1, setPass1] = useState("");
@@ -96,7 +97,14 @@ const SignUp = () => {
           onChange={(e) => setPass2(e.target.value)}
           className="loginInput"
         />
-        <button type="submit">Registrarse</button>
+        <div className="buttonforms">
+          <Link to="/login" className="loginButtons">
+            <button className="buttonSign">Ingresar</button>
+          </Link>
+          <button className="loginButtons" type="submit">
+            Registrarse
+          </button>
+        </div>
       </form>
       <Popup
         popupActivate={popupActivate}

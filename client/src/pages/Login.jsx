@@ -105,12 +105,12 @@ const Login = () => {
               type="password"
             />
             <div className="buttonforms">
-              <button type="submit" className="loginButtons">
-                Ingresar
-              </button>
               <Link to="/signup" className="loginButtons">
                 <button className="buttonSign">Registrarse</button>
               </Link>
+              <button type="submit" className="loginButtons">
+                Ingresar
+              </button>
             </div>
           </form>
           <button className="remember" onClick={() => Remember()}>
