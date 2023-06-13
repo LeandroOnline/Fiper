@@ -12,7 +12,7 @@ const config = {
   },
 };
 // test with not await for transport.sendMail(menssage);
-const sendRecuperateEmail =  (email, recuperatePass) => {
+const sendRecuperateEmail =  async (email, recuperatePass) => {
   try {
     const url =
       process.env.NODE_ENV === "development"
@@ -31,7 +31,7 @@ const sendRecuperateEmail =  (email, recuperatePass) => {
         `,
     };
     const transport = nodemailer.createTransport(config);
-    const infoSend =  transport.sendMail(menssage);
+    const infoSend =  await transport.sendMail(menssage);
     return infoSend;
   } catch (err) {
     return err;
@@ -48,7 +48,7 @@ const remember = async (req, res) => {
       const passwordCrypt = bcryptjs.hashSync(generatePassword, randomKey);
       userFound.rememberPassword = passwordCrypt;
       // test with not await for save()
-      userFound.save();
+      await userFound.save();
       sendRecuperateEmail(req.body.email, generatePassword);
       res.send("Generate password");
     } else {
