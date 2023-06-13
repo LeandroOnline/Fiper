@@ -60,3 +60,10 @@
   color: rgba(255, 255, 255, 0.5);
   font-size: 20px;
 }
+
+.minimum{
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+}

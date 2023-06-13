@@ -89,8 +89,8 @@ const Login = () => {
         <form className="login" onSubmit={(e) => Log(e)}>
           <img className="imglogin" src={log} alt="" />
           <p className="SignText">Inicio de Sesión</p>
-          <input placeholder="... email" name="email" />
-          <input placeholder="... contraseña" name="password" type="password" />
+          <input className="loginInput" placeholder="... email" name="email" />
+          <input className="loginInput" placeholder="... contraseña" name="password" type="password" />
           <div className="buttonforms">
             <button type="submit" className="loginButtons">Ingresar</button>
             <Link to="/signup" className="loginButtons">

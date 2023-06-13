@@ -65,12 +65,19 @@ const SignUp = () => {
       <form className="sign" onSubmit={(e) => Sign(e)}>
         <img className="imgsign" src={proteger} alt="" />
         <div className="SignAllText">
-          <p className="SignText"> Su contraseña debe contener: </p>
-          <p className="SignText">- Minimo siete caracteres</p>
-          <p className="SignText">- Al menos una mayuscula</p>
-          <p className="SignText">- Al menos un numero</p>
+          <p className="SignText">Su contraseña debe contener:</p>
+          <div className="minimum">
+            <p className="SignText">- Minimo siete caracteres</p>
+            <p className="SignText">- Al menos una mayuscula</p>
+            <p className="SignText">- Al menos un numero</p>
+          </div>
         </div>
-        <input placeholder="... email" name="email" required />
+        <input
+          placeholder="... email"
+          name="email"
+          required
+          className="loginInput"
+        />
         <input
           placeholder="... contraseña"
           name="password"
@@ -78,6 +85,7 @@ const SignUp = () => {
           required
           value={pass1}
           onChange={(e) => setPass1(e.target.value)}
+          className="loginInput"
         />
         <input
           placeholder="... repita la contraseña"
@@ -86,6 +94,7 @@ const SignUp = () => {
           required
           value={pass2}
           onChange={(e) => setPass2(e.target.value)}
+          className="loginInput"
         />
         <button type="submit">Registrarse</button>
       </form>

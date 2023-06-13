@@ -30,7 +30,9 @@
   align-items: center;
   flex-direction: column;
 }
-
+.loginInput{
+  width: calc(100% - 30px);
+}
 .loginButtons {
   width: 50%;
 }
