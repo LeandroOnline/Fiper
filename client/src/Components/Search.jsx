@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Search.css";
 import useGlobalStore from "../store/Store";
 
@@ -19,6 +19,11 @@ const Search = () => {
     }
   };
 
+  useEffect(() => {
+    filterValue(value);
+  }, [value]);
+
+
   return (
     <div>
       <input
@@ -26,7 +31,6 @@ const Search = () => {
         value={value}
         onChange={(e) => {
           setValue(e.target.value);
-          filterValue(value);
         }}
         type="text"
         placeholder="Filtrar por busqueda"
