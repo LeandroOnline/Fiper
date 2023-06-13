@@ -112,6 +112,13 @@
 }
 .addNote{
   width: calc((100% - 15px) / 2);
-
+}
+.addNoteImg {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  padding: 75px 49px;
+  filter: invert();
+  opacity: 50%;
 }
 }
