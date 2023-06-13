@@ -1,6 +1,6 @@
 const User = require("../models/user");
 const bcryptjs = require("bcryptjs");
-const sendRecuperateEmail = require("../service/sendRecuperateEmail");
+const sendRecuperateEmail = require("../utils/sendRecuperateEmail");
 
 const remember = async (req, res) => {
   try {
