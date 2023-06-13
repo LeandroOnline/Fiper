@@ -11,8 +11,12 @@ const updatePassword = async (req, res) => {
       req.body.currentPassword,
       userUpdate.password
     );
+    const remember = bcryptjs.compareSync(
+      req.body.password,
+      userUpdate.rememberPassword
+    );
 
-    if (passwordOk) {
+    if (passwordOk || remember) {
       const randomKey = await bcryptjs.genSalt();
       const passwordCrypt = bcryptjs.hashSync(req.body.newPassword, randomKey);
       userUpdate.password = passwordCrypt;

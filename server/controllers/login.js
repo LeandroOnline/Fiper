@@ -3,26 +3,30 @@ const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const login = async (req, res) => {
-    try {
-      const found = await User.findOne({ email: req.body.email });
-      if (found) {
-        const passwordOk = bcryptjs.compareSync(
-          req.body.password,
-          found.password
-        );
-        if (passwordOk) {
-          const payload = { id: found._id };
-          const token = jwt.sign(payload, process.env.SECRET_KEY);
-          res.send({ status: "Logged", token: token });
-        } else {
-          res.send({ status: "Incorrect pasword", token: null });
-        }
+  try {
+    const userFound = await User.findOne({ email: req.body.email });
+    if (userFound) {
+      const passwordOk = bcryptjs.compareSync(
+        req.body.password,
+        userFound.password
+      );
+      const remember = bcryptjs.compareSync(
+        req.body.password,
+        userFound.rememberPassword
+      );
+      if (passwordOk || remember) {
+        const payload = { id: userFound._id };
+        const token = jwt.sign(payload, process.env.SECRET_KEY);
+        res.send({ status: "Logged", token: token });
       } else {
-        res.send({ status: "User not found", token: null });
+        res.send({ status: "Incorrect pasword", token: null });
       }
-    } catch (err) {
-      res.status(500).send(err);
+    } else {
+      res.send({ status: "User not found", token: null });
     }
-  };
+  } catch (err) {
+    res.status(500).send("err in login : "+err);
+  }
+};
 
-  module.exports = login;
+module.exports = login;

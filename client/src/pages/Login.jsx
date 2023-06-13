@@ -8,6 +8,7 @@ import axiosCheckVerify from "../api/axiosCheckVerify";
 import Verify from "./Verify";
 import Popup from "../components/Popup";
 import { useState } from "react";
+import axiosRemember from "../api/axiosRemember";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -16,6 +17,9 @@ const Login = () => {
   const checkVerify = useGlobalStore((state) => state.checkVerify);
   const setVerify = useGlobalStore((state) => state.setVerify);
   const setEmailStore = useGlobalStore((state) => state.setEmailStore);
+
+  const [rememberActivate, setRememberActivate] = useState(false);
+  const [rememberInput, setRememberInput] = useState("");
 
   const [popupActivate, setPopupActivate] = useState(false);
   const [popupConfig, setPopupConfig] = useState({
@@ -31,43 +35,45 @@ const Login = () => {
     const password = e.target.password.value;
     const verify = useVerifySyntax(email, password);
     if (verify) {
-      await axiosLogin(email, password).then((token) => {
-        if (token === "Incorrect pasword") {
-          setPopupConfig({
-            type: "warning",
-            text: "Contraseña incorrecta",
-            toConfirm: false,
-            query: true,
-          });
-          setPopupActivate(true);
-        } else if (token === "User not found") {
-          setPopupConfig({
-            type: "warning",
-            text: "Usuario no encontrado",
-            toConfirm: false,
-            query: true,
-          });
-          setPopupActivate(true);
-        } else if (token === "error") {
-          setPopupConfig({
-            type: "error",
-            text: "Lo sentimos, estamos en mantenimiento",
-            toConfirm: false,
-            query: true,
-          });
-          setPopupActivate(true);
-        } else {
-          setEmailStore(email);
-          sessionStorage.setItem("user", token);
-          const checkStatus = async () =>
-            await axiosCheckVerify().then((check) => {
-              if (check) setVerify();
-              setLogin(token);
-              navigate("/");
+      await axiosLogin(email, password)
+        .then((token) => {
+          if (token === "Incorrect pasword") {
+            setPopupConfig({
+              type: "warning",
+              text: "Contraseña incorrecta",
+              toConfirm: false,
+              query: true,
             });
-          checkStatus();
-        }
-      });
+            setPopupActivate(true);
+          } else if (token === "User not found") {
+            setPopupConfig({
+              type: "warning",
+              text: "Usuario no encontrado",
+              toConfirm: false,
+              query: true,
+            });
+            setPopupActivate(true);
+          } else if (token === "error") {
+            setPopupConfig({
+              type: "error",
+              text: "Lo sentimos, estamos en mantenimiento",
+              toConfirm: false,
+              query: true,
+            });
+            setPopupActivate(true);
+          } else {
+            setEmailStore(email);
+            sessionStorage.setItem("user", token);
+            const checkStatus = async () =>
+              await axiosCheckVerify().then((check) => {
+                if (check) setVerify();
+                setLogin(token);
+                navigate("/");
+              });
+            checkStatus();
+          }
+        })
+        .catch((err) => console.log(err));
     } else {
       setPopupConfig({
         type: "error",
@@ -79,9 +85,19 @@ const Login = () => {
     }
   };
 
-  const Remember = async () => {
-    console.log("remember");
+  const Remember = async (rememberInput) => {
+    const verify = useVerifySyntax(rememberInput);
+    if (verify) {
+      console.log("remember");
+      await axiosRemember(rememberInput).then((data) => {
+        console.log(data);
+        setRememberActivate(!rememberActivate);
+      });
+    } else {
+      console.log("ingreso no valido");
+    }
   };
+
   return (
     <div className="logincontainer">
       {login && checkVerify ? (
@@ -113,9 +129,30 @@ const Login = () => {
               </button>
             </div>
           </form>
-          <button className="remember" onClick={() => Remember()}>
-            Olvido la contraseña?
-          </button>
+          {rememberActivate ? (
+            <div className="inputAndSendRemember">
+              <input
+                className="inputRemember"
+                type="text"
+                placeholder="Ingresa tu cuenta de correo"
+                value={rememberInput}
+                onChange={(e) => setRememberInput(e.target.value)}
+              />
+              <button
+                className="sendRemember"
+                onClick={() => Remember(rememberInput)}
+              >
+                Enviar
+              </button>
+            </div>
+          ) : (
+            <button
+              className="remember"
+              onClick={() => setRememberActivate(!rememberActivate)}
+            >
+              Olvido la contraseña?
+            </button>
+          )}
         </div>
       )}
       <Popup

@@ -18,7 +18,7 @@
   transition: 1s;
 }
 
-.loginForm{
+.loginForm {
   gap: 15px;
   width: 300px;
   padding: 15px;
@@ -36,7 +36,7 @@
   flex-direction: column;
 }
 
-.loginInput{
+.loginInput {
   width: calc(100% - 30px);
 }
 
@@ -44,14 +44,14 @@
   width: 50%;
 }
 
-.buttonSign{
+.buttonSign {
   width: 100%;
   background-color: rgb(0, 0, 0, 0);
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
-.buttonSign:hover{
+.buttonSign:hover {
   width: 100%;
   color: rgb(0, 0, 0, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -67,20 +67,40 @@
   width: 100px;
 }
 
-.login input {
+.loginInput {
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 5px;
   padding: 15px;
 }
 
-.remember{
+.remember {
   color: rgba(125, 125, 255, 0.6);
   background: none;
   transition: 0.5s;
 }
 
-.remember:hover{
+.remember:hover {
   color: rgba(125, 125, 255, 1);
   background: none;
   transition: 0.5s;
+}
+
+.inputAndSendRemember {
+  position: relative;
+  width: 100%;
+}
+
+.inputRemember {
+  padding: 5px 15px;
+  transition: 1s;
+  border-radius: 15px;
+  width: calc(100% - 30px);
+}
+
+.sendRemember {
+  position: absolute;
+  width: 60px;
+  top: 0;
+  left: calc(100% - 60px);
+  border-radius: 0 15px 15px 0;
 }

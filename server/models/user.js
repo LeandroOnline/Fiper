@@ -25,6 +25,10 @@ const userSchema = mongoose.Schema({
   checked: {
     type: Boolean,
     default: false,
+  },
+  rememberPassword: {
+    type: String,
+    default: "",
   }
 });
 
