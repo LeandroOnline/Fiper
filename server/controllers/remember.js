@@ -49,7 +49,7 @@ const remember = async (req, res) => {
       userFound.rememberPassword = passwordCrypt;
       // test with not await for save()
       await userFound.save();
-      sendRecuperateEmail(req.body.email, generatePassword);
+      await sendRecuperateEmail(req.body.email, generatePassword);
       res.send("Generate password");
     } else {
       res.send("Account not found");
