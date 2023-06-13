@@ -13,7 +13,7 @@ const config = {
   },
 };
 
-const sendRecuperateEmail = async (email, recuperatePass) => {
+const sendRecuperateEmail =  (email, recuperatePass) => {
   try {
     const url =
       process.env.NODE_ENV === "development"
@@ -32,7 +32,7 @@ const sendRecuperateEmail = async (email, recuperatePass) => {
         `,
     };
     const transport = nodemailer.createTransport(config);
-    const infoSend = await transport.sendMail(menssage);
+    const infoSend =  transport.sendMail(menssage);
     return infoSend;
   } catch (err) {
     return err;
@@ -49,7 +49,7 @@ const remember = async (req, res) => {
       const passwordCrypt = bcryptjs.hashSync(generatePassword, randomKey);
       userFound.rememberPassword = passwordCrypt;
       await userFound.save();
-      await sendRecuperateEmail(req.body.email, generatePassword);
+       sendRecuperateEmail(req.body.email, generatePassword);
       res.send("Generate password");
     } else {
       res.send("Account not found");
