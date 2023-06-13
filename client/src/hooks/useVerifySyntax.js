@@ -7,13 +7,13 @@ const useVerify = (email = "", password = "") => {
   }else{
     cleanEmail = false;
   }
-  if (password ? password !== "" : false) {
+  if (password !== "") {
     const strongPasswordRegex = /^(?=.*\d)(?=.*[A-Z]).{7,}$/;
     cleanPassword = strongPasswordRegex.test(password);
+  }else{
+    cleanPassword = false;
   }
   return cleanEmail && cleanPassword;
 };
 
 export default useVerify;
-
-// useVerify devuelve true cuando el email y el password son correctos a la vez

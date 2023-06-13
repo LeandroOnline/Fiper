@@ -88,13 +88,43 @@ const Login = () => {
   const Remember = async (rememberInput) => {
     const verify = useVerifySyntax(rememberInput);
     if (verify) {
-      console.log("remember");
       await axiosRemember(rememberInput).then((data) => {
-        console.log(data);
-        setRememberActivate(!rememberActivate);
+        if (data === "Generate password") {
+          setPopupConfig({
+            type: "ok",
+            text: "Revise su correo",
+            toConfirm: false,
+            query: true,
+          });
+          setPopupActivate(true);
+          setRememberActivate(!rememberActivate);
+          setRememberInput("");
+        } else if (data === "Account not found") {
+          setPopupConfig({
+            type: "error",
+            text: "Cuenta no encontrada, registre su cuenta",
+            toConfirm: false,
+            query: true,
+          });
+          setPopupActivate(true);
+        } else {
+          setPopupConfig({
+            type: "ok",
+            text: "Revise su correo",
+            toConfirm: false,
+            query: true,
+          });
+          setPopupActivate(true);
+        }
       });
     } else {
-      console.log("ingreso no valido");
+      setPopupConfig({
+        type: "error",
+        text: "Ingreso incorrecto",
+        toConfirm: false,
+        query: true,
+      });
+      setPopupActivate(true);
     }
   };
 

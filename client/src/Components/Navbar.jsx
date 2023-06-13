@@ -76,31 +76,44 @@ const Navbar = memo(() => {
   };
 
   const changePassword = async (currentPassword, newPassword) => {
-    await axiosUpdatePassword(currentPassword, newPassword).then((data) => {
-      if (data.data === "Password changed") {
-        setPopupConfig({
-          type: "ok",
-          text: "Contraseña actualizada",
-          toConfirm: false,
-          query: true,
-        });
-        setConfigIsOpen(!configIsOpen);
-        setPopupActivate(true);
-        setPassword(false);
-        setConfigIsOpen(false);
-        setCurrentPassword("");
-        setNewPassword("");
-      } else if (data.data === "Incorrect current password") {
-        setPopupConfig({
-          type: "ok",
-          text: "Contraseña actual incorrecta",
-          toConfirm: false,
-          query: true,
-        });
-        setConfigIsOpen(!configIsOpen);
-        setPopupActivate(true);
-      }
-    });
+    if (currentPassword!=="" && newPassword!=="") {
+      await axiosUpdatePassword(currentPassword, newPassword).then((data) => {
+        console.log(data.data);
+        if (data.data === "Password changed") {
+          setPopupConfig({
+            type: "ok",
+            text: "Contraseña actualizada",
+            toConfirm: false,
+            query: true,
+          });
+          setConfigIsOpen(!configIsOpen);
+          setPopupActivate(true);
+          setPassword(false);
+          setConfigIsOpen(false);
+          setCurrentPassword("");
+          setNewPassword("");
+        } else if (data.data === "Incorrect current password") {
+          setPopupConfig({
+            type: "ok",
+            text: "Contraseña actual incorrecta",
+            toConfirm: false,
+            query: true,
+          });
+          setConfigIsOpen(!configIsOpen);
+          setPopupActivate(true);
+        }
+      });
+    } else {
+      setPopupConfig({
+        type: "warning",
+        text: "Ingresos invalidos",
+        toConfirm: false,
+        query: true,
+      });
+      setConfigIsOpen(!configIsOpen);
+      setPopupActivate(true);
+
+    }
   };
 
   return (
