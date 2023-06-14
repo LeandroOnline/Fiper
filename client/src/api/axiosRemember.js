@@ -10,6 +10,6 @@ const remember = async (email) =>
       },
       { timeout: 6000 }
     )
-    .then((data) => data.data)
+    .then((data) => data.data);
 
 export default remember;

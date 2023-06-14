@@ -70,60 +70,34 @@ const Login = () => {
 
   const Remember = async (rememberInput) => {
     const verify = useVerifySyntax(rememberInput, "Qqq1111");
-    console.log(apiTest);
-    if (apiTest !== "Working") {
-      setPopupConfig({
-        type: "error",
-        text: "Lo sentimos, estamos realizando mantenimiento",
-        toConfirm: false,
-        query: true,
-      });
-      setPopupActivate(true);
-      return false;
-    }
     if (verify) {
-      console.log("verify");
-      await axiosRemember(rememberInput).then((data) => {
-        if (data === "Generate password") {
-          setPopupConfig({
-            type: "ok",
-            text: "Revise su correo",
-            toConfirm: false,
-            query: true,
-          });
-          setPopupActivate(true);
-          setRememberActivate(!rememberActivate);
-          setRememberInput("");
-        } else if (data === "Account not found") {
-          setPopupConfig({
-            type: "error",
-            text: "Cuenta no encontrada, registre su cuenta",
-            toConfirm: false,
-            query: true,
-          });
-          setPopupActivate(true);
-        } else {
-          setPopupConfig({
-            type: "ok",
-            text: "Revise su correo",
-            toConfirm: false,
-            query: true,
-          });
-          setPopupActivate(true);
-        }
-      });
+      await axiosRemember(rememberInput)
+        .then((data) => {
+          if (data === "Generate password") {
+            setPopupConfig({
+              type: "ok",
+              text: "Revise su correo",
+              activate: true,
+            });
+            setRememberActivate(!rememberActivate);
+            setRememberInput("");
+          } else if (data === "Account not found") {
+            setPopupConfig({
+              type: "error",
+              text: "Cuenta no encontrada",
+              activate: true,
+            });
+          }
+        })
+        .catch((err) => setPopupConfig(useErrorHandler(err)));
     } else {
       setPopupConfig({
         type: "error",
         text: "Ingreso incorrecto",
-        toConfirm: false,
-        query: true,
+        activate: true,
       });
-      setPopupActivate(true);
     }
   };
-
-  // useEffect(() => {}, [popupConfig]);
 
   return (
     <div className="logincontainer">
