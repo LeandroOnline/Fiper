@@ -1,23 +1,17 @@
 import API from "./apiUrl";
 import axios from "axios";
 
-const update = async (id,title,text) => {
-  return await axios
+const update = async (id, title, text) =>
+  await axios
     .put(
       API + "/updateNote/" + id,
       {
         title: title,
         text: text,
-        token: sessionStorage.getItem("user")
-      }
+        token: sessionStorage.getItem("user"),
+      },
+      { timeout: 6000 }
     )
     .then((data) => data.data)
-    .catch((err) => {
-      console.log(err.response.data);
-      window.alert(
-        "Error al actualizar los datos del servidor, contacte al administrador"
-      );
-    });
-};
 
 export default update;

@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const controllers = {};
 const Inputs = require("../models/inputs");
 const User = require("../models/user");
-const Note = require("../models/note")
+const Note = require("../models/note");
 
 // Admin
 controllers.get = async (req, res) => {
@@ -27,7 +27,7 @@ controllers.getAllNotes = async (req, res) => {
 
 controllers.deleteAllNotes = async (req, res) => {
   try {
-    await Note.deleteMany({ });
+    await Note.deleteMany({});
     res.send("All notes deleted");
   } catch (err) {
     res.status(500).send(err);
@@ -48,4 +48,5 @@ controllers.getusers = async (req, res) => {
     res.status(500).send(err);
   }
 };
+
 module.exports = controllers;

@@ -11,11 +11,11 @@ const addInput = async (req, res) => {
       detalle: req.body.detalle,
     });
     await newadd.save();
-
     const { id } = jwt.verify(req.body.token, process.env.SECRET_KEY);
     const user = await User.findById(id);
     user.inputs.push(newadd);
     await user.save();
+    
     res.send("Added input");
   } catch (err) {
     res.status(500).send(err);

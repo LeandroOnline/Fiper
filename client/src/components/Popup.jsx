@@ -4,43 +4,48 @@ import ok from "../assets/correcto.png";
 import error from "../assets/error.png";
 import question from "../assets/pregunta.png";
 
-const Popup = ({
-  text,
-  type,
-  popupActivate,
-  setPopupActivate,
-  choise,
-  toConfirm,
-  query,
-}) => {
-  if (!toConfirm && popupActivate) {
+const Popup = ({ config = { popupConfig: {}, setPopupConfig } }) => {
+  const activate = config.popupConfig?.activate ? true : false;
+
+  if (typeof config.popupConfig?.toConfirm === "undefined") {
     setTimeout(() => {
-      setPopupActivate();
+      config.popupConfig
+        ? config.setPopupConfig({
+            ...config.popupConfig,
+            activate: false,
+            toConfirm: null,
+          })
+        : null;
     }, 3000);
   }
 
   let img =
-    type === "error"
+    config.popupConfig?.type === "error"
       ? error
-      : type === "ok"
+      : config.popupConfig?.type === "ok"
       ? ok
-      : type === "warning"
+      : config.popupConfig?.type === "warning"
       ? warning
       : question;
 
   return (
-    <div className={popupActivate ? "pop" : "pup"}>
+    <div className={activate ? "pop" : "pup"}>
       <div className="popupBlur"></div>
       <img className="popimg" src={img} alt="img" />
-      <p>{text}</p>
-      {toConfirm ? (
+      <p>{config.popupConfig?.text}</p>
+      {config.popupConfig?.toConfirm ? (
         <div className="popupButtonsContainer">
-          {query ? (
+          {config.popupConfig?.query ? (
             <button
               className="popupButton"
               onClick={() => {
-                choise(false);
-                setPopupActivate();
+                config.popupConfig.choise
+                  ? config.setPopupConfig({
+                      ...config.popupConfig,
+                      activate: false,
+                      choise: false,
+                    })
+                  : null;
               }}
             >
               Cancelar
@@ -49,8 +54,16 @@ const Popup = ({
           <button
             className="popupButton"
             onClick={() => {
-              choise(true);
-              setPopupActivate();
+              config.popupConfig?.choise
+                ? config.setPopupConfig({
+                    ...config.popupConfig,
+                    activate: false,
+                    choise: true,
+                  })
+                : config.setPopupConfig({
+                    ...config.popupConfig,
+                    activate: false,
+                  });
             }}
           >
             Aceptar

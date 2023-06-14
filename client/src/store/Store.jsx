@@ -1,9 +1,7 @@
 import { create } from "zustand";
 import axiosGetAllInputs from "../api/axiosGetAllInputs";
 import axiosGetNotes from "../api/axiosGetNotes";
-
 import { persist, createJSONStorage } from "zustand/middleware";
-import apiTest from "../api/apiTest";
 
 const useGlobalStore = create(
   persist(
@@ -18,14 +16,12 @@ const useGlobalStore = create(
       checkVerify: false,
       emailStore: "",
       verifyMessage: false,
-      apiTest: "",
       notes: [{ title: "titulo", text: "texto" }],
       noteDeletedOrUpdate: false,
       setNoteDeletedOrUpdate: () =>
         set({ noteDeletedOrUpdate: !get().noteDeletedOrUpdate }),
       storeGetNotes: async () =>
         await axiosGetNotes().then((data) => set({ notes: data })),
-      setApiTest: async () => set({ apiTest: await apiTest() }),
       setVerifyMessage: () => set({ verifyMessage: true }),
       setVerifyMessageDone: () => set({ verifyMessage: false }),
       setEmailStore: (email) => set({ emailStore: email }),

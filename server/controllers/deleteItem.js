@@ -12,7 +12,7 @@ const deleteItem = async (req, res) => {
       await User.findByIdAndUpdate(id, {
         $pull: { inputs: req.params.id },
       });
-      res.send("Se elimino el Item");
+      res.send("Item deleted");
     } catch (err) {
       res.status(500).send(err);
     }

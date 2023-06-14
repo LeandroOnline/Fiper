@@ -2,13 +2,15 @@ const router = require("express").Router();
 const loginValidate = require("../middlewares/loginvalidate");
 const verifySyntax = require("../middlewares/verifySyntax");
 const Sanitize = require("../middlewares/sanitize");
+const delay = require("../middlewares/delay");
 
 // Server
 router.get("/test", require("../controllers/test"));
 
 // User
+// router.post("/login", delay,verifySyntax, require("../controllers/login"));
+router.post("/login",verifySyntax, require("../controllers/login"));
 router.post("/addUser", verifySyntax, require("../controllers/addUser"));
-router.post("/login", verifySyntax, require("../controllers/login"));
 router.delete("/deleteUser",loginValidate, require("../controllers/deleteUser"));
 router.put("/updatePassword", loginValidate, require("../controllers/updatePassword"));
 router.post("/checkVerify", require("../controllers/checkVerify"));

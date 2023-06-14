@@ -1,12 +1,15 @@
 import API from "./apiUrl";
 import axios from "axios";
 
-const axiosCheckNote = async (id) => {
-  return await axios
-    .put(API + "/checkNote/" + id, {
-      token: sessionStorage.getItem("user"),
-    })
+const axiosCheckNote = async (id) =>
+  await axios
+    .put(
+      API + "/checkNote/" + id,
+      {
+        token: sessionStorage.getItem("user"),
+      },
+      { timeout: 6000 }
+    )
     .then((data) => data.data)
-    .catch((err) => console.log(err));
-};
+
 export default axiosCheckNote;

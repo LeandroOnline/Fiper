@@ -10,7 +10,7 @@ import ProfitsAndLosses from "../components/ProfitsAndLosses";
 import NoLogged from "../components/NoLogged";
 import "./Home.css";
 import Verify from "./Verify";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Popup from "../components/Popup";
 import Notes from "../components/Notes";
 
@@ -21,6 +21,7 @@ const Home = () => {
   const setVerifyMessageDone = useGlobalStore(
     (state) => state.setVerifyMessageDone
   );
+  const apiTest = useGlobalStore((state) => state.apiTest);
 
   const [popupActivate, setPopupActivate] = useState(false);
   const [popupConfig, setPopupConfig] = useState({
@@ -44,6 +45,19 @@ const Home = () => {
       }, 2000);
     }
   };
+
+  useEffect(() => {
+    if (apiTest) {
+      setPopupConfig({
+        type: "warning",
+        text: "Estimado usuario, nos encontramos con alta demanda, si la plataforma presenta algun error por favor intente iniciar luego",
+        toConfirm: true,
+        choise: null,
+        query: false,
+      });
+      setPopupActivate(true);
+    }
+  }, [apiTest]);
 
   return (
     <div className="homecontainer">
@@ -82,7 +96,17 @@ const Home = () => {
           <Verify />
         )
       ) : (
-        <NoLogged />
+        <>
+          <Popup
+            popupActivate={popupActivate}
+            setPopupActivate={() => setPopupActivate(false)}
+            type={popupConfig.type}
+            text={popupConfig.text}
+            toConfirm={popupConfig.toConfirm}
+            query={popupConfig.query}
+          />
+          <NoLogged />
+        </>
       )}
     </div>
   );

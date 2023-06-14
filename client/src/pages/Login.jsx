@@ -7,8 +7,9 @@ import log from "../assets/login.png";
 import axiosCheckVerify from "../api/axiosCheckVerify";
 import Verify from "./Verify";
 import Popup from "../components/Popup";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axiosRemember from "../api/axiosRemember";
+import useErrorHandler from "../hooks/useErrorHandler";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -21,13 +22,7 @@ const Login = () => {
   const [rememberActivate, setRememberActivate] = useState(false);
   const [rememberInput, setRememberInput] = useState("");
 
-  const [popupActivate, setPopupActivate] = useState(false);
-  const [popupConfig, setPopupConfig] = useState({
-    type: "ok",
-    text: "popupText",
-    toConfirm: true,
-    query: false,
-  });
+  const [popupConfig, setPopupConfig] = useState({ toConfirm: true });
 
   const Log = async (e) => {
     e.preventDefault();
@@ -36,58 +31,58 @@ const Login = () => {
     const verify = useVerifySyntax(email, password);
     if (verify) {
       await axiosLogin(email, password)
-        .then((token) => {
-          if (token === "Incorrect pasword") {
-            setPopupConfig({
-              type: "warning",
-              text: "Contraseña incorrecta",
-              toConfirm: false,
-              query: true,
-            });
-            setPopupActivate(true);
-          } else if (token === "User not found") {
-            setPopupConfig({
-              type: "warning",
-              text: "Usuario no encontrado",
-              toConfirm: false,
-              query: true,
-            });
-            setPopupActivate(true);
-          } else if (token === "error") {
+        .then((data) => {
+          if (data === "Incorrect pasword") {
             setPopupConfig({
               type: "error",
-              text: "Lo sentimos, estamos en mantenimiento",
-              toConfirm: false,
-              query: true,
+              text: "Contraseña incorrecta",
+              activate: true,
             });
-            setPopupActivate(true);
+          } else if (data === "User not found") {
+            setPopupConfig({
+              type: "error",
+              text: "Usuario no encontrado",
+              activate: true,
+            });
           } else {
             setEmailStore(email);
-            sessionStorage.setItem("user", token);
+            sessionStorage.setItem("user", data);
             const checkStatus = async () =>
-              await axiosCheckVerify().then((check) => {
-                if (check) setVerify();
-                setLogin(token);
-                navigate("/");
-              });
+              await axiosCheckVerify()
+                .then((check) => {
+                  if (check) setVerify();
+                  setLogin(data);
+                  navigate("/");
+                })
+                .catch((err) => setPopupConfig(useErrorHandler(err)));
             checkStatus();
           }
         })
-        .catch((err) => console.log(err));
+        .catch((err) => setPopupConfig(useErrorHandler(err)));
     } else {
       setPopupConfig({
         type: "error",
-        text: "Ingreso invalido",
-        toConfirm: false,
-        query: true,
+        text: "Ingresos invalidos",
+        activate: true,
       });
-      setPopupActivate(true);
     }
   };
 
   const Remember = async (rememberInput) => {
-    const verify = useVerifySyntax(rememberInput,"Qqq1111");
+    const verify = useVerifySyntax(rememberInput, "Qqq1111");
+    console.log(apiTest);
+    if (apiTest !== "Working") {
+      setPopupConfig({
+        type: "error",
+        text: "Lo sentimos, estamos realizando mantenimiento",
+        toConfirm: false,
+        query: true,
+      });
+      setPopupActivate(true);
+      return false;
+    }
     if (verify) {
+      console.log("verify");
       await axiosRemember(rememberInput).then((data) => {
         if (data === "Generate password") {
           setPopupConfig({
@@ -128,8 +123,11 @@ const Login = () => {
     }
   };
 
+  // useEffect(() => {}, [popupConfig]);
+
   return (
     <div className="logincontainer">
+      <Popup config={{ popupConfig, setPopupConfig }} />
       {login && checkVerify ? (
         <div className="login">Ya has ingresado</div>
       ) : login && !checkVerify ? (
@@ -185,14 +183,6 @@ const Login = () => {
           )}
         </div>
       )}
-      <Popup
-        popupActivate={popupActivate}
-        setPopupActivate={() => setPopupActivate(false)}
-        type={popupConfig.type}
-        text={popupConfig.text}
-        toConfirm={popupConfig.toConfirm}
-        query={popupConfig.query}
-      />
     </div>
   );
 };

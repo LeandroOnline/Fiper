@@ -15,7 +15,7 @@ const deleteAllInputs = async (req, res) => {
     await User.findByIdAndUpdate(id, {
       $set: { inputs: [] },
     });
-    res.send("Se eliminaron todos los Items");
+    res.send("Deleted all inputs");
   } catch (err) {
     res.status(500).send(err);
   }

@@ -1,20 +1,19 @@
 import API from "./apiUrl";
 import axios from "axios";
 
-const axiosUpdatePassword = async (currentPassword, newPassword) => {
-  return await axios
-    .put(API + "/updatePassword", {
-      token: sessionStorage.getItem("user"),
-      currentPassword: currentPassword,
-      newPassword: newPassword,
-    })
+const axiosUpdatePassword = async (currentPassword, newPassword) =>
+  await axios
+    .put(
+      API + "/updatePassword",
+      {
+        token: sessionStorage.getItem("user"),
+        currentPassword: currentPassword,
+        newPassword: newPassword,
+      },
+      { timeout: 6000 }
+    )
     .then((data) => {
-      return data;
+      return data.data;
     })
-    .catch((err) => {
-      console.log(err.response.data);
-      window.alert("Error al actualizar la contraseña, intente nuevamente");
-    });
-};
 
 export default axiosUpdatePassword;

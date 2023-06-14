@@ -1,19 +1,14 @@
 import API from "./apiUrl";
 import axios from "axios";
 
-const clear = async () => {
-  return await axios
+const clear = async () =>
+  await axios
     .delete(API + "/deleteAllInputs", {
       data: {
         token: sessionStorage.getItem("user"),
       },
+      timeout: 6000,
     })
-    .then((data) => data)
-    .catch((err) => {
-      console.log(err.response.data);
-      window.alert(
-        "Error al borrar los datos del servidor, contacte al administrador"
-      );
-    });
-};
+    .then((data) => data.data)
+    
 export default clear;

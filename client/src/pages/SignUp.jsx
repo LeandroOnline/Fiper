@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 const SignUp = () => {
   const [pass1, setPass1] = useState("");
   const [pass2, setPass2] = useState("");
+  
   const [popupActivate, setPopupActivate] = useState(false);
   const [popupChoise, setPopupChoise] = useState(null);
   const [popupConfig, setPopupConfig] = useState({

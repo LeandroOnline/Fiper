@@ -18,14 +18,7 @@ const Navbar = memo(() => {
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
 
-  const [popupActivate, setPopupActivate] = useState(false);
-  const [popupChoise, setPopupChoise] = useState(null);
-  const [popupConfig, setPopupConfig] = useState({
-    type: "ok",
-    text: "popupText",
-    toConfirm: true,
-    query: false,
-  });
+  const [popupConfig, setPopupConfig] = useState({});
 
   const { setLogin, login, setVerifyFalse } = useGlobalStore(
     (state) => ({
@@ -39,18 +32,18 @@ const Navbar = memo(() => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    popupChoise ? deleteUser() : null;
-  }, [popupChoise]);
+    popupConfig.choise ? deleteUser() : null;
+  }, [popupConfig.choise]);
 
   const deleteUser = async () => {
-    if (!popupChoise) {
+    if (!popupConfig.choise) {
       setPopupConfig({
-        type: "ok",
+        type: "warning",
         text: "Desea eliminar su cuenta?",
         toConfirm: true,
         query: true,
+        choise: null,
       });
-      setPopupActivate(true);
       setConfigIsOpen(!configIsOpen);
     } else {
       await axiosDeleteUser().then(() => {
@@ -76,7 +69,7 @@ const Navbar = memo(() => {
   };
 
   const changePassword = async (currentPassword, newPassword) => {
-    if (currentPassword!=="" && newPassword!=="") {
+    if (currentPassword !== "" && newPassword !== "") {
       await axiosUpdatePassword(currentPassword, newPassword).then((data) => {
         console.log(data.data);
         if (data.data === "Password changed") {
@@ -112,21 +105,13 @@ const Navbar = memo(() => {
       });
       setConfigIsOpen(!configIsOpen);
       setPopupActivate(true);
-
     }
   };
 
   return (
     <div className="navcontainer">
-      <Popup
-        popupActivate={popupActivate}
-        setPopupActivate={() => setPopupActivate(false)}
-        choise={setPopupChoise}
-        type={popupConfig.type}
-        text={popupConfig.text}
-        toConfirm={popupConfig.toConfirm}
-        query={popupConfig.query}
-      />
+      <Popup config={popupConfig} />
+
       <div className="menu">
         <p
           className={menu ? "title" : "titleTransparent"}
