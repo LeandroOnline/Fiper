@@ -7,7 +7,7 @@ import log from "../assets/login.png";
 import axiosCheckVerify from "../api/axiosCheckVerify";
 import Verify from "./Verify";
 import Popup from "../components/Popup";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axiosRemember from "../api/axiosRemember";
 import useErrorHandler from "../hooks/useErrorHandler";
 

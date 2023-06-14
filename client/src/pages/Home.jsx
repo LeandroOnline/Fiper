@@ -10,7 +10,7 @@ import ProfitsAndLosses from "../components/ProfitsAndLosses";
 import NoLogged from "../components/NoLogged";
 import "./Home.css";
 import Verify from "./Verify";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Popup from "../components/Popup";
 import Notes from "../components/Notes";
 
@@ -21,46 +21,25 @@ const Home = () => {
   const setVerifyMessageDone = useGlobalStore(
     (state) => state.setVerifyMessageDone
   );
-  const apiTest = useGlobalStore((state) => state.apiTest);
 
-  const [popupActivate, setPopupActivate] = useState(false);
-  const [popupConfig, setPopupConfig] = useState({
-    type: "ok",
-    text: "popupText",
-    toConfirm: true,
-    query: false,
-  });
+  const [popupConfig, setPopupConfig] = useState({ toConfirm: true });
 
   const verifyCheckMessage = () => {
     if (verifyMessage) {
       setTimeout(() => {
         setPopupConfig({
           type: "ok",
-          text: "Cuenta Verificada",
-          toConfirm: false,
-          query: false,
+          text: "Cuenta verificada",
+          activate: true,
         });
-        setPopupActivate(true);
         setVerifyMessageDone();
-      }, 2000);
+      }, 1000);
     }
   };
 
-  useEffect(() => {
-    if (apiTest) {
-      setPopupConfig({
-        type: "warning",
-        text: "Estimado usuario, nos encontramos con alta demanda, si la plataforma presenta algun error por favor intente iniciar luego",
-        toConfirm: true,
-        choise: null,
-        query: false,
-      });
-      setPopupActivate(true);
-    }
-  }, [apiTest]);
-
   return (
     <div className="homecontainer">
+      <Popup config={popupConfig} />
       {verifyCheckMessage()}
       {login ? (
         checkVerify ? (
@@ -83,30 +62,12 @@ const Home = () => {
             </div>
             <ListInputs />
             <Notes />
-            <Popup
-              popupActivate={popupActivate}
-              setPopupActivate={() => setPopupActivate(false)}
-              type={popupConfig.type}
-              text={popupConfig.text}
-              toConfirm={popupConfig.toConfirm}
-              query={popupConfig.query}
-            />
           </>
         ) : (
           <Verify />
         )
       ) : (
-        <>
-          <Popup
-            popupActivate={popupActivate}
-            setPopupActivate={() => setPopupActivate(false)}
-            type={popupConfig.type}
-            text={popupConfig.text}
-            toConfirm={popupConfig.toConfirm}
-            query={popupConfig.query}
-          />
-          <NoLogged />
-        </>
+        <NoLogged />
       )}
     </div>
   );

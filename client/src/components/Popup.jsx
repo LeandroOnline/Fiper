@@ -4,7 +4,7 @@ import ok from "../assets/correcto.png";
 import error from "../assets/error.png";
 import question from "../assets/pregunta.png";
 
-const Popup = ({ config = { popupConfig: {}, setPopupConfig } }) => {
+const Popup = ({ config = { popupConfig: {}, setPopupConfig: {} } }) => {
   const activate = config.popupConfig?.activate ? true : false;
 
   if (typeof config.popupConfig?.toConfirm === "undefined") {

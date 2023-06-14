@@ -23,7 +23,7 @@ setPopupConfig({
 
 //-------------------------------------------------------
 // For show
-<Popup config={popupConfig} />
+<Popup config={{ popupConfig, setPopupConfig }} />
 
 //-------------------------------------------------------
 // For Errors Handlers
