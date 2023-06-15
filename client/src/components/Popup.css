@@ -5,7 +5,7 @@
   background-color: rgba(255, 255, 255, 0.1);
   border-style: solid;
   border-color: rgb(255, 255, 255, 0.8);
-  position: absolute;
+  position:fixed;
   top: 100px;
   left: calc(50% - 150px);
   display: flex;
@@ -23,7 +23,7 @@
   padding: 15px;
   gap: 15px;
   background-color: rgba(255, 255, 255, 0.1);
-  position: absolute;
+  position:fixed;
   top: -250px;
   left: calc(50% - 150px);
   display: flex;

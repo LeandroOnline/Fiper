@@ -7,7 +7,8 @@ import cancel from "../assets/cancelar.png";
 import ok from "../assets/correcto.png";
 import axiosAddNote from "../api/axiosAddNote";
 import useSanitize from "../hooks/useSanitize";
-
+import useErrorHandler from "../hooks/useErrorHandler";
+import Popup from "./Popup";
 
 const Notes = () => {
   const storeGetNotes = useGlobalStore((state) => state.storeGetNotes);
@@ -19,22 +20,32 @@ const Notes = () => {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [sendNote, setSendNote] = useState(false);
+  const [popupConfig, setPopupConfig] = useState({ toConfirm: true });
 
   useEffect(() => {
     storeGetNotes();
   }, [sendNote, noteDeletedOrUpdate]);
 
   const addNote = async (title, text) => {
-    await axiosAddNote(sanitizeTitle, sanitizeText).then((e) => {
-      setAddNoteMenu(false);
-      setTitle("");
-      setText("");
-      setSendNote(!sendNote);
-    });
+    await axiosAddNote(title, text)
+      .then(() => {
+        setAddNoteMenu(false);
+        setTitle("");
+        setText("");
+        setSendNote(!sendNote);
+        setPopupConfig({
+          type: "ok",
+          text: "Nota agregada",
+          activate: true,
+          fast: true,
+        });
+      })
+      .catch((err) => setPopupConfig(useErrorHandler(err)));
   };
 
   return (
     <div className="notesContainer">
+      <Popup config={{ popupConfig, setPopupConfig }} />
       <div className="addNote">
         {addNoteMenu ? (
           <div className="noteInputs">
