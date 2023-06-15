@@ -26,12 +26,13 @@ const Categorias = () => {
           Egresos
         </option>
       </select>
-      <input placeholder="$" type="number" name="input" autoFocus />
-      <input
+      <input placeholder="$" type="number" name="input" autoFocus className="inputPriceItem"/>
+      <textarea
         placeholder="detalle"
         name="detalle"
         value={detalleValue}
         onChange={(e) => detalle(e)}
+        className="inputTextItem"
       />
     </>
   );

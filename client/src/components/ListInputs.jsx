@@ -88,17 +88,23 @@ const ListInputs = () => {
       {search.map((element, key) => (
         <div key={key}>
           <div className="listElement">
-            <button onClick={() => deleteItem(element._id)}>
-              <img className="img" src={del} alt="" />
-            </button>
-            <button
+            <img
+              className="img"
+              src={del}
+              alt=""
+              onClick={() => deleteItem(element._id)}
+            />
+
+            <img
+              className="img"
+              src={modify}
+              alt=""
               onClick={() => {
                 setModificar(!modificar);
                 setIdElemento(element._id);
               }}
-            >
-              <img className="img" src={modify} alt="" />
-            </button>
+            />
+
             <p className={element.input > -1 ? "positive" : "negative"}>
               {element.input > 0 ? "+" : null}
               {element.input}
@@ -113,11 +119,14 @@ const ListInputs = () => {
           <form onSubmit={(e) => updateItem(e)} className="homeformList">
             <Categorias />
             <div className="buttons">
-              <button type="submit">Aplicar</button>
+              <button type="submit" className="inputAplicar">
+                Aplicar
+              </button>
               <button
                 onClick={() => {
                   setModificar(!modificar);
                 }}
+                className="inputCancelar"
               >
                 Cancelar
               </button>

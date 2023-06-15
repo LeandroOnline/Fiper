@@ -10,7 +10,7 @@
 .listElement {
   display: flex;
   flex-direction: row;
-  gap: 15px;
+  gap: 10px;
   margin: 5px 0 5px 0;
   padding: 10px;
 }
@@ -22,7 +22,13 @@
 
 .img {
   width: 20px;
+  height: 20px;
   filter: invert();
+  opacity: 50%;
+}
+
+.img:hover {
+  opacity: 80%;
 }
 
 .positive {
@@ -32,22 +38,25 @@
   color: red;
 }
 
-.buttons{
-  display: flex;
-  gap: 15px;
-}
-
 .homeformList {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   border-width: 2px;
   border-style: solid;
   border-radius: 5px;
   padding: 10px;
-  width: calc(100%-20px);
+  position: fixed;
+  width: 350px;
+  height: 250px;
+  top: calc(50% - 125px);
+  left: calc(50% - 175px);
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(7px);
+  gap: 10px;
 }
 
-.divide{
+.divide {
   width: 100%;
   height: 1.5px;
   background-color: rgba(255, 255, 255, 0.1);
@@ -63,4 +72,14 @@
 .clearAll:hover {
   width: 100%;
   color: rgb(0, 0, 0, 0.8);
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.inputAplicar,
+.inputCancelar {
+  width: 100%;
 }
