@@ -2,7 +2,12 @@
   border-radius: 5px;
   padding: 15px;
   width: 100%;
+  height: 400px;
   background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 15px;
 }
 
 .graficacontainer ul li span {
@@ -11,4 +16,30 @@
 
 .graficacontainer ul li {
   color: rgb(144, 6, 6);
+}
+
+.datosContainer{
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+}
+
+.datoIng-Egr{
+  border-radius: 5px;
+  padding: 15px;
+  width: 100%;
+  height: 100px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.columnContainer{
+  width: 60%; 
+  height: 100% !important;
 }

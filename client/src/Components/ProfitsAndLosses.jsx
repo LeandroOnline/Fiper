@@ -18,7 +18,7 @@ const ProfitsAndLosses = () => {
 
   useEffect(() => {
     setProfitsIncrement(porcentProfits(profits));
-    // setProfitsIncrement(porcentProfits([1000, 1500]));
+    // setProfitsIncrement(porcentProfits([1000, 1500, 3000]));
   }, [profits]);
 
   return (

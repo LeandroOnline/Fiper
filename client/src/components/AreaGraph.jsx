@@ -13,9 +13,17 @@ const AreaGraph = () => {
     setNetPerMonth(netPerMonth);
   }, [inputs]);
 
+  const date = new Date();
+  const month = date.getMonth();
+
   return (
     <div className="areacontainer">
-      <Area {...configAreaGraph(data)} />
+      <div className="areaDatoContainer">
+        <h1 className="datoIng-Egr">
+          Monto NETO mes actual: {netPerMonth[month]}
+        </h1>
+      </div>
+      <Area {...configAreaGraph(data)} className="netoContainer" />
     </div>
   );
 };
