@@ -18,8 +18,9 @@ const Input = () => {
         if (data === "Added input") {
           setPopupConfig({
             type: "ok",
-            text: "Item agregado",
+            text: "Agregado",
             activate: true,
+            fast: true,
           });
           setReset();
           document.getElementById("myForm").reset();

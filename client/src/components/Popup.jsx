@@ -6,7 +6,7 @@ import question from "../assets/pregunta.png";
 
 const Popup = ({ config = {} }) => {
   const activate = config.popupConfig?.activate ? true : false;
-
+  const timer = config.popupConfig?.fast ? 1500 : 3000;
   if (typeof config.popupConfig?.toConfirm === "undefined") {
     setTimeout(() => {
       config.popupConfig && config.setPopupConfig
@@ -16,7 +16,7 @@ const Popup = ({ config = {} }) => {
             toConfirm: null,
           })
         : null;
-    }, 3000);
+    }, timer);
   }
 
   let img =

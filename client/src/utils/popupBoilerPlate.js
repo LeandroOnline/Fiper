@@ -18,6 +18,7 @@ setPopupConfig({
   toConfirm: true,
   query: true,
   choise: null,
+  fast: true,
   // <--- only if is necessary
 });
 
