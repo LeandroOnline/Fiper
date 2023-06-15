@@ -10,7 +10,7 @@ import ProfitsAndLosses from "../components/ProfitsAndLosses";
 import NoLogged from "../components/NoLogged";
 import "./Home.css";
 import Verify from "./Verify";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Popup from "../components/Popup";
 import Notes from "../components/Notes";
 import PorcentComponent from "../components/PorcentComponent";
@@ -19,6 +19,7 @@ const Home = () => {
   const login = useGlobalStore((state) => state.login);
   const checkVerify = useGlobalStore((state) => state.checkVerify);
   const verifyMessage = useGlobalStore((state) => state.verifyMessage);
+  const emailStore = useGlobalStore((state) => state.emailStore);
   const setVerifyMessageDone = useGlobalStore(
     (state) => state.setVerifyMessageDone
   );

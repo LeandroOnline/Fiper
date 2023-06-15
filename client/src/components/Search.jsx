@@ -7,7 +7,7 @@ const Search = () => {
   const { inputs, setFiltered } = useGlobalStore();
 
   const filterValue = (value) => {
-    if (value.length > 1) {
+    if (value.length >= 1) {
       const filtered = inputs.filter(
         (element) =>
           element.detalle.toLowerCase().includes(value.toLowerCase()) ||
