@@ -86,9 +86,13 @@ const Interest = () => {
         </div>
       </div>
       <p className="calculadoraTextResult">
-        Total Acumulado={totalAcumulado === "NaN" ? 0 : totalAcumulado}
+        Total Acumulado= ${totalAcumulado === "NaN" ? 0 : totalAcumulado}
       </p>
-      <p className="calculadoraTextResult">TEA= %{TEA === "NaN" ? 0 : TEA}</p>
+      <p className="calculadoraTextResult">TEA= {TEA === "NaN" ? 0 : TEA}%</p>
+      <p className="calculadoraTextResult">
+        Tasa efectiva mensual=
+        {TEA === "NaN" ? 0 : (tasaInteresAnual / 12).toFixed(2)}%
+      </p>
     </div>
   );
 };

@@ -45,16 +45,22 @@ const Notes = () => {
 
   const checksCount = (notes) => {
     let count = 0;
+    let total = 0;
     notes.map((note) => {
+      total += 1;
       note.check ? (count += 1) : null;
     });
-    return count;
+    return { count, total };
   };
 
   return (
     <div className="notesContainer">
       <Popup config={{ popupConfig, setPopupConfig }} />
-      <h1>Cantidad de notas checkeadas: {checksCount(notes)}</h1>
+      <h1>Cantidad de notas checkeadas: {checksCount(notes).count}</h1>
+      <progress
+        max="100"
+        value={(checksCount(notes).count / checksCount(notes).total) * 100}
+      />
       <div
         className="addNote"
         onClick={() => (addNoteMenu ? null : setAddNoteMenu(true))}
