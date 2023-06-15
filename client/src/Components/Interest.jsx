@@ -13,10 +13,11 @@ const Interest = () => {
   function calcularInteresCompuesto(
     capitalInicial,
     tasaInteres,
-    periodos,
-    tiempo
+    periodos = 1,
+    tiempo = 1
   ) {
     let totalAcumulado = 0;
+    let tasaInteresDecimal = tasaInteres / 100;
     if (tiempo) {
       const tasaInteresDecimal = tasaInteres / 100;
       const factorCapitalizacion = 1 + tasaInteresDecimal / periodos;
@@ -28,10 +29,16 @@ const Interest = () => {
         capitalInicial * Math.pow(1 + tasaInteresMensual, periodos);
     }
 
-    return totalAcumulado.toFixed(2);
+    // Cálculo de la Tasa Efectiva Anual (TEA)
+    const TEA = Math.pow(1 + tasaInteresDecimal / periodos, periodos) - 1;
+
+    return {
+      totalAcumulado: totalAcumulado.toFixed(2),
+      TEA: (TEA * 100).toFixed(2),
+    };
   }
 
-  const total = calcularInteresCompuesto(
+  const { totalAcumulado, TEA } = calcularInteresCompuesto(
     capitalInicial,
     tasaInteresAnual,
     periodos,
@@ -55,7 +62,7 @@ const Interest = () => {
             <input
               className="interestInputs"
               type="text"
-              placeholder="Meses"
+              placeholder="Renovacion / Meses"
               value={periodos ? periodos : ""}
               onChange={(e) => setPeriodos(e.target.value)}
             />
@@ -77,7 +84,10 @@ const Interest = () => {
             />
           </div>
         </div>
-        <p className="calculadoraTextResult">={total==="NaN"? 0 : total}</p>
+        <p className="calculadoraTextResult">
+          Total Acumulado={totalAcumulado === "NaN" ? 0 : totalAcumulado}
+        </p>
+        <p className="calculadoraTextResult">TEA= %{TEA === "NaN" ? 0 : TEA}</p>
       </div>
     </div>
   );

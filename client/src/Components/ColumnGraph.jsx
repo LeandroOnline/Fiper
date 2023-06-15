@@ -8,7 +8,6 @@ import { useEffect } from "react";
 const ColumnGraph = () => {
   const { inputs, setProfitsAndLosses } = useGlobalStore();
   const { data, profits, losses } = columnDataFormat(inputs);
-  console.log(profits);
 
   useEffect(() => {
     setProfitsAndLosses(profits, losses);
