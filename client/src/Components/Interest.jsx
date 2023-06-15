@@ -84,11 +84,11 @@ const Interest = () => {
             />
           </div>
         </div>
-        <p className="calculadoraTextResult">
-          Total Acumulado={totalAcumulado === "NaN" ? 0 : totalAcumulado}
-        </p>
-        <p className="calculadoraTextResult">TEA= %{TEA === "NaN" ? 0 : TEA}</p>
       </div>
+      <p className="calculadoraTextResult">
+        Total Acumulado={totalAcumulado === "NaN" ? 0 : totalAcumulado}
+      </p>
+      <p className="calculadoraTextResult">TEA= %{TEA === "NaN" ? 0 : TEA}</p>
     </div>
   );
 };
