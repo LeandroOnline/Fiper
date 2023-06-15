@@ -5,7 +5,6 @@ import useGlobalStore from "../store/Store";
 import axiosClear from "../api/axiosClear";
 import axiosDeleteItem from "../api/axiosDeleteItem";
 import axiosUpdateItem from "../api/axiosUpdateItem";
-
 import modify from "../assets/modificar.png";
 import del from "../assets/eliminar.png";
 import Search from "./Search";
@@ -17,7 +16,7 @@ const ListInputs = () => {
   const [idElemento, setIdElemento] = useState("");
   const [send, setSend] = useState(false);
 
-  const [popupConfig, setPopupConfig] = useState({});
+  const [popupConfig, setPopupConfig] = useState({ toConfirm: true });
 
   const { inputs, reset, setReset, storeGetAllInputs, filtered } =
     useGlobalStore();
@@ -42,12 +41,13 @@ const ListInputs = () => {
     if (window.confirm("Eliminar Item?"))
       await axiosDeleteItem(id)
         .then((data) => {
-          setReset();
           if (data === "Item deleted") {
             setPopupConfig({
               type: "ok",
               text: "Item eliminado",
+              activate: true,
             });
+            setReset();
           }
         })
         .catch((err) => setPopupConfig(useErrorHandler(err)));
@@ -76,11 +76,13 @@ const ListInputs = () => {
 
   return (
     <div className="listcontainer">
+      <Popup config={{ popupConfig, setPopupConfig }} />
       {inputs.length == 0 ? "Sin entradas" : "Entradas:"}
       {inputs.length !== 0 ? <Search /> : null}
-      <Popup config={popupConfig} />
       {inputs.length > 0 ? (
-        <button className="clearAll" onClick={() => clearTrue()}>Limpiar todo</button>
+        <button className="clearAll" onClick={() => clearTrue()}>
+          Limpiar todo
+        </button>
       ) : null}
       {search.map((element, key) => (
         <div key={key}>
