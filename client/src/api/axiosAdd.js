@@ -6,7 +6,7 @@ const Add = async (e) =>
     .post(
       API + "/addInput",
       {
-        tipo: e.target.tipo.value,
+        // tipo: e.target.tipo.value,
         input: e.target.input.value,
         detalle: e.target.detalle.value,
         token: sessionStorage.getItem("user"),

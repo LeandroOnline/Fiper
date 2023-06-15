@@ -18,14 +18,14 @@ const Categorias = () => {
 
   return (
     <>
-      <select id="entrada" name="tipo">
+      {/* <select id="entrada" name="tipo">
         <option value="Ingresos" className="options">
           Ingresos
         </option>
         <option value="Egresos" className="options">
           Egresos
         </option>
-      </select>
+      </select> */}
       <input placeholder="$" type="number" name="input" autoFocus className="inputPriceItem"/>
       <textarea
         placeholder="detalle"

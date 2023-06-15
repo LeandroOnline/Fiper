@@ -6,7 +6,7 @@ const update = async (idElement, e) =>
     .put(
       API + "/update/" + idElement,
       {
-        tipo: e.target.tipo.value,
+        // tipo: e.target.tipo.value,
         input: e.target.input.value,
         detalle: e.target.detalle.value,
         token: sessionStorage.getItem("user"),

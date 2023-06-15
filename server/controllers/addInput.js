@@ -5,17 +5,19 @@ const jwt = require("jsonwebtoken");
 const addInput = async (req, res) => {
   try {
     const negar = req.body.tipo === "Egresos" ? -1 : 1;
+
     const newadd = new Inputs({
-      tipo: req.body.tipo,
-      input: req.body.input * negar,
+      tipo: req.body.input < 0 ? "Egresos" : "Ingresos",
+      input: req.body.input,
       detalle: req.body.detalle,
     });
+    
     await newadd.save();
     const { id } = jwt.verify(req.body.token, process.env.SECRET_KEY);
     const user = await User.findById(id);
     user.inputs.push(newadd);
     await user.save();
-    
+
     res.send("Added input");
   } catch (err) {
     res.status(500).send(err);
