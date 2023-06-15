@@ -24,17 +24,19 @@ select{
 
 button {
   border: none;
-  border-width: 0;
-  background-color: rgba(255, 255, 255, 0.3);
-  color: rgb(0, 0, 0, 0.7);
+  background-color: rgba(255, 255, 255, 0.5);
+  color: rgb(0, 0, 0, 0.8);
   border-radius: 5px;
-  padding: 5px 10px;
+  padding: 5px;
   cursor: pointer;
   transition: 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 button:hover {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.8);
   transition: 0.5s;
 }
 

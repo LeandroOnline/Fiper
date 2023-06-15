@@ -6,19 +6,13 @@ import axiosSendEmail from "../api/axiosSendEmail";
 import "./SignUp.css";
 import Popup from "../components/Popup";
 import { Link } from "react-router-dom";
+import useErrorHandler from "../hooks/useErrorHandler";
 
 const SignUp = () => {
   const [pass1, setPass1] = useState("");
   const [pass2, setPass2] = useState("");
-  
-  const [popupActivate, setPopupActivate] = useState(false);
-  const [popupChoise, setPopupChoise] = useState(null);
-  const [popupConfig, setPopupConfig] = useState({
-    type: "ok",
-    text: "popupText",
-    toConfirm: true,
-    query: false,
-  });
+
+  const [popupConfig, setPopupConfig] = useState({ toConfirm: true });
 
   const Sign = async (e) => {
     e.preventDefault();
@@ -30,40 +24,42 @@ const SignUp = () => {
         email: email,
         password: password,
       };
-      axiosSign(send).then(() => {
-        axiosSendEmail(email)
-          .then(() => {
-            setPopupConfig({
-              type: "ok",
-              text: "Verifica tu correo",
-              toConfirm: true,
-              query: false,
-            });
-            setPopupActivate(true);
-          })
-          .catch(() => {
+      axiosSign(send)
+        .then((data) => {
+          if (data === "Existing user") {
             setPopupConfig({
               type: "error",
-              text: "Lo sentimos, estamos en mantenimiento",
-              toConfirm: false,
-              query: false,
+              text: "Usuario existente",
+              activate: true,
             });
-            setPopupActivate(true);
-          });
-      });
+          }
+          if (data === "Added user") {
+            axiosSendEmail(email)
+              .then((data) => {
+                setPopupConfig({
+                  type: "ok",
+                  text: "Verifica tu correo",
+                  activate: true,
+                  toConfirm: true,
+                });
+              })
+              .catch((err) => setPopupConfig(useErrorHandler(err)));
+          }
+        })
+        .catch((err) => setPopupConfig(useErrorHandler(err)));
     } else {
       setPopupConfig({
         type: "error",
-        text: "Email o contraseña invalido",
-        toConfirm: false,
-        query: false,
+        text: "Ingresos incorrectos",
+        activate: true,
+        toConfirm: true,
       });
-      setPopupActivate(true);
     }
   };
 
   return (
     <div className="signcontainer">
+      <Popup config={{ popupConfig, setPopupConfig }} />
       <form className="sign" onSubmit={(e) => Sign(e)}>
         <img className="imgsign" src={proteger} alt="" />
         <div className="SignAllText">
@@ -107,15 +103,6 @@ const SignUp = () => {
           </button>
         </div>
       </form>
-      <Popup
-        popupActivate={popupActivate}
-        setPopupActivate={() => setPopupActivate(false)}
-        choise={setPopupChoise}
-        type={popupConfig.type}
-        text={popupConfig.text}
-        toConfirm={popupConfig.toConfirm}
-        query={popupConfig.query}
-      />
     </div>
   );
 };

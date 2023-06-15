@@ -11,8 +11,6 @@ const login = async (email, password) =>
       },
       { timeout: 6000 }
     )
-    .then((data) =>
-      data.data.status === "Logged" ? data.data.token : data.data.status
-    );
+    .then((data) => data.data);
 
 export default login;

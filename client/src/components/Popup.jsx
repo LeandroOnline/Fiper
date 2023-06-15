@@ -4,12 +4,12 @@ import ok from "../assets/correcto.png";
 import error from "../assets/error.png";
 import question from "../assets/pregunta.png";
 
-const Popup = ({ config = { popupConfig: {}, setPopupConfig: {} } }) => {
+const Popup = ({ config = {} }) => {
   const activate = config.popupConfig?.activate ? true : false;
 
   if (typeof config.popupConfig?.toConfirm === "undefined") {
     setTimeout(() => {
-      config.popupConfig
+      config.popupConfig && config.setPopupConfig
         ? config.setPopupConfig({
             ...config.popupConfig,
             activate: false,
@@ -26,26 +26,26 @@ const Popup = ({ config = { popupConfig: {}, setPopupConfig: {} } }) => {
       ? ok
       : config.popupConfig?.type === "warning"
       ? warning
-      : question;
+      : config.popupConfig?.type === "query"
+      ? question
+      : null;
 
   return (
     <div className={activate ? "pop" : "pup"}>
       <div className="popupBlur"></div>
       <img className="popimg" src={img} alt="img" />
-      <p>{config.popupConfig?.text}</p>
+      <p className="popupText">{config.popupConfig?.text}</p>
       {config.popupConfig?.toConfirm ? (
         <div className="popupButtonsContainer">
           {config.popupConfig?.query ? (
             <button
               className="popupButton"
               onClick={() => {
-                config.popupConfig.choise
-                  ? config.setPopupConfig({
-                      ...config.popupConfig,
-                      activate: false,
-                      choise: false,
-                    })
-                  : null;
+                config.setPopupConfig({
+                  ...config.popupConfig,
+                  activate: false,
+                  choise: false,
+                });
               }}
             >
               Cancelar
@@ -54,16 +54,11 @@ const Popup = ({ config = { popupConfig: {}, setPopupConfig: {} } }) => {
           <button
             className="popupButton"
             onClick={() => {
-              config.popupConfig?.choise
-                ? config.setPopupConfig({
-                    ...config.popupConfig,
-                    activate: false,
-                    choise: true,
-                  })
-                : config.setPopupConfig({
-                    ...config.popupConfig,
-                    activate: false,
-                  });
+              config.setPopupConfig({
+                ...config.popupConfig,
+                activate: false,
+                choise: true,
+              });
             }}
           >
             Aceptar

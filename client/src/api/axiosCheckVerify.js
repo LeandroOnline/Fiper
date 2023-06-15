@@ -10,6 +10,6 @@ const axiosCheckVerify = async () =>
       },
       { timeout: 6000 }
     )
-    .then((data) => (data.data === "Checked" ? true : false))
+    .then((data) => data.data);
 
 export default axiosCheckVerify;

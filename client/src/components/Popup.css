@@ -2,8 +2,9 @@
   width: 300px;
   padding: 15px;
   gap: 15px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
   border-style: solid;
+  border-color: rgb(255, 255, 255, 0.8);
   position: absolute;
   top: 100px;
   left: calc(50% - 150px);
@@ -21,7 +22,7 @@
   width: 300px;
   padding: 15px;
   gap: 15px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
   position: absolute;
   top: -250px;
   left: calc(50% - 150px);
@@ -46,16 +47,32 @@
 .popimg {
   width: 30px;
   filter: invert();
-  opacity: 50%;
+  opacity: 80%;
 }
 
 .popupButton {
   border-radius: 5px;
   padding: 5px 10px;
   width: 110px;
+  border: solid rgb(255, 255, 255, 0.5);
+  background-color: rgb(255, 255, 255, 0);
+  color: rgb(255, 255, 255, 0.8);
+}
+
+.popupButton:hover {
+  border-radius: 5px;
+  padding: 5px 10px;
+  width: 110px;
+  border: solid rgb(255, 255, 255, 0.5);
+  background-color: rgb(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .popupButtonsContainer {
   display: flex;
   gap: 15px;
+}
+
+.popupText{
+  color: rgb(255, 255, 255, 0.8);
 }

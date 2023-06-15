@@ -6,6 +6,7 @@ import "./Verify.css";
 import axiosSendEmail from "../api/axiosSendEmail";
 import Popup from "../components/Popup";
 import verify from "../assets/verificar.png";
+import useErrorHandler from "../hooks/useErrorHandler";
 
 const Verify = () => {
   const { id } = useParams();
@@ -16,47 +17,40 @@ const Verify = () => {
   const setVerifyMessage = useGlobalStore((state) => state.setVerifyMessage);
   const navigate = useNavigate();
 
-  const [popupActivate, setPopupActivate] = useState(false);
-  const [popupChoise, setPopupChoise] = useState(null);
-  const [popupConfig, setPopupConfig] = useState({
-    type: "ok",
-    text: "popupText",
-    toConfirm: true,
-    query: false,
-  });
+  const [popupConfig, setPopupConfig] = useState({ toConfirm: true });
 
   const tokenValidate = async () => {
-    await axiosCheckValidate(id).then((data) => {
-      if (data.data.status === "Checked Account") {
-        sessionStorage.setItem("user", data.data.token);
-        setLogin(data.data.token);
-        setVerify();
-        setVerifyMessage();
-        navigate("/");
-      } else {
-        setPopupConfig({
-          type: "error",
-          text: "No se pudo validar la cuenta, intente nuevamente",
-          toConfirm: true,
-          query: false,
-        });
-        setPopupActivate(true);
-      }
-    });
+    await axiosCheckValidate(id)
+      .then((data) => {
+        if (data.status === "Checked Account") {
+          sessionStorage.setItem("user", data.token);
+          setLogin(data.token);
+          setVerify();
+          setVerifyMessage();
+          navigate("/");
+        } else if (data.status === "Invalid ID, can not check account") {
+          setPopupConfig({
+            type: "error",
+            text: "Usuario no encontrado",
+            activate: true,
+          });
+        }
+      })
+      .catch((err) => setPopupConfig(useErrorHandler(err)));
   };
 
   if (!login) tokenValidate();
 
   const reSendEmail = () => {
-    axiosSendEmail(emailStore).then(() => {
-      setPopupConfig({
-        type: "ok",
-        text: "Correo enviado",
-        toConfirm: false,
-        query: false,
-      });
-      setPopupActivate(true);
-    });
+    axiosSendEmail(emailStore)
+      .then(() => {
+        setPopupConfig({
+          type: "ok",
+          text: "Correo enviado",
+          activate: true,
+        });
+      })
+      .catch((err) => setPopupConfig(useErrorHandler(err)));
   };
 
   return (
@@ -66,15 +60,7 @@ const Verify = () => {
       <button className="buttonVerify" onClick={() => reSendEmail()}>
         Si no te llego el correo haz click
       </button>
-      <Popup
-        popupActivate={popupActivate}
-        setPopupActivate={() => setPopupActivate(false)}
-        choise={setPopupChoise}
-        type={popupConfig.type}
-        text={popupConfig.text}
-        toConfirm={popupConfig.toConfirm}
-        query={popupConfig.query}
-      />
+      <Popup config={{ popupConfig, setPopupConfig }} />
     </div>
   );
 };

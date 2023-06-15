@@ -5,7 +5,7 @@ const addUser = async (req, res) => {
     try {
       const exist = await User.findOne({ email: req.body.email });
       if (exist) {
-        res.send("Usuario existente");
+        res.send("Existing user");
       } else {
         const randomKey = await bcryptjs.genSalt();
         const passwordCrypt = bcryptjs.hashSync(req.body.password, randomKey);
@@ -16,7 +16,7 @@ const addUser = async (req, res) => {
         });
   
         await newuser.save();
-        res.send("Added");
+        res.send("Added user");
       }
     } catch (err) {
       res.status(500).send(err);

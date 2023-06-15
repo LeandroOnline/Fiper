@@ -12,8 +12,6 @@ const axiosUpdatePassword = async (currentPassword, newPassword) =>
       },
       { timeout: 6000 }
     )
-    .then((data) => {
-      return data.data;
-    })
+    .then((data) => data.data);
 
 export default axiosUpdatePassword;

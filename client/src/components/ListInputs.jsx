@@ -80,7 +80,7 @@ const ListInputs = () => {
       {inputs.length !== 0 ? <Search /> : null}
       <Popup config={popupConfig} />
       {inputs.length > 0 ? (
-        <button onClick={() => clearTrue()}>Limpiar todo</button>
+        <button className="clearAll" onClick={() => clearTrue()}>Limpiar todo</button>
       ) : null}
       {search.map((element, key) => (
         <div key={key}>
@@ -124,9 +124,6 @@ const ListInputs = () => {
             </div>
           </form>
         </>
-      ) : null}
-      {inputs.length > 2 ? (
-        <button onClick={() => clearTrue()}>Limpiar todo</button>
       ) : null}
     </div>
   );

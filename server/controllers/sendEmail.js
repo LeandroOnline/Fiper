@@ -21,8 +21,7 @@ const sendEmail = async (req, res) => {
       from: "leandrosavat@gmail.com",
       to: userFounded.email,
       subject: "Verificar cuenta de FIPE",
-      html: 
-        `<h1>✦ Bienvenido a FIPE ✦</h1>  
+      html: `<h1>✦ Bienvenido a FIPE ✦</h1>  
         <p>Para activar tu cuenta de FIPE, accede al siguiente enlace:</p>
         <a href="${url}${userFounded.id}"><strong>→ Activar cuenta ✓</strong></a>
         <h3>Gracias por unirte.</h3><br/>

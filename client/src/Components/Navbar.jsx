@@ -5,11 +5,11 @@ import { shallow } from "zustand/shallow";
 import useGlobalStore from "../store/Store";
 import axiosDeleteUser from "../api/axiosDeleteUser";
 import axiosUpdatePassword from "../api/axiosUpdatePassword";
-
 import flechas from "../assets/flechas.png";
 import flechasizq from "../assets/flechaizq.png";
 import config from "../assets/configuracion.png";
 import Popup from "./Popup";
+import useErrorHandler from "../hooks/useErrorHandler";
 
 const Navbar = memo(() => {
   const [menu, setMenu] = useState(true);
@@ -18,7 +18,7 @@ const Navbar = memo(() => {
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
 
-  const [popupConfig, setPopupConfig] = useState({});
+  const [popupConfig, setPopupConfig] = useState({ toConfirm: true });
 
   const { setLogin, login, setVerifyFalse } = useGlobalStore(
     (state) => ({
@@ -38,26 +38,30 @@ const Navbar = memo(() => {
   const deleteUser = async () => {
     if (!popupConfig.choise) {
       setPopupConfig({
-        type: "warning",
+        type: "query",
         text: "Desea eliminar su cuenta?",
+        activate: true,
+        // --->
         toConfirm: true,
         query: true,
         choise: null,
+        // <--- only if is necessary
       });
-      setConfigIsOpen(!configIsOpen);
     } else {
-      await axiosDeleteUser().then(() => {
-        setPopupConfig({
-          type: "ok",
-          text: "Usuario eliminado",
-          toConfirm: false,
-          query: true,
-        });
-        setPopupActivate(true);
-        setLogin(null);
-        setConfigIsOpen(false);
-        setVerifyFalse();
-      });
+      await axiosDeleteUser()
+        .then((data) => {
+          if (data === "Deleted user") {
+            setPopupConfig({
+              type: "ok",
+              text: "Usuario eliminado",
+              activate: true,
+            });
+            setLogin(null);
+            setConfigIsOpen(false);
+            setVerifyFalse();
+          }
+        })
+        .catch((err) => setPopupConfig(useErrorHandler(err)));
     }
   };
 
@@ -70,47 +74,41 @@ const Navbar = memo(() => {
 
   const changePassword = async (currentPassword, newPassword) => {
     if (currentPassword !== "" && newPassword !== "") {
-      await axiosUpdatePassword(currentPassword, newPassword).then((data) => {
-        console.log(data.data);
-        if (data.data === "Password changed") {
-          setPopupConfig({
-            type: "ok",
-            text: "Contraseña actualizada",
-            toConfirm: false,
-            query: true,
-          });
-          setConfigIsOpen(!configIsOpen);
-          setPopupActivate(true);
-          setPassword(false);
-          setConfigIsOpen(false);
-          setCurrentPassword("");
-          setNewPassword("");
-        } else if (data.data === "Incorrect current password") {
-          setPopupConfig({
-            type: "ok",
-            text: "Contraseña actual incorrecta",
-            toConfirm: false,
-            query: true,
-          });
-          setConfigIsOpen(!configIsOpen);
-          setPopupActivate(true);
-        }
-      });
+      await axiosUpdatePassword(currentPassword, newPassword)
+        .then((data) => {
+          if (data === "Password changed") {
+            setPopupConfig({
+              type: "ok",
+              text: "Contraseña actualizada",
+              activate: true,
+            });
+            setPassword(false);
+            setConfigIsOpen(false);
+            setCurrentPassword("");
+            setNewPassword("");
+          } else if (data === "Incorrect current password") {
+            setPopupConfig({
+              type: "error",
+              text: "Contraseña actual incorrecta",
+              activate: true,
+            });
+            setConfigIsOpen(!configIsOpen);
+          }
+        })
+        .catch((err) => setPopupConfig(useErrorHandler(err)));
     } else {
       setPopupConfig({
-        type: "warning",
+        type: "error",
         text: "Ingresos invalidos",
-        toConfirm: false,
-        query: true,
+        activate: true,
       });
       setConfigIsOpen(!configIsOpen);
-      setPopupActivate(true);
     }
   };
 
   return (
     <div className="navcontainer">
-      <Popup config={popupConfig} />
+      <Popup config={{ popupConfig, setPopupConfig }} />
 
       <div className="menu">
         <p

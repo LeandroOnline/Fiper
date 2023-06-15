@@ -18,7 +18,6 @@ const Login = () => {
   const checkVerify = useGlobalStore((state) => state.checkVerify);
   const setVerify = useGlobalStore((state) => state.setVerify);
   const setEmailStore = useGlobalStore((state) => state.setEmailStore);
-
   const [rememberActivate, setRememberActivate] = useState(false);
   const [rememberInput, setRememberInput] = useState("");
 
@@ -32,30 +31,22 @@ const Login = () => {
     if (verify) {
       await axiosLogin(email, password)
         .then((data) => {
-          if (data === "Incorrect pasword") {
+          if (data.status === "Incorrect pasword") {
             setPopupConfig({
               type: "error",
               text: "Contraseña incorrecta",
               activate: true,
             });
-          } else if (data === "User not found") {
+          } else if (data.status === "User not found") {
             setPopupConfig({
               type: "error",
               text: "Usuario no encontrado",
               activate: true,
             });
-          } else {
+          } else if (data.status === "Logged") {
             setEmailStore(email);
-            sessionStorage.setItem("user", data);
-            const checkStatus = async () =>
-              await axiosCheckVerify()
-                .then((check) => {
-                  if (check) setVerify();
-                  setLogin(data);
-                  navigate("/");
-                })
-                .catch((err) => setPopupConfig(useErrorHandler(err)));
-            checkStatus();
+            sessionStorage.setItem("user", data.token);
+            checkStatus(data.token);
           }
         })
         .catch((err) => setPopupConfig(useErrorHandler(err)));
@@ -67,6 +58,20 @@ const Login = () => {
       });
     }
   };
+
+  const checkStatus = async (token) =>
+    await axiosCheckVerify()
+      .then((data) => {
+        if (data === "Checked") {
+          setVerify();
+          setLogin(token);
+          navigate("/");
+        } else {
+          setLogin(token);
+          navigate("/");
+        }
+      })
+      .catch((err) => setPopupConfig(useErrorHandler(err)));
 
   const Remember = async (rememberInput) => {
     const verify = useVerifySyntax(rememberInput, "Qqq1111");

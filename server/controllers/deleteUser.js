@@ -18,7 +18,7 @@ const deleteUser = async (req, res) => {
     }
     // Elimino el usuario
     await User.findByIdAndDelete(id);
-    res.send("Se elimino el usuario y sus entradas");
+    res.send("Deleted user");
   } catch (err) {
     res.status(500).send(err);
   }

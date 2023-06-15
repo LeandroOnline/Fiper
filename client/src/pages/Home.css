@@ -15,13 +15,14 @@
   flex-direction: row;
   gap: 15px;
   width: 70%;
+  height: 500px;
 }
 
 .graphs {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  width: 65%;
+  width: 70%;
 }
 
 .inputTotal {

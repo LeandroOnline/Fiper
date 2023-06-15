@@ -44,24 +44,23 @@ const Home = () => {
       {login ? (
         checkVerify ? (
           <>
+            <div className="tinys">
+              <DolarBlue />
+              <ProfitsAndLosses />
+            </div>
             <div className="inputsGraph">
               <div className="inputTotal">
                 <Input />
                 <Total />
               </div>
-
-              <div className="graphs">
-                <ColumnGraph />
-                <AreaGraph />
-              </div>
+              <ListInputs />
             </div>
-            <div className="tinys">
-              <ProfitsAndLosses />
-              <DolarBlue />
-              <Interest />
-            </div>
-            <ListInputs />
+            <Interest />
             <Notes />
+            <div className="graphs">
+              <ColumnGraph />
+              <AreaGraph />
+            </div>
           </>
         ) : (
           <Verify />
