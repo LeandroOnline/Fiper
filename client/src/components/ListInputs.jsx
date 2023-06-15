@@ -10,6 +10,7 @@ import del from "../assets/eliminar.png";
 import Search from "./Search";
 import Popup from "./Popup";
 import useErrorHandler from "../hooks/useErrorHandler";
+import totalNeto from "../helpers/totalNeto.js";
 
 const ListInputs = () => {
   const [modificar, setModificar] = useState(false);
@@ -78,7 +79,11 @@ const ListInputs = () => {
   return (
     <div className="listcontainer">
       <Popup config={{ popupConfig, setPopupConfig }} />
-      {inputs.length == 0 ? "Sin entradas" : "Entradas:"}
+      {inputs.length == 0
+        ? "Sin entradas"
+        : filtered
+        ? `Total en entradas filtradas: $${totalNeto(filtered)}`
+        : "Entradas"}
       {inputs.length !== 0 ? <Search /> : null}
       {inputs.length > 0 ? (
         <button className="clearAll" onClick={() => clearTrue()}>
@@ -107,7 +112,7 @@ const ListInputs = () => {
 
             <p className={element.input > -1 ? "positive" : "negative"}>
               {element.input > 0 ? "+$ " : "-$ "}
-              {element.input >0? element.input : element.input *-1}
+              {element.input > 0 ? element.input : element.input * -1}
             </p>
             {element.detalle !== "" ? <p>{element.detalle}</p> : null}
           </div>
