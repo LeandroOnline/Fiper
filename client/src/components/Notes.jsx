@@ -46,7 +46,10 @@ const Notes = () => {
   return (
     <div className="notesContainer">
       <Popup config={{ popupConfig, setPopupConfig }} />
-      <div className="addNote">
+      <div
+        className="addNote"
+        onClick={() => (addNoteMenu ? null : setAddNoteMenu(true))}
+      >
         {addNoteMenu ? (
           <div className="noteInputs">
             <input
