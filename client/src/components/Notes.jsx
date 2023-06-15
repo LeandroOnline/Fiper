@@ -43,9 +43,18 @@ const Notes = () => {
       .catch((err) => setPopupConfig(useErrorHandler(err)));
   };
 
+  const checksCount = (notes) => {
+    let count = 0;
+    notes.map((note) => {
+      note.check ? (count += 1) : null;
+    });
+    return count;
+  };
+
   return (
     <div className="notesContainer">
       <Popup config={{ popupConfig, setPopupConfig }} />
+      <h1>Cantidad de notas checkeadas: {checksCount(notes)}</h1>
       <div
         className="addNote"
         onClick={() => (addNoteMenu ? null : setAddNoteMenu(true))}
