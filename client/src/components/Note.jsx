@@ -48,7 +48,7 @@ const Note = ({ title, text, id, check }) => {
             onChange={(e) => setTitleUpdate(e.target.value)}
             className="inputTitleUpdate"
           />
-          <input
+          <textarea
             type="text"
             placeholder="Text:"
             value={textUpdate}

@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import cancel from "../assets/cancelar.png";
 import ok from "../assets/correcto.png";
 import axiosAddNote from "../api/axiosAddNote";
+import useSanitize from "../hooks/useSanitize";
+
 
 const Notes = () => {
   const storeGetNotes = useGlobalStore((state) => state.storeGetNotes);
@@ -23,7 +25,7 @@ const Notes = () => {
   }, [sendNote, noteDeletedOrUpdate]);
 
   const addNote = async (title, text) => {
-    await axiosAddNote(title, text).then((e) => {
+    await axiosAddNote(sanitizeTitle, sanitizeText).then((e) => {
       setAddNoteMenu(false);
       setTitle("");
       setText("");
@@ -40,15 +42,15 @@ const Notes = () => {
               type="text"
               placeholder="Title:"
               value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              className="inputNote titleNote"
+              onChange={(e) => setTitle(useSanitize(e.target.value))}
+              className="titleNote"
             />
-            <input
+            <textarea
               type="text"
               placeholder="Text:"
               value={text}
-              onChange={(e) => setText(e.target.value)}
-              className="inputNote textNote"
+              onChange={(e) => setText(useSanitize(e.target.value))}
+              className="inputNote"
             />
             <div className="buttonsNote">
               <img
