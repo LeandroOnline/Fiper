@@ -14,7 +14,6 @@ import useErrorHandler from "../hooks/useErrorHandler";
 const ListInputs = () => {
   const [modificar, setModificar] = useState(false);
   const [idElemento, setIdElemento] = useState("");
-  const [send, setSend] = useState(false);
 
   const [popupConfig, setPopupConfig] = useState({ toConfirm: true });
 
@@ -62,7 +61,9 @@ const ListInputs = () => {
           setPopupConfig({
             type: "ok",
             text: "Item Actualizado",
+            activate: true,
           });
+          setModificar(!modificar);
         }
       })
       .catch((err) => setPopupConfig(useErrorHandler(err)));
@@ -112,16 +113,13 @@ const ListInputs = () => {
           <form onSubmit={(e) => updateItem(e)} className="homeformList">
             <Categorias />
             <div className="buttons">
-              <button type="submit" onClick={() => setSend(true)}>
-                Aplicar
-              </button>
+              <button type="submit">Aplicar</button>
               <button
                 onClick={() => {
                   setModificar(!modificar);
-                  setSend(false);
                 }}
               >
-                {send ? "Cerrar" : "Cancelar"}
+                Cancelar
               </button>
             </div>
           </form>
