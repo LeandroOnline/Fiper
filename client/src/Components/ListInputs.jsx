@@ -127,9 +127,17 @@ const ListInputs = () => {
               }}
             />
 
-            <p className={element.input > 0 ? "positive" : "negative"}>
-              {element.input > 0 ? "+$ " : "-$ "}
-              {element.input > 0 ? element.input : element.input * -1}
+            <p
+              className={
+                element.input === 0
+                  ? "neutral"
+                  : element.input > 0
+                  ? "positive"
+                  : "negative"
+              }
+            >
+              {element.input === 0 ? "$" : element.input > 0 ? "+$ " : "-$ "}
+              {element.input >= 0 ? element.input : element.input * -1}
             </p>
             {element.detalle !== "" ? <p>{element.detalle}</p> : null}
           </div>

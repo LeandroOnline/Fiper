@@ -32,10 +32,13 @@
 }
 
 .positive {
-  color: green;
+  color: rgb(1, 155, 1);
 }
 .negative {
-  color: red;
+  color: rgb(221, 1, 1);
+}
+.neutral{
+  color:rgb(98, 98, 98);
 }
 
 .homeformList {
