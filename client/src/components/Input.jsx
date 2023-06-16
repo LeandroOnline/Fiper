@@ -5,9 +5,11 @@ import { useState } from "react";
 import Popup from "./Popup";
 import useErrorHandler from "../hooks/useErrorHandler";
 import useSanitize from "../hooks/useSanitize";
+import coin from "../assets/sound/coin.mp3";
 
 const Input = () => {
   const setReset = useGlobalStore((state) => state.setReset);
+  const sound = useGlobalStore((state) => state.sound);
 
   const [popupConfig, setPopupConfig] = useState({ toConfirm: true });
   const [detalleValue, setDetalleValue] = useState("");
@@ -41,6 +43,8 @@ const Input = () => {
             setReset();
             setDetalleValue("");
             setInputValue("");
+            const audio = new Audio(coin);
+            sound ? audio.play() : null;
           }
         })
         .catch((err) => setPopupConfig(useErrorHandler(err)));

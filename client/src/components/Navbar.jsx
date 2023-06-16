@@ -8,6 +8,8 @@ import axiosUpdatePassword from "../api/axiosUpdatePassword";
 import config from "../assets/configuracion.png";
 import Popup from "./Popup";
 import useErrorHandler from "../hooks/useErrorHandler";
+import notification from "../assets/sonido.png";
+import mute from "../assets/mute.png";
 
 const Navbar = memo(() => {
   const [configIsOpen, setConfigIsOpen] = useState(false);
@@ -15,11 +17,13 @@ const Navbar = memo(() => {
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [popupConfig, setPopupConfig] = useState({ toConfirm: true });
-  const { setLogin, login, setVerifyFalse } = useGlobalStore(
+  const { setLogin, login, setVerifyFalse, setSound, sound } = useGlobalStore(
     (state) => ({
       setLogin: state.setLogin,
       login: state.login,
       setVerifyFalse: state.setVerifyFalse,
+      setSound: state.setSound,
+      sound: state.sound,
     }),
     shallow
   );
@@ -112,16 +116,19 @@ const Navbar = memo(() => {
         </Link>
         {login ? (
           <>
-            <div
-              onClick={() => logout()}
-              className="navbutton"
-            >
+            <div onClick={() => logout()} className="navbutton">
               Salir
             </div>
             <img
+              src={sound ? notification : mute}
+              alt=""
+              onClick={() => setSound()}
+              className="sound"
+            />
+            <img
               src={config}
               alt=""
-              className={configIsOpen? "configOpen":"config"}
+              className={configIsOpen ? "configOpen" : "config"}
               onClick={() => {
                 setConfigIsOpen(!configIsOpen);
                 setPassword(false);
@@ -172,10 +179,7 @@ const Navbar = memo(() => {
           )}
         </div>
         <div className="lineMerge"></div>
-        <div
-          onClick={() => deleteUser()}
-          className="navbutton"
-        >
+        <div onClick={() => deleteUser()} className="navbutton">
           Eliminar Cuenta
         </div>
       </div>

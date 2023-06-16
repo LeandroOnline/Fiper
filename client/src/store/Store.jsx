@@ -18,6 +18,8 @@ const useGlobalStore = create(
       verifyMessage: false,
       notes: [{ title: "titulo", text: "texto" }],
       noteDeletedOrUpdate: false,
+      sound: true,
+      setSound: ()=> set({sound: !get().sound}),
       setNoteDeletedOrUpdate: () =>
         set({ noteDeletedOrUpdate: !get().noteDeletedOrUpdate }),
       storeGetNotes: async () =>
