@@ -40,37 +40,39 @@ const Home = () => {
   };
 
   return (
-    <div className="homecontainer">
-      <Popup config={popupConfig} />
-      {verifyCheckMessage()}
-      {login ? (
-        checkVerify ? (
-          <>
-            <div className="tinys">
-              <Total />
-              <ProfitsAndLosses />
-              <DolarBlue />
-            </div>
-            <div className="inputsGraph">
-              <div className="inputTotal">
-                <Input />
-                <PorcentComponent />
+    <div className="all">
+      <div className="homecontainer">
+        <Popup config={popupConfig} />
+        {verifyCheckMessage()}
+        {login ? (
+          checkVerify ? (
+            <>
+              <div className="tinys">
+                <Total />
+                <ProfitsAndLosses />
+                <DolarBlue />
               </div>
-              <ListInputs />
-            </div>
-            <Interest />
-            <Notes />
-            <div className="graphs">
-              <ColumnGraph />
-              <AreaGraph />
-            </div>
-          </>
+              <div className="inputsGraph">
+                <div className="inputTotal">
+                  <Input />
+                  <PorcentComponent />
+                </div>
+                <ListInputs />
+              </div>
+              <Interest />
+              <Notes />
+              <div className="graphs">
+                <ColumnGraph />
+                <AreaGraph />
+              </div>
+            </>
+          ) : (
+            <Verify />
+          )
         ) : (
-          <Verify />
-        )
-      ) : (
-        <NoLogged />
-      )}
+          <NoLogged />
+        )}
+      </div>
     </div>
   );
 };
