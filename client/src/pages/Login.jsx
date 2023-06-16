@@ -10,6 +10,8 @@ import Popup from "../components/Popup";
 import { useState } from "react";
 import axiosRemember from "../api/axiosRemember";
 import useErrorHandler from "../hooks/useErrorHandler";
+import key from "../assets/llave.png";
+import email from "../assets/@.png";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -22,6 +24,7 @@ const Login = () => {
   const [rememberInput, setRememberInput] = useState("");
 
   const [popupConfig, setPopupConfig] = useState({ toConfirm: true });
+  const [keyStatus, setKeyStatus] = useState(false);
 
   const Log = async (e) => {
     e.preventDefault();
@@ -116,17 +119,28 @@ const Login = () => {
           <form className="loginForm" onSubmit={(e) => Log(e)}>
             <img className="imglogin" src={log} alt="" />
             <p className="SignText">Inicio de Sesión</p>
-            <input
-              className="loginInput"
-              placeholder="... email"
-              name="email"
-            />
-            <input
-              className="loginInput"
-              placeholder="... contraseña"
-              name="password"
-              type="password"
-            />
+            <div className="inputContainer">
+              <input
+                className="loginInput"
+                placeholder="... email"
+                name="email"
+              />
+              <img src={email} alt="" className="emailAndKey" />
+            </div>
+            <div className="inputContainer">
+              <input
+                className="loginInput"
+                placeholder="... contraseña"
+                name="password"
+                type={keyStatus ? "text" : "password"}
+              />
+              <img
+                src={key}
+                alt=""
+                className="emailAndKey hoverKey"
+                onClick={() => setKeyStatus(!keyStatus)}
+              />
+            </div>
             <div className="buttonforms">
               <Link to="/signup" className="loginButtons">
                 <button className="buttonSign">Registrarse</button>

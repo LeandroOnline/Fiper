@@ -37,7 +37,30 @@
 }
 
 .loginInput {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+  padding: 15px;
   width: calc(100% - 30px);
+}
+
+.inputContainer {
+  width: 100%;
+  position: relative;
+}
+
+.emailAndKey {
+  position: absolute;
+  width: 20px;
+  filter: invert();
+  opacity: 40%;
+  top: calc(50% - 10px);
+  left: calc(100% - 30px);
+  transition: 0.5s;
+}
+
+.hoverKey:hover{
+  opacity: 80%;
+  transition: 0.5s;
 }
 
 .loginButtons {
@@ -64,12 +87,6 @@
 
 .imglogin {
   width: 100px;
-}
-
-.loginInput {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 5px;
-  padding: 15px;
 }
 
 .remember {

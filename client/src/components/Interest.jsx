@@ -30,7 +30,7 @@ const Interest = () => {
     }
 
     // Cálculo de la Tasa Efectiva Anual (TEA)
-    const TEA = Math.pow(1 + tasaInteresDecimal / periodos, periodos) - 1;
+    const TEA = (Math.pow(1 + tasaInteresDecimal / periodos, periodos) - 1)*tiempo;
 
     return {
       totalAcumulado: totalAcumulado.toFixed(2),
