@@ -21,10 +21,10 @@ const Input = () => {
   const post = async (e, inputValue, detalleValue) => {
     e.preventDefault();
 
-    if (inputValue === "") {
+    if (inputValue === "" || inputValue === "0") {
       setPopupConfig({
         type: "error",
-        text: "Ingrese un valor",
+        text: "Ingrese un valor distinto a 0",
         activate: true,
         fast: true,
       });
