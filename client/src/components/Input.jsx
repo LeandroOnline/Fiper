@@ -63,7 +63,7 @@ const Input = () => {
         id="myForm"
       >
         <input
-          placeholder="$"
+          placeholder="+ / -"
           type="number"
           name="input"
           value={inputValue}
@@ -72,7 +72,7 @@ const Input = () => {
           className="inputPriceItem"
         />
         <textarea
-          placeholder="detalle"
+          placeholder="Detalle"
           name="detalle"
           value={detalleValue}
           onChange={(e) => detalle(e)}
