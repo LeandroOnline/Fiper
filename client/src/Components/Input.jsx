@@ -21,20 +21,31 @@ const Input = () => {
 
   const post = async (e, inputValue, detalleValue) => {
     e.preventDefault();
-    await axiosAdd(inputValue, detalleValue)
-      .then((data) => {
-        if (data === "Added input") {
-          setPopupConfig({
-            type: "ok",
-            text: "Agregado",
-            activate: true,
-            fast: true,
-          });
-          setReset();
-          document.getElementById("myForm").reset();
-        }
-      })
-      .catch((err) => setPopupConfig(useErrorHandler(err)));
+
+    if (inputValue === "") {
+      setPopupConfig({
+        type: "error",
+        text: "Ingrese un valor",
+        activate: true,
+        fast: true,
+      });
+    } else {
+      await axiosAdd(inputValue, detalleValue)
+        .then((data) => {
+          if (data === "Added input") {
+            setPopupConfig({
+              type: "ok",
+              text: "Agregado",
+              activate: true,
+              fast: true,
+            });
+            setReset();
+            setDetalleValue("");
+            setInputValue("");
+          }
+        })
+        .catch((err) => setPopupConfig(useErrorHandler(err)));
+    }
   };
 
   const handleKeyDown = (e) => {
