@@ -1,12 +1,13 @@
-import { memo, useState } from "react";
+import { memo } from "react";
 import "./Total.css";
 import useGlobalStore from "../store/Store";
 import totalNeto from "../helpers/totalNeto.js";
-// import ahorro from "../assets/ahorro.png";
 import { Pie } from "@ant-design/plots";
 
 const Total = memo(() => {
-  const { inputs, losses, profits } = useGlobalStore();
+  const inputs = useGlobalStore((state) => state.inputs);
+  const losses = useGlobalStore((state) => state.losses);
+  const profits = useGlobalStore((state) => state.profits);
 
   const total = (profits) => {
     let total = 0;
