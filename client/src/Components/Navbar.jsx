@@ -5,21 +5,16 @@ import { shallow } from "zustand/shallow";
 import useGlobalStore from "../store/Store";
 import axiosDeleteUser from "../api/axiosDeleteUser";
 import axiosUpdatePassword from "../api/axiosUpdatePassword";
-import flechas from "../assets/flechas.png";
-import flechasizq from "../assets/flechaizq.png";
 import config from "../assets/configuracion.png";
 import Popup from "./Popup";
 import useErrorHandler from "../hooks/useErrorHandler";
 
 const Navbar = memo(() => {
-  const [menu, setMenu] = useState(true);
   const [configIsOpen, setConfigIsOpen] = useState(false);
   const [password, setPassword] = useState(false);
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
-
   const [popupConfig, setPopupConfig] = useState({ toConfirm: true });
-
   const { setLogin, login, setVerifyFalse } = useGlobalStore(
     (state) => ({
       setLogin: state.setLogin,
@@ -109,38 +104,24 @@ const Navbar = memo(() => {
   return (
     <div className="navcontainer">
       <Popup config={{ popupConfig, setPopupConfig }} />
-
       <div className="menu">
-        <p
-          className={menu ? "title" : "titleTransparent"}
-          onClick={() => setMenu(!menu)}
-        >
-          FIPE
-          {menu ? (
-            <img className="menuflechas" src={flechasizq} alt="" />
-          ) : (
-            <img className="menuflechas" src={flechas} alt="" />
-          )}
-        </p>
-        <div className={menu ? "blur" : "hide"}></div>
-        <Link to="/" className={menu ? "navbutton" : "hide"}>
+        <p className="title">FIPE</p>
+        <div className="blur"></div>
+        <Link to="/" className="navbutton">
           DashBoard
         </Link>
         {login ? (
           <>
             <div
-              onClick={() => {
-                menu ? logout() : null;
-                setConfigIsOpen(false);
-              }}
-              className={menu ? "navbutton" : "hide"}
+              onClick={() => logout()}
+              className="navbutton"
             >
               Salir
             </div>
             <img
               src={config}
               alt=""
-              className={menu ? "config" : "hide"}
+              className={configIsOpen? "configOpen":"config"}
               onClick={() => {
                 setConfigIsOpen(!configIsOpen);
                 setPassword(false);
@@ -149,10 +130,10 @@ const Navbar = memo(() => {
           </>
         ) : (
           <>
-            <Link to="/login" className={menu ? "navbutton" : "hide"}>
+            <Link to="/login" className="navbutton">
               Entrar
             </Link>
-            <Link to="/signup" className={menu ? "navbutton" : "hide"}>
+            <Link to="/signup" className="navbutton">
               Registrarse
             </Link>
           </>
@@ -161,7 +142,7 @@ const Navbar = memo(() => {
 
       <div className={configIsOpen ? "configmerge" : "configclose"}>
         <div
-          className={menu ? "navbutton" : "hide"}
+          className="navbutton"
           onClick={() => (password ? null : setPassword(true))}
         >
           {password ? (
@@ -192,8 +173,8 @@ const Navbar = memo(() => {
         </div>
         <div className="lineMerge"></div>
         <div
-          onClick={() => (menu ? deleteUser() : null)}
-          className={menu ? "navbutton" : "hide"}
+          onClick={() => deleteUser()}
+          className="navbutton"
         >
           Eliminar Cuenta
         </div>
