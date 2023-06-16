@@ -11,6 +11,7 @@ import Popup from "./Popup";
 import useErrorHandler from "../hooks/useErrorHandler";
 import totalNeto from "../helpers/totalNeto.js";
 import useSanitize from "../hooks/useSanitize";
+import trash from "../assets/sound/basura.mp3";
 
 const ListInputs = () => {
   const [modificar, setModificar] = useState(false);
@@ -19,9 +20,9 @@ const ListInputs = () => {
   const [popupConfig, setPopupConfig] = useState({ toConfirm: true });
   const [detalleValue, setDetalleValue] = useState("");
   const [inputValue, setInputValue] = useState("");
-
   const { inputs, reset, setReset, storeGetAllInputs, filtered } =
     useGlobalStore();
+  const sound = useGlobalStore((state) => state.sound);
 
   const detalle = (e) => {
     const sanitize = useSanitize(e.target.value);
@@ -63,6 +64,8 @@ const ListInputs = () => {
               fast: true,
             });
             setReset();
+            const audio = new Audio(trash);
+            sound ? audio.play() : null;
           }
         })
         .catch((err) => setPopupConfig(useErrorHandler(err)));
