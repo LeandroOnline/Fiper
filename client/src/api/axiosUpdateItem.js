@@ -1,14 +1,13 @@
 import API from "./apiUrl";
 import axios from "axios";
 
-const update = async (idElement, e) =>
+const update = async (idElement, inputValue, detalleValue) =>
   await axios
     .put(
       API + "/update/" + idElement,
       {
-        // tipo: e.target.tipo.value,
-        input: e.target.input.value,
-        detalle: e.target.detalle.value,
+        input: inputValue,
+        detalle: detalleValue,
         token: sessionStorage.getItem("user"),
       },
       { timeout: 6000 }

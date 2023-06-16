@@ -1,4 +1,3 @@
-import Categorias from "./Categorias";
 import axiosAdd from "../api/axiosAdd";
 import useGlobalStore from "../store/Store";
 import "./Input.css";

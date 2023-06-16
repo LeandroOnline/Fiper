@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import "./ListInputs.css";
-import Categorias from "./Categorias";
 import useGlobalStore from "../store/Store";
 import axiosClear from "../api/axiosClear";
 import axiosDeleteItem from "../api/axiosDeleteItem";
@@ -11,15 +10,30 @@ import Search from "./Search";
 import Popup from "./Popup";
 import useErrorHandler from "../hooks/useErrorHandler";
 import totalNeto from "../helpers/totalNeto.js";
+import useSanitize from "../hooks/useSanitize";
 
 const ListInputs = () => {
   const [modificar, setModificar] = useState(false);
   const [idElemento, setIdElemento] = useState("");
 
   const [popupConfig, setPopupConfig] = useState({ toConfirm: true });
+  const [detalleValue, setDetalleValue] = useState("");
+  const [inputValue, setInputValue] = useState("");
 
   const { inputs, reset, setReset, storeGetAllInputs, filtered } =
     useGlobalStore();
+
+  const detalle = (e) => {
+    const sanitize = useSanitize(e.target.value);
+    setDetalleValue(sanitize);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      updateItem(e, inputValue, detalleValue);
+    }
+  };
 
   const clearTrue = async () => {
     if (window.confirm("Eliminar todas las Entradas?"))
@@ -46,6 +60,7 @@ const ListInputs = () => {
               type: "ok",
               text: "Item eliminado",
               activate: true,
+              fast: true,
             });
             setReset();
           }
@@ -53,9 +68,9 @@ const ListInputs = () => {
         .catch((err) => setPopupConfig(useErrorHandler(err)));
   };
 
-  const updateItem = async (e) => {
+  const updateItem = async (e, inputValue, detalleValue) => {
     e.preventDefault();
-    await axiosUpdateItem(idElemento, e)
+    await axiosUpdateItem(idElemento, inputValue, detalleValue)
       .then((data) => {
         setReset();
         if (data === "Updated") {
@@ -65,6 +80,8 @@ const ListInputs = () => {
             activate: true,
           });
           setModificar(!modificar);
+          setDetalleValue("");
+          setInputValue("");
         }
       })
       .catch((err) => setPopupConfig(useErrorHandler(err)));
@@ -122,11 +139,24 @@ const ListInputs = () => {
       {modificar ? (
         <>
           <form onSubmit={(e) => updateItem(e)} className="homeformList">
-            <Categorias />
+            <input
+              placeholder="$"
+              type="number"
+              name="input"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              autoFocus
+              className="inputPriceItem"
+            />
+            <textarea
+              placeholder="detalle"
+              name="detalle"
+              value={detalleValue}
+              onChange={(e) => detalle(e)}
+              className="inputTextItem"
+              onKeyDown={(e) => handleKeyDown(e)}
+            />
             <div className="buttons">
-              <button type="submit" className="inputAplicar">
-                Aplicar
-              </button>
               <button
                 onClick={() => {
                   setModificar(!modificar);
@@ -134,6 +164,9 @@ const ListInputs = () => {
                 className="inputCancelar"
               >
                 Cancelar
+              </button>
+              <button type="submit" className="inputAplicar">
+                Aplicar
               </button>
             </div>
           </form>
