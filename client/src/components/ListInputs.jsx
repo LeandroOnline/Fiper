@@ -148,7 +148,7 @@ const ListInputs = () => {
         <>
           <form onSubmit={(e) => updateItem(e)} className="homeformList">
             <input
-              placeholder="$"
+              placeholder="+ / -"
               type="number"
               name="input"
               value={inputValue}
@@ -157,7 +157,7 @@ const ListInputs = () => {
               className="inputPriceItem"
             />
             <textarea
-              placeholder="detalle"
+              placeholder="Detalle"
               name="detalle"
               value={detalleValue}
               onChange={(e) => detalle(e)}
