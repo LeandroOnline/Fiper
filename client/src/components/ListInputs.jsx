@@ -23,7 +23,6 @@ const ListInputs = () => {
   const { inputs, reset, setReset, storeGetAllInputs, filtered } =
     useGlobalStore();
   const sound = useGlobalStore((state) => state.sound);
-  console.log(inputs);
 
   const detalle = (e) => {
     const sanitize = useSanitize(e.target.value);

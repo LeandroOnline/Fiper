@@ -14,6 +14,7 @@
   font-size: 35px;
   cursor: pointer;
   color: rgba(255, 255, 255, 0.8);
+  margin: 0 10px;
 }
 
 .menu {
@@ -23,6 +24,7 @@
   flex-direction: row;
   position: fixed;
   z-index: 1;
+  padding: 5px 10px;
 }
 
 .blur {
@@ -34,7 +36,7 @@
   z-index: -1;
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(5px);
-  border-radius: 5px;
+  border-radius: 50px;
   transition: 1s;
 }
 
@@ -63,7 +65,7 @@
   filter: invert();
   opacity: 50%;
   cursor: pointer;
-  margin: 0 15px;
+  margin: 0 10px;
   transition: 0.5s;
 }
 
@@ -159,7 +161,7 @@
   display: flex;
   align-items: center;
   padding: 5px 0;
-  margin: 5px 0;
+  margin: 0 10px;
 }
 
 .email {
@@ -209,4 +211,10 @@
   transition: 0.5s;
   border-radius: 100px;
   padding: 5px;
+}
+
+.awsp{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

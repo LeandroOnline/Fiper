@@ -13,6 +13,7 @@ import notification from "../assets/sonido.png";
 import mute from "../assets/mute.png";
 import useSanitize from "../hooks/useSanitize";
 import cafe from "../assets/cafe.png";
+import wsp from "../assets/whatsapp1.png";
 
 const Navbar = memo(() => {
   const [configIsOpen, setConfigIsOpen] = useState(false);
@@ -51,6 +52,7 @@ const Navbar = memo(() => {
   const TheNickname =
     nickname !== "" ? nickname : emailStore !== "" ? NickFromEmail : null;
   const donar = "https://cafecito.app/devbees";
+  const wame = "https://wa.me/5493435267411/?text=Hola Leandro, estoy usando FIPE y me encanta!";
 
   useEffect(() => {
     popupConfig.choise ? deleteUser() : null;
@@ -158,7 +160,7 @@ const Navbar = memo(() => {
         <img src={cafe} alt="" className="cafe" />
       </a>
       <div className="menu">
-        <Link to="/" className="navbutton">
+        <Link to="/" >
           <h1 className="title">FIPE</h1>
         </Link>
         <div className="blur"></div>
@@ -183,6 +185,7 @@ const Navbar = memo(() => {
               onClick={() => setSound()}
               className="sound"
             />
+            <a href={wame} target="_blank" className="awsp"><img src={wsp} alt="" className="sound" /></a> 
           </>
         ) : (
           <>
