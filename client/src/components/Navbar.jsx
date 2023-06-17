@@ -11,7 +11,7 @@ import Popup from "./Popup";
 import useErrorHandler from "../hooks/useErrorHandler";
 import notification from "../assets/sonido.png";
 import mute from "../assets/mute.png";
-import axiosAskEmail from "../api/axiosAskEmail";
+import useSanitize from "../hooks/useSanitize";
 
 const Navbar = memo(() => {
   const [configIsOpen, setConfigIsOpen] = useState(false);
@@ -131,7 +131,11 @@ const Navbar = memo(() => {
   };
 
   const UpdateNickname = async (nickname) => {
-    await axiosUpdateNickname(nickname)
+    // const sanitize = useSanitize(nickname);
+    const words = nickname.split(" ");
+    const smallOne = words[0].substring(0, 15);
+
+    await axiosUpdateNickname(smallOne)
       .then((data) => {
         if (data === "Updated nickname") {
           setPopupConfig({
@@ -140,7 +144,7 @@ const Navbar = memo(() => {
             activate: true,
           });
           setConfigIsOpen(false);
-          setNickname(nickname);
+          setNickname(smallOne);
           setNewNickname("");
           setUpdateNicknameMenu(false);
         }
@@ -203,18 +207,19 @@ const Navbar = memo(() => {
         <div className="lineMerge"></div>
         <div
           className={updateNicknameMenu ? "" : "navbutton"}
-          onClick={() =>
-            updateNicknameMenu ? null : setUpdateNicknameMenu(true)
-          }
+          onClick={() => {
+            updateNicknameMenu ? null : setUpdateNicknameMenu(true);
+            setPassword(false);
+          }}
         >
           {updateNicknameMenu ? (
             <div className="newPasswordContainer">
               <input
                 type="text"
                 className="newpassword"
-                placeholder="Ingrese nuevo nickname"
+                placeholder="... hasta 15 letras"
                 value={newNickname}
-                onChange={(e) => setNewNickname(e.target.value)}
+                onChange={(e) => setNewNickname(useSanitize(e.target.value))}
               />
               <div className="cancelConfirm">
                 <button
@@ -238,7 +243,10 @@ const Navbar = memo(() => {
         <div className="lineMerge"></div>
         <div
           className={password ? "" : "navbutton"}
-          onClick={() => (password ? null : setPassword(true))}
+          onClick={() => {
+            password ? null : setPassword(true);
+            setUpdateNicknameMenu(false);
+          }}
         >
           {password ? (
             <div className="newPasswordContainer">
