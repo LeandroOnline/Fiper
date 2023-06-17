@@ -52,7 +52,15 @@ const Time = () => {
   return (
     <div className="timeContainer">
       <p className="hour">
-        {timer.hour}:{timer.minute}
+        {timer.hour?.toLocaleString("en-US", {
+          minimumIntegerDigits: 2,
+          useGrouping: false,
+        })}
+        :
+        {timer.minute?.toLocaleString("en-US", {
+          minimumIntegerDigits: 2,
+          useGrouping: false,
+        })}
       </p>
       <div>
         <p className="inWeek">

@@ -12,6 +12,7 @@ import useErrorHandler from "../hooks/useErrorHandler";
 import notification from "../assets/sonido.png";
 import mute from "../assets/mute.png";
 import useSanitize from "../hooks/useSanitize";
+import cafe from "../assets/cafe.png";
 
 const Navbar = memo(() => {
   const [configIsOpen, setConfigIsOpen] = useState(false);
@@ -43,15 +44,13 @@ const Navbar = memo(() => {
     }),
     shallow
   );
-
   const navigate = useNavigate();
-
   const username = emailStore.split("@")[0];
   const NickFromEmail =
     username.charAt(0).toUpperCase() + username.slice(1).toLowerCase();
-
   const TheNickname =
     nickname !== "" ? nickname : emailStore !== "" ? NickFromEmail : null;
+  const donar = "https://cafecito.app/devbees";
 
   useEffect(() => {
     popupConfig.choise ? deleteUser() : null;
@@ -155,6 +154,9 @@ const Navbar = memo(() => {
   return (
     <div className="navcontainer">
       <Popup config={{ popupConfig, setPopupConfig }} />
+      <a href={donar} target="_blank">
+        <img src={cafe} alt="" className="cafe" />
+      </a>
       <div className="menu">
         <Link to="/" className="navbutton">
           <h1 className="title">FIPE</h1>

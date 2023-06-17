@@ -176,17 +176,37 @@
 
 .cancel {
   width: 20%;
-  background-color: rgb(0, 0, 0,0);
+  background-color: rgb(0, 0, 0, 0);
   color: rgb(255, 255, 255, 0.5);
   border: 1px solid rgb(255, 255, 255, 0.5);
 }
 
-.cancel:hover{
-  background-color: rgba(255, 255, 255, 0,8);
+.cancel:hover {
+  background-color: rgba(255, 255, 255, 0, 8);
   color: rgba(0, 0, 0, 0.8);
   border-color: rgba(255, 255, 255, 0);
 }
 
 .confirm {
   width: 80%;
+}
+
+.cafe {
+  filter: invert();
+  opacity: 35%;
+  width: 60px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  transition: 0.5s;
+  z-index: 80;
+  padding: 15px;
+
+}
+
+.cafe:hover {
+  opacity: 80%;
+  transition: 0.5s;
+  border-radius: 100px;
+  padding: 5px;
 }
