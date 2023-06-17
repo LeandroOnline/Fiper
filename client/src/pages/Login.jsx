@@ -125,6 +125,7 @@ const Login = () => {
                 className="loginInput"
                 placeholder="... email"
                 name="email"
+                required
               />
               <img src={email} alt="" className="emailAndKey" />
             </div>
@@ -133,6 +134,7 @@ const Login = () => {
                 className="loginInput"
                 placeholder="... contraseña"
                 name="password"
+                required
                 type={keyStatus ? "text" : "password"}
               />
               <img

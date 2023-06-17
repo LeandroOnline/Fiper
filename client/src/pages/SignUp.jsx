@@ -7,11 +7,13 @@ import "./SignUp.css";
 import Popup from "../components/Popup";
 import { Link } from "react-router-dom";
 import useErrorHandler from "../hooks/useErrorHandler";
+import key from "../assets/llave.png";
+import email from "../assets/@.png";
 
 const SignUp = () => {
   const [pass1, setPass1] = useState("");
   const [pass2, setPass2] = useState("");
-
+  const [keyStatus, setKeyStatus] = useState(false);
   const [popupConfig, setPopupConfig] = useState({ toConfirm: true });
 
   const Sign = async (e) => {
@@ -70,30 +72,51 @@ const SignUp = () => {
             <p className="SignText">- Al menos un numero</p>
           </div>
         </div>
-        <input
-          placeholder="... email"
-          name="email"
-          required
-          className="loginInput"
-        />
-        <input
-          placeholder="... contraseña"
-          name="password"
-          type="password"
-          required
-          value={pass1}
-          onChange={(e) => setPass1(e.target.value)}
-          className="loginInput"
-        />
-        <input
-          placeholder="... repita la contraseña"
-          name="password2"
-          type="password"
-          required
-          value={pass2}
-          onChange={(e) => setPass2(e.target.value)}
-          className="loginInput"
-        />
+
+        <div className="inputContainer">
+          <input
+            className="loginInput"
+            placeholder="... email"
+            name="email"
+            required
+          />
+          <img src={email} alt="" className="emailAndKey" />
+        </div>
+        <div className="inputContainer">
+          <input
+            className="loginInput"
+            placeholder="... contraseña"
+            name="password"
+            required
+            value={pass1}
+            onChange={(e) => setPass1(e.target.value)}
+            type={keyStatus ? "text" : "password"}
+          />
+          <img
+            src={key}
+            alt=""
+            className="emailAndKey hoverKey"
+            onClick={() => setKeyStatus(!keyStatus)}
+          />
+        </div>
+        <div className="inputContainer">
+          <input
+            className="loginInput"
+            placeholder="... contraseña"
+            name="password2"
+            required
+            value={pass2}
+            onChange={(e) => setPass2(e.target.value)}
+            type={keyStatus ? "text" : "password"}
+          />
+          <img
+            src={key}
+            alt=""
+            className="emailAndKey hoverKey"
+            onClick={() => setKeyStatus(!keyStatus)}
+          />
+        </div>
+
         <div className="buttonforms">
           <Link to="/login" className="loginButtons">
             <button className="buttonSign">Ingresar</button>
