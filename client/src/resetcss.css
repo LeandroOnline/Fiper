@@ -58,6 +58,10 @@ input {
   box-sizing: border-box;
 }
 
+*::placeholder{
+  color: rgba(255, 255, 255, 0.4);
+}
+
 body {
   background-color: rgb(50, 1, 48);
   background-image: linear-gradient(

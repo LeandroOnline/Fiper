@@ -83,7 +83,7 @@ const Input = () => {
           className="inputTextItem"
           onKeyDown={(e) => handleKeyDown(e)}
         />
-        <button type="submit">Cargar</button>
+        <button type="submit">Enter</button>
       </form>
     </>
   );
