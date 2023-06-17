@@ -23,7 +23,7 @@ const inputs = useGlobalStore((state) => state.inputs);
   return (
     <div className="porcentcontainer">
       <div className="circleValue">
-        <PorcentCircle porcent={porcent} result={Porcent(porcent)} />
+        {/* <PorcentCircle porcent={porcent} result={Porcent(porcent)} /> */}
         <input
           type="number"
           placeholder="..."

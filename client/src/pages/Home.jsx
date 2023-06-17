@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 import Popup from "../components/Popup";
 import Notes from "../components/Notes";
 import PorcentComponent from "../components/PorcentComponent";
+import Time from "../components/Time";
 
 const Home = () => {
   const login = useGlobalStore((state) => state.login);
@@ -48,9 +49,9 @@ const Home = () => {
           checkVerify ? (
             <>
               <div className="tinys">
-                <Total />
                 <ProfitsAndLosses />
                 <DolarBlue />
+                <Time />
               </div>
               <div className="inputsGraph">
                 <div className="inputTotal">
@@ -58,6 +59,8 @@ const Home = () => {
                   <PorcentComponent />
                 </div>
                 <ListInputs />
+
+                <Total />
               </div>
               <Interest />
               <Notes />
