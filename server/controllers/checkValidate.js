@@ -13,7 +13,12 @@ const checkValidate = async (req, res) => {
       const payload = { id: req.params.id };
       const token = jwt.sign(payload, process.env.SECRET_KEY);
 
-      res.send({ status: "Checked Account", token });
+      res.send({
+        status: "Checked Account",
+        token,
+        email: userFound.email,
+        nickname: userFound.nickname,
+      });
     } else {
       res.send({ status: "Invalid ID, can not check account" });
     }

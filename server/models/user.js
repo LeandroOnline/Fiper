@@ -29,7 +29,11 @@ const userSchema = mongoose.Schema({
   rememberPassword: {
     type: String,
     default: "",
-  }
+  },
+  nickname: {
+    type: String,
+    default: "",
+  },
 });
 
 module.exports = mongoose.model("User", userSchema);

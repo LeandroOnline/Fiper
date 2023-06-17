@@ -14,6 +14,8 @@ const Verify = () => {
   const setLogin = useGlobalStore((state) => state.setLogin);
   const setVerify = useGlobalStore((state) => state.setVerify);
   const emailStore = useGlobalStore((state) => state.emailStore);
+  const setEmailStore = useGlobalStore((state) => state.setEmailStore);
+  const setNickname = useGlobalStore((state) => state.setNickname);
   const setVerifyMessage = useGlobalStore((state) => state.setVerifyMessage);
   const navigate = useNavigate();
 
@@ -25,6 +27,8 @@ const Verify = () => {
         if (data.status === "Checked Account") {
           sessionStorage.setItem("user", data.token);
           setLogin(data.token);
+          setEmailStore(data.email);
+          setNickname(data.nickname);
           setVerify();
           setVerifyMessage();
           navigate("/");

@@ -5,32 +5,53 @@ import { shallow } from "zustand/shallow";
 import useGlobalStore from "../store/Store";
 import axiosDeleteUser from "../api/axiosDeleteUser";
 import axiosUpdatePassword from "../api/axiosUpdatePassword";
+import axiosUpdateNickname from "../api/axiosUpdateNickname";
 import config from "../assets/configuracion.png";
 import Popup from "./Popup";
 import useErrorHandler from "../hooks/useErrorHandler";
 import notification from "../assets/sonido.png";
 import mute from "../assets/mute.png";
+import axiosAskEmail from "../api/axiosAskEmail";
 
 const Navbar = memo(() => {
   const [configIsOpen, setConfigIsOpen] = useState(false);
   const [password, setPassword] = useState(false);
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
+  const [newNickname, setNewNickname] = useState("");
+  const [updateNicknameMenu, setUpdateNicknameMenu] = useState(false);
   const [popupConfig, setPopupConfig] = useState({ toConfirm: true });
-  const { emailStore, setLogin, login, setVerifyFalse, setSound, sound } =
-    useGlobalStore(
-      (state) => ({
-        emailStore: state.emailStore,
-        setLogin: state.setLogin,
-        login: state.login,
-        setVerifyFalse: state.setVerifyFalse,
-        setSound: state.setSound,
-        sound: state.sound,
-      }),
-      shallow
-    );
+  const {
+    nickname,
+    setNickname,
+    emailStore,
+    setLogin,
+    login,
+    setVerifyFalse,
+    setSound,
+    sound,
+  } = useGlobalStore(
+    (state) => ({
+      nickname: state.nickname,
+      setNickname: state.setNickname,
+      emailStore: state.emailStore,
+      setLogin: state.setLogin,
+      login: state.login,
+      setVerifyFalse: state.setVerifyFalse,
+      setSound: state.setSound,
+      sound: state.sound,
+    }),
+    shallow
+  );
 
   const navigate = useNavigate();
+
+  const username = emailStore.split("@")[0];
+  const NickFromEmail =
+    username.charAt(0).toUpperCase() + username.slice(1).toLowerCase();
+
+  const TheNickname =
+    nickname !== "" ? nickname : emailStore !== "" ? NickFromEmail : null;
 
   useEffect(() => {
     popupConfig.choise ? deleteUser() : null;
@@ -60,6 +81,8 @@ const Navbar = memo(() => {
             setLogin(null);
             setConfigIsOpen(false);
             setVerifyFalse();
+            setNewNickname("");
+            setUpdateNicknameMenu(false);
           }
         })
         .catch((err) => setPopupConfig(useErrorHandler(err)));
@@ -107,10 +130,23 @@ const Navbar = memo(() => {
     }
   };
 
-  const email = emailStore;
-  const username = email.split("@")[0];
-  const formattedUsername =
-    username.charAt(0).toUpperCase() + username.slice(1).toLowerCase();
+  const UpdateNickname = async (nickname) => {
+    await axiosUpdateNickname(nickname)
+      .then((data) => {
+        if (data === "Updated nickname") {
+          setPopupConfig({
+            type: "ok",
+            text: "Nickname actualizado",
+            activate: true,
+          });
+          setConfigIsOpen(false);
+          setNickname(nickname);
+          setNewNickname("");
+          setUpdateNicknameMenu(false);
+        }
+      })
+      .catch((err) => setPopupConfig(useErrorHandler(err)));
+  };
 
   return (
     <div className="navcontainer">
@@ -123,7 +159,7 @@ const Navbar = memo(() => {
         {login ? (
           <>
             <div className="nickname">
-              <p className="email">{formattedUsername}</p>
+              <p className="email">{TheNickname}</p>
               <img
                 src={config}
                 alt=""
@@ -131,6 +167,7 @@ const Navbar = memo(() => {
                 onClick={() => {
                   setConfigIsOpen(!configIsOpen);
                   setPassword(false);
+                  setUpdateNicknameMenu(false);
                 }}
               />
             </div>
@@ -165,7 +202,42 @@ const Navbar = memo(() => {
         </div>
         <div className="lineMerge"></div>
         <div
-          className="navbutton"
+          className={updateNicknameMenu ? "" : "navbutton"}
+          onClick={() =>
+            updateNicknameMenu ? null : setUpdateNicknameMenu(true)
+          }
+        >
+          {updateNicknameMenu ? (
+            <div className="newPasswordContainer">
+              <input
+                type="text"
+                className="newpassword"
+                placeholder="Ingrese nuevo nickname"
+                value={newNickname}
+                onChange={(e) => setNewNickname(e.target.value)}
+              />
+              <div className="cancelConfirm">
+                <button
+                  className="cancel"
+                  onClick={() => setUpdateNicknameMenu(false)}
+                >
+                  X
+                </button>
+                <button
+                  className="confirm"
+                  onClick={() => UpdateNickname(newNickname)}
+                >
+                  Confirmar
+                </button>
+              </div>
+            </div>
+          ) : (
+            "Cambiar Nickname"
+          )}
+        </div>
+        <div className="lineMerge"></div>
+        <div
+          className={password ? "" : "navbutton"}
           onClick={() => (password ? null : setPassword(true))}
         >
           {password ? (
@@ -184,11 +256,17 @@ const Navbar = memo(() => {
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
               />
-              <button
-                onClick={() => changePassword(currentPassword, newPassword)}
-              >
-                Confirmar
-              </button>
+              <div className="cancelConfirm">
+                <button className="cancel" onClick={() => setPassword(false)}>
+                  X
+                </button>
+                <button
+                  className="confirm"
+                  onClick={() => changePassword(currentPassword, newPassword)}
+                >
+                  Confirmar
+                </button>
+              </div>
             </div>
           ) : (
             "Cambiar Contraseña"

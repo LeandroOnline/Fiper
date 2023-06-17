@@ -17,6 +17,7 @@ router.post("/checkVerify", require("../controllers/checkVerify"));
 router.post("/sendEmail", require("../controllers/sendEmail"));
 router.get("/checkValidate/:id", require("../controllers/checkValidate"));
 router.post("/remember", require("../controllers/remember"));
+router.put("/updateNickname", Sanitize, require("../controllers/updateNickname"));
 
 // Inputs
 router.post("/addInput", loginValidate, Sanitize, require("../controllers/addInput"));

@@ -17,7 +17,11 @@ const login = async (req, res) => {
       if (passwordOk || remember) {
         const payload = { id: userFound._id };
         const token = jwt.sign(payload, process.env.SECRET_KEY);
-        res.send({ status: "Logged", token: token });
+        res.send({
+          status: "Logged",
+          token: token,
+          nickname: userFound.nickname,
+        });
       } else {
         res.send({ status: "Incorrect pasword" });
       }
@@ -25,7 +29,7 @@ const login = async (req, res) => {
       res.send({ status: "User not found" });
     }
   } catch (err) {
-    res.status(500).send("err in login : "+err);
+    res.status(500).send("err in login : " + err);
   }
 };
 

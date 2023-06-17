@@ -19,7 +19,9 @@ const useGlobalStore = create(
       notes: [{ title: "titulo", text: "texto" }],
       noteDeletedOrUpdate: false,
       sound: true,
-      setSound: ()=> set({sound: !get().sound}),
+      nickname: false,
+      setNickname: (e) => set({ nickname: e }),
+      setSound: () => set({ sound: !get().sound }),
       setNoteDeletedOrUpdate: () =>
         set({ noteDeletedOrUpdate: !get().noteDeletedOrUpdate }),
       storeGetNotes: async () =>

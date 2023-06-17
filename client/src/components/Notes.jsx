@@ -59,7 +59,11 @@ const Notes = () => {
       <h1>Cantidad de notas checkeadas: {checksCount(notes).count}</h1>
       <progress
         max="100"
-        value={(checksCount(notes).count / checksCount(notes).total) * 100}
+        value={
+          notes.length > 0
+            ? (checksCount(notes).count / checksCount(notes).total) * 100
+            : 0
+        }
       />
       <div
         className="addNote"

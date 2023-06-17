@@ -1,29 +1,19 @@
 const Inputs = require("../models/inputs");
 
 const updateInput = async (req, res) => {
-    try {
-      const input = await Inputs.findById(req.params.id);
+  try {
+    const input = await Inputs.findById(req.params.id);
+    const update = {
+      tipo: req.body.input < 0 ? "Egresos" : "Ingresos",
+      input: req.body.input ? req.body.input : input.input,
+      detalle: req.body.detalle !== "" ? req.body.detalle : input.detalle,
+    };
 
-      // const negar =
-      //   req.body.tipo === "Egresos"
-      //     ? input.input > 0
-      //       ? -1
-      //       : 1
-      //     : input.input < 0
-      //     ? -1
-      //     : 1;
+    await Inputs.findByIdAndUpdate(req.params.id, update);
+    res.send("Updated");
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
 
-      const update = {
-        tipo: req.body.input < 0 ? "Egresos" : "Ingresos",
-        input: req.body.input ? req.body.input : input.input,
-        detalle: req.body.detalle !== "" ? req.body.detalle : input.detalle,
-      };
-
-      await Inputs.findByIdAndUpdate(req.params.id, update);
-      res.send("Updated");
-    } catch (err) {
-      res.status(500).send(err);
-    }
-  };
-
-  module.exports = updateInput;
+module.exports = updateInput;

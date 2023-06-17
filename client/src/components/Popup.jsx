@@ -57,7 +57,7 @@ const Popup = ({ config = {} }) => {
               config.setPopupConfig({
                 ...config.popupConfig,
                 activate: false,
-                choise: true,
+                choise: config.popupConfig?.query ? true : null,
               });
             }}
           >

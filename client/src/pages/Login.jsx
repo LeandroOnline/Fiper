@@ -20,9 +20,9 @@ const Login = () => {
   const checkVerify = useGlobalStore((state) => state.checkVerify);
   const setVerify = useGlobalStore((state) => state.setVerify);
   const setEmailStore = useGlobalStore((state) => state.setEmailStore);
+  const setNickname = useGlobalStore((state) => state.setNickname);
   const [rememberActivate, setRememberActivate] = useState(false);
   const [rememberInput, setRememberInput] = useState("");
-
   const [popupConfig, setPopupConfig] = useState({ toConfirm: true });
   const [keyStatus, setKeyStatus] = useState(false);
 
@@ -48,6 +48,7 @@ const Login = () => {
             });
           } else if (data.status === "Logged") {
             setEmailStore(email);
+            setNickname(data.nickname)
             sessionStorage.setItem("user", data.token);
             checkStatus(data.token);
           }
