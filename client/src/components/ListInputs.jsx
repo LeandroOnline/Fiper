@@ -23,6 +23,7 @@ const ListInputs = () => {
   const { inputs, reset, setReset, storeGetAllInputs, filtered } =
     useGlobalStore();
   const sound = useGlobalStore((state) => state.sound);
+  console.log(inputs);
 
   const detalle = (e) => {
     const sanitize = useSanitize(e.target.value);
@@ -90,6 +91,20 @@ const ListInputs = () => {
       .catch((err) => setPopupConfig(useErrorHandler(err)));
   };
 
+  const Dates = (element) => {
+    const date = new Date(element.date);
+    return (
+      <p>
+        {date.getDate()}-{date.getMonth() + 1}-{date.getFullYear()}_{" "}
+        {date.getHours()}:
+        {date?.getMinutes().toLocaleString("en-US", {
+          minimumIntegerDigits: 2,
+          useGrouping: false,
+        })}
+      </p>
+    );
+  };
+
   useEffect(() => {
     storeGetAllInputs();
   }, [reset, filtered]);
@@ -119,7 +134,6 @@ const ListInputs = () => {
               alt=""
               onClick={() => deleteItem(element._id)}
             />
-
             <img
               className="img"
               src={modify}
@@ -129,7 +143,6 @@ const ListInputs = () => {
                 setIdElemento(element._id);
               }}
             />
-
             <p
               className={
                 element.input === 0
@@ -142,6 +155,7 @@ const ListInputs = () => {
               {element.input === 0 ? "$" : element.input > 0 ? "+$ " : "-$ "}
               {element.input >= 0 ? element.input : element.input * -1}
             </p>
+            |{Dates(element)}|
             {element.detalle !== "" ? <p>{element.detalle}</p> : null}
           </div>
           <div className="divide"></div>

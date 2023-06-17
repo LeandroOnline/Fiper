@@ -59,9 +59,8 @@ const Home = () => {
                   <PorcentComponent />
                 </div>
                 <ListInputs />
-
-                <Total />
               </div>
+              <Total />
               <Interest />
               <Notes />
               <div className="graphs">

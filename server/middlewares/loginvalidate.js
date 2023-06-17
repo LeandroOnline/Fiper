@@ -1,9 +1,11 @@
 const jwt = require("jsonwebtoken");
+const User = require("../models/user");
 
 const loginvalidate = async (req, res, next) => {
   try {
     const { id } = jwt.verify(req.body.token, process.env.SECRET_KEY);
-    if (id) {
+    const userFound= await User.findById(id);
+    if (userFound) {
       next();
     } else {
       res.status(500).send("Usuario no autorizado");
