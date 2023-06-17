@@ -49,6 +49,16 @@
   width: 100%;
 }
 
+.grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  width: 70%;
+  height: 100%;
+}
+
 @media (max-width: 915px) {
   .tinys,
   .inputsGraph,

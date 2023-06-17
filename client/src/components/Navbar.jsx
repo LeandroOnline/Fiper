@@ -17,16 +17,18 @@ const Navbar = memo(() => {
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [popupConfig, setPopupConfig] = useState({ toConfirm: true });
-  const { setLogin, login, setVerifyFalse, setSound, sound } = useGlobalStore(
-    (state) => ({
-      setLogin: state.setLogin,
-      login: state.login,
-      setVerifyFalse: state.setVerifyFalse,
-      setSound: state.setSound,
-      sound: state.sound,
-    }),
-    shallow
-  );
+  const { emailStore, setLogin, login, setVerifyFalse, setSound, sound } =
+    useGlobalStore(
+      (state) => ({
+        emailStore: state.emailStore,
+        setLogin: state.setLogin,
+        login: state.login,
+        setVerifyFalse: state.setVerifyFalse,
+        setSound: state.setSound,
+        sound: state.sound,
+      }),
+      shallow
+    );
 
   const navigate = useNavigate();
 
@@ -105,34 +107,38 @@ const Navbar = memo(() => {
     }
   };
 
+  const email = emailStore;
+  const username = email.split("@")[0];
+  const formattedUsername =
+    username.charAt(0).toUpperCase() + username.slice(1).toLowerCase();
+
   return (
     <div className="navcontainer">
       <Popup config={{ popupConfig, setPopupConfig }} />
       <div className="menu">
-        <p className="title">FIPE</p>
-        <div className="blur"></div>
         <Link to="/" className="navbutton">
-          DashBoard
+          <h1 className="title">FIPE</h1>
         </Link>
+        <div className="blur"></div>
         {login ? (
           <>
-            <div onClick={() => logout()} className="navbutton">
-              Salir
+            <div className="nickname">
+              <p className="email">{formattedUsername}</p>
+              <img
+                src={config}
+                alt=""
+                className={configIsOpen ? "configOpen" : "config"}
+                onClick={() => {
+                  setConfigIsOpen(!configIsOpen);
+                  setPassword(false);
+                }}
+              />
             </div>
             <img
               src={sound ? notification : mute}
               alt=""
               onClick={() => setSound()}
               className="sound"
-            />
-            <img
-              src={config}
-              alt=""
-              className={configIsOpen ? "configOpen" : "config"}
-              onClick={() => {
-                setConfigIsOpen(!configIsOpen);
-                setPassword(false);
-              }}
             />
           </>
         ) : (
@@ -148,6 +154,16 @@ const Navbar = memo(() => {
       </div>
 
       <div className={configIsOpen ? "configmerge" : "configclose"}>
+        <div
+          onClick={() => {
+            logout();
+            setConfigIsOpen(false);
+          }}
+          className="navbutton"
+        >
+          Salir
+        </div>
+        <div className="lineMerge"></div>
         <div
           className="navbutton"
           onClick={() => (password ? null : setPassword(true))}
