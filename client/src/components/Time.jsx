@@ -8,6 +8,8 @@ const Time = () => {
     function obtenerHoraActual() {
       const date = new Date();
       const timeNow = {
+        month: date.getMonth(),
+        year: date.getFullYear(),
         dayOnWeek: date.getDay(),
         day: date.getDate(),
         hour: date.getHours(),
@@ -32,15 +34,34 @@ const Time = () => {
     "Domingo",
   ];
 
+  const monthOnYear = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
+  ];
+
   return (
     <div className="timeContainer">
-      <p className="inWeek">
-        {daysOnWeek[timer.dayOnWeek - 1]} {timer.day}
-      </p>
       <p className="hour">
         {timer.hour}:{timer.minute}
       </p>
-
+      <div>
+        <p className="inWeek">
+          {daysOnWeek[timer.dayOnWeek - 1]} {timer.day}
+        </p>
+        <p className="year">
+          {monthOnYear[timer.month]} - {timer.year}
+        </p>
+      </div>
     </div>
   );
 };

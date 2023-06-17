@@ -1,19 +1,23 @@
 .timeContainer {
-    border-radius: 5px;
-    padding: 15px;
-    width: 100%;
-    height: 100px;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  border-radius: 5px;
+  padding: 15px;
+  width: 100%;
+  height: 100px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
 
-  }
+.timeContainer p {
+  font-weight: 200;
+}
 
-  .timeContainer p{
-    font-weight: 200;
-  }
+.hour {
+  font-size: 50px;
+}
 
-  .hour{
-    font-size: 50px;
-  }
+.year{
+
+}
