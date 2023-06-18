@@ -11,7 +11,8 @@ const Search = () => {
       const filtered = inputs.filter(
         (element) =>
           element.detalle.toLowerCase().includes(value.toLowerCase()) ||
-          element.tipo.toLowerCase().includes(value.toLowerCase())
+          element.tipo.toLowerCase().includes(value.toLowerCase()) ||
+          element.date.toLowerCase().includes(value.toLowerCase())
       );
       setFiltered(filtered);
     } else {
@@ -33,7 +34,7 @@ const Search = () => {
           setValue(e.target.value);
         }}
         type="text"
-        placeholder="Filtrar por busqueda"
+        placeholder="Filtra por detalle / tipo / fecha"
       />
     </div>
   );

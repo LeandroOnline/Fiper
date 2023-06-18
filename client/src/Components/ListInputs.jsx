@@ -38,7 +38,6 @@ const ListInputs = () => {
 
   const clearTrue = async () => {
     if (window.confirm("Eliminar todas las Entradas?"))
-      if (window.confirm("Esta accion no se puede revertir, desea continuar?"))
         await axiosClear()
           .then((data) => {
             setReset();
@@ -93,9 +92,13 @@ const ListInputs = () => {
   const Dates = (element) => {
     const date = new Date(element.date);
     return (
-      <p>
+      <p className="time">
         {date.getDate()}-{date.getMonth() + 1}-{date.getFullYear()}_{" "}
-        {date.getHours()}:
+        {date?.getHours().toLocaleString("en-US", {
+          minimumIntegerDigits: 2,
+          useGrouping: false,
+        })}
+        :
         {date?.getMinutes().toLocaleString("en-US", {
           minimumIntegerDigits: 2,
           useGrouping: false,
@@ -113,17 +116,18 @@ const ListInputs = () => {
   return (
     <div className="listcontainer">
       <Popup config={{ popupConfig, setPopupConfig }} />
+      {inputs.length > 0 ? (
+        <button className="clearAll" onClick={() => clearTrue()}>
+          Limpiar
+        </button>
+      ) : null}
       {inputs.length == 0
         ? "Sin entradas"
         : filtered
-        ? `Total en entradas filtradas: $${totalNeto(filtered)}`
+        ? `Total filtrado: $${totalNeto(filtered)}`
         : "Entradas"}
       {inputs.length !== 0 ? <Search /> : null}
-      {inputs.length > 0 ? (
-        <button className="clearAll" onClick={() => clearTrue()}>
-          Limpiar todo
-        </button>
-      ) : null}
+
       {search.map((element, key) => (
         <div key={key}>
           <div className="listElement">
@@ -154,7 +158,7 @@ const ListInputs = () => {
               {element.input === 0 ? "$" : element.input > 0 ? "+$ " : "-$ "}
               {element.input >= 0 ? element.input : element.input * -1}
             </p>
-            |{Dates(element)}|
+            -{Dates(element)}-
             {element.detalle !== "" ? <p>{element.detalle}</p> : null}
           </div>
           <div className="divide"></div>

@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  color: white;
+  color: rgb(235, 235, 235);
   height: 80px;
   position: relative;
   flex-direction: column;
@@ -13,7 +13,7 @@
   font-weight: 700;
   font-size: 35px;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgb(235, 235, 235);
   margin: 0 10px;
 }
 
@@ -34,7 +34,7 @@
   top: 0;
   left: 0;
   z-index: -1;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgb(20, 20, 20);
   backdrop-filter: blur(5px);
   border-radius: 50px;
   transition: 1s;
@@ -44,13 +44,13 @@
   width: 100%;
   padding: 0 15px;
   transition: 1s;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgb(235, 235, 235);
   cursor: pointer;
 }
 
 .navbutton:hover {
   transition: 0.5s;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgb(235, 235, 235);
   border-radius: 5px;
 }
 

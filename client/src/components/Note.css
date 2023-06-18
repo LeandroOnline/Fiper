@@ -2,7 +2,7 @@
   width: calc((100% - 45px) / 4);
   height: 200px;
   border-radius: 5px;
-  box-shadow: 3px 5px 15px 0px rgba(0, 0, 0, 0.1);
+  background-color: rgba(30, 30, 30);
   position: relative;
 }
 
