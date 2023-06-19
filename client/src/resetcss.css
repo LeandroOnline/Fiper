@@ -6,17 +6,6 @@ a:hover {
   cursor: pointer;
 }
 
-h1,
-h3,
-.parr,
-.calculadoraText,
-.listcontainer,
-p,
-.interestInputs {
-  color: rgba(204, 204, 204);
-  text-align: center;
-}
-
 select {
   background-color: rgba(255, 255, 255, 0.6);
   border-style: none;
@@ -53,9 +42,10 @@ input {
   text-decoration: none;
   font-family: Poppins;
   font-weight: 100;
-
   font-size: 20px;
   box-sizing: border-box;
+  color: rgba(204, 204, 204);
+
 }
 
 @font-face {
