@@ -30,7 +30,8 @@ const Interest = () => {
     }
 
     // Cálculo de la Tasa Efectiva Anual (TEA)
-    const TEA = (Math.pow(1 + tasaInteresDecimal / periodos, periodos) - 1)*tiempo;
+    const TEA =
+      (Math.pow(1 + tasaInteresDecimal / periodos, periodos) - 1) * tiempo;
 
     return {
       totalAcumulado: totalAcumulado.toFixed(2),
@@ -51,7 +52,6 @@ const Interest = () => {
       <p className="calculadoraText">Calculadora de Interes Compuesto</p>
       <div className="interest">
         <div className="interestInputsContainer">
-          <div className="columns">
             <input
               className="interestInputs"
               type="text"
@@ -66,23 +66,22 @@ const Interest = () => {
               value={periodos ? periodos : ""}
               onChange={(e) => setPeriodos(e.target.value)}
             />
-          </div>
-          <div className="columns">
-            <input
-              className="interestInputs"
-              type="text"
-              placeholder="TNA %"
-              value={tasaInteresAnual ? tasaInteresAnual : ""}
-              onChange={(e) => setTasaInteresAnual(e.target.value)}
-            />
-            <input
-              className="interestInputs"
-              type="text"
-              placeholder="Años"
-              value={tiempo ? tiempo : ""}
-              onChange={(e) => setTiempo(e.target.value)}
-            />
-          </div>
+
+          <input
+            className="interestInputs"
+            type="text"
+            placeholder="TNA %"
+            value={tasaInteresAnual ? tasaInteresAnual : ""}
+            onChange={(e) => setTasaInteresAnual(e.target.value)}
+          />
+          <input
+            className="interestInputs"
+            type="text"
+            placeholder="Años"
+            value={tiempo ? tiempo : ""}
+            onChange={(e) => setTiempo(e.target.value)}
+          />
+
         </div>
       </div>
       <p className="calculadoraTextResult">

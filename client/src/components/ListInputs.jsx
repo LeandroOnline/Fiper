@@ -122,10 +122,10 @@ const ListInputs = () => {
         </button>
       ) : null}
       {inputs.length == 0
-        ? "Sin entradas"
+        ? "Sin entradas, por favor ingresa un valor"
         : filtered
         ? `Total filtrado: $${totalNeto(filtered)}`
-        : "Entradas"}
+        : `Total: $${totalNeto(inputs)}`}
       {inputs.length !== 0 ? <Search /> : null}
 
       {search.map((element, key) => (
