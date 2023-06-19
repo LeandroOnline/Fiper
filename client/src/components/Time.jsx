@@ -3,7 +3,6 @@ import "./Time.css";
 
 const Time = () => {
   const [timer, setTimer] = useState({});
-  const espacio = ` ${" "}`;
   useEffect(() => {
     function obtenerHoraActual() {
       const date = new Date();

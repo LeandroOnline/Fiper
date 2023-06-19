@@ -49,11 +49,20 @@ const Total = memo(() => {
 
   return (
     <div className="totalcontainer">
-      {/* <img className="totalimg" src={ahorro} alt="" /> */}
-      <Pie {...config} />
-      <div>
-        <h1>Total: </h1>
-        <p className="usd">${inputs ? totalNeto(inputs) : null}</p>
+      <Pie {...config} className="pie"/>
+      <div className="profitAndLosseContainer">
+        <div className="profitAndLosse">
+          <h1 className="profitAndLosseTitle">Ganancias: </h1>
+          <p className="profitAndLosseResult">
+            ${profits ? total(profits) : "0"}
+          </p>
+        </div>
+        <div className="profitAndLosse">
+          <h1 className="profitAndLosseTitle">Gastos: </h1>
+          <p className="profitAndLosseResult">
+            ${losses ? total(losses) : "0"}
+          </p>
+        </div>
       </div>
     </div>
   );
