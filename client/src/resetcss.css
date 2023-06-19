@@ -13,11 +13,11 @@ h3,
 .listcontainer,
 p,
 .interestInputs {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(204, 204, 204);
   text-align: center;
 }
 
-select{
+select {
   background-color: rgba(255, 255, 255, 0.6);
   border-style: none;
 }
@@ -51,27 +51,35 @@ input {
   margin: 0;
   padding: 0;
   text-decoration: none;
-  font-family: "Sofia Sans Condensed", sans-serif;
+  font-family: Poppins;
+  font-weight: 100;
+
   font-size: 20px;
-  font-weight: 400;
-  color: white;
   box-sizing: border-box;
 }
 
-*::placeholder{
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets//font/Poppins/Poppins-Thin.ttf") format("opentype");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets//font/Poppins/Poppins-Light.ttf") format("opentype");
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets//font/Poppins/Poppins-Bold.ttf") format("opentype");
+  font-weight: 400;
+}
+
+*::placeholder {
   color: rgba(255, 255, 255, 0.4);
 }
 
 body {
   background-color: rgb(10, 10, 10);
-
-  /* background-color: rgb(50, 1, 48); */
-  /* background-image: linear-gradient(
-    0deg,
-    hsl(302, 96%, 10%) 0%,
-    hsl(330, 96%, 22%) 50%,
-    hsl(302, 96%, 10%) 100%
-  ); */
 }
 
 .App {

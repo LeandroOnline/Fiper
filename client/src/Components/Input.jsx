@@ -67,7 +67,7 @@ const Input = () => {
         id="myForm"
       >
         <input
-          placeholder="+ / -"
+          placeholder="+ // -"
           type="number"
           name="input"
           value={inputValue}
