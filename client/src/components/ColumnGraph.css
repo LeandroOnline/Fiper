@@ -1,5 +1,4 @@
 .graficacontainer {
-  border-radius: 5px;
   padding: 15px;
   width: 100%;
   height: 400px;
@@ -28,7 +27,6 @@
 }
 
 .datoIng-Egr{
-  border-radius: 5px;
   padding: 15px;
   width: 100%;
   height: 100px;

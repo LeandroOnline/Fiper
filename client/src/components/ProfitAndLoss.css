@@ -6,7 +6,6 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  border-radius: 15px;
   background: var(--level1);
   box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 30%);
 }
@@ -31,14 +30,12 @@
   gap: 15px;
   align-items: center;
   justify-content: center;
-  border-radius: 5px;
   box-sizing: border-box;
 }
 
 .porcentcontainer input {
   width: 50px;
   background-color: rgba(240, 248, 255, 0.069);
-  border-radius: 5px;
 }
 
 .porcentcontainer input:hover {
@@ -64,9 +61,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* box-shadow: 2px 2px 8px hsl(218, 25%, 5%) inset,
-    -2px -2px 8px hsl(218, 20%, 30%) inset; */
-  border-radius: 10px;
 }
 
 .profitAndLosseTitle {

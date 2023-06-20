@@ -11,7 +11,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
   transition: 0.5s;
   box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.05);
   flex-direction: column;
@@ -29,7 +28,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
   transition: 0.2s;
   flex-direction: column;
   z-index: 1;
@@ -41,7 +39,6 @@
   width: 100%;
   position: absolute;
   z-index: -1;
-  border-radius: 10px;
 }
 
 .popimg {
@@ -51,7 +48,6 @@
 }
 
 .popupButton {
-  border-radius: 5px;
   padding: 5px 10px;
   width: 110px;
   border: solid rgb(255, 255, 255, 0.5);
@@ -60,7 +56,6 @@
 }
 
 .popupButton:hover {
-  border-radius: 5px;
   padding: 5px 10px;
   width: 110px;
   border: solid rgb(255, 255, 255, 0.5);

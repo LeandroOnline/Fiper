@@ -1,7 +1,6 @@
 .input {
   display: flex;
   flex-direction: column;
-  border-radius: 5px;
   padding: 15px;
   width: 100%;
   justify-content: space-evenly;
@@ -9,13 +8,9 @@
   box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 30%);
 }
 
-.input input {
-  border-radius: 5px;
-  text-align: center;
-}
-
 .inputPriceItem {
-  border-radius: 5px;
+  border-radius: 15px;
+  text-align: center;
   box-shadow: 2px 2px 8px hsl(218, 25%, 5%) inset,
     -2px -2px 8px hsl(218, 20%, 30%) inset;
   background: var(--level2);
@@ -25,7 +20,7 @@
   all: unset;
   height: 100px;
   resize: none;
-  border-radius: 5px;
+  border-radius: 15px;
   border-style: none;
   text-align: center;
   box-shadow: 2px 2px 8px hsl(218, 25%, 5%) inset,
