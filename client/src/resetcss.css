@@ -1,3 +1,32 @@
+:root {
+  --background: hsl(218, 25%, 10%);
+  --level1: hsl(218, 25%, 15%);
+  --level2: hsl(218, 25%, 20%);
+  --level3: hsl(218, 25%, 25%);
+  --primario:hsl(218, 90%, 57%);
+  --secundario: hsl(20, 81%, 60%);
+}
+
+body {
+  background-color: var(--background);
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets//font/Poppins/Poppins-Thin.ttf") format("opentype");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets//font/Poppins/Poppins-Light.ttf") format("opentype");
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets//font/Poppins/Poppins-SemiBold.ttf") format("opentype");
+  font-weight: 400;
+}
+
 a {
   all: unset;
 }
@@ -13,25 +42,28 @@ select {
 
 button {
   border: none;
-  background-color: rgba(255, 255, 255, 0.5);
-  color: rgb(0, 0, 0, 0.8);
-  border-radius: 5px;
+  font-weight: 400;
+  box-shadow: 2px 2px 8px hsl(218, 25%, 5%),
+  -2px -2px 8px hsl(218, 20%, 30%);
+  border-radius: 15px;
   padding: 5px;
   cursor: pointer;
   transition: 0.5s;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: var(--primario);
+  border: 4px solid var(--level1);
+
 }
 
 button:hover {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: hsl(218, 70%, 47%);
   transition: 0.5s;
 }
 
 input {
   all: unset;
-  background-color: rgba(255, 255, 255, 0.1);
   padding: 5px;
 }
 
@@ -44,32 +76,11 @@ input {
   font-weight: 100;
   font-size: 20px;
   box-sizing: border-box;
-  color: rgba(204, 204, 204);
-
-}
-
-@font-face {
-  font-family: "Poppins";
-  src: url("./assets//font/Poppins/Poppins-Thin.ttf") format("opentype");
-  font-weight: 100;
-}
-@font-face {
-  font-family: "Poppins";
-  src: url("./assets//font/Poppins/Poppins-Light.ttf") format("opentype");
-  font-weight: 200;
-}
-@font-face {
-  font-family: "Poppins";
-  src: url("./assets//font/Poppins/Poppins-Bold.ttf") format("opentype");
-  font-weight: 400;
+  color: hsl(218, 25%, 80%);
 }
 
 *::placeholder {
   color: rgba(255, 255, 255, 0.4);
-}
-
-body {
-  background-color: rgb(10, 10, 10);
 }
 
 .App {

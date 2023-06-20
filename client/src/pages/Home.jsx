@@ -2,15 +2,15 @@ import AreaGraph from "../components/AreaGraph";
 import ColumnGraph from "../components/ColumnGraph";
 import Input from "../components/Input";
 import ListInputs from "../components/ListInputs";
-import Total from "../components/Total";
+import ProfitAndLoss from "../components/ProfitAndLoss";
 import useGlobalStore from "../store/Store";
 import DolarBlue from "../components/DolarBlue";
 import Interest from "../components/Interest";
-import ProfitsAndLosses from "../components/ProfitsAndLosses";
+import Difference from "../components/Difference";
 import NoLogged from "../components/NoLogged";
 import "./Home.css";
 import Verify from "./Verify";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Popup from "../components/Popup";
 import Notes from "../components/Notes";
 import PorcentComponent from "../components/PorcentComponent";
@@ -20,7 +20,6 @@ const Home = () => {
   const login = useGlobalStore((state) => state.login);
   const checkVerify = useGlobalStore((state) => state.checkVerify);
   const verifyMessage = useGlobalStore((state) => state.verifyMessage);
-  const emailStore = useGlobalStore((state) => state.emailStore);
   const setVerifyMessageDone = useGlobalStore(
     (state) => state.setVerifyMessageDone
   );
@@ -41,32 +40,23 @@ const Home = () => {
   };
 
   return (
-    <div className="all">
+    <div className="allScreen">
       <div className="homecontainer">
         <Popup config={popupConfig} />
         {verifyCheckMessage()}
         {login ? (
           checkVerify ? (
             <>
-              <div className="tinys">
-                <ProfitsAndLosses />
-                <DolarBlue />
-                <Time />
-              </div>
-              <div className="inputsGraph">
-                <div className="inputTotal">
-                  <Input />
-                  <PorcentComponent />
-                </div>
-                <ListInputs />
-              </div>
-              <Total />
-              <Interest />
+              <ProfitAndLoss />
+              <Input />
+              <ListInputs />
               <Notes />
-              <div className="graphs">
-                <ColumnGraph />
-                <AreaGraph />
-              </div>
+              <Interest />
+              <PorcentComponent />
+              <Difference />
+              <DolarBlue />
+              <ColumnGraph />
+              <AreaGraph />
             </>
           ) : (
             <Verify />

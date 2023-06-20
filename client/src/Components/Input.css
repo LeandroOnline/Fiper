@@ -5,8 +5,8 @@
   padding: 15px;
   width: 100%;
   justify-content: space-evenly;
-  background-color: rgb(30, 30, 30);
   gap: 10px;
+  box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 30%);
 }
 
 .input input {
@@ -16,8 +16,9 @@
 
 .inputPriceItem {
   border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgb(255, 255, 255, 0.8);
+  box-shadow: 2px 2px 8px hsl(218, 25%, 5%) inset,
+    -2px -2px 8px hsl(218, 20%, 30%) inset;
+  background: var(--level2);
 }
 
 .inputTextItem {
@@ -26,7 +27,8 @@
   resize: none;
   border-radius: 5px;
   border-style: none;
-  background-color: rgba(255, 255, 255, 0.1);
   text-align: center;
-  border: 1px solid rgb(255, 255, 255, 0.8);
+  box-shadow: 2px 2px 8px hsl(218, 25%, 5%) inset,
+    -2px -2px 8px hsl(218, 20%, 30%) inset;
+  background: var(--level2);
 }

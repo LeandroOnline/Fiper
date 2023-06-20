@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  background-color: rgb(30, 30, 30);
+  background: var(--level2);
 }
 .difference {
   display: flex;

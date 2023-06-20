@@ -2,17 +2,16 @@
   border-radius: 5px;
   padding: 15px;
   width: 100%;
-  height: 250px;
+  height: 70%;
   overflow: scroll;
-  background-color: rgba(30, 30, 30);
-
+  background: var(--level2);
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 15px;
 }
 
 .addNote {
-  width: calc((100% - 45px) / 4);
+  width: 100%;
   height: 200px;
   border-radius: 5px;
   overflow: auto;
@@ -109,6 +108,11 @@
 .ok:hover {
   transition: 0.5s;
   background-color: rgb(255, 255, 255, 0.5);
+}
+
+.progressNotes{
+  width: 100%;
+  height: 50px;
 }
 
 @media (max-width: 915px) {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useGlobalStore from "../store/Store";
 
-import "./ProfitsAndLosses.css";
+import "./Difference.css";
 import porcentaje2 from "../assets/porcentaje2.png";
 
 const ProfitsAndLosses = () => {
@@ -28,14 +28,18 @@ const ProfitsAndLosses = () => {
         <h1>Diferencia: </h1>
         <h2
           className={
-            profitsIncrement >= 0 ? "porcentPositive" : "porcentNegative"
+            profitsIncrement
+              ? profitsIncrement > 0
+                ? "porcentPositive"
+                : "porcentNegative"
+              : "porcentPositive"
           }
         >
           {profitsIncrement
             ? profitsIncrement >= 0
               ? "+%" + profitsIncrement
               : "-%" + profitsIncrement * -1
-            : "-"}
+            : "0%"}
         </h2>
         <h3>En relacion al mes anterior</h3>
       </div>

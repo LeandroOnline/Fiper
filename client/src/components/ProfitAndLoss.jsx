@@ -1,8 +1,9 @@
 import { memo } from "react";
-import "./Total.css";
+import "./ProfitAndLoss.css";
 import useGlobalStore from "../store/Store";
-import totalNeto from "../helpers/totalNeto.js";
 import { Pie } from "@ant-design/plots";
+import totalNeto from "../helpers/totalNeto";
+import Time from "./Time";
 
 const Total = memo(() => {
   const inputs = useGlobalStore((state) => state.inputs);
@@ -49,8 +50,12 @@ const Total = memo(() => {
 
   return (
     <div className="totalcontainer">
-      <Pie {...config} className="pie"/>
-      <div className="profitAndLosseContainer">
+        <div className="profitAndLosse">
+          <h1 className="profitAndLosseTitle">Total: </h1>
+          <p className="profitAndLosseResult">
+            ${inputs ? totalNeto(inputs) : "0"}
+          </p>
+        </div>
         <div className="profitAndLosse">
           <h1 className="profitAndLosseTitle">Ganancias: </h1>
           <p className="profitAndLosseResult">
@@ -63,7 +68,8 @@ const Total = memo(() => {
             ${losses ? total(losses) : "0"}
           </p>
         </div>
-      </div>
+        <Time/>
+      {/* <Pie {...config} className="pie" /> */}
     </div>
   );
 });

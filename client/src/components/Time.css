@@ -1,20 +1,17 @@
 .timeContainer {
   border-radius: 5px;
   padding: 15px;
-  width: 100%;
+  width: 300px;
   height: 100px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-
-  border-radius: 10px;
-  background: rgb(30, 30, 30);
-  box-shadow: 5px 5px 12px rgb(10, 10, 10) ,
-    -5px -5px 12px rgb(50, 50, 50) , 5px 5px 12px rgb(0, 0, 0),
-    -5px -5px 12px rgb(50, 50, 50);
-  border: 4px solid rgb(30, 30, 30);
+  border-radius: 15px;
+  background: var(--level1);
+  box-shadow: 2px 2px 8px hsl(218, 25%, 5%)  inset,
+    -2px -2px 8px hsl(218, 20%, 30%)  inset;
 }
 
 .timeContainer p {

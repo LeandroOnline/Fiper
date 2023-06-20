@@ -8,7 +8,7 @@
   }
   
   .IniciaSesion {
-    background-color: rgba(255, 255, 255, 0.1);
+    background: var(--level1);
     padding: 5px 10px;
     border-radius: 5px;
     color: rgba(0, 0, 0, 0.8);
@@ -18,7 +18,8 @@
   
   .IniciaSesion:hover {
     transition: 1s;
-    background-color: rgba(255, 255, 255, 0.5);
+    background: var(--level1);
+
   }
   
   .initialText {

@@ -58,6 +58,7 @@ const Notes = () => {
       <Popup config={{ popupConfig, setPopupConfig }} />
       <h1>Cantidad de notas checkeadas: {checksCount(notes).count}</h1>
       <progress
+      className="progressNotes"
         max="100"
         value={
           notes.length > 0
