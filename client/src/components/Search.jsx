@@ -34,7 +34,7 @@ const Search = () => {
           setValue(e.target.value);
         }}
         type="text"
-        placeholder="Filtra por detalle / tipo / fecha"
+        placeholder="Busca"
       />
     </div>
   );

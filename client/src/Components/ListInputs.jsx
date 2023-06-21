@@ -114,93 +114,99 @@ const ListInputs = () => {
   const search = filtered ? filtered : inputs;
 
   return (
-    <div className="listcontainer">
-      <Popup config={{ popupConfig, setPopupConfig }} />
-      {inputs.length > 0 ? (
-        <button className="clearAll" onClick={() => clearTrue()}>
-          Limpiar
-        </button>
-      ) : null}
-      {inputs.length == 0
-        ? "Sin entradas, por favor ingresa un valor"
-        : filtered
-        ? `Total filtrado: $${totalNeto(filtered)}`
-        : `Total: $${totalNeto(inputs)}`}
-      {inputs.length !== 0 ? <Search /> : null}
-      
-      <div className="divide"></div>
-      {search.map((element, key) => (
-        <div key={key}>
-          <div className="listElement">
-            <img
-              className="img"
-              src={del}
-              alt=""
-              onClick={() => deleteItem(element._id)}
-            />
-            <img
-              className="img"
-              src={modify}
-              alt=""
-              onClick={() => {
-                setModificar(!modificar);
-                setIdElemento(element._id);
-              }}
-            />
-            <p
-              className={
-                element.input === 0
-                  ? "neutral"
-                  : element.input > 0
-                  ? "positive"
-                  : "negative"
-              }
-            >
-              {element.input === 0 ? "$" : element.input > 0 ? "+$ " : "-$ "}
-              {element.input >= 0 ? element.input : element.input * -1}
-            </p>
-            -{Dates(element)}-
-            {element.detalle !== "" ? <p>{element.detalle}</p> : null}
-          </div>
-          <div className="divide"></div>
-        </div>
-      ))}
-      {modificar ? (
-        <>
-          <form onSubmit={(e) => updateItem(e)} className="homeformList">
-            <input
-              placeholder="+ / -"
-              type="number"
-              name="input"
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-              autoFocus
-              className="inputPriceItem"
-            />
-            <textarea
-              placeholder="Detalle"
-              name="detalle"
-              value={detalleValue}
-              onChange={(e) => detalle(e)}
-              className="inputTextItem"
-              onKeyDown={(e) => handleKeyDown(e)}
-            />
-            <div className="buttons">
-              <button
+    <div className="navAndListContainer">
+      <div className="navList">
+        {inputs.length == 0 ? (
+          <p className="totalInputs">Sin entradas, por favor ingresa un valor</p>
+        ) : filtered ? (
+          <p className="totalInputs">Total: ${totalNeto(filtered)}</p>
+        ) : (
+          <p className="totalInputs">Total: ${totalNeto(inputs)}</p>
+        )}
+        {inputs.length !== 0 ? <Search /> : null}
+        {inputs.length > 0 ? (
+          <button className="clearAll" onClick={() => clearTrue()}>
+            Limpiar
+          </button>
+        ) : null}
+      </div>
+      <div className="listcontainer">
+        <Popup config={{ popupConfig, setPopupConfig }} />
+
+        {/* <div className="divide"></div> */}
+        {search.map((element, key) => (
+          <div key={key}>
+            <div className="listElement">
+              <img
+                className="img"
+                src={del}
+                alt=""
+                onClick={() => deleteItem(element._id)}
+              />
+              <img
+                className="img"
+                src={modify}
+                alt=""
                 onClick={() => {
                   setModificar(!modificar);
+                  setIdElemento(element._id);
                 }}
-                className="inputCancelar"
+              />
+              <p
+                className={
+                  element.input === 0
+                    ? "neutral"
+                    : element.input > 0
+                    ? "positive"
+                    : "negative"
+                }
               >
-                Cancelar
-              </button>
-              <button type="submit" className="inputAplicar">
-                Aplicar
-              </button>
+                {element.input === 0 ? "$" : element.input > 0 ? "+$ " : "-$ "}
+                {element.input >= 0 ? element.input : element.input * -1}
+              </p>
+              -{Dates(element)}-
+              {element.detalle !== "" ? <p>{element.detalle}</p> : null}
             </div>
-          </form>
-        </>
-      ) : null}
+            <div className="divide"></div>
+          </div>
+        ))}
+        {modificar ? (
+          <>
+            <form onSubmit={(e) => updateItem(e)} className="homeformList">
+              <input
+                placeholder="+ / -"
+                type="number"
+                name="input"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                autoFocus
+                className="inputPriceItem"
+              />
+              <textarea
+                placeholder="Detalle"
+                name="detalle"
+                value={detalleValue}
+                onChange={(e) => detalle(e)}
+                className="inputTextItem"
+                onKeyDown={(e) => handleKeyDown(e)}
+              />
+              <div className="buttons">
+                <button
+                  onClick={() => {
+                    setModificar(!modificar);
+                  }}
+                  className="inputCancelar"
+                >
+                  Cancelar
+                </button>
+                <button type="submit" className="inputAplicar">
+                  Aplicar
+                </button>
+              </div>
+            </form>
+          </>
+        ) : null}
+      </div>
     </div>
   );
 };

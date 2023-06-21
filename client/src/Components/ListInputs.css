@@ -1,12 +1,20 @@
+.navAndListContainer {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .listcontainer {
   padding: var(--space3);
   width: 100%;
+  height: 300px;
   overflow: auto;
-  position: relative;
   gap: var(--space3);
   box-shadow: 2px 2px 8px hsl(218, 25%, 5%) inset,
     -2px -2px 8px hsl(218, 20%, 30%) inset;
-  margin-top: var(--space5);
 }
 
 .listElement {
@@ -76,18 +84,20 @@
     -2px -2px 4px hsl(218, 20%, 30%) inset;
 }
 
+.navList {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+  margin-bottom: var(--space3);
+  gap: var(--space4);
+}
+
 .clearAll {
   background-color: rgba(255, 255, 255, 0);
   color: var(--text);
   border: 1px solid var(--primario);
-  position: absolute;
-  top: 10px;
-  left: calc(80% - 10px);
   padding: 8px 16px;
-}
-
-.clearAll:hover {
-  color: rgb(0, 0, 0, 0.8);
 }
 
 .buttons {
@@ -113,4 +123,15 @@
 .time {
   font-weight: 200;
   color: rgb(255, 255, 255, 0.4);
+}
+
+.totalInputs {
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--level2),
+    rgba(255, 255, 255, 0)
+  );
+  padding: var(--space2) var(--space3);
+  height: 42px;
 }

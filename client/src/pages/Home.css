@@ -22,5 +22,7 @@
 
 .inputContainer {
   box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 30%);
-  padding: 16px;
+  padding: var(--space3);
+  gap: var(--space4);
+  display: flex;
 }
