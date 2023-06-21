@@ -14,6 +14,7 @@ import mute from "../assets/mute.png";
 import useSanitize from "../hooks/useSanitize";
 import cafe from "../assets/cafe.png";
 import wsp from "../assets/whatsapp1.png";
+import exit from "../assets/salir.png";
 
 const Navbar = memo(() => {
   const [configIsOpen, setConfigIsOpen] = useState(false);
@@ -52,7 +53,8 @@ const Navbar = memo(() => {
   const TheNickname =
     nickname !== "" ? nickname : emailStore !== "" ? NickFromEmail : null;
   const donar = "https://cafecito.app/devbees";
-  const wame = "https://wa.me/5493435267411/?text=Hola Leandro, estoy usando FIPE y me encanta!";
+  const wame =
+    "https://wa.me/5493435267411/?text=Hola Leandro, estoy usando FIPE y me encanta!";
 
   useEffect(() => {
     popupConfig.choise ? deleteUser() : null;
@@ -156,14 +158,11 @@ const Navbar = memo(() => {
   return (
     <div className="navcontainer">
       <Popup config={{ popupConfig, setPopupConfig }} />
-      <a href={donar} target="_blank">
-        <img src={cafe} alt="" className="cafe" />
-      </a>
+
       <div className="menu">
-        <Link to="/" >
+        <Link to="/">
           <h1 className="title">FIPE</h1>
         </Link>
-        <div className="blur"></div>
         {login ? (
           <>
             <div className="nickname">
@@ -179,13 +178,23 @@ const Navbar = memo(() => {
                 }}
               />
             </div>
+
             <img
-              src={sound ? notification : mute}
+              src={exit}
               alt=""
-              onClick={() => setSound()}
-              className="sound"
+              className="wame"
+              onClick={() => {
+                logout();
+                setConfigIsOpen(false);
+              }}
             />
-            <a href={wame} target="_blank" className="awsp"><img src={wsp} alt="" className="sound" /></a> 
+
+            <a href={wame} target="_blank" className="awsp">
+              <img src={wsp} alt="" className="wame" />
+            </a>
+            <a href={donar} target="_blank" className="cafeContainer">
+              <img src={cafe} alt="" className="cafe" />
+            </a>
           </>
         ) : (
           <>
@@ -202,13 +211,15 @@ const Navbar = memo(() => {
       <div className={configIsOpen ? "configmerge" : "configclose"}>
         <div
           onClick={() => {
-            logout();
             setConfigIsOpen(false);
+            setSound();
           }}
           className="navbutton"
         >
-          Salir
+          {sound ? "Silenciar" : "Activar sonido"}
+          <img src={sound ? notification : mute} alt="" className="sound" />
         </div>
+
         <div className="lineMerge"></div>
         <div
           className={updateNicknameMenu ? "" : "navbutton"}

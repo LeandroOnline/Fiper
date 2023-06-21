@@ -162,16 +162,19 @@ const ListInputs = () => {
               <p
                 className={
                   element.input === 0
-                    ? "neutral"
-                    : element.input > 0
-                    ? "positive"
-                    : "negative"
+                  ? "neutral"
+                  : element.input > 0
+                  ? "positive"
+                  : "negative"
                 }
               >
                 {element.input === 0 ? "$" : element.input > 0 ? "+ " : "- "}
                 {element.input >= 0 ? element.input : element.input * -1}
               </p>
+              <div className="divideVerticalTime"></div>
+
               {Dates(element)}
+                <div className="divideVerticalTime"></div>
               <span className="details">{element.detalle}</span>
             </div>
             {modificar && element._id === idElemento ? (

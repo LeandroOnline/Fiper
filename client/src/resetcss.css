@@ -7,6 +7,7 @@
   --secundario: hsl(20, 81%, 60%);
 
   --text: hsl(218, 25%, 80%);
+  --placeholder: hsl(218, 25%, 50%);
 
   --space1: 4px;
   --space2: 8px;
@@ -75,10 +76,10 @@ input {
 }
 
 input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 * {
   list-style: none;
@@ -91,11 +92,11 @@ input[type="number"]::-webkit-inner-spin-button,
   box-sizing: border-box;
   color: var(--text);
   border-radius: 15px;
-  line-height:1.2;
+  line-height: 1.2;
 }
 
 *::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--placeholder);
 }
 
 .App {
@@ -109,31 +110,4 @@ video {
   position: fixed;
   z-index: -1;
   filter: blur(15px) contrast(110%) saturate(30%);
-}
-
-/* Preparo el desenfoque para varios tamaños de pantalla */
-@media (min-width: 700px) {
-  video {
-    filter: blur(15px) contrast(110%) saturate(30%);
-  }
-}
-@media (min-width: 1300px) {
-  video {
-    filter: blur(25px) contrast(110%) saturate(30%);
-  }
-}
-@media (min-width: 1600px) {
-  video {
-    filter: blur(35px) contrast(110%) saturate(30%);
-  }
-}
-@media (min-width: 2000px) {
-  video {
-    filter: blur(55px) contrast(110%) saturate(30%);
-  }
-}
-@media (min-width: 3000px) {
-  video {
-    filter: blur(85px) contrast(110%) saturate(30%);
-  }
 }

@@ -4,4 +4,5 @@
   box-shadow: 2px 2px 4px hsl(218, 25%, 5%) inset,
     -2px -2px 4px hsl(218, 20%, 30%) inset;
   height: 26px;
+  padding: var(--space2) var(--space3);
 }

@@ -59,28 +59,30 @@
   opacity: 80%;
 }
 
+.positive,
+.negative,
+.neutral {
+  font-weight: 200;
+  width: 140px;
+  padding: var(--space2);
+}
 .positive {
   color: rgb(1, 155, 1);
-  font-weight: 200;
-  width: 80px;
 }
 
 .negative {
   color: rgb(221, 1, 1);
-  font-weight: 200;
-  width: 80px;
 }
 
 .neutral {
   color: rgb(98, 98, 98);
-  font-weight: 200;
-  width: 80px;
 }
 
 .inputsUpdate {
   display: flex;
   flex-direction: row;
   gap: var(--space3);
+  margin-top: var(--space1);
 }
 
 .listInputDetail {
@@ -150,10 +152,8 @@
 .time {
   font-weight: 200;
   color: rgb(255, 255, 255, 0.4);
-  font-size: 10px;
-  background-color: var(--level3);
-  padding: var(--space1) var(--space2);
-  width: 70px;
+  font-size: 14px;
+  padding: var(--space2);
 }
 
 .totalInputs {
@@ -164,6 +164,7 @@
 }
 
 .details {
-  width: 60%;
   overflow: scroll;
+  padding: var(--space2);
+
 }
