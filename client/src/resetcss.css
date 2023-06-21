@@ -71,6 +71,7 @@ button:hover {
 input {
   all: unset;
   padding: 8px;
+  height: 26px;
 }
 
 * {

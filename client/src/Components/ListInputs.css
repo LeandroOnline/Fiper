@@ -62,18 +62,29 @@
 .homeformList {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 5px;
+  /* border: 1px solid var(--secundario); */
   padding: var(--space2);
   position: fixed;
   width: 350px;
   top: calc(50% - 125px);
   left: calc(50% - 175px);
-  background-color: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(
+    180deg,
+    hsla(218, 25%, 25%, 0.5),
+    hsla(218, 25%, 25%, 0.1)
+  );
   backdrop-filter: blur(8px);
-  gap: 10px;
+  gap: 15px;
+  padding: var(--space4);
+  border-top: 1px solid var(--primario);
+  /* border: 1px solid transparent; 
+  border-image: linear-gradient(
+    180deg,
+    #ffffff,
+    #000000
+  );
+  border-image-slice: 1;
+  border-radius: 15px !important; */
 }
 
 .divide {
@@ -112,12 +123,7 @@
 
 .inputCancelar {
   background-color: rgba(0, 0, 0, 0);
-  border: 1px solid rgb(255, 255, 255, 0.5);
-  color: rgb(255, 255, 255, 0.5);
-}
-
-.inputCancelar:hover {
-  color: rgb(0, 0, 0, 0.8);
+  border: 1px solid var(--primario);
 }
 
 .time {
@@ -127,11 +133,7 @@
 
 .totalInputs {
   width: 100%;
-  background: linear-gradient(
-    90deg,
-    var(--level2),
-    rgba(255, 255, 255, 0)
-  );
+  background: linear-gradient(90deg, var(--level2), rgba(255, 255, 255, 0));
   padding: var(--space2) var(--space3);
   height: 42px;
 }

@@ -16,7 +16,6 @@ import trash from "../assets/sound/basura.mp3";
 const ListInputs = () => {
   const [modificar, setModificar] = useState(false);
   const [idElemento, setIdElemento] = useState("");
-
   const [popupConfig, setPopupConfig] = useState({ toConfirm: true });
   const [detalleValue, setDetalleValue] = useState("");
   const [inputValue, setInputValue] = useState("");
@@ -70,7 +69,7 @@ const ListInputs = () => {
         .catch((err) => setPopupConfig(useErrorHandler(err)));
   };
 
-  const updateItem = async (e, inputValue, detalleValue) => {
+  const updateItem = async (e) => {
     e.preventDefault();
     await axiosUpdateItem(idElemento, inputValue, detalleValue)
       .then((data) => {
@@ -117,7 +116,9 @@ const ListInputs = () => {
     <div className="navAndListContainer">
       <div className="navList">
         {inputs.length == 0 ? (
-          <p className="totalInputs">Sin entradas, por favor ingresa un valor</p>
+          <p className="totalInputs">
+            Sin entradas, por favor ingresa un valor
+          </p>
         ) : filtered ? (
           <p className="totalInputs">Total: ${totalNeto(filtered)}</p>
         ) : (
@@ -133,7 +134,6 @@ const ListInputs = () => {
       <div className="listcontainer">
         <Popup config={{ popupConfig, setPopupConfig }} />
 
-        {/* <div className="divide"></div> */}
         {search.map((element, key) => (
           <div key={key}>
             <div className="listElement">

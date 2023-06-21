@@ -23,6 +23,10 @@
   gap: var(--space1);
 }
 
+.inDay p {
+  font-size: 16px;
+}
+
 .divideVerticalTime {
   height: 68px;
   width: 1px;
