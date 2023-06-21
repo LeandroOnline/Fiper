@@ -6,16 +6,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: var(--space3);
   background: var(--level1);
-  box-shadow: 2px 2px 8px hsl(218, 25%, 5%)  inset,
-    -2px -2px 8px hsl(218, 20%, 30%)  inset;
-}
-
-.timeContainer p {
-  font-weight: 100;
+  box-shadow: 2px 2px 8px hsl(218, 25%, 5%) inset,
+    -2px -2px 8px hsl(218, 20%, 30%) inset;
 }
 
 .hour {
   font-size: 40px;
+}
+
+.inDay {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space1);
+}
+
+.divideVerticalTime {
+  height: 68px;
+  width: 1px;
+  background-color: var(--primario);
+  box-shadow: 2px 2px 4.5px hsl(218, 25%, 0%), -2px -2px 4.5px hsl(218, 20%, 50%);
 }

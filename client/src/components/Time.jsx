@@ -61,11 +61,13 @@ const Time = () => {
           useGrouping: false,
         })}
       </p>
-      <div>
-        <p className="inWeek">
+      <div className="divideVerticalTime"></div>
+
+      <div className="inDay">
+        <p >
           {daysOnWeek[timer.dayOnWeek - 1]} {timer.day}
         </p>
-        <p className="year">
+        <p >
           {monthOnYear[timer.month]} - {timer.year}
         </p>
       </div>
