@@ -1,11 +1,9 @@
 .input {
   display: flex;
   flex-direction: column;
-  padding: 15px;
   width: 100%;
   justify-content: space-evenly;
-  gap: 10px;
-  box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 30%);
+  gap: var(--space3);
 }
 
 .inputPriceItem {
@@ -26,4 +24,5 @@
   box-shadow: 2px 2px 8px hsl(218, 25%, 5%) inset,
     -2px -2px 8px hsl(218, 20%, 30%) inset;
   background: var(--level2);
+  margin-bottom: var(--space3);
 }

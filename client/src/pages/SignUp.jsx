@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axiosSign from "../api/axiosSign";
 import useVerifySyntax from "../hooks/useVerifySyntax";
-import proteger from "../assets/proteger.png";
 import axiosSendEmail from "../api/axiosSendEmail";
 import "./SignUp.css";
 import Popup from "../components/Popup";
@@ -63,16 +62,7 @@ const SignUp = () => {
     <div className="signcontainer">
       <Popup config={{ popupConfig, setPopupConfig }} />
       <form className="sign" onSubmit={(e) => Sign(e)}>
-        <img className="imgsign" src={proteger} alt="" />
-        <div className="SignAllText">
-          <p className="SignText">Su contraseña debe contener:</p>
-          <div className="minimum">
-            <p className="SignText">- Minimo siete caracteres</p>
-            <p className="SignText">- Al menos una mayuscula</p>
-            <p className="SignText">- Al menos un numero</p>
-          </div>
-        </div>
-
+        <h1>Registro</h1>
         <div className="inputContainer">
           <input
             className="loginInput"
@@ -124,6 +114,14 @@ const SignUp = () => {
           <button className="loginButtons" type="submit">
             Registrarse
           </button>
+        </div>
+        <div className="SignAllText">
+          <p className="SignText">Su contraseña debe contener:</p>
+          <div className="minimum">
+            <p className="SignText">- Minimo siete caracteres</p>
+            <p className="SignText">- Al menos una mayuscula</p>
+            <p className="SignText">- Al menos un numero</p>
+          </div>
         </div>
       </form>
     </div>

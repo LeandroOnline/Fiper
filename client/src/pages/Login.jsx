@@ -3,7 +3,6 @@ import "./Login.css";
 import useVerifySyntax from "../hooks/useVerifySyntax";
 import useGlobalStore from "../store/Store";
 import axiosLogin from "../api/axiosLogin";
-import log from "../assets/login.png";
 import axiosCheckVerify from "../api/axiosCheckVerify";
 import Verify from "./Verify";
 import Popup from "../components/Popup";
@@ -118,7 +117,6 @@ const Login = () => {
       ) : (
         <div className="login">
           <form className="loginForm" onSubmit={(e) => Log(e)}>
-            <img className="imglogin" src={log} alt="" />
             <p className="SignText">Inicio de Sesión</p>
             <div className="inputContainer">
               <input

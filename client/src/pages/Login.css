@@ -10,12 +10,13 @@
 .login {
   display: flex;
   flex-direction: column;
-  border-radius: 10px;
   padding: 15px;
   width: 300px;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.05);
+  /* background-color: var(--level1); */
   transition: 1s;
+  box-shadow: 5px 5px 10px hsl(218, 25%, 5%), -5px -5px 10px hsl(218, 25%, 25%);
+
 }
 
 .loginForm {
@@ -24,10 +25,10 @@
   padding: 15px;
 }
 
-.login:hover {
+/* .login:hover {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   transition: 1s;
-}
+} */
 
 .login form {
   display: flex;
@@ -38,7 +39,7 @@
 
 .loginInput {
   background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 5px;
+  border-radius: 15px;
   padding: 15px;
   width: calc(100% - 30px);
 }
@@ -109,7 +110,6 @@
 .inputRemember {
   padding: 5px 15px;
   transition: 1s;
-  border-radius: 15px;
   width: calc(100% - 30px);
 }
 

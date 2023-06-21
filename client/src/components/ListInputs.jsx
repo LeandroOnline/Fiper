@@ -38,17 +38,17 @@ const ListInputs = () => {
 
   const clearTrue = async () => {
     if (window.confirm("Eliminar todas las Entradas?"))
-        await axiosClear()
-          .then((data) => {
-            setReset();
-            if (data === "Deleted all inputs") {
-              setPopupConfig({
-                type: "ok",
-                text: "Todos las entradas han sido eliminadas",
-              });
-            }
-          })
-          .catch((err) => setPopupConfig(useErrorHandler(err)));
+      await axiosClear()
+        .then((data) => {
+          setReset();
+          if (data === "Deleted all inputs") {
+            setPopupConfig({
+              type: "ok",
+              text: "Todos las entradas han sido eliminadas",
+            });
+          }
+        })
+        .catch((err) => setPopupConfig(useErrorHandler(err)));
   };
 
   const deleteItem = async (id) => {
@@ -127,7 +127,8 @@ const ListInputs = () => {
         ? `Total filtrado: $${totalNeto(filtered)}`
         : `Total: $${totalNeto(inputs)}`}
       {inputs.length !== 0 ? <Search /> : null}
-
+      
+      <div className="divide"></div>
       {search.map((element, key) => (
         <div key={key}>
           <div className="listElement">

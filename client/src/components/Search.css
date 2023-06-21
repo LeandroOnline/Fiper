@@ -1,7 +1,6 @@
-.SearchInput{
-    width: 100%;
-    background: var(--level3);
-    color: gray;
-    margin: 10px 0;
-    padding: 5px 0px;
+.SearchInput {
+  width: calc(100% - var(--space3));
+  background: var(--level2);
+  border-radius: 15px;
+  margin-bottom: var(--space3);
 }

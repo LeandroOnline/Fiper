@@ -37,7 +37,7 @@
 .noteText {
   width: 100%;
   height: 65%;
-  padding: 10px;
+  padding: var(--space2);
   background-color: rgba(255, 255, 255, 0.01);
   border-radius: 0 0 15px 15px;
   overflow: auto;
@@ -63,7 +63,7 @@
 .deleteImg {
   width: 30px;
   opacity: 70%;
-  padding: 7.5px;
+  padding: var(--space2);
   transition: 0.5s;
   border-radius: 0 0 0 15px;
 }
@@ -71,7 +71,7 @@
 .modifyImg {
   width: 30px;
   opacity: 70%;
-  padding: 7.5px;
+  padding: var(--space2);
   transition: 0.5s;
   border-radius: 0 15px 0 0;
 }
@@ -99,7 +99,7 @@
 .okUpdate:hover {
   width: 30px;
   opacity: 70%;
-  padding: 7.5px;
+  padding: var(--space2);
   transition: 0.5s;
   border-radius: 0 0 15px 0;
   transition: 0.5s;

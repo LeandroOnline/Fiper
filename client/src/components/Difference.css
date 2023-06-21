@@ -1,5 +1,5 @@
 .ProfitsAndLossesContainer {
-  padding: 15px;
+  padding: var(--space3);
   width: 100%;
   height: 100px;
   box-sizing: border-box;

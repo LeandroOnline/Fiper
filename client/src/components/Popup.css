@@ -1,6 +1,6 @@
 .pop {
   width: 300px;
-  padding: 15px;
+  padding: var(--space3);
   gap: 15px;
   background: var(--level2);
   border-style: solid;
@@ -19,7 +19,7 @@
 
 .pup {
   width: 300px;
-  padding: 15px;
+  padding: var(--space3);
   gap: 15px;
   background-color: rgba(255, 255, 255, 0.1);
   position:fixed;

@@ -1,5 +1,5 @@
 .notesContainer {
-  padding: 15px;
+  padding: var(--space3);
   width: 100%;
   height: 70%;
   overflow: scroll;
@@ -32,7 +32,6 @@
   object-fit: contain;
   width: 50px;
   height: 50px;
-  /* padding: 35%; */
   filter: invert();
   opacity: 50%;
 }
@@ -58,7 +57,7 @@
   height: calc(65% - 10px);
   border-radius: 0 0 15px 15px;
   height: calc(65% - 11px);
-  padding: 5px;
+  padding: var(--space1);
   color: rgb(255, 255, 255, 0.6);
   resize: none;
   background-color: rgb(255, 255, 255, 0.1);
@@ -83,7 +82,7 @@
   position: relative;
   opacity: 70%;
   z-index: 20;
-  padding: 7.5px;
+  padding: var(--space2);
   transition: 0.5s;
   border-radius: 15px 0 0 0;
 }
@@ -94,7 +93,7 @@
   position: relative;
   opacity: 70%;
   z-index: 20;
-  padding: 7.5px;
+  padding: var(--space2);
   transition: 0.5s;
 }
 
@@ -124,7 +123,7 @@
     cursor: pointer;
     width: 100%;
     height: 100%;
-    padding: 75px 49px;
+    padding: var(--space5);
     filter: invert();
     opacity: 50%;
   }

@@ -27,7 +27,7 @@ const Total = memo(() => {
     },
   ];
   const config = {
-    appendPadding: 10,
+    appendPadding: 8,
     data,
     angleField: "value",
     colorField: "type",
@@ -56,12 +56,15 @@ const Total = memo(() => {
             ${inputs ? totalNeto(inputs) : "0"}
           </p>
         </div>
+        <div className="divideVertical"></div>
         <div className="profitAndLosse">
           <h1 className="profitAndLosseTitle">Ganancias: </h1>
           <p className="profitAndLosseResult">
             ${profits ? total(profits) : "0"}
           </p>
         </div>
+        <div className="divideVertical"></div>
+
         <div className="profitAndLosse">
           <h1 className="profitAndLosseTitle">Gastos: </h1>
           <p className="profitAndLosseResult">

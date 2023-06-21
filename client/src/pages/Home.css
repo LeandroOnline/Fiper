@@ -14,9 +14,13 @@
   justify-content: center;
   color: white;
   flex-direction: column;
-  gap: 30px;
+  gap: 32px;
   margin-bottom: 60px;
-  border-radius: 15px;
-  padding: 30px;
-  background-color: var(--level1);
+  padding: 32px;
+  border: 2px solid var(--level2);
+}
+
+.inputContainer {
+  box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 30%);
+  padding: 16px;
 }

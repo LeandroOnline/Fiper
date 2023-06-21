@@ -48,13 +48,15 @@ const Home = () => {
           checkVerify ? (
             <>
               <ProfitAndLoss />
-              <Input />
-              <ListInputs />
-              <Notes />
-              <Interest />
+              <div className="inputContainer">
+                <Input />
+                <ListInputs />
+              </div>
               <PorcentComponent />
               <Difference />
               <DolarBlue />
+              <Notes />
+              <Interest />
               <ColumnGraph />
               <AreaGraph />
             </>
