@@ -92,7 +92,8 @@ const ListInputs = () => {
     const date = new Date(element.date);
     return (
       <p className="time">
-        {date.getDate()}-{date.getMonth() + 1}-{date.getFullYear()}{" / "}
+        {date.getDate()}-{date.getMonth() + 1}-{date.getFullYear()}
+        <br></br>
         {date?.getHours().toLocaleString("en-US", {
           minimumIntegerDigits: 2,
           useGrouping: false,
@@ -137,21 +138,27 @@ const ListInputs = () => {
         {search.map((element, key) => (
           <div key={key}>
             <div className="listElement">
-              <img
-                className="img"
-                src={del}
-                alt=""
-                onClick={() => deleteItem(element._id)}
-              />
-              <img
-                className="img"
-                src={modify}
-                alt=""
-                onClick={() => {
-                  setModificar(!modificar);
-                  setIdElemento(element._id);
-                }}
-              />
+              <div className="inputOptions">
+                <img
+                  className="img"
+                  src={del}
+                  alt=""
+                  onClick={() => deleteItem(element._id)}
+                />
+                <img
+                  className="img"
+                  src={modify}
+                  alt=""
+                  onClick={() => {
+                    setModificar(!modificar);
+                    setIdElemento(element._id);
+                    setInputValue("");
+                    setDetalleValue("");
+                  }}
+                />
+              </div>
+              <div className="divideVerticalTime"></div>
+
               <p
                 className={
                   element.input === 0
@@ -161,51 +168,57 @@ const ListInputs = () => {
                     : "negative"
                 }
               >
-                {element.input === 0 ? "$" : element.input > 0 ? "+$ " : "-$ "}{" "}
+                {element.input === 0 ? "$" : element.input > 0 ? "+ " : "- "}
                 {element.input >= 0 ? element.input : element.input * -1}
               </p>
               {Dates(element)}
-              <span>{element.detalle}</span>
+              <span className="details">{element.detalle}</span>
             </div>
+            {modificar && element._id === idElemento ? (
+              <>
+                <form
+                  onSubmit={(e) => updateItem(e)}
+                  className="listInputDetail"
+                >
+                  <div className="inputsUpdate">
+                    <input
+                      placeholder="+ / -"
+                      type="number"
+                      name="input"
+                      value={inputValue}
+                      onChange={(e) => setInputValue(e.target.value)}
+                      className="inputPriceItem"
+                    />
+                    <textarea
+                      placeholder="Detalle"
+                      name="detalle"
+                      value={detalleValue}
+                      onChange={(e) => detalle(e)}
+                      className="inputTextItemUpdate"
+                      onKeyDown={(e) => handleKeyDown(e)}
+                    />
+                  </div>
+                  <div className="buttons">
+                    <button
+                      onClick={() => {
+                        setModificar(!modificar);
+                        setInputValue("");
+                        setDetalleValue("");
+                      }}
+                      className="inputCancelar"
+                    >
+                      Cancelar
+                    </button>
+                    <button type="submit" className="inputAplicar">
+                      Aplicar
+                    </button>
+                  </div>
+                </form>
+              </>
+            ) : null}
             <div className="divide"></div>
           </div>
         ))}
-        {modificar ? (
-          <>
-            <form onSubmit={(e) => updateItem(e)} className="homeformList">
-              <input
-                placeholder="+ / -"
-                type="number"
-                name="input"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                autoFocus
-                className="inputPriceItem"
-              />
-              <textarea
-                placeholder="Detalle"
-                name="detalle"
-                value={detalleValue}
-                onChange={(e) => detalle(e)}
-                className="inputTextItem"
-                onKeyDown={(e) => handleKeyDown(e)}
-              />
-              <div className="buttons">
-                <button
-                  onClick={() => {
-                    setModificar(!modificar);
-                  }}
-                  className="inputCancelar"
-                >
-                  Cancelar
-                </button>
-                <button type="submit" className="inputAplicar">
-                  Aplicar
-                </button>
-              </div>
-            </form>
-          </>
-        ) : null}
       </div>
     </div>
   );

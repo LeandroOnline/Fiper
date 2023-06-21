@@ -28,8 +28,11 @@
 }
 
 .divideVerticalTime {
+  
+
   height: 68px;
-  width: 1px;
-  background-color: var(--primario);
-  box-shadow: 2px 2px 4.5px hsl(218, 25%, 0%), -2px -2px 4.5px hsl(218, 20%, 50%);
+  width: var(--space1);
+  background-color: var(--level2);
+  box-shadow: 2px 2px 4px hsl(218, 25%, 5%) inset,
+    -2px -2px 4px hsl(218, 20%, 30%) inset;
 }

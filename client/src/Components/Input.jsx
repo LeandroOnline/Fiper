@@ -72,7 +72,6 @@ const Input = () => {
           name="input"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
-          autoFocus
           className="inputPriceItem"
         />
         <textarea

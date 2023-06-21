@@ -23,9 +23,9 @@
   justify-content: start;
   align-items: center;
   gap: var(--space2);
-  padding: var(--space2);
   margin-top: var(--space2);
   margin-bottom: var(--space2);
+  position: relative;
 }
 
 .listElement:hover {
@@ -38,6 +38,15 @@
   );
 }
 
+.inputOptions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: var(--space2);
+  margin-right: var(--space2);
+  top: calc(50% - --space1);
+}
 .img {
   width: 20px;
   height: 20px;
@@ -53,35 +62,50 @@
 .positive {
   color: rgb(1, 155, 1);
   font-weight: 200;
+  width: 80px;
 }
 
 .negative {
   color: rgb(221, 1, 1);
   font-weight: 200;
+  width: 80px;
 }
 
 .neutral {
   color: rgb(98, 98, 98);
   font-weight: 200;
+  width: 80px;
 }
 
-.homeformList {
+.inputsUpdate {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space3);
+}
+
+.listInputDetail {
   display: flex;
   flex-direction: column;
-  padding: var(--space2);
-  position: fixed;
-  width: 350px;
-  top: calc(50% - 125px);
-  left: calc(50% - 175px);
-  background: linear-gradient(
-    180deg,
-    hsla(218, 25%, 25%, 0.5),
-    hsla(218, 25%, 25%, 0.1)
-  );
-  backdrop-filter: blur(8px);
+  width: 100%;
+  height: 100%;
   gap: 15px;
-  padding: var(--space4);
-  border-top: 1px solid var(--primario);
+  padding-bottom: var(--space3);
+}
+
+.inputTextItemUpdate {
+  all: unset;
+  width: 100%;
+  resize: none;
+  border-radius: 15px;
+  border-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space3);
+  box-shadow: 2px 2px 4px hsl(218, 25%, 5%) inset,
+    -2px -2px 4px hsl(218, 20%, 30%) inset;
+  background: var(--level2);
+  margin-bottom: var(--space3);
 }
 
 .divide {
@@ -110,7 +134,7 @@
 
 .buttons {
   display: flex;
-  gap: 10px;
+  gap: var(--space3);
 }
 
 .inputAplicar,
@@ -126,9 +150,10 @@
 .time {
   font-weight: 200;
   color: rgb(255, 255, 255, 0.4);
-  font-size: 12px;
+  font-size: 10px;
   background-color: var(--level3);
   padding: var(--space1) var(--space2);
+  width: 70px;
 }
 
 .totalInputs {
@@ -136,4 +161,9 @@
   background: linear-gradient(90deg, var(--level2), rgba(255, 255, 255, 0));
   padding: var(--space2) var(--space3);
   height: 42px;
+}
+
+.details {
+  width: 60%;
+  overflow: scroll;
 }

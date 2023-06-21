@@ -32,7 +32,7 @@ body {
 @font-face {
   font-family: "Poppins";
   src: url("./assets//font/Poppins/Poppins-SemiBold.ttf") format("opentype");
-  font-weight: 400;
+  font-weight: 300;
 }
 
 a {
@@ -73,6 +73,12 @@ input {
   padding: 8px;
   height: 26px;
 }
+
+input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 
 * {
   list-style: none;
