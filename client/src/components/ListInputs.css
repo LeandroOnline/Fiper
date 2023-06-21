@@ -20,6 +20,8 @@
 .listElement {
   display: flex;
   flex-direction: row;
+  justify-content: start;
+  align-items: center;
   gap: var(--space2);
   padding: var(--space2);
   margin-top: var(--space2);
@@ -41,6 +43,7 @@
   height: 20px;
   filter: invert();
   opacity: 50%;
+  border-radius: 0;
 }
 
 .img:hover {
@@ -49,20 +52,22 @@
 
 .positive {
   color: rgb(1, 155, 1);
+  font-weight: 200;
 }
 
 .negative {
   color: rgb(221, 1, 1);
+  font-weight: 200;
 }
 
 .neutral {
   color: rgb(98, 98, 98);
+  font-weight: 200;
 }
 
 .homeformList {
   display: flex;
   flex-direction: column;
-  /* border: 1px solid var(--secundario); */
   padding: var(--space2);
   position: fixed;
   width: 350px;
@@ -77,14 +82,6 @@
   gap: 15px;
   padding: var(--space4);
   border-top: 1px solid var(--primario);
-  /* border: 1px solid transparent; 
-  border-image: linear-gradient(
-    180deg,
-    #ffffff,
-    #000000
-  );
-  border-image-slice: 1;
-  border-radius: 15px !important; */
 }
 
 .divide {
@@ -129,6 +126,9 @@
 .time {
   font-weight: 200;
   color: rgb(255, 255, 255, 0.4);
+  font-size: 12px;
+  background-color: var(--level3);
+  padding: var(--space1) var(--space2);
 }
 
 .totalInputs {

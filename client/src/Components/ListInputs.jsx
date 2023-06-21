@@ -92,7 +92,7 @@ const ListInputs = () => {
     const date = new Date(element.date);
     return (
       <p className="time">
-        {date.getDate()}-{date.getMonth() + 1}-{date.getFullYear()}_{" "}
+        {date.getDate()}-{date.getMonth() + 1}-{date.getFullYear()}{" / "}
         {date?.getHours().toLocaleString("en-US", {
           minimumIntegerDigits: 2,
           useGrouping: false,
@@ -161,11 +161,11 @@ const ListInputs = () => {
                     : "negative"
                 }
               >
-                {element.input === 0 ? "$" : element.input > 0 ? "+$ " : "-$ "}
+                {element.input === 0 ? "$" : element.input > 0 ? "+$ " : "-$ "}{" "}
                 {element.input >= 0 ? element.input : element.input * -1}
               </p>
-              -{Dates(element)}-
-              {element.detalle !== "" ? <p>{element.detalle}</p> : null}
+              {Dates(element)}
+              <span>{element.detalle}</span>
             </div>
             <div className="divide"></div>
           </div>
