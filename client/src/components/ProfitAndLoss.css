@@ -9,6 +9,7 @@
   box-sizing: border-box;
   background: var(--level1);
   box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 30%);
+  margin-bottom: var(--space4);
 }
 
 .pie {
@@ -72,7 +73,7 @@
 .profitAndLosseResult {
   font-size: 24px;
   font-weight: 400;
-  color: hsl(218, 5%, 50%);
+  color: hsl(218, 25%, 50%);
 }
 
 .divideVertical {

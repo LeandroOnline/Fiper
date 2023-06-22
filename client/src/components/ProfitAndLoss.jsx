@@ -49,7 +49,7 @@ const Total = memo(() => {
   };
 
   return (
-    <div className="totalcontainer">
+    <div className="totalcontainer" >
         <div className="profitAndLosse">
           <h1 className="profitAndLosseTitle">Total: </h1>
           <p className="profitAndLosseResult">

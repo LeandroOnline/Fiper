@@ -14,6 +14,7 @@
   --space3: 16px;
   --space4: 32px;
   --space5: 64px;
+  --space6: 128px;
 }
 
 body {
@@ -50,7 +51,6 @@ select {
 }
 
 button {
-  border: none;
   font-weight: 400;
   box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 30%);
   border-radius: 15px;
@@ -93,6 +93,7 @@ input[type="number"]::-webkit-outer-spin-button {
   color: var(--text);
   border-radius: 15px;
   line-height: 1.2;
+  scroll-behavior: smooth;
 }
 
 *::placeholder {

@@ -166,5 +166,12 @@
 .details {
   overflow: scroll;
   padding: var(--space2);
+  font-size: 16px;
+}
 
+.dividePoint{
+  width: 2px;
+  height: 32px;
+  box-shadow: 1px 1px 3px hsl(218, 25%, 5%) ,
+    -1px -1px 3px hsl(218, 20%, 30%) ;
 }

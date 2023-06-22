@@ -47,7 +47,7 @@ const Interest = () => {
   );
 
   return (
-    <div className="interescontainer">
+    <div className="interescontainer" id="interest">
       <img className="interesImg" src={interes} alt="" />
       <p className="calculadoraText">Calculadora de Interes Compuesto</p>
       <div className="interest">

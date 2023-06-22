@@ -15,6 +15,7 @@ import Popup from "../components/Popup";
 import Notes from "../components/Notes";
 import PorcentComponent from "../components/PorcentComponent";
 import Time from "../components/Time";
+import Menu from "../components/Menu";
 
 const Home = () => {
   const login = useGlobalStore((state) => state.login);
@@ -41,12 +42,13 @@ const Home = () => {
 
   return (
     <div className="allScreen">
-      <div className="homecontainer">
-        <Popup config={popupConfig} />
-        {verifyCheckMessage()}
-        {login ? (
-          checkVerify ? (
-            <>
+      <Popup config={popupConfig} />
+      {verifyCheckMessage()}
+      {login ? (
+        checkVerify ? (
+          <div className="row" id="home">
+            <Menu />
+            <div className="homecontainer">
               <ProfitAndLoss />
               <div className="inputContainer">
                 <Input />
@@ -59,14 +61,14 @@ const Home = () => {
               <Interest />
               <ColumnGraph />
               <AreaGraph />
-            </>
-          ) : (
-            <Verify />
-          )
+            </div>
+          </div>
         ) : (
-          <NoLogged />
-        )}
-      </div>
+          <Verify />
+        )
+      ) : (
+        <NoLogged />
+      )}
     </div>
   );
 };

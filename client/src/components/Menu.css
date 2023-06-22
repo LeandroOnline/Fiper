@@ -1,0 +1,87 @@
+.menuContainer {
+  position: sticky;
+  top: calc(50% - 168px);
+  height: 100%;
+  gap: var(--space3);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.menuContainer a{
+    width: 100%;
+}
+
+.menuItem {
+  gap: var(--space2);
+  padding: var(--space2) calc(var(--space2) + 4px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  background: var(--level1);
+  box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 30%);
+  border: 1px solid rgba(255, 255, 255, 0);
+  border-width: 1px;
+}
+
+.menuItem:hover {
+  box-shadow: 2px 2px 8px hsl(218, 25%, 5%) inset,
+    -2px -2px 8px hsl(218, 20%, 30%) inset, 2px 2px 8px hsl(218, 25%, 5%),
+    -2px -2px 8px hsl(218, 20%, 30%);
+}
+
+.menuItemText {
+  font-weight: 300;
+  font-size: 10px;
+  color: hsl(218, 25%, 50%);
+}
+
+.menuItemImg {
+  width: 32px;
+  filter: invert();
+  opacity: 50%;
+  border-radius: 0;
+}
+
+.dividirContainer {
+  display: flex;
+  position: relative;
+}
+.dividir {
+  width: 32px;
+  filter: invert();
+  opacity: 50%;
+  border-radius: 0;
+  rotate: 15deg;
+}
+
+.persona1 {
+  width: 12px;
+  filter: invert();
+  opacity: 50%;
+  border-radius: 0;
+  position: absolute;
+  top: calc(100% - 12px);
+  left: calc(100% - 12px);
+}
+
+.persona2 {
+  width: 12px;
+  filter: invert();
+  opacity: 50%;
+  border-radius: 0;
+  position: absolute;
+}
+
+.divideVerticalMenu {
+  height: 414px;
+  /* height: 100px; */
+  width: 1px;
+  background-color: var(--primario);
+  box-shadow: 2px 2px 4.5px hsl(218, 25%, 0%) inset,
+    -2px -2px 4.5px hsl(218, 20%, 50%) inset;
+}

@@ -157,9 +157,8 @@ const Navbar = memo(() => {
 
   return (
     <div className="navcontainer">
-      <Popup config={{ popupConfig, setPopupConfig }} />
-
-      <div className="menu">
+      <div className="navMenu">
+        <Popup config={{ popupConfig, setPopupConfig }} />
         <Link to="/">
           <h1 className="title">FIPE</h1>
         </Link>
@@ -206,99 +205,99 @@ const Navbar = memo(() => {
             </Link>
           </>
         )}
-      </div>
 
-      <div className={configIsOpen ? "configmerge" : "configclose"}>
-        <div
-          onClick={() => {
-            setConfigIsOpen(false);
-            setSound();
-          }}
-          className="navbutton"
-        >
-          {sound ? "Silenciar" : "Activar sonido"}
-          <img src={sound ? notification : mute} alt="" className="sound" />
-        </div>
+        <div className={configIsOpen ? "configmerge" : "configclose"}>
+          <div
+            onClick={() => {
+              setConfigIsOpen(false);
+              setSound();
+            }}
+            className="navbutton"
+          >
+            {sound ? "Silenciar" : "Activar sonido"}
+            <img src={sound ? notification : mute} alt="" className="sound" />
+          </div>
 
-        <div className="lineMerge"></div>
-        <div
-          className={updateNicknameMenu ? "" : "navbutton"}
-          onClick={() => {
-            updateNicknameMenu ? null : setUpdateNicknameMenu(true);
-            setPassword(false);
-          }}
-        >
-          {updateNicknameMenu ? (
-            <div className="newPasswordContainer">
-              <input
-                type="text"
-                className="newpassword"
-                placeholder="... hasta 15 letras"
-                value={newNickname}
-                onChange={(e) => setNewNickname(useSanitize(e.target.value))}
-              />
-              <div className="cancelConfirm">
-                <button
-                  className="cancel"
-                  onClick={() => setUpdateNicknameMenu(false)}
-                >
-                  X
-                </button>
-                <button
-                  className="confirm"
-                  onClick={() => UpdateNickname(newNickname)}
-                >
-                  Confirmar
-                </button>
+          <div className="lineMerge"></div>
+          <div
+            className={updateNicknameMenu ? "" : "navbutton"}
+            onClick={() => {
+              updateNicknameMenu ? null : setUpdateNicknameMenu(true);
+              setPassword(false);
+            }}
+          >
+            {updateNicknameMenu ? (
+              <div className="newPasswordContainer">
+                <input
+                  type="text"
+                  className="newpassword"
+                  placeholder="... hasta 15 letras"
+                  value={newNickname}
+                  onChange={(e) => setNewNickname(useSanitize(e.target.value))}
+                />
+                <div className="cancelConfirm">
+                  <button
+                    className="cancel"
+                    onClick={() => setUpdateNicknameMenu(false)}
+                  >
+                    X
+                  </button>
+                  <button
+                    className="confirm"
+                    onClick={() => UpdateNickname(newNickname)}
+                  >
+                    Confirmar
+                  </button>
+                </div>
               </div>
-            </div>
-          ) : (
-            "Cambiar Nickname"
-          )}
-        </div>
-        <div className="lineMerge"></div>
-        <div
-          className={password ? "" : "navbutton"}
-          onClick={() => {
-            password ? null : setPassword(true);
-            setUpdateNicknameMenu(false);
-          }}
-        >
-          {password ? (
-            <div className="newPasswordContainer">
-              <input
-                type="password"
-                className="newpassword"
-                placeholder="Contraseña Actual.."
-                value={currentPassword}
-                onChange={(e) => setCurrentPassword(e.target.value)}
-              />
-              <input
-                type="password"
-                className="newpassword"
-                placeholder="Contraseña Nueva.."
-                value={newPassword}
-                onChange={(e) => setNewPassword(e.target.value)}
-              />
-              <div className="cancelConfirm">
-                <button className="cancel" onClick={() => setPassword(false)}>
-                  X
-                </button>
-                <button
-                  className="confirm"
-                  onClick={() => changePassword(currentPassword, newPassword)}
-                >
-                  Confirmar
-                </button>
+            ) : (
+              "Cambiar Nickname"
+            )}
+          </div>
+          <div className="lineMerge"></div>
+          <div
+            className={password ? "" : "navbutton"}
+            onClick={() => {
+              password ? null : setPassword(true);
+              setUpdateNicknameMenu(false);
+            }}
+          >
+            {password ? (
+              <div className="newPasswordContainer">
+                <input
+                  type="password"
+                  className="newpassword"
+                  placeholder="Contraseña Actual.."
+                  value={currentPassword}
+                  onChange={(e) => setCurrentPassword(e.target.value)}
+                />
+                <input
+                  type="password"
+                  className="newpassword"
+                  placeholder="Contraseña Nueva.."
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                />
+                <div className="cancelConfirm">
+                  <button className="cancel" onClick={() => setPassword(false)}>
+                    X
+                  </button>
+                  <button
+                    className="confirm"
+                    onClick={() => changePassword(currentPassword, newPassword)}
+                  >
+                    Confirmar
+                  </button>
+                </div>
               </div>
-            </div>
-          ) : (
-            "Cambiar Contraseña"
-          )}
-        </div>
-        <div className="lineMerge"></div>
-        <div onClick={() => deleteUser()} className="navbutton">
-          Eliminar Cuenta
+            ) : (
+              "Cambiar Contraseña"
+            )}
+          </div>
+          <div className="lineMerge"></div>
+          <div onClick={() => deleteUser()} className="navbutton">
+            Eliminar Cuenta
+          </div>
         </div>
       </div>
     </div>
