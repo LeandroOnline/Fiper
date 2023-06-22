@@ -10,8 +10,8 @@
   flex-direction: column;
 }
 
-.menuContainer a{
-    width: 100%;
+.menuContainer a {
+  width: 100%;
 }
 
 .menuItem {
@@ -25,13 +25,28 @@
   background: var(--level1);
   box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 30%);
   border: 1px solid rgba(255, 255, 255, 0);
-  border-width: 1px;
+  transition: 0.4s;
 }
 
 .menuItem:hover {
+  border: 1px solid hsl(218, 90%, 57%);
+  transition: 0.4s;
+}
+
+.pressed {
+  transition: 0.4s;
+  gap: var(--space2);
+  padding: var(--space2) calc(var(--space2) + 4px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  background: hsl(218, 90%, 57%, 0.1);
+  border: 1px solid hsl(218, 25%, 15%);
   box-shadow: 2px 2px 8px hsl(218, 25%, 5%) inset,
-    -2px -2px 8px hsl(218, 20%, 30%) inset, 2px 2px 8px hsl(218, 25%, 5%),
-    -2px -2px 8px hsl(218, 20%, 30%);
+    -2px -2px 8px hsl(218, 20%, 30%) inset, 2px 2px 8px hsl(218, 25%, 10%),
+    -2px -2px 8px hsl(218, 20%, 25%);
 }
 
 .menuItemText {

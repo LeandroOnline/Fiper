@@ -1,7 +1,6 @@
 import { memo } from "react";
 import "./ProfitAndLoss.css";
 import useGlobalStore from "../store/Store";
-import { Pie } from "@ant-design/plots";
 import totalNeto from "../helpers/totalNeto";
 import Time from "./Time";
 
@@ -49,30 +48,27 @@ const Total = memo(() => {
   };
 
   return (
-    <div className="totalcontainer" >
-        <div className="profitAndLosse">
-          <h1 className="profitAndLosseTitle">Total: </h1>
-          <p className="profitAndLosseResult">
-            ${inputs ? totalNeto(inputs) : "0"}
-          </p>
-        </div>
-        <div className="divideVertical"></div>
-        <div className="profitAndLosse">
-          <h1 className="profitAndLosseTitle">Ganancias: </h1>
-          <p className="profitAndLosseResult">
-            ${profits ? total(profits) : "0"}
-          </p>
-        </div>
-        <div className="divideVertical"></div>
+    <div className="totalcontainer">
+      <div className="profitAndLosse">
+        <h1 className="profitAndLosseTitle">Total: </h1>
+        <p className="profitAndLosseResult">
+          ${inputs ? totalNeto(inputs) : "0"}
+        </p>
+      </div>
+      <div className="divideVertical"></div>
+      <div className="profitAndLosse">
+        <h1 className="profitAndLosseTitle">Ganancias: </h1>
+        <p className="profitAndLosseResult">
+          ${profits ? total(profits) : "0"}
+        </p>
+      </div>
+      <div className="divideVertical"></div>
 
-        <div className="profitAndLosse">
-          <h1 className="profitAndLosseTitle">Gastos: </h1>
-          <p className="profitAndLosseResult">
-            ${losses ? total(losses) : "0"}
-          </p>
-        </div>
-        <Time/>
-      {/* <Pie {...config} className="pie" /> */}
+      <div className="profitAndLosse">
+        <h1 className="profitAndLosseTitle">Gastos: </h1>
+        <p className="profitAndLosseResult">${losses ? total(losses) : "0"}</p>
+      </div>
+      <Time />
     </div>
   );
 });

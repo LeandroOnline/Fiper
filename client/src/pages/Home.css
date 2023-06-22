@@ -24,7 +24,8 @@
   gap: var(--space4);
   display: flex;
   margin-bottom: var(--space5);
-
+  
+  position: relative;
 }
 
 .row{
