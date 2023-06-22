@@ -46,18 +46,18 @@ const Home = () => {
       {verifyCheckMessage()}
       {login ? (
         checkVerify ? (
-          <div className="row" id="home">
+          <div className="row" >
             <Menu />
-            <div className="homecontainer">
+            <div className="homecontainer" >
               <ProfitAndLoss />
               <div className="inputContainer">
                 <Input />
                 <ListInputs />
               </div>
+              <Notes />
               <PorcentComponent />
               <Difference />
               <DolarBlue />
-              <Notes />
               <Interest />
               <ColumnGraph />
               <AreaGraph />

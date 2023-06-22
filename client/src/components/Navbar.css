@@ -1,7 +1,6 @@
 .navcontainer {
   display: flex;
   align-items: center;
-  justify-content: end;
   flex-direction: column;
   color: rgb(235, 235, 235);
   width: 100%;
@@ -22,7 +21,7 @@
   align-items: center;
   flex-direction: row;
   position: fixed;
-  top: 16px;
+  top: var(--space3);
   z-index: 1;
   transition: 0.5s;
   box-shadow: 5px 5px 12px var(--background);

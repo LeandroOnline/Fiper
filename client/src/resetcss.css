@@ -15,7 +15,7 @@
   --space3: 16px;
   --space4: 32px;
   --space5: 64px;
-  --space6: 128px;
+  --space6: 94px;
 }
 
 body {
@@ -94,7 +94,7 @@ input[type="number"]::-webkit-outer-spin-button {
   color: var(--text);
   border-radius: 15px;
   line-height: 1.2;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
 }
 
 *::placeholder {

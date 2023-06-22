@@ -54,76 +54,78 @@ const Notes = () => {
   };
 
   return (
-    <div className="notesContainer" id="notes">
-      <Popup config={{ popupConfig, setPopupConfig }} />
-      <h1>Cantidad de notas checkeadas: {checksCount(notes).count}</h1>
-      <progress
-        className="progressNotes"
-        max="100"
-        value={
-          notes.length > 0
-            ? (checksCount(notes).count / checksCount(notes).total) * 100
-            : 0
-        }
-      />
-      <div
-        className="addNote"
-        onClick={() => (addNoteMenu ? null : setAddNoteMenu(true))}
-      >
-        {addNoteMenu ? (
-          <div className="noteInputs">
-            <input
-              type="text"
-              placeholder="Title:"
-              value={title}
-              onChange={(e) => setTitle(useSanitize(e.target.value))}
-              className="titleNote"
-            />
-            <textarea
-              type="text"
-              placeholder="Text:"
-              value={text}
-              onChange={(e) => setText(useSanitize(e.target.value))}
-              className="inputNote"
-            />
-            <div className="buttonsNote">
-              <img
-                className="del"
-                onClick={() => {
-                  setAddNoteMenu(false);
-                  setTitle("");
-                  setText("");
-                }}
-                src={cancel}
-                alt="x"
-              />
-              <img
-                className="ok"
-                src={ok}
-                onClick={() => addNote(title, text)}
-                alt="ok"
-              />
-            </div>
-          </div>
-        ) : (
-          <img
-            className="addNoteImg"
-            src={add}
-            alt="add"
-            onClick={() => setAddNoteMenu(true)}
-          />
-        )}
-      </div>
-      {notes.map((note, index) => (
-        <Note
-          title={note.title}
-          text={note.text}
-          key={index}
-          id={note._id}
-          check={note.check}
+    <>
+      <div className="notesContainer" id="notes">
+        <Popup config={{ popupConfig, setPopupConfig }} />
+        <h1>Cantidad de notas checkeadas: {checksCount(notes).count}</h1>
+        <progress
+          className="progressNotes"
+          max="100"
+          value={
+            notes.length > 0
+              ? (checksCount(notes).count / checksCount(notes).total) * 100
+              : 0
+          }
         />
-      ))}
-    </div>
+        <div
+          className="addNote"
+          onClick={() => (addNoteMenu ? null : setAddNoteMenu(true))}
+        >
+          {addNoteMenu ? (
+            <div className="noteInputs">
+              <input
+                type="text"
+                placeholder="Title:"
+                value={title}
+                onChange={(e) => setTitle(useSanitize(e.target.value))}
+                className="titleNote"
+              />
+              <textarea
+                type="text"
+                placeholder="Text:"
+                value={text}
+                onChange={(e) => setText(useSanitize(e.target.value))}
+                className="inputNote"
+              />
+              <div className="buttonsNote">
+                <img
+                  className="del"
+                  onClick={() => {
+                    setAddNoteMenu(false);
+                    setTitle("");
+                    setText("");
+                  }}
+                  src={cancel}
+                  alt="x"
+                />
+                <img
+                  className="ok"
+                  src={ok}
+                  onClick={() => addNote(title, text)}
+                  alt="ok"
+                />
+              </div>
+            </div>
+          ) : (
+            <img
+              className="addNoteImg"
+              src={add}
+              alt="add"
+              onClick={() => setAddNoteMenu(true)}
+            />
+          )}
+        </div>
+        {notes.map((note, index) => (
+          <Note
+            title={note.title}
+            text={note.text}
+            key={index}
+            id={note._id}
+            check={note.check}
+          />
+        ))}
+      </div>
+    </>
   );
 };
 export default Notes;
