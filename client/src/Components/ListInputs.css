@@ -13,8 +13,10 @@
   height: 300px;
   overflow: auto;
   gap: var(--space3);
-  box-shadow: 2px 2px 8px hsl(218, 25%, 5%) inset,
-    -2px -2px 8px hsl(218, 20%, 30%) inset;
+  box-shadow: 1px 1px 8px hsl(218, 25%, 5%), -1px -1px 8px hsl(218, 20%, 30%),
+  1px 1px 8px hsl(218, 25%, 5%) inset, -1px -1px 8px hsl(218, 20%, 30%) inset;
+  background-color: var(--level2);
+  border: 2px solid var(--level1);
 }
 
 .listElement {
@@ -32,8 +34,8 @@
   background: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0),
-    var(--level2),
-    var(--level2),
+    var(--level3),
+    var(--level3),
     rgba(255, 255, 255, 0)
   );
 }
@@ -169,9 +171,8 @@
   font-size: 16px;
 }
 
-.dividePoint{
+.dividePoint {
   width: 2px;
   height: 32px;
-  box-shadow: 1px 1px 3px hsl(218, 25%, 5%) ,
-    -1px -1px 3px hsl(218, 20%, 30%) ;
+  box-shadow: 1px 1px 3px hsl(218, 25%, 5%), -1px -1px 3px hsl(218, 20%, 30%);
 }

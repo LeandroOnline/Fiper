@@ -23,7 +23,8 @@
   justify-content: start;
   flex-direction: column;
   background: var(--level1);
-  box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 30%);
+  box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 30%),
+    1px 1px 20px hsl(218, 25%, 5%) inset, -1px -1px 20px hsl(218, 20%, 30%) inset;
   border: 1px solid rgba(255, 255, 255, 0);
   transition: 0.4s;
 }
