@@ -2,7 +2,6 @@
   padding: var(--space3);
   width: 100%;
   height: 400px;
-  background: var(--level2);
   display: flex;
   flex-direction: row;
   gap: 15px;

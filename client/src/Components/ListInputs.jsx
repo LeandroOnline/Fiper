@@ -189,7 +189,7 @@ const ListInputs = () => {
                       name="input"
                       value={inputValue}
                       onChange={(e) => setInputValue(e.target.value)}
-                      className="inputPriceItem"
+                      className="inputPriceItemUpdate"
                     />
                     <textarea
                       placeholder="Detalle"

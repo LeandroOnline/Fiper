@@ -75,10 +75,12 @@ const Note = ({ title, text, id, check }) => {
       ) : (
         <>
           <div
-            className={check ? "checkNoteGreen" : "checkNoteGray"}
+            className={check ? " checkNoteGreenBorder" : "checkNoteGray"}
             onClick={() => checkNote(id)}
           >
-            {check ? <img className="done" src={done} alt="" /> : null}
+            <div className={check ? "checkNoteGreen" : "none"}>
+              <img className={check ? "done" : "doneNone"} src={done} alt="check" />
+            </div>
           </div>
           <div className="buttonsSavedNote">
             <img

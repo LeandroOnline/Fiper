@@ -26,6 +26,7 @@
   gap: var(--space4);
   display: flex;
   position: relative;
+  height: calc(60vh - 16px);
 }
 
 .row {

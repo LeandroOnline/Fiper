@@ -10,14 +10,13 @@
 .listcontainer {
   padding: var(--space3);
   width: 100%;
-  height: 300px;
-  overflow:scroll;
+  height: 100%;
+  overflow: auto;
   gap: var(--space3);
   box-shadow: 1px 1px 8px hsl(218, 25%, 5%), -1px -1px 8px hsl(218, 20%, 30%),
-  1px 1px 8px hsl(218, 25%, 5%) inset, -1px -1px 8px hsl(218, 20%, 30%) inset;
+    1px 1px 8px hsl(218, 25%, 5%) inset, -1px -1px 8px hsl(218, 20%, 30%) inset;
   background-color: var(--level2);
   border: 2px solid var(--level1);
-  /* box-sizing: border-box; */
 }
 
 .listElement {
@@ -97,6 +96,14 @@
   padding-bottom: var(--space3);
 }
 
+.inputPriceItemUpdate{
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 2px 2px 4px hsl(218, 25%, 5%) inset,
+    -2px -2px 4px hsl(218, 20%, 30%) inset;
+  background: var(--level2);
+  background: var(--level3);
+}
 .inputTextItemUpdate {
   all: unset;
   width: 100%;
@@ -109,7 +116,7 @@
   padding: var(--space3);
   box-shadow: 2px 2px 4px hsl(218, 25%, 5%) inset,
     -2px -2px 4px hsl(218, 20%, 30%) inset;
-  background: var(--level2);
+  background: var(--level3);
   margin-bottom: var(--space3);
 }
 
@@ -167,7 +174,7 @@
 }
 
 .details {
-  overflow: scroll;
+  overflow: auto;
   padding: var(--space2);
   font-size: 16px;
 }

@@ -6,6 +6,7 @@ import estadistica from "../assets/estadistica.png";
 import dividir from "../assets/dividir.png";
 import persona from "../assets/persona.png";
 import { useState } from "react";
+
 import { Link } from "react-scroll";
 
 const Menu = () => {

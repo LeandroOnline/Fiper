@@ -9,6 +9,7 @@ import axiosAddNote from "../api/axiosAddNote";
 import useSanitize from "../hooks/useSanitize";
 import useErrorHandler from "../hooks/useErrorHandler";
 import Popup from "./Popup";
+import { Gauge } from "@ant-design/plots";
 
 const Notes = () => {
   const storeGetNotes = useGlobalStore((state) => state.storeGetNotes);
@@ -53,77 +54,107 @@ const Notes = () => {
     return { count, total };
   };
 
+  const config = {
+    percent: 0.75,
+    range: {
+      color: "l(0) 0:#B8E1FF 1:#3D76DD",
+    },
+    startAngle: Math.PI,
+    endAngle: 2 * Math.PI,
+    indicator: null,
+    statistic: {
+      title: {
+        offsetY: -36,
+        style: {
+          fontSize: "40px",
+          color: "#4B535E",
+        },
+        formatter: () =>
+          ((checksCount(notes).count / checksCount(notes).total) * 100).toFixed(
+            0
+          ) + "%",
+      },
+      content: {
+        style: {
+          fontSize: "20px",
+          lineHeight: "44px",
+          color: "#4B535E",
+        },
+        formatter: () => "Checkeadas",
+      },
+    },
+  };
+
   return (
     <>
       <div className="notesContainer" id="notes">
-        <Popup config={{ popupConfig, setPopupConfig }} />
-        <h1>Cantidad de notas checkeadas: {checksCount(notes).count}</h1>
-        <progress
-          className="progressNotes"
-          max="100"
-          value={
-            notes.length > 0
-              ? (checksCount(notes).count / checksCount(notes).total) * 100
-              : 0
-          }
-        />
-        <div
-          className="addNote"
-          onClick={() => (addNoteMenu ? null : setAddNoteMenu(true))}
-        >
-          {addNoteMenu ? (
-            <div className="noteInputs">
-              <input
-                type="text"
-                placeholder="Title:"
-                value={title}
-                onChange={(e) => setTitle(useSanitize(e.target.value))}
-                className="titleNote"
-              />
-              <textarea
-                type="text"
-                placeholder="Text:"
-                value={text}
-                onChange={(e) => setText(useSanitize(e.target.value))}
-                className="inputNote"
-              />
-              <div className="buttonsNote">
-                <img
-                  className="del"
-                  onClick={() => {
-                    setAddNoteMenu(false);
-                    setTitle("");
-                    setText("");
-                  }}
-                  src={cancel}
-                  alt="x"
+        <div className="addNoteAndGraph">
+          <Popup config={{ popupConfig, setPopupConfig }} />
+          <div
+            className="addNote"
+            onClick={() => (addNoteMenu ? null : setAddNoteMenu(true))}
+          >
+            {addNoteMenu ? (
+              <div className="noteInputs">
+                <input
+                  type="text"
+                  placeholder="Title:"
+                  value={title}
+                  onChange={(e) => setTitle(useSanitize(e.target.value))}
+                  className="titleNote"
                 />
-                <img
-                  className="ok"
-                  src={ok}
-                  onClick={() => addNote(title, text)}
-                  alt="ok"
+                <textarea
+                  type="text"
+                  placeholder="Text:"
+                  value={text}
+                  onChange={(e) => setText(useSanitize(e.target.value))}
+                  className="inputNote"
                 />
+                <div className="buttonsNote">
+                  <img
+                    className="del"
+                    onClick={() => {
+                      setAddNoteMenu(false);
+                      setTitle("");
+                      setText("");
+                    }}
+                    src={cancel}
+                    alt="x"
+                  />
+                  <img
+                    className="ok"
+                    src={ok}
+                    onClick={() => addNote(title, text)}
+                    alt="ok"
+                  />
+                </div>
               </div>
-            </div>
-          ) : (
-            <img
-              className="addNoteImg"
-              src={add}
-              alt="add"
-              onClick={() => setAddNoteMenu(true)}
-            />
-          )}
+            ) : (
+              <img
+                className="addNoteImg"
+                src={add}
+                alt="add"
+                onClick={() => setAddNoteMenu(true)}
+              />
+            )}
+          </div>
+
+          <Gauge {...config} className="gauge"/>
         </div>
-        {notes.map((note, index) => (
-          <Note
-            title={note.title}
-            text={note.text}
-            key={index}
-            id={note._id}
-            check={note.check}
-          />
-        ))}
+
+        <div className="diviteNotesContainer"></div>
+
+        <div className="notesGridContainer">
+          {notes.map((note, index) => (
+            <Note
+              title={note.title}
+              text={note.text}
+              key={index}
+              id={note._id}
+              check={note.check}
+            />
+          ))}
+        </div>
       </div>
     </>
   );
