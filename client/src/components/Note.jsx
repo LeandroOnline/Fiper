@@ -38,9 +38,9 @@ const Note = ({ title, text, id, check }) => {
   };
 
   return (
-    <div className="noteContainer">
+    <>
       {updateMenu ? (
-        <div className="noteInputs">
+        <div className="noteContainer">
           <input
             type="text"
             placeholder="Title:"
@@ -55,9 +55,9 @@ const Note = ({ title, text, id, check }) => {
             onChange={(e) => setTextUpdate(e.target.value)}
             className="inputTextUpdate"
           />
-          <div className="buttonsNoteUpdate">
+          <div className="buttonsSavedNote">
             <img
-              className="del"
+              className="deleteImg"
               onClick={() => {
                 setUpdateMenu(false);
               }}
@@ -65,7 +65,7 @@ const Note = ({ title, text, id, check }) => {
               alt="x"
             />
             <img
-              className="okUpdate"
+              className="modifyImg"
               src={ok}
               onClick={() => updateNote(id, titleUpdate, textUpdate)}
               alt="ok"
@@ -73,13 +73,17 @@ const Note = ({ title, text, id, check }) => {
           </div>
         </div>
       ) : (
-        <>
+        <div div className="noteContainer">
           <div
             className={check ? " checkNoteGreenBorder" : "checkNoteGray"}
             onClick={() => checkNote(id)}
           >
             <div className={check ? "checkNoteGreen" : "none"}>
-              <img className={check ? "done" : "doneNone"} src={done} alt="check" />
+              <img
+                className={check ? "done" : "doneNone"}
+                src={done}
+                alt="check"
+              />
             </div>
           </div>
           <div className="buttonsSavedNote">
@@ -98,9 +102,9 @@ const Note = ({ title, text, id, check }) => {
           </div>
           <h1 className="noteTitle">{title}</h1>
           <p className="noteText">{text}</p>
-        </>
+        </div>
       )}
-    </div>
+    </>
   );
 };
 export default Note;

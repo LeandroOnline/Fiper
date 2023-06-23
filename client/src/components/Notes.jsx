@@ -54,8 +54,13 @@ const Notes = () => {
     return { count, total };
   };
 
+  let porcent = (
+    (checksCount(notes).count / checksCount(notes).total) *
+    100
+  ).toFixed(0);
+
   const config = {
-    percent: 0.75,
+    percent: porcent / 100,
     range: {
       color: "l(0) 0:#B8E1FF 1:#3D76DD",
     },
@@ -69,10 +74,7 @@ const Notes = () => {
           fontSize: "40px",
           color: "#4B535E",
         },
-        formatter: () =>
-          ((checksCount(notes).count / checksCount(notes).total) * 100).toFixed(
-            0
-          ) + "%",
+        formatter: () => porcent + "%",
       },
       content: {
         style: {
@@ -85,67 +87,38 @@ const Notes = () => {
     },
   };
 
+  const reversedNotes = [...notes].reverse();
+
   return (
     <>
       <div className="notesContainer" id="notes">
         <div className="addNoteAndGraph">
           <Popup config={{ popupConfig, setPopupConfig }} />
-          <div
-            className="addNote"
-            onClick={() => (addNoteMenu ? null : setAddNoteMenu(true))}
-          >
-            {addNoteMenu ? (
-              <div className="noteInputs">
-                <input
-                  type="text"
-                  placeholder="Title:"
-                  value={title}
-                  onChange={(e) => setTitle(useSanitize(e.target.value))}
-                  className="titleNote"
-                />
-                <textarea
-                  type="text"
-                  placeholder="Text:"
-                  value={text}
-                  onChange={(e) => setText(useSanitize(e.target.value))}
-                  className="inputNote"
-                />
-                <div className="buttonsNote">
-                  <img
-                    className="del"
-                    onClick={() => {
-                      setAddNoteMenu(false);
-                      setTitle("");
-                      setText("");
-                    }}
-                    src={cancel}
-                    alt="x"
-                  />
-                  <img
-                    className="ok"
-                    src={ok}
-                    onClick={() => addNote(title, text)}
-                    alt="ok"
-                  />
-                </div>
-              </div>
-            ) : (
-              <img
-                className="addNoteImg"
-                src={add}
-                alt="add"
-                onClick={() => setAddNoteMenu(true)}
-              />
-            )}
-          </div>
 
-          <Gauge {...config} className="gauge"/>
+          <input
+            type="text"
+            placeholder="Titulo"
+            value={title}
+            onChange={(e) => setTitle(useSanitize(e.target.value))}
+            className="titleNote"
+          />
+          <textarea
+            type="text"
+            placeholder="Texto"
+            value={text}
+            onChange={(e) => setText(useSanitize(e.target.value))}
+            className="inputNote"
+          />
+          <button className="clearAll" onClick={() => addNote(title, text)}>
+            Agregar
+          </button>
+          <Gauge {...config} className="gauge" />
         </div>
 
-        <div className="diviteNotesContainer"></div>
+        {/* <div className="diviteNotesContainer"></div> */}
 
         <div className="notesGridContainer">
-          {notes.map((note, index) => (
+          {reversedNotes.map((note, index) => (
             <Note
               title={note.title}
               text={note.text}

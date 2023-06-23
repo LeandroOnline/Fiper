@@ -7,10 +7,9 @@
   align-items: center;
   justify-content: center;
   gap: var(--space3);
-  background: var(--level1);
   box-shadow: 2px 2px 8px hsl(218, 25%, 5%) inset,
     -2px -2px 8px hsl(218, 20%, 30%) inset;
-    margin-left: var(--space3);
+  margin-left: var(--space3);
 }
 
 .hour {

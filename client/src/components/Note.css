@@ -1,7 +1,8 @@
 .noteContainer {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   position: relative;
-  top: var(--space3);
   box-shadow: 5px 5px 12px var(--background);
   border-top: 1px outset hsla(0, 0%, 100%, 0.4);
   border-bottom: 1px solid hsla(0, 0%, 0%, 1);
@@ -16,7 +17,6 @@
 }
 
 .buttonsNoteUpdate {
-  background-color: rgba(255, 255, 255, 0.3);
   position: absolute;
   top: calc(100% - 30px);
   left: calc(100% - 64px);
@@ -75,53 +75,29 @@
   padding: var(--space1);
 }
 
-.modifyImg:hover ,.deleteImg:hover {
+.modifyImg:hover,
+.deleteImg:hover {
   transition: 0.5s;
   opacity: 80%;
   padding: 0;
 }
 
-.okUpdate {
-  width: 30px;
-  opacity: 70%;
-  padding: 7.5px;
-  /* transition: 0.5s; */
-  border-radius: 0 0 15px 0;
-  /* transition: 0.5s; */
-}
-
-.okUpdate:hover {
-  width: 30px;
-  opacity: 70%;
-  padding: var(--space2);
-  transition: 0.5s;
-  border-radius: 0 0 15px 0;
-  /* transition: 0.5s; */
-  background-color: rgb(255, 255, 255, 0.5);
-}
-
-.noteInputs {
-  border-radius: 15px;
-}
-
 .inputTitleUpdate {
-  height: 35%;
+  height: 50px;
   width: calc(100% - 10px);
   border-radius: 15px 15px 0 0;
-  border-bottom: 1px solid rgb(255, 255, 255, 0.1);
   padding: 0 5px;
   color: rgb(255, 255, 255, 0.6);
 }
 
 .inputTextUpdate {
   all: unset;
-  height: calc(65% - 11px);
-  width: calc(100% - 10px);
-  padding: 5px 5px;
+  display: flex;
+  height: 120px;
+  width: 100%;
   border-radius: 0 0 15px 15px;
-  color: rgb(255, 255, 255, 0.6);
   resize: none;
-  background-color: rgb(255, 255, 255, 0.1);
+  background: var(--level3);
 }
 
 .none {
@@ -164,10 +140,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.5s;
 }
 
 .checkNoteGreenBorder:hover {
-  background: hsl(218, 90%, 57%, 0.3);
+  background: var(--ligth);
   border: 1px solid var(--level3);
   transition: 0.5s;
 }
@@ -182,7 +159,7 @@
   box-shadow: 1px 1px 4px hsl(220, 23%, 5%) inset,
     -1px -1px 4px hsl(220, 23%, 45%) inset;
   border: 1px solid rgba(255, 255, 255, 0);
-  transition: 0.5s;
+  transition: 1s;
 }
 
 .checkNoteGray:hover {

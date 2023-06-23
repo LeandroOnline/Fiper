@@ -44,11 +44,6 @@
   width: calc(100% - 30px);
 }
 
-.inputContainer {
-  width: 100%;
-  position: relative;
-}
-
 .emailAndKey {
   position: absolute;
   width: 20px;

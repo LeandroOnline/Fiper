@@ -113,6 +113,8 @@ const ListInputs = () => {
 
   const search = filtered ? filtered : inputs;
 
+  const reversedInputs = [...search].reverse();
+
   return (
     <div className="navAndListContainer">
       <div className="navList">
@@ -135,7 +137,7 @@ const ListInputs = () => {
       <div className="listcontainer">
         <Popup config={{ popupConfig, setPopupConfig }} />
 
-        {search.map((element, key) => (
+        {reversedInputs.map((element, key) => (
           <div key={key}>
             <div className="listElement">
               <div className="inputOptions">
