@@ -1,51 +1,23 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import "./ProfitAndLoss.css";
 import useGlobalStore from "../store/Store";
 import totalNeto from "../helpers/totalNeto";
 import Time from "./Time";
+import dolarBlue from "../utils/dolarBlue";
 
 const Total = memo(() => {
   const inputs = useGlobalStore((state) => state.inputs);
   const losses = useGlobalStore((state) => state.losses);
   const profits = useGlobalStore((state) => state.profits);
 
+  const [dolar, setDolar] = useState("");
+  dolarBlue().then((data) => setDolar(data));
+  // const totalEnUSD = (totalNeto(inputs) / dolar).toFixed(2);
+
   const total = (profits) => {
     let total = 0;
     profits.forEach((prof) => (total += prof));
     return total;
-  };
-
-  const data = [
-    {
-      type: "Ingresos",
-      value: total(profits),
-    },
-    {
-      type: "Egresos",
-      value: total(losses),
-    },
-  ];
-  
-  const config = {
-    appendPadding: 8,
-    data,
-    angleField: "value",
-    colorField: "type",
-    radius: 0.9,
-    label: {
-      type: "inner",
-      offset: "-30%",
-      content: ({ percent }) => `${(percent * 100).toFixed(0)}%`,
-      style: {
-        fontSize: 14,
-        textAlign: "center",
-      },
-    },
-    interactions: [
-      {
-        type: "element-active",
-      },
-    ],
   };
 
   return (
@@ -68,6 +40,12 @@ const Total = memo(() => {
       <div className="profitAndLosse">
         <h1 className="profitAndLosseTitle">Gastos: </h1>
         <p className="profitAndLosseResult">${losses ? total(losses) : "0"}</p>
+      </div>
+      <div className="divideVertical"></div>
+
+      <div className="profitAndLosse">
+        <h1 className="profitAndLosseTitle">Dolar BLue: </h1>
+        <p className="profitAndLosseResult">${dolar}</p>
       </div>
       <Time />
     </div>

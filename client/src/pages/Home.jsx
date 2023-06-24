@@ -4,9 +4,7 @@ import Input from "../components/Input";
 import ListInputs from "../components/ListInputs";
 import ProfitAndLoss from "../components/ProfitAndLoss";
 import useGlobalStore from "../store/Store";
-import DolarBlue from "../components/DolarBlue";
 import Interest from "../components/Interest";
-import Difference from "../components/Difference";
 import NoLogged from "../components/NoLogged";
 import "./Home.css";
 import Verify from "./Verify";
@@ -54,8 +52,7 @@ const Home = () => {
               </div>
               <Notes />
               <Interest />
-              <Difference />
-              <DolarBlue />
+
               <ColumnGraph />
               <AreaGraph />
             </div>
