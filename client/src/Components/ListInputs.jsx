@@ -221,7 +221,7 @@ const ListInputs = () => {
                 </form>
               </>
             ) : null}
-            <div className="divide"></div>
+            {/* <div className="divide"></div> */}
           </div>
         ))}
       </div>

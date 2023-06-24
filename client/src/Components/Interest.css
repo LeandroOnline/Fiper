@@ -115,7 +115,7 @@
   flex-direction: column;
   background: var(--level2);
   padding: var(--space3);
-
+  border: 1px solid var(--level1);
 }
 
 .calculadoraTextResult {

@@ -3,16 +3,12 @@
   flex-direction: column;
   width: 100%;
   position: relative;
-  box-shadow: 5px 5px 12px var(--background);
+  box-shadow: 3px 3px 10px var(--background);
   border-top: 1px outset hsla(0, 0%, 100%, 0.4);
   border-bottom: 1px solid hsla(0, 0%, 0%, 1);
   gap: var(--space3);
   padding: var(--space2);
-  background: linear-gradient(
-    135deg,
-    hsl(218, 25%, 57%, 0.1),
-    hsl(218, 25%, 57%, 0)
-  );
+  background: var(--level2);
   border-radius: 15px;
 }
 
