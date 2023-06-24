@@ -62,7 +62,7 @@ const Menu = () => {
       >
         <div className={position === "graphs" ? "pressed" : "menuItem"}>
           <img src={estadistica} className="menuItemImg" alt="est" />
-          <p className="menuItemText">Grafica</p>
+          <p className="menuItemText">Graficos</p>
         </div>
       </Link>
       <Link

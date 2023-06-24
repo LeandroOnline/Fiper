@@ -73,7 +73,7 @@ const Note = ({ title, text, id, check }) => {
           </div>
         </div>
       ) : (
-        <div div className="noteContainer">
+        <div className="noteContainer">
           <div
             className={check ? " checkNoteGreenBorder" : "checkNoteGray"}
             onClick={() => checkNote(id)}

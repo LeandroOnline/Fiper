@@ -50,6 +50,7 @@
   margin-right: var(--space2);
   top: calc(50% - --space1);
 }
+
 .img {
   width: 32px;
   height: 32px;

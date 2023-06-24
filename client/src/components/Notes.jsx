@@ -1,10 +1,7 @@
 import Note from "./Note";
 import "./Notes.css";
-import add from "../assets/agregar.png";
 import useGlobalStore from "../store/Store";
 import { useEffect, useState } from "react";
-import cancel from "../assets/cancelar.png";
-import ok from "../assets/correcto.png";
 import axiosAddNote from "../api/axiosAddNote";
 import useSanitize from "../hooks/useSanitize";
 import useErrorHandler from "../hooks/useErrorHandler";
@@ -17,7 +14,6 @@ const Notes = () => {
     (state) => state.noteDeletedOrUpdate
   );
   const notes = useGlobalStore((state) => state.notes);
-  const [addNoteMenu, setAddNoteMenu] = useState(false);
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [sendNote, setSendNote] = useState(false);
@@ -30,10 +26,10 @@ const Notes = () => {
   const addNote = async (title, text) => {
     await axiosAddNote(title, text)
       .then(() => {
-        setAddNoteMenu(false);
+        // setAddNoteMenu(false);
         setTitle("");
         setText("");
-        setSendNote(!sendNote);
+        // setSendNote(!sendNote);
         setPopupConfig({
           type: "ok",
           text: "Nota agregada",
@@ -114,8 +110,6 @@ const Notes = () => {
           </button>
           <Gauge {...config} className="gauge" />
         </div>
-
-        {/* <div className="diviteNotesContainer"></div> */}
 
         <div className="notesGridContainer">
           {reversedNotes.map((note, index) => (

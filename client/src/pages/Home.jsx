@@ -13,8 +13,6 @@ import Verify from "./Verify";
 import { useState } from "react";
 import Popup from "../components/Popup";
 import Notes from "../components/Notes";
-import PorcentComponent from "../components/PorcentComponent";
-import Time from "../components/Time";
 import Menu from "../components/Menu";
 
 const Home = () => {
@@ -55,10 +53,9 @@ const Home = () => {
                 <ListInputs />
               </div>
               <Notes />
-              <PorcentComponent />
+              <Interest />
               <Difference />
               <DolarBlue />
-              <Interest />
               <ColumnGraph />
               <AreaGraph />
             </div>

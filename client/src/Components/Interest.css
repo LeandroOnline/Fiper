@@ -1,16 +1,26 @@
 .interescontainer {
   padding: var(--space3);
   width: 100%;
-  height: 150px;
-  box-sizing: border-box;
+  height: 80vh;
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  gap: 15px;
+  flex-direction: column;
+  gap: var(--space4);
+  box-shadow: 1px 1px 8px hsl(218, 25%, 5%), -1px -1px 8px hsl(218, 20%, 30%),
+    1px 1px 8px hsl(218, 25%, 5%) inset, -1px -1px 8px hsl(218, 20%, 30%) inset;
+  border: 1px solid var(--level1);
+  margin: 0 0 var(--space5) 0;
 }
 
-.calculadoraText {
+.tinyArea canvas {
+  box-shadow: 2px 2px 8px hsl(218, 25%, 5%) inset,
+    -2px -2px 8px hsl(218, 20%, 30%) inset;
+  padding-top: var(--space3);
+  background: var(--level2);
+}
+
+.calculadoraTexts {
   font-size: 15px;
+  width: 50%;
 }
 
 .interesImg {
@@ -18,32 +28,54 @@
 }
 
 .interestInputs {
-  width: 60px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 2px 2px 4px hsl(218, 25%, 5%) inset,
+    -2px -2px 4px hsl(218, 20%, 30%) inset;
   background: var(--level2);
-}
-
-.columns {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  margin-bottom: var(--space3);
 }
 
 .interestInputsContainer {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  align-items: center;
+  align-items: start;
   justify-content: center;
+  width: 50%;
+}
+
+.level {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--placeholder);
+  margin-bottom: var(--space2);
+}
+
+.selectContainer {
+  display: flex;
+  gap: var(--space3);
+  flex-direction: column;
+  margin-bottom: var(--space3);
+}
+
+.select {
+  cursor: pointer;
+  box-shadow: 2px 2px 4px hsl(218, 25%, 5%),
+    -2px -2px 4px hsl(218, 20%, 30%);
+  width: 120px;
+  height: 30px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 16px;
+  font-size: 14px;
 }
 
 .interest {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
-.calculadoraTextResult{
- color: rgb(155, 155, 155);
+.calculadoraTextResult {
+  color: rgb(155, 155, 155);
 }

@@ -25,6 +25,7 @@ const Total = memo(() => {
       value: total(losses),
     },
   ];
+  
   const config = {
     appendPadding: 8,
     data,
