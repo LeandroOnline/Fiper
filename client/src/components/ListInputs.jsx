@@ -179,6 +179,8 @@ const ListInputs = () => {
               <div className="dividePoint"></div>
               <span className="details">{element.detalle}</span>
             </div>
+
+            
             {modificar && element._id === idElemento ? (
               <>
                 <form
@@ -221,7 +223,6 @@ const ListInputs = () => {
                 </form>
               </>
             ) : null}
-            {/* <div className="divide"></div> */}
           </div>
         ))}
       </div>
