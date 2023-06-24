@@ -140,7 +140,6 @@
   justify-content: start;
   width: 100%;
   margin-bottom: var(--space3);
-  gap: var(--space4);
 }
 
 .clearAll {
@@ -173,10 +172,17 @@
 }
 
 .totalInputs {
+  display: flex;
+  align-items: center;
+  justify-content: start;
   width: 100%;
   background: linear-gradient(90deg, var(--level2), rgba(255, 255, 255, 0));
-  padding: var(--space2) var(--space3);
+  padding: var(--space2)  0 var(--space2) var(--space3);
   height: 42px;
+  font-size: 14px;
+  margin-right: var(--space3);
+  font-weight: 300;
+  color: hsl(218, 25%, 50%);
 }
 
 .details {

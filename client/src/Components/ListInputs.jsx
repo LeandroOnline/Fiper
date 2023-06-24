@@ -118,16 +118,17 @@ const ListInputs = () => {
   return (
     <div className="navAndListContainer">
       <div className="navList">
+        {inputs.length !== 0 ? <Search /> : null}
+
         {inputs.length == 0 ? (
           <p className="totalInputs">
             Sin entradas, por favor ingresa un valor
           </p>
         ) : filtered ? (
-          <p className="totalInputs">Total: ${totalNeto(filtered)}</p>
+          <p className="totalInputs">${totalNeto(filtered)}</p>
         ) : (
-          <p className="totalInputs">Total: ${totalNeto(inputs)}</p>
+          <p className="totalInputs">Subtotal: $</p>
         )}
-        {inputs.length !== 0 ? <Search /> : null}
         {inputs.length > 0 ? (
           <button className="clearAll" onClick={() => clearTrue()}>
             Limpiar

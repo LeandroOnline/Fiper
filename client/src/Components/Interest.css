@@ -18,11 +18,6 @@
   background: var(--level2);
 }
 
-.calculadoraTexts {
-  font-size: 15px;
-  width: 50%;
-}
-
 .interesImg {
   width: 50px;
 }
@@ -36,12 +31,15 @@
   margin-bottom: var(--space3);
 }
 
+.marginCero{
+  margin: 0;
+}
+
 .interestInputsContainer {
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  width: 50%;
 }
 
 .level {
@@ -54,28 +52,89 @@
 .selectContainer {
   display: flex;
   gap: var(--space3);
-  flex-direction: column;
+  flex-direction: row;
   margin-bottom: var(--space3);
 }
 
 .select {
   cursor: pointer;
-  box-shadow: 2px 2px 4px hsl(218, 25%, 5%),
-    -2px -2px 4px hsl(218, 20%, 30%);
-  width: 120px;
+  box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 30%),
+    1px 1px 20px hsl(218, 25%, 5%) inset,
+    -1px -1px 20px hsl(218, 20%, 30%) inset;
   height: 30px;
   display: flex;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
-  padding: 16px;
   font-size: 14px;
+  font-weight: 200;
+  border: 1px solid rgba(255, 255, 255, 0);
+  transition: 0.4s;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.select:hover {
+  border: 1px solid var(--primario);
+  transition: 0.4s;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.selected {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 200;
+  transition: 0.4s;
+  background: hsl(218, 90%, 57%, 0.1);
+  border: 1px solid hsl(218, 25%, 15%);
+  box-shadow: 2px 2px 8px hsl(218, 25%, 5%) inset,
+    -2px -2px 8px hsl(218, 20%, 30%) inset, 2px 2px 8px hsl(218, 25%, 10%),
+    -2px -2px 8px hsl(218, 20%, 25%);
+}
+
+.selected:hover {
+  background: hsl(218, 90%, 57%, 0.1);
 }
 
 .interest {
   display: flex;
   flex-direction: row;
+  gap: var(--space4);
+}
+
+.calculadoraResultContainer {
+  width: 100%;
+  height: 100%;
+  box-shadow: 2px 2px 8px hsl(218, 25%, 5%) inset,
+    -2px -2px 8px hsl(218, 20%, 30%) inset, 2px 2px 8px hsl(218, 25%, 10%),
+    -2px -2px 8px hsl(218, 20%, 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: var(--level2);
+  padding: var(--space3);
+
 }
 
 .calculadoraTextResult {
-  color: rgb(155, 155, 155);
+  color: hsl(218, 25%, 50%);
+  font-weight: 300;
+}
+
+.calculadoraTitleResult{
+  font-size: 16px;
+}
+
+.resultCenter{
+  display: flex;
+  flex-direction: column;
+  gap: var(--space3)
+}
+
+.resultContainer{
+  display: flex;
+  flex-direction: column;
+  gap: var(--space2)
 }

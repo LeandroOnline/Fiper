@@ -5,35 +5,34 @@ import { TinyArea } from "@ant-design/plots";
 const Interest = () => {
   const [capitalInicial, setCapitalInicial] = useState();
   const [tasaInteresAnual, setTasaInteresAnual] = useState();
-  const [renovacion, setRenovacion] = useState();
-  const [tiempo, setTiempo] = useState();
+  const [periodo, setPeriodo] = useState(12);
+  const [reinversion, setReinversion] = useState();
 
-  const compoundInterest = (rate, ren, cap = 1, year = 1) => {
+  const compoundInterest = (rate, per, cap = 1, re) => {
     let mesProm = 30.416666667;
-    // para la renovacion debo calcular en cuanto divido el año para llegar al periodo
-    // falta agregar para que se puedan calcular algunos dias y algunos meses nomas
-    let per =
-      renovacion === 12
+
+    let Per =
+      per === 12
         ? mesProm
-        : renovacion === 4
+        : per === 4
         ? mesProm * 3
-        : renovacion === 2
+        : per === 2
         ? mesProm * 6
-        : renovacion === 1
+        : per === 1
         ? mesProm * 12
         : 1;
 
     let historyCap = [parseFloat(cap)];
-    let Year = year && year !== "0" ? year : 1;
-    for (let j = 0; j < Year; j++) {
-      for (let i = 0; i < ren; i++) {
-        historyCap.push(
-          historyCap[historyCap.length - 1] +
-            (historyCap[historyCap.length - 1] * ((rate / 365) * per)) / 100
-        );
-      }
+    let reinvestment = re ? re : per;
+
+    for (let i = 0; i < reinvestment; i++) {
+      historyCap.push(
+        historyCap[historyCap.length - 1] +
+          (historyCap[historyCap.length - 1] * ((rate / 365) * Per)) / 100
+      );
     }
-    let TEA = (((historyCap[ren] - cap) * 100) / cap).toFixed(2);
+
+    let TEA = (((historyCap[per] - cap) * 100) / cap).toFixed(2);
     let TE = (((historyCap[historyCap.length - 1] - cap) * 100) / cap).toFixed(
       2
     );
@@ -42,9 +41,9 @@ const Interest = () => {
 
   let newInt = compoundInterest(
     tasaInteresAnual,
-    renovacion,
+    periodo,
     capitalInicial,
-    tiempo
+    reinversion
   );
 
   const data = newInt.historyCap;
@@ -61,7 +60,7 @@ const Interest = () => {
     <div className="interescontainer" id="interest">
       <div className="interest">
         <div className="interestInputsContainer">
-          <p className="level">◆ TNA: *</p>
+          <p className="level">◆ TNA: </p>
           <input
             className="interestInputs"
             type="number"
@@ -69,59 +68,82 @@ const Interest = () => {
             value={tasaInteresAnual ? tasaInteresAnual : false}
             onChange={(e) => setTasaInteresAnual(e.target.value)}
           />
-          <p className="level">◆ Renovacion: *</p>
+          <p className="level">◆ Periodo: </p>
           <div className="selectContainer">
-            <div className="select" onClick={() => setRenovacion(365)}>
-              <div className="selectChoise"></div>
+            <button
+              className={periodo === 365 ? "selected" : "select"}
+              onClick={() => setPeriodo(365)}
+            >
               Diario
-            </div>
-            <div className="select" onClick={() => setRenovacion(12)}>
-              <div className="selectChoise"></div>
+            </button>
+            <button
+              className={periodo === 12 ? "selected" : "select"}
+              onClick={() => setPeriodo(12)}
+            >
               Mensual
-            </div>
-            <div className="select" onClick={() => setRenovacion(4)}>
-              <div className="selectChoise"></div>
+            </button>
+            <button
+              className={periodo === 4 ? "selected" : "select"}
+              onClick={() => setPeriodo(4)}
+            >
               Trimestral
-            </div>
-            <div className="select" onClick={() => setRenovacion(2)}>
-              <div className="selectChoise"></div>
+            </button>
+            <button
+              className={periodo === 2 ? "selected" : "select"}
+              onClick={() => setPeriodo(2)}
+            >
               Semestral
-            </div>
-            <div className="select" onClick={() => setRenovacion(1)}>
-              <div className="selectChoise"></div>
+            </button>
+            <button
+              className={periodo === 1 ? "selected" : "select"}
+              onClick={() => setPeriodo(1)}
+            >
               Anual
-            </div>
+            </button>
           </div>
-          <p className="level">◆ Capital inicial:</p>
+          <p className="level">◆ Cantidad de reinversiones: (opcional)</p>
           <input
             className="interestInputs"
+            type="number"
+            placeholder="Automatico"
+            value={reinversion ? reinversion : false}
+            onChange={(e) => setReinversion(e.target.value)}
+          />
+          <p className="level">◆ Capital inicial:</p>
+          <input
+            className="interestInputs marginCero"
             type="number"
             placeholder="Capital"
             value={capitalInicial ? capitalInicial : false}
             onChange={(e) => setCapitalInicial(e.target.value)}
           />
-          <p className="level">◆ Cantidad de años:</p>
-          <input
-            className="interestInputs"
-            type="number"
-            placeholder="Años"
-            value={tiempo ? tiempo : false}
-            onChange={(e) => setTiempo(e.target.value)}
-          />
         </div>
-        <div className="calculadoraTexts">
-          <p className="calculadoraTextResult">
-            Total Acumulado= $
-            {data[data.length - 1] === "NaN"
-              ? 0
-              : data[data.length - 1].toFixed(2)}
-          </p>
-          <p className="calculadoraTextResult">
-            TEA= {newInt.TEA === "NaN" ? 0 : newInt.TEA}%
-          </p>
-          <p className="calculadoraTextResult">
-            TE= {newInt.TE === "NaN" ? 0 : newInt.TE}%
-          </p>
+        <div className="calculadoraResultContainer">
+          <div className="resultCenter">
+            <div className="resultContainer">
+              <h3 className="calculadoraTitleResult">
+                Tasa Efectiva Anual (TEA)
+              </h3>
+              <p className="calculadoraTextResult">
+                {newInt.TEA === "NaN" ? 0 : newInt.TEA}%
+              </p>
+            </div>
+            <div className="resultContainer">
+              <h3 className="calculadoraTitleResult">Incremento del capital</h3>
+              <p className="calculadoraTextResult">
+                {newInt.TE === "NaN" ? 0 : newInt.TE}%
+              </p>
+            </div>
+            <div className="resultContainer">
+              <h3 className="calculadoraTitleResult">Acumulacion</h3>
+              <p className="calculadoraTextResult">
+                $
+                {capitalInicial === "NaN" || !capitalInicial
+                  ? 0
+                  : data[data.length - 1].toFixed(2)}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
       <TinyArea {...config} className="tinyArea" />

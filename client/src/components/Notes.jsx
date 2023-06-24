@@ -26,10 +26,9 @@ const Notes = () => {
   const addNote = async (title, text) => {
     await axiosAddNote(title, text)
       .then(() => {
-        // setAddNoteMenu(false);
         setTitle("");
         setText("");
-        // setSendNote(!sendNote);
+        setSendNote(!sendNote);
         setPopupConfig({
           type: "ok",
           text: "Nota agregada",
@@ -70,7 +69,7 @@ const Notes = () => {
           fontSize: "40px",
           color: "#4B535E",
         },
-        formatter: () => porcent + "%",
+        formatter: () => (porcent !== "NaN" ? `${porcent} %` : 0 + "%"),
       },
       content: {
         style: {
