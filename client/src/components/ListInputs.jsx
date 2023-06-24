@@ -12,6 +12,8 @@ import useErrorHandler from "../hooks/useErrorHandler";
 import totalNeto from "../helpers/totalNeto.js";
 import useSanitize from "../hooks/useSanitize";
 import trash from "../assets/sound/basura.mp3";
+import ok from "../assets/correcto.png";
+import cancel from "../assets/cancelar.png";
 
 const ListInputs = () => {
   const [modificar, setModificar] = useState(false);
@@ -140,53 +142,28 @@ const ListInputs = () => {
 
         {reversedInputs.map((element, key) => (
           <div key={key}>
-            <div className="listElement">
-              <div className="inputOptions">
-                <img
-                  className="img"
-                  src={del}
-                  alt=""
-                  onClick={() => deleteItem(element._id)}
-                />
-                <img
-                  className="img"
-                  src={modify}
-                  alt=""
-                  onClick={() => {
-                    setModificar(!modificar);
-                    setIdElemento(element._id);
-                    setInputValue("");
-                    setDetalleValue("");
-                  }}
-                />
-              </div>
-              <div className="dividePoint"></div>
-              <p
-                className={
-                  element.input === 0
-                    ? "neutral"
-                    : element.input > 0
-                    ? "positive"
-                    : "negative"
-                }
-              >
-                {element.input === 0 ? "$" : element.input > 0 ? "+ " : "- "}
-                {element.input >= 0 ? element.input : element.input * -1}
-              </p>
-              <div className="dividePoint"></div>
-
-              {Dates(element)}
-              <div className="dividePoint"></div>
-              <span className="details">{element.detalle}</span>
-            </div>
-
-            
             {modificar && element._id === idElemento ? (
               <>
                 <form
                   onSubmit={(e) => updateItem(e)}
-                  className="listInputDetail"
+                  // className="listInputDetail"
+                  className="listElement"
                 >
+                  <div className="inputOptions">
+                    <img
+                      className="img"
+                      src={cancel}
+                      alt=""
+                      onClick={() => {
+                        setModificar(!modificar);
+                        setInputValue("");
+                        setDetalleValue("");
+                      }}
+                    />
+                    <button type="submit" className="imgButton">
+                      <img className="img" src={ok} alt="" />
+                    </button>
+                  </div>
                   <div className="inputsUpdate">
                     <input
                       placeholder="+ / -"
@@ -205,7 +182,7 @@ const ListInputs = () => {
                       onKeyDown={(e) => handleKeyDown(e)}
                     />
                   </div>
-                  <div className="buttons">
+                  {/* <div className="buttons">
                     <button
                       onClick={() => {
                         setModificar(!modificar);
@@ -219,10 +196,50 @@ const ListInputs = () => {
                     <button type="submit" className="inputAplicar">
                       Aplicar
                     </button>
-                  </div>
+                  </div> */}
                 </form>
               </>
-            ) : null}
+            ) : (
+              <div className="listElement">
+                <div className="inputOptions">
+                  <img
+                    className="img"
+                    src={del}
+                    alt=""
+                    onClick={() => deleteItem(element._id)}
+                  />
+                  <img
+                    className="img"
+                    src={modify}
+                    alt=""
+                    onClick={() => {
+                      setModificar(!modificar);
+                      setIdElemento(element._id);
+                      setInputValue("");
+                      setDetalleValue("");
+                    }}
+                  />
+                </div>
+                <div className="dividePoint"></div>
+                <p
+                  className={
+                    element.input === 0
+                      ? "neutral"
+                      : element.input > 0
+                      ? "positive"
+                      : "negative"
+                  }
+                >
+                  {element.input === 0 ? "$" : element.input > 0 ? "+ " : "- "}
+                  {element.input >= 0 ? element.input : element.input * -1}
+                </p>
+                <div className="dividePoint"></div>
+
+                {Dates(element)}
+                <div className="dividePoint"></div>
+                <span className="details">{element.detalle}</span>
+              </div>
+            )}
           </div>
         ))}
       </div>
