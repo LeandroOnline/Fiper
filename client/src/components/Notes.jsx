@@ -66,15 +66,15 @@ const Notes = () => {
       title: {
         offsetY: -36,
         style: {
-          fontSize: "40px",
+          fontSize: "24px",
           color: "#4B535E",
         },
         formatter: () => (porcent !== "NaN" ? `${porcent} %` : 0 + "%"),
       },
       content: {
         style: {
-          fontSize: "20px",
-          lineHeight: "44px",
+          fontSize: "14px",
+          lineHeight: "15px",
           color: "#4B535E",
         },
         formatter: () => "Checkeadas",
