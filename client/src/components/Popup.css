@@ -1,44 +1,37 @@
 .pop {
-  width: 300px;
-  padding: var(--space3);
-  gap: 15px;
-  background: var(--level2);
-  border-style: solid;
-  border-color: rgb(255, 255, 255, 0.8);
-  position:fixed;
+  position: fixed;
   top: 100px;
-  left: calc(50% - 150px);
+  left: calc(50% - 170px);
+  width: 340px;
+  padding: var(--space4);
+  gap: var(--space4);
+  backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
   align-items: center;
   transition: 0.5s;
-  box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.05);
+  box-shadow: 16px 16px 32px var(--shadow), inset -1px -1px 4px var(--shadow), inset 1px 1px 4px var(--text);
+  border: 1px solid var(--level1);
   flex-direction: column;
   z-index: 30;
 }
 
 .pup {
-  width: 300px;
-  padding: var(--space3);
-  gap: 15px;
-  background-color: rgba(255, 255, 255, 0.1);
-  position:fixed;
-  top: -250px;
-  left: calc(50% - 150px);
+  position: fixed;
+  top: -350px;
+  left: calc(50% - 170px);
+  width: 340px;
+  padding: var(--space4);
+  gap: var(--space4);
+  background-color: var(--level3);
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: 0.2s;
+  transition: 0.5s;
   flex-direction: column;
-  z-index: 1;
-}
-
-.popupBlur {
-  backdrop-filter: blur(7px);
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  z-index: -1;
+  z-index: 30;
+  box-shadow: 35px 35px 68px 0px var(--shadow), inset -1px -1px 4px var(--shadow), inset 1px 1px 4px var(--text);
+  border: 1px solid var(--level1);
 }
 
 .popimg {
@@ -47,27 +40,39 @@
   opacity: 80%;
 }
 
-.popupButton {
-  padding: 5px 10px;
-  width: 110px;
-  border: solid rgb(255, 255, 255, 0.5);
+.popupButtonAcept {
+  box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 50%);
+  width: 50%;
+  border: 1px solid var(--primario);
   background-color: rgb(255, 255, 255, 0);
-  color: rgb(255, 255, 255, 0.8);
+  color: var(--result);
+  padding: var(--space2) var(--space3);
 }
 
-.popupButton:hover {
-  padding: 5px 10px;
-  width: 110px;
-  border: solid rgb(255, 255, 255, 0.5);
-  background-color: rgb(255, 255, 255, 0.8);
-  color: rgba(0, 0, 0, 0.8);
+.popupButtonAcept:hover {
+  background-color: var(--primario);
+}
+
+.popupButtonCancel {
+  box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 50%);
+  width: 50%;
+  border: 1px solid var(--level2);
+  background-color: var(--primario);
+  color: var(--result);
+  padding: var(--space2) var(--space3);
+}
+
+.popupButtonCancel:hover {
+  filter: brightness(110%);
 }
 
 .popupButtonsContainer {
   display: flex;
-  gap: 15px;
+  gap: var(--space3);
+  width: 100%;
 }
 
-.popupText{
-  color: rgb(255, 255, 255, 0.8);
+.popupText {
+  color: var(--title);
+  font-weight: 200;
 }

@@ -23,24 +23,13 @@
   top: var(--space3);
   z-index: 20;
   transition: 0.5s;
-  box-shadow: 5px 5px 12px var(--background);
-  border-top: 1px outset hsla(0, 0%, 100%, 0.4);
-  border-bottom: 1px solid hsla(0, 0%, 0%, 1);
   gap: var(--space3);
   padding: var(--space2) var(--space3);
-  backdrop-filter: blur(8px);
-  background: linear-gradient(
-    135deg,
-    hsl(218, 25%, 57%, 0.1),
-    hsl(218, 25%, 57%, 0)
-  );
+  backdrop-filter: blur(10px);
   border-radius: 50px;
-}
-
-.navMenu:hover {
-  box-shadow: 5px 5px 12px var(--ligth);
-  transition: 0.5s;
-  border-top: 1px solid var(--primario);
+  box-shadow: 8px 8px 32px var(--shadow), inset -1px -1px 4px var(--shadow),
+    inset 1px 1px 4px var(--text);
+  border: 1px solid var(--level1);
 }
 
 .navbutton {
@@ -95,18 +84,18 @@
 .configmerge {
   display: flex;
   position: fixed;
-  top: 80px;
+  top: 90px;
   width: 270px;
-  background: var(--level2);
+  backdrop-filter: blur(10px);
   transition: 0.5s;
   flex-direction: column;
   text-align: center;
   gap: 10px;
   padding: var(--space2);
-  border-top: 1px outset hsla(0, 0%, 100%, 0.4);
-  border-bottom: 1px solid hsla(0, 0%, 0%, 1);
-  z-index: -10;
-  box-shadow: 3px 3px 10px var(--shadow);
+  z-index: 10;
+  box-shadow: 2px 2px 32px var(--shadow), inset -1px -1px 4px var(--shadow),
+    inset 1px 1px 4px var(--text);
+  border: 1px solid var(--level1);
 }
 
 .configclose {
@@ -121,6 +110,9 @@
   text-align: center;
   gap: var(--space2);
   padding: var(--space2);
+
+  box-shadow: 2px 2px 16px var(--shadow), inset -1px -1px 4px var(--shadow), inset 1px 1px 4px var(--text);
+  border: 1px solid var(--level1);
 }
 
 .newPasswordContainer {

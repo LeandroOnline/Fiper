@@ -32,14 +32,25 @@ const Popup = ({ config = {} }) => {
 
   return (
     <div className={activate ? "pop" : "pup"}>
-      <div className="popupBlur"></div>
       <img className="popimg" src={img} alt="img" />
       <p className="popupText">{config.popupConfig?.text}</p>
       {config.popupConfig?.toConfirm ? (
         <div className="popupButtonsContainer">
+          <button
+            className="popupButtonAcept"
+            onClick={() => {
+              config.setPopupConfig({
+                ...config.popupConfig,
+                activate: false,
+                choise: config.popupConfig?.query ? true : null,
+              });
+            }}
+          >
+            Aceptar
+          </button>
           {config.popupConfig?.query ? (
             <button
-              className="popupButton"
+              className="popupButtonCancel"
               onClick={() => {
                 config.setPopupConfig({
                   ...config.popupConfig,
@@ -51,18 +62,6 @@ const Popup = ({ config = {} }) => {
               Cancelar
             </button>
           ) : null}
-          <button
-            className="popupButton"
-            onClick={() => {
-              config.setPopupConfig({
-                ...config.popupConfig,
-                activate: false,
-                choise: config.popupConfig?.query ? true : null,
-              });
-            }}
-          >
-            Aceptar
-          </button>
         </div>
       ) : null}
     </div>

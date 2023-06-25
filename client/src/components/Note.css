@@ -3,13 +3,18 @@
   flex-direction: column;
   width: 100%;
   position: relative;
-  box-shadow: 3px 3px 10px var(--shadow);
-  border-top: 1px outset hsla(0, 0%, 100%, 0.4);
-  border-bottom: 1px solid hsla(0, 0%, 0%, 1);
   gap: var(--space3);
   padding: var(--space2);
   background: var(--level2);
   border-radius: 15px;
+
+
+  /* box-shadow: 3px 3px 10px var(--shadow);
+  border-top: 1px outset hsla(0, 0%, 100%, 0.4);
+  border-bottom: 1px solid hsla(0, 0%, 0%, 1); */
+
+  box-shadow: 2px 2px 16px var(--shadow), inset -1px -1px 4px var(--shadow), inset 1px 1px 4px var(--text);
+    border: 1px solid var(--level1);
 }
 
 .buttonsNoteUpdate {

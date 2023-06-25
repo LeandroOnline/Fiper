@@ -6,6 +6,7 @@
   --level1: hsl(218, 25%, 15%);
   --level2: hsl(218, 25%, 20%);
   --level3: hsl(218, 25%, 25%);
+  --level4: hsl(218, 25%, 35%);
 
   /* placeholder */
   --placeholder: hsl(218, 25%, 50%);
@@ -21,7 +22,7 @@
   --primario: hsl(218, 90%, 55%);
 
   /* luz */
-  --ligth: hsl(218, 90%, 55%,0.15);
+  --ligth: hsl(218, 90%, 55%, 0.2);
 
   /* spaces */
   --space1: 4px;

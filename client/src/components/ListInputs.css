@@ -33,9 +33,12 @@
   background: var(--level2);
   border-radius: 15px;
   transition: 0.5s;
-  box-shadow: 3px 3px 10px var(--shadow);
+  /* box-shadow: 3px 3px 10px var(--shadow);
   border-top: 1px outset hsla(0, 0%, 100%, 0.4);
-  border-bottom: 1px solid hsla(0, 0%, 0%, 1);
+  border-bottom: 1px solid hsla(0, 0%, 0%, 1); */
+
+  box-shadow: 2px 2px 16px var(--shadow), inset -1px -1px 4px var(--shadow), inset 1px 1px 4px var(--text);
+  border: 1px solid var(--level1);
 }
 
 .listElement:hover {
