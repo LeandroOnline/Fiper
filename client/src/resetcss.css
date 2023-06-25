@@ -1,7 +1,7 @@
 :root {
   /* sombras */
   --shadow: hsl(218, 25%, 5%);
-  
+
   /* background */
   --level1: hsl(218, 25%, 15%);
   --level2: hsl(218, 25%, 20%);
@@ -19,6 +19,9 @@
   --result: hsl(218, 25%, 80%);
 
   --primario: hsl(218, 90%, 55%);
+
+  /* luz */
+  --ligth: hsl(218, 90%, 55%,0.15);
 
   /* spaces */
   --space1: 4px;

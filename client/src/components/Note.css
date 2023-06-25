@@ -141,7 +141,7 @@
 
 .checkNoteGreenBorder:hover {
   background: var(--ligth);
-  border: 1px solid var(--level3);
+  border: 1px solid var(--level2);
   transition: 0.5s;
 }
 

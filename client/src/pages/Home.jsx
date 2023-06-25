@@ -11,6 +11,7 @@ import Popup from "../components/Popup";
 import Notes from "../components/Notes";
 import Menu from "../components/Menu";
 import Graphs from "../components/Graphs";
+import Divide from "../components/Divide";
 
 const Home = () => {
   const login = useGlobalStore((state) => state.login);
@@ -52,6 +53,7 @@ const Home = () => {
               <Notes />
               <Interest />
               <Graphs />
+              <Divide />
             </div>
           </div>
         ) : (

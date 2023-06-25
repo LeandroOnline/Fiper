@@ -42,7 +42,7 @@
   align-items: center;
   justify-content: start;
   flex-direction: column;
-  background: hsl(218, 90%, 57%, 0.1);
+  background: var(--ligth);
   border: 1px solid hsl(218, 25%, 15%);
   box-shadow: 2px 2px 8px hsl(218, 25%, 5%) inset,
     -2px -2px 8px hsl(218, 20%, 30%) inset, 2px 2px 8px hsl(218, 25%, 10%),

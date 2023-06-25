@@ -9,7 +9,7 @@
   height: calc(60vh - 16px);
   width: 100%;
   flex-direction: column;
-  margin-bottom: var(--space6);
+  margin-bottom: var(--space5);
   height: 80vh;
 }
 
