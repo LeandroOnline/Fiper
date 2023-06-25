@@ -1,0 +1,70 @@
+.graphsContainer {
+  box-shadow: 1px 1px 8px hsl(218, 25%, 5%), -1px -1px 8px hsl(218, 20%, 30%),
+    1px 1px 8px hsl(218, 25%, 5%) inset, -1px -1px 8px hsl(218, 20%, 30%) inset;
+  border: 1px solid var(--level1);
+  padding: var(--space3);
+  gap: var(--space3);
+  display: flex;
+  position: relative;
+  height: calc(60vh - 16px);
+  width: 100%;
+  flex-direction: column;
+  margin-bottom: var(--space6);
+  height: 80vh;
+}
+
+.datosContainer {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  padding: var(--space3);
+  gap: var(--space3);
+  align-items: center;
+  justify-content: center;
+}
+
+.AreaAndColumnContainer {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 1px 1px 8px hsl(218, 25%, 5%), -1px -1px 8px hsl(218, 20%, 30%),
+    1px 1px 8px hsl(218, 25%, 5%) inset, -1px -1px 8px hsl(218, 20%, 30%) inset;
+  border: 1px solid var(--level1);
+  padding: var(--space3);
+  gap: var(--space3);
+}
+
+.AreaContainer,
+.ColumnContainer {
+  width: 100% !important;
+  height: 50% !important;
+  padding: var(--space3);
+  background: var(--level2);
+}
+
+.divideGraphs {
+  height: 8px;
+  width: 100%;
+  box-shadow: 1px 1px 8px hsl(218, 25%, 5%) inset,
+    -1px -1px 8px hsl(218, 20%, 30%) inset;
+}
+
+.datoTitle {
+  color: var(--title);
+  font-weight: 200;
+  font-size: 14px;
+}
+
+.datoContainer {
+  display: flex;
+  gap: var(--space2);
+  flex-direction: column;
+  align-items: start;
+  padding: var(--space2);
+}
+
+.datoResult {
+  color: var(--result);
+  font-weight: 300;
+}

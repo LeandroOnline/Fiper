@@ -44,9 +44,9 @@
 
 .level {
   font-size: 14px;
-  font-weight: 300;
-  color: var(--placeholder);
+  font-weight: 200;
   margin-bottom: var(--space2);
+  color: var(--text);
 }
 
 .selectContainer {
@@ -70,6 +70,8 @@
   border: 1px solid rgba(255, 255, 255, 0);
   transition: 0.4s;
   background-color: rgba(255, 255, 255, 0);
+  color: var(--text);
+
 }
 
 .select:hover {
@@ -119,12 +121,16 @@
 }
 
 .calculadoraTextResult {
-  color: hsl(218, 25%, 50%);
   font-weight: 300;
+  color: var(--result);
+
 }
 
 .calculadoraTitleResult{
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: 200;
+  color: var(--title);
+
 }
 
 .resultCenter{

@@ -1,5 +1,7 @@
 const config = (data) => ({
   data,
+  autoFit: true,
+  smooth: true,
   xField: "timePeriod",
   yField: "value",
   xAxis: {

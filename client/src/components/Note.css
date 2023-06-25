@@ -3,7 +3,7 @@
   flex-direction: column;
   width: 100%;
   position: relative;
-  box-shadow: 3px 3px 10px var(--background);
+  box-shadow: 3px 3px 10px var(--shadow);
   border-top: 1px outset hsla(0, 0%, 100%, 0.4);
   border-bottom: 1px solid hsla(0, 0%, 0%, 1);
   gap: var(--space3);

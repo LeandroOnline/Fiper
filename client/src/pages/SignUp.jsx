@@ -63,7 +63,7 @@ const SignUp = () => {
       <Popup config={{ popupConfig, setPopupConfig }} />
       <form className="sign" onSubmit={(e) => Sign(e)}>
         <h1>Registro</h1>
-        <div className="inputContainer">
+
           <input
             className="loginInput"
             placeholder="... email"
@@ -71,8 +71,8 @@ const SignUp = () => {
             required
           />
           <img src={email} alt="" className="emailAndKey" />
-        </div>
-        <div className="inputContainer">
+
+
           <input
             className="loginInput"
             placeholder="... contraseña"
@@ -88,8 +88,8 @@ const SignUp = () => {
             className="emailAndKey hoverKey"
             onClick={() => setKeyStatus(!keyStatus)}
           />
-        </div>
-        <div className="inputContainer">
+
+
           <input
             className="loginInput"
             placeholder="... contraseña"
@@ -105,7 +105,7 @@ const SignUp = () => {
             className="emailAndKey hoverKey"
             onClick={() => setKeyStatus(!keyStatus)}
           />
-        </div>
+
 
         <div className="buttonforms">
           <Link to="/login" className="loginButtons">

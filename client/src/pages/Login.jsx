@@ -47,7 +47,7 @@ const Login = () => {
             });
           } else if (data.status === "Logged") {
             setEmailStore(email);
-            setNickname(data.nickname)
+            setNickname(data.nickname);
             sessionStorage.setItem("user", data.token);
             checkStatus(data.token);
           }
@@ -118,30 +118,29 @@ const Login = () => {
         <div className="login">
           <form className="loginForm" onSubmit={(e) => Log(e)}>
             <p className="SignText">Inicio de Sesión</p>
-            <div className="inputContainer">
-              <input
-                className="loginInput"
-                placeholder="... email"
-                name="email"
-                required
-              />
-              <img src={email} alt="" className="emailAndKey" />
-            </div>
-            <div className="inputContainer">
-              <input
-                className="loginInput"
-                placeholder="... contraseña"
-                name="password"
-                required
-                type={keyStatus ? "text" : "password"}
-              />
-              <img
-                src={key}
-                alt=""
-                className="emailAndKey hoverKey"
-                onClick={() => setKeyStatus(!keyStatus)}
-              />
-            </div>
+
+            <input
+              className="loginInput"
+              placeholder="... email"
+              name="email"
+              required
+            />
+            <img src={email} alt="" className="emailAndKey" />
+
+            <input
+              className="loginInput"
+              placeholder="... contraseña"
+              name="password"
+              required
+              type={keyStatus ? "text" : "password"}
+            />
+            <img
+              src={key}
+              alt=""
+              className="emailAndKey hoverKey"
+              onClick={() => setKeyStatus(!keyStatus)}
+            />
+
             <div className="buttonforms">
               <Link to="/signup" className="loginButtons">
                 <button className="buttonSign">Registrarse</button>

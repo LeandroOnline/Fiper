@@ -30,7 +30,6 @@
   gap: var(--space3);
   box-shadow: 1px 1px 8px hsl(218, 25%, 5%), -1px -1px 8px hsl(218, 20%, 30%),
     1px 1px 8px hsl(218, 25%, 5%) inset, -1px -1px 8px hsl(218, 20%, 30%) inset;
-  /* background-color: var(--level2); */
   border: 2px solid var(--level1);
 }
 

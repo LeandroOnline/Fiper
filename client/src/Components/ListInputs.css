@@ -28,7 +28,7 @@
   flex-direction: row;
   width: 100%;
   position: relative;
-  box-shadow: 3px 3px 10px var(--background);
+  box-shadow: 3px 3px 10px var(--shadow);
   border-top: 1px outset hsla(0, 0%, 100%, 0.4);
   border-bottom: 1px solid hsla(0, 0%, 0%, 1);
   gap: var(--space2);
@@ -155,7 +155,7 @@
 
 .clearAll {
   background-color: rgba(255, 255, 255, 0);
-  color: var(--text);
+  color: var(--result);
   border: 1px solid var(--primario);
   padding: 8px 16px;
 }
@@ -177,7 +177,7 @@
 
 .time {
   font-weight: 200;
-  color: rgb(255, 255, 255, 0.4);
+  color: var(--placeholder);
   font-size: 14px;
   padding: var(--space2);
 }
@@ -193,7 +193,7 @@
   font-size: 14px;
   margin-right: var(--space3);
   font-weight: 300;
-  color: hsl(218, 25%, 50%);
+  color: var(--text);
 }
 
 .details {

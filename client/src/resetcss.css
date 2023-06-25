@@ -1,17 +1,26 @@
 :root {
-  --background: hsl(218, 25%, 5%);
+  /* sombras */
+  --shadow: hsl(218, 25%, 5%);
+  
+  /* background */
   --level1: hsl(218, 25%, 15%);
   --level2: hsl(218, 25%, 20%);
   --level3: hsl(218, 25%, 25%);
-  --level4: hsl(218, 25%, 30%);
-  --primario: hsl(218, 90%, 57%);
-  --secundario: hsl(20, 81%, 60%);
 
-  --ligth: hsl(218, 90%, 57%, 0.1);
-
-  --text: hsl(218, 25%, 80%);
+  /* placeholder */
   --placeholder: hsl(218, 25%, 50%);
 
+  /* text */
+  /* texto normal*/
+  --text: hsl(218, 25%, 60%);
+  /* titulo */
+  --title: hsl(218, 25%, 70%);
+  /* resultado */
+  --result: hsl(218, 25%, 80%);
+
+  --primario: hsl(218, 90%, 55%);
+
+  /* spaces */
   --space1: 4px;
   --space2: 8px;
   --space3: 16px;
@@ -48,11 +57,6 @@ a:hover {
   cursor: pointer;
 }
 
-select {
-  background-color: rgba(255, 255, 255, 0.6);
-  border-style: none;
-}
-
 button {
   font-weight: 400;
   box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 30%);
@@ -65,11 +69,13 @@ button {
   justify-content: center;
   background-color: var(--primario);
   border: 1px solid var(--level1);
+  color: var(--result);
 }
 
 button:hover {
-  background-color: hsl(218, 70%, 47%);
+  background-color: var(--primario);
   transition: 0.5s;
+  color: var(--result);
 }
 
 input {
@@ -94,6 +100,7 @@ input[type="number"]::-webkit-outer-spin-button {
   font-size: 20px;
   box-sizing: border-box;
   color: var(--text);
+  text-shadow: 0px 0px 5px hsl(218, 25%, 20%, 0.5);
   border-radius: 15px;
   line-height: 1.2;
 }

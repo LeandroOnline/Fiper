@@ -1,5 +1,3 @@
-import AreaGraph from "../components/AreaGraph";
-import ColumnGraph from "../components/ColumnGraph";
 import Input from "../components/Input";
 import ListInputs from "../components/ListInputs";
 import ProfitAndLoss from "../components/ProfitAndLoss";
@@ -12,6 +10,7 @@ import { useState } from "react";
 import Popup from "../components/Popup";
 import Notes from "../components/Notes";
 import Menu from "../components/Menu";
+import Graphs from "../components/Graphs";
 
 const Home = () => {
   const login = useGlobalStore((state) => state.login);
@@ -42,9 +41,9 @@ const Home = () => {
       {verifyCheckMessage()}
       {login ? (
         checkVerify ? (
-          <div className="row" >
+          <div className="row">
             <Menu />
-            <div className="homecontainer" >
+            <div className="homecontainer">
               <ProfitAndLoss />
               <div className="inputContainer">
                 <Input />
@@ -52,9 +51,7 @@ const Home = () => {
               </div>
               <Notes />
               <Interest />
-
-              <ColumnGraph />
-              <AreaGraph />
+              <Graphs />
             </div>
           </div>
         ) : (
