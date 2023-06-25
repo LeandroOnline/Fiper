@@ -15,6 +15,8 @@ import useSanitize from "../hooks/useSanitize";
 import cafe from "../assets/cafe.png";
 import wsp from "../assets/whatsapp1.png";
 import exit from "../assets/salir.png";
+import entrar from "../assets/entrar.png";
+import sign from "../assets/sign.png";
 
 const Navbar = memo(() => {
   const [configIsOpen, setConfigIsOpen] = useState(false);
@@ -178,6 +180,13 @@ const Navbar = memo(() => {
               />
             </div>
 
+
+            <a href={wame} target="_blank" className="awsp">
+              <img src={wsp} alt="" className="wame" />
+            </a>
+            <a href={donar} target="_blank" className="cafeContainer">
+              <img src={cafe} alt="" className="cafe" />
+            </a>
             <img
               src={exit}
               alt=""
@@ -187,21 +196,32 @@ const Navbar = memo(() => {
                 setConfigIsOpen(false);
               }}
             />
-
-            <a href={wame} target="_blank" className="awsp">
-              <img src={wsp} alt="" className="wame" />
-            </a>
-            <a href={donar} target="_blank" className="cafeContainer">
-              <img src={cafe} alt="" className="cafe" />
-            </a>
           </>
         ) : (
           <>
             <Link to="/login" className="navbutton">
+            <img
+              src={entrar}
+              alt=""
+              className="wame2"
+              onClick={() => {
+                logout();
+                setConfigIsOpen(false);
+              }}
+            />
               Entrar
             </Link>
             <Link to="/signup" className="navbutton">
-              Registrarse
+            <img
+              src={sign}
+              alt=""
+              className="wame2"
+              onClick={() => {
+                logout();
+                setConfigIsOpen(false);
+              }}
+            />
+              Registro
             </Link>
           </>
         )}

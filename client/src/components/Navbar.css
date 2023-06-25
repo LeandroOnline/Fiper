@@ -34,18 +34,34 @@
 
 .navbutton {
   width: 100%;
-  padding: var(--space2) var(--space3);
+  padding: var(--space1);
   transition: 0.5s;
   cursor: pointer;
   display: flex;
   align-items: center;
-  font-weight: 200;
+  font-weight: 300;
+  border-radius: 15px;
+  font-size: 16px;
 }
 
 .navbutton:hover {
-  transition: 0.5s;
+  filter: brightness(110%);
   color: var(--title);
-  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbutton:hover .wame2{
+  transition: 0.5s;
+  opacity: 100%;
+}
+
+.wame2 {
+  width: 40px;
+  filter: invert();
+  cursor: pointer;
+  transition: 0.5s;
+  border-radius: 0;
+  padding: 0 var(--space1);
+  opacity: 50%;
 }
 
 .menuflechas {
@@ -111,7 +127,8 @@
   gap: var(--space2);
   padding: var(--space2);
 
-  box-shadow: 2px 2px 16px var(--shadow), inset -1px -1px 4px var(--shadow), inset 1px 1px 4px var(--text);
+  box-shadow: 2px 2px 16px var(--shadow), inset -1px -1px 4px var(--shadow),
+    inset 1px 1px 4px var(--text);
   border: 1px solid var(--level1);
 }
 
