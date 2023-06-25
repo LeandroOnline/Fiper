@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axiosSign from "../api/axiosSign";
 import useVerifySyntax from "../hooks/useVerifySyntax";
 import axiosSendEmail from "../api/axiosSendEmail";
@@ -11,7 +11,7 @@ import email from "../assets/@.png";
 
 const SignUp = () => {
   const [pass1, setPass1] = useState("");
-  const [pass2, setPass2] = useState("");
+  const [passStatus, setPassStatus] = useState(false);
   const [keyStatus, setKeyStatus] = useState(false);
   const [popupConfig, setPopupConfig] = useState({ toConfirm: true });
 
@@ -19,7 +19,7 @@ const SignUp = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    const VerifySyntax = useVerifySyntax(email, password) && pass1 === pass2;
+    const VerifySyntax = useVerifySyntax(email, password);
     if (VerifySyntax) {
       const send = {
         email: email,
@@ -58,12 +58,23 @@ const SignUp = () => {
     }
   };
 
+  const minimumPass = (pass1) => {
+    const length = pass1.length > 6 ? true : false;
+    const mayus = /[A-Z]/.test(pass1);
+    const num = /\d/.test(pass1);
+    setPassStatus({ length, mayus, num });
+  };
+
+  useEffect(() => {
+    minimumPass(pass1);
+  }, [pass1]);
+
   return (
     <div className="signcontainer">
       <Popup config={{ popupConfig, setPopupConfig }} />
       <form className="sign" onSubmit={(e) => Sign(e)}>
-        <h1>Registro</h1>
-
+        <h1 className="SignTitle">Registro</h1>
+        <div className="inputFormContainer">
           <input
             className="loginInput"
             placeholder="... email"
@@ -71,8 +82,8 @@ const SignUp = () => {
             required
           />
           <img src={email} alt="" className="emailAndKey" />
-
-
+        </div>
+        <div className="inputFormContainer">
           <input
             className="loginInput"
             placeholder="... contraseña"
@@ -88,24 +99,21 @@ const SignUp = () => {
             className="emailAndKey hoverKey"
             onClick={() => setKeyStatus(!keyStatus)}
           />
+        </div>
 
-
-          <input
-            className="loginInput"
-            placeholder="... contraseña"
-            name="password2"
-            required
-            value={pass2}
-            onChange={(e) => setPass2(e.target.value)}
-            type={keyStatus ? "text" : "password"}
-          />
-          <img
-            src={key}
-            alt=""
-            className="emailAndKey hoverKey"
-            onClick={() => setKeyStatus(!keyStatus)}
-          />
-
+        <div className="minimum">
+          <p className={passStatus.length ? "SignTextGreen" : "SignText"}>
+            {passStatus.length
+              ? "✓ Mas de 6 caracteres"
+              : "● Mas de 6 caracteres"}
+          </p>
+          <p className={passStatus.mayus ? "SignTextGreen" : "SignText"}>
+            {passStatus.mayus ? "✓ Incluye mayusculas" : "● Incluye mayusculas"}
+          </p>
+          <p className={passStatus.num ? "SignTextGreen" : "SignText"}>
+            {passStatus.num ? "✓ Incluye numeros" : "● Incluye numeros"}
+          </p>
+        </div>
 
         <div className="buttonforms">
           <Link to="/login" className="loginButtons">
@@ -114,14 +122,6 @@ const SignUp = () => {
           <button className="loginButtons" type="submit">
             Registrarse
           </button>
-        </div>
-        <div className="SignAllText">
-          <p className="SignText">Su contraseña debe contener:</p>
-          <div className="minimum">
-            <p className="SignText">- Minimo siete caracteres</p>
-            <p className="SignText">- Al menos una mayuscula</p>
-            <p className="SignText">- Al menos un numero</p>
-          </div>
         </div>
       </form>
     </div>

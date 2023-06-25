@@ -117,7 +117,7 @@ const Login = () => {
       ) : (
         <div className="login">
           <form className="loginForm" onSubmit={(e) => Log(e)}>
-            <p className="SignText">Inicio de Sesión</p>
+            <p className="SignTitle">Inicio de Sesión</p>
             <div className="inputFormContainer">
               <input
                 className="loginInput"
