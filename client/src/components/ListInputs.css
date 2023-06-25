@@ -36,6 +36,7 @@
   background: var(--level2);
   border-radius: 15px;
   transition: 0.5s;
+  
 }
 
 .listElement:hover {
