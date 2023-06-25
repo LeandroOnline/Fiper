@@ -53,7 +53,7 @@ const Home = () => {
               <Notes />
               <Interest />
               <Graphs />
-              <Divide />
+              {/* <Divide /> */}
             </div>
           </div>
         ) : (

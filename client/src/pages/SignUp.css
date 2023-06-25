@@ -32,11 +32,11 @@
   flex-direction: column;
 }
 
-.buttonforms {
+/* .buttonforms {
   display: flex;
   flex-direction: row;
   gap: 15px;
-}
+} */
 
 .imgsign {
   width: 100px;
@@ -56,8 +56,9 @@
 
 .SignText {
   text-align: center;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 20px;
+  color: var(-title);
+  font-weight: 200;
+  margin-bottom: var(--space3);
 }
 
 .minimum{

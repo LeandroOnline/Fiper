@@ -65,7 +65,7 @@ const Menu = () => {
           <p className="menuItemText">Graficos</p>
         </div>
       </Link>
-      <Link
+      {/* <Link
         to="divide"
         spy={true}
         smooth={true}
@@ -81,7 +81,7 @@ const Menu = () => {
           </div>
           <p className="menuItemText">Dividir</p>
         </div>
-      </Link>
+      </Link> */}
     </div>
   );
 };

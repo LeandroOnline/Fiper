@@ -118,29 +118,54 @@ const Login = () => {
         <div className="login">
           <form className="loginForm" onSubmit={(e) => Log(e)}>
             <p className="SignText">Inicio de Sesión</p>
-
-            <input
-              className="loginInput"
-              placeholder="... email"
-              name="email"
-              required
-            />
-            <img src={email} alt="" className="emailAndKey" />
-
-            <input
-              className="loginInput"
-              placeholder="... contraseña"
-              name="password"
-              required
-              type={keyStatus ? "text" : "password"}
-            />
-            <img
-              src={key}
-              alt=""
-              className="emailAndKey hoverKey"
-              onClick={() => setKeyStatus(!keyStatus)}
-            />
-
+            <div className="inputFormContainer">
+              <input
+                className="loginInput"
+                placeholder="... email"
+                name="email"
+                required
+              />
+              <img src={email} alt="" className="emailAndKey" />
+            </div>
+            <div className="inputFormContainer">
+              <input
+                className="loginInput"
+                placeholder="... contraseña"
+                name="password"
+                required
+                type={keyStatus ? "text" : "password"}
+              />
+              <img
+                src={key}
+                alt=""
+                className="emailAndKey hoverKey"
+                onClick={() => setKeyStatus(!keyStatus)}
+              />
+            </div>
+            {rememberActivate ? (
+              <div className="inputAndSendRemember">
+                <input
+                  className="inputRemember"
+                  type="text"
+                  placeholder="Correo electronico"
+                  value={rememberInput}
+                  onChange={(e) => setRememberInput(e.target.value)}
+                />
+                <button
+                  className="sendRemember"
+                  onClick={() => Remember(rememberInput)}
+                >
+                  Enviar
+                </button>
+              </div>
+            ) : (
+              <button
+                className="remember"
+                onClick={() => setRememberActivate(!rememberActivate)}
+              >
+              Olvido la contraseña?
+              </button>
+            )}
             <div className="buttonforms">
               <Link to="/signup" className="loginButtons">
                 <button className="buttonSign">Registrarse</button>
@@ -150,30 +175,6 @@ const Login = () => {
               </button>
             </div>
           </form>
-          {rememberActivate ? (
-            <div className="inputAndSendRemember">
-              <input
-                className="inputRemember"
-                type="text"
-                placeholder="Ingresa tu cuenta de correo"
-                value={rememberInput}
-                onChange={(e) => setRememberInput(e.target.value)}
-              />
-              <button
-                className="sendRemember"
-                onClick={() => Remember(rememberInput)}
-              >
-                Enviar
-              </button>
-            </div>
-          ) : (
-            <button
-              className="remember"
-              onClick={() => setRememberActivate(!rememberActivate)}
-            >
-              Olvido la contraseña?
-            </button>
-          )}
         </div>
       )}
     </div>
