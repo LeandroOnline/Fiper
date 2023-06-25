@@ -25,18 +25,18 @@ const Graphs = () => {
       <div className="datosContainer">
         <div className="datoContainer">
           <h1 className="datoTitle">Egresos ultimo mes:</h1>
-          <p className="datoResult">{losses[month]}</p>
+          <p className="datoResult">$ {losses[month]}</p>
         </div>
         <div className="divideVertical"></div>
         <div className="datoContainer">
           <h1 className="datoTitle">NETO mes actual:</h1>
-          <p className="datoResult">{netPerMonth[month]}</p>
+          <p className="datoResult">$ {netPerMonth[month]}</p>
         </div>
         <div className="divideVertical"></div>
 
         <div className="datoContainer">
           <h1 className="datoTitle">Ingresos ultimo mes:</h1>
-          <p className="datoResult">{profits[month]}</p>
+          <p className="datoResult">$ {profits[month]}</p>
         </div>
       </div>
       <div className="AreaAndColumnContainer">

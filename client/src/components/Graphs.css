@@ -41,6 +41,10 @@
   height: 50% !important;
   padding: var(--space3);
   background: var(--level2);
+  box-shadow: 2px 2px 8px hsl(218, 25%, 5%) inset,
+    -2px -2px 8px hsl(218, 20%, 30%) inset;
+  border: 1px solid var(--level1);
+
 }
 
 .divideGraphs {

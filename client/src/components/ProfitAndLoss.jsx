@@ -25,27 +25,27 @@ const Total = memo(() => {
       <div className="profitAndLosse">
         <h1 className="profitAndLosseTitle">Total: </h1>
         <p className="profitAndLosseResult">
-          ${inputs ? totalNeto(inputs) : "0"}
+          $ {inputs ? totalNeto(inputs) : "0"}
         </p>
       </div>
       <div className="divideVertical"></div>
       <div className="profitAndLosse">
         <h1 className="profitAndLosseTitle">Ganancias: </h1>
         <p className="profitAndLosseResult">
-          ${profits ? total(profits) : "0"}
+          $ {profits ? total(profits) : "0"}
         </p>
       </div>
       <div className="divideVertical"></div>
 
       <div className="profitAndLosse">
         <h1 className="profitAndLosseTitle">Gastos: </h1>
-        <p className="profitAndLosseResult">${losses ? total(losses) : "0"}</p>
+        <p className="profitAndLosseResult">$ {losses ? total(losses) : "0"}</p>
       </div>
       <div className="divideVertical"></div>
 
       <div className="profitAndLosse">
         <h1 className="profitAndLosseTitle">Dolar BLue: </h1>
-        <p className="profitAndLosseResult">${dolar}</p>
+        <p className="profitAndLosseResult">$ {dolar}</p>
       </div>
       <Time />
     </div>
