@@ -79,6 +79,31 @@
   filter: brightness(110%);
 }
 
+.loginButtonSecondary {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 200;
+  margin: var(--space1);
+  display: flex;
+}
+
+.secondaryAction {
+  font-size: 14px;
+  font-weight: 200;
+  color: var(--title);
+  margin-left: var(--space1);
+  transition: 0.5s;
+  border-bottom: 1px solid var(--primario);
+  border-radius: 0;
+}
+
+.secondaryAction:hover {
+  font-size: 14px;
+  color: var(--result);
+  margin-left: var(--space1);
+  transition: 0.5s;
+}
+
 .buttonSign {
   width: 100%;
   background-color: rgba(255, 255, 255, 0);

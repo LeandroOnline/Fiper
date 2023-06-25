@@ -163,16 +163,17 @@ const Login = () => {
                 className="remember"
                 onClick={() => setRememberActivate(!rememberActivate)}
               >
-              Olvido la contraseña?
+                Olvido la contraseña?
               </button>
             )}
             <div className="buttonforms">
-              <Link to="/signup" className="loginButtons">
-                <button className="buttonSign">Registrarse</button>
-              </Link>
               <button type="submit" className="loginButtons">
                 Ingresar
               </button>
+              <Link to="/signup" className="loginButtonSecondary">
+                No tienes cuenta?{" "}
+                <span className="secondaryAction">registrate</span>
+              </Link>
             </div>
           </form>
         </div>

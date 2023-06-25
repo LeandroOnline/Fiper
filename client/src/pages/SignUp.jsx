@@ -116,12 +116,12 @@ const SignUp = () => {
         </div>
 
         <div className="buttonforms">
-          <Link to="/login" className="loginButtons">
-            <button className="buttonSign">Ingresar</button>
-          </Link>
           <button className="loginButtons" type="submit">
             Registrarse
           </button>
+          <Link to="/login" className="loginButtonSecondary">
+            Ya tienes cuenta? <span className="secondaryAction">inicia sesion</span>
+          </Link>
         </div>
       </form>
     </div>

@@ -28,15 +28,14 @@
   flex-direction: row;
   width: 100%;
   position: relative;
-  box-shadow: 3px 3px 10px var(--shadow);
-  border-top: 1px outset hsla(0, 0%, 100%, 0.4);
-  border-bottom: 1px solid hsla(0, 0%, 0%, 1);
   gap: var(--space2);
   padding: var(--space2);
   background: var(--level2);
   border-radius: 15px;
   transition: 0.5s;
-  
+  box-shadow: 3px 3px 10px var(--shadow);
+  border-top: 1px outset hsla(0, 0%, 100%, 0.4);
+  border-bottom: 1px solid hsla(0, 0%, 0%, 1);
 }
 
 .listElement:hover {

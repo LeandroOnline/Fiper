@@ -21,7 +21,7 @@
   flex-direction: row;
   position: fixed;
   top: var(--space3);
-  z-index: 1;
+  z-index: 20;
   transition: 0.5s;
   box-shadow: 5px 5px 12px var(--background);
   border-top: 1px outset hsla(0, 0%, 100%, 0.4);
@@ -38,7 +38,7 @@
 }
 
 .navMenu:hover {
-  box-shadow: 5px 5px 12px hsl(218, 90%, 20%);
+  box-shadow: 5px 5px 12px var(--ligth);
   transition: 0.5s;
   border-top: 1px solid var(--primario);
 }
@@ -46,18 +46,16 @@
 .navbutton {
   width: 100%;
   padding: var(--space2) var(--space3);
-  transition: 1s;
+  transition: 0.5s;
   cursor: pointer;
   display: flex;
   align-items: center;
-  opacity: 50%;
   font-weight: 200;
 }
 
 .navbutton:hover {
   transition: 0.5s;
-  color: var(--text);
-  opacity: 100%;
+  color: var(--title);
   background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -99,9 +97,7 @@
   position: fixed;
   top: 80px;
   width: 270px;
-  z-index: 1;
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  background: var(--level2);
   transition: 0.5s;
   flex-direction: column;
   text-align: center;
@@ -109,6 +105,8 @@
   padding: var(--space2);
   border-top: 1px outset hsla(0, 0%, 100%, 0.4);
   border-bottom: 1px solid hsla(0, 0%, 0%, 1);
+  z-index: -10;
+  box-shadow: 3px 3px 10px var(--shadow);
 }
 
 .configclose {
@@ -116,9 +114,8 @@
   position: fixed;
   top: -300px;
   width: 270px;
-  z-index: -2;
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
+  z-index: -10;
+  background-color: var(--level2);
   transition: 0.5s;
   flex-direction: column;
   text-align: center;

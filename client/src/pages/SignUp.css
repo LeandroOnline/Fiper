@@ -43,7 +43,7 @@
 
 .SignText {
   text-align: center;
-  color: var(-title);
+  color: var(--text);
   font-size: 14px;
   font-weight: 200;
   margin: var(--space1);
@@ -61,6 +61,7 @@
   text-align: center;
   color: var(-title);
   font-weight: 200;
+  margin-bottom: var(--space3);
 }
 
 .minimum{
