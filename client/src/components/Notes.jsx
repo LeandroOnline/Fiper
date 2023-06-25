@@ -23,7 +23,8 @@ const Notes = () => {
     storeGetNotes();
   }, [sendNote, noteDeletedOrUpdate]);
 
-  const addNote = async (title, text) => {
+  const addNote = async (e, title, text) => {
+    e.preventDefault();
     await axiosAddNote(title, text)
       .then(() => {
         setTitle("");
@@ -87,26 +88,31 @@ const Notes = () => {
   return (
     <>
       <div className="notesContainer" id="notes">
+        <Popup config={{ popupConfig, setPopupConfig }} />
         <div className="addNoteAndGraph">
-          <Popup config={{ popupConfig, setPopupConfig }} />
-
-          <input
-            type="text"
-            placeholder="Titulo"
-            value={title}
-            onChange={(e) => setTitle(useSanitize(e.target.value))}
-            className="titleNote"
-          />
-          <textarea
-            type="text"
-            placeholder="Texto"
-            value={text}
-            onChange={(e) => setText(useSanitize(e.target.value))}
-            className="inputNote"
-          />
-          <button className="clearAll" onClick={() => addNote(title, text)}>
-            Agregar
-          </button>
+          <form
+            action=""
+            className="formNote"
+            onSubmit={(e) => addNote(e, title, text)}
+          >
+            <input
+              type="text"
+              placeholder="Titulo"
+              value={title}
+              onChange={(e) => setTitle(useSanitize(e.target.value))}
+              className="titleNote"
+            />
+            <textarea
+              type="text"
+              placeholder="Texto"
+              value={text}
+              onChange={(e) => setText(useSanitize(e.target.value))}
+              className="inputNote"
+            />
+            <button className="clearAll" type="submit">
+              Agregar
+            </button>
+          </form>
           <Gauge {...config} className="gauge" />
         </div>
 

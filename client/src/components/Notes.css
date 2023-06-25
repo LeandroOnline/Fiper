@@ -12,6 +12,13 @@
   margin: var(--space5) 0;
 }
 
+.formNote {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: var(--space3);
+}
+
 .addNoteAndGraph {
   display: flex;
   flex-direction: column;
