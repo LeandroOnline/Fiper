@@ -147,7 +147,7 @@ const Login = () => {
                 <input
                   className="inputRemember"
                   type="text"
-                  placeholder="Correo electronico"
+                  placeholder="Ingresa tu correo"
                   value={rememberInput}
                   onChange={(e) => setRememberInput(e.target.value)}
                 />
