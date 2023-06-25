@@ -3,10 +3,7 @@ import inicio from "../assets/inicio.png";
 import nota from "../assets/nota.png";
 import interes from "../assets/interes.png";
 import estadistica from "../assets/estadistica.png";
-import dividir from "../assets/dividir.png";
-import persona from "../assets/persona.png";
 import { useState } from "react";
-
 import { Link } from "react-scroll";
 
 const Menu = () => {

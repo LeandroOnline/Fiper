@@ -43,7 +43,7 @@
 }
 
 .level {
-  font-size: 14px;
+  font-size: var(--middle);
   font-weight: 200;
   margin-bottom: var(--space2);
   color: var(--text);
@@ -65,7 +65,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
+  font-size: var(--middle);
   font-weight: 200;
   border: 1px solid rgba(255, 255, 255, 0);
   transition: 0.4s;
@@ -85,10 +85,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
+  font-size: var(--middle);
   font-weight: 200;
   transition: 0.4s;
-  background: hsl(218, 90%, 57%, 0.1);
+  background: var(--ligth);
   border: 1px solid hsl(218, 25%, 15%);
   box-shadow: 2px 2px 8px hsl(218, 25%, 5%) inset,
     -2px -2px 8px hsl(218, 20%, 30%) inset, 2px 2px 8px hsl(218, 25%, 10%),
@@ -127,10 +127,9 @@
 }
 
 .calculadoraTitleResult{
-  font-size: 14px;
+  font-size: var(--middle);
   font-weight: 200;
   color: var(--title);
-
 }
 
 .resultCenter{

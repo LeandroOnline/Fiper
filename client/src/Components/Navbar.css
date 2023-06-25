@@ -8,9 +8,8 @@
 
 .title {
   font-weight: 700;
-  font-size: 35px;
-  cursor: pointer;
-  color: rgb(235, 235, 235);
+  font-size: 30px;
+  color: var(--result);
   line-height: 0.8;
 }
 

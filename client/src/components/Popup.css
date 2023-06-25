@@ -42,7 +42,7 @@
 
 .popupButtonAcept {
   box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 50%);
-  width: 50%;
+  width: 100%;
   border: 1px solid var(--primario);
   background-color: rgb(255, 255, 255, 0);
   color: var(--result);
@@ -55,7 +55,7 @@
 
 .popupButtonCancel {
   box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 50%);
-  width: 50%;
+  width: 100%;
   border: 1px solid var(--level2);
   background-color: var(--primario);
   color: var(--result);

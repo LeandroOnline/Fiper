@@ -69,7 +69,7 @@
 }
 
 .profitAndLosseTitle {
-  font-size: 14px;
+  font-size: var(--middle);
   font-weight: 200;
   color: var(--title);
 }

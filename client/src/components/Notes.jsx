@@ -74,7 +74,7 @@ const Notes = () => {
       content: {
         style: {
           fontSize: "14px",
-          lineHeight: "15px",
+          lineHeight: "14px",
           color: "#4B535E",
         },
         formatter: () => "Checkeadas",

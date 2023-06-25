@@ -51,8 +51,7 @@
 
 .menuItemText {
   font-weight: 300;
-  font-size: 10px;
-  color: hsl(218, 25%, 50%);
+  font-size: var(--small);
 }
 
 .menuItemImg {

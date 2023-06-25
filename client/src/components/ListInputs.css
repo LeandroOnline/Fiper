@@ -173,7 +173,7 @@
 .time {
   font-weight: 200;
   color: var(--placeholder);
-  font-size: 12px;
+  font-size: var(--small);
   padding: var(--space2);
 }
 

@@ -60,7 +60,7 @@ canvas {
 .datoTitle {
   color: var(--title);
   font-weight: 200;
-  font-size: 14px;
+  font-size: var(--middle);
 }
 
 .datoContainer {

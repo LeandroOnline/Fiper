@@ -97,7 +97,6 @@ const Navbar = memo(() => {
   const logout = () => {
     sessionStorage.removeItem("user");
     setLogin(null);
-    navigate("/login");
     setVerifyFalse();
   };
 
@@ -159,11 +158,9 @@ const Navbar = memo(() => {
 
   return (
     <div className="navcontainer">
-        <Popup config={{ popupConfig, setPopupConfig }} />
+      <Popup config={{ popupConfig, setPopupConfig }} />
       <div className="navMenu">
-        <Link to="/">
-          <h1 className="title">FIPE</h1>
-        </Link>
+        <h1 className="title">FIPE</h1>
         {login ? (
           <>
             <div className="nickname">
@@ -179,7 +176,6 @@ const Navbar = memo(() => {
                 }}
               />
             </div>
-
 
             <a href={wame} target="_blank" className="awsp">
               <img src={wsp} alt="" className="wame" />
@@ -199,28 +195,28 @@ const Navbar = memo(() => {
           </>
         ) : (
           <>
-            <Link to="/login" className="navbutton">
-            <img
-              src={entrar}
-              alt=""
-              className="wame2"
-              onClick={() => {
-                logout();
-                setConfigIsOpen(false);
-              }}
-            />
+            <Link to="/" className="navbutton">
+              <img
+                src={entrar}
+                alt=""
+                className="wame2"
+                onClick={() => {
+                  logout();
+                  setConfigIsOpen(false);
+                }}
+              />
               Entrar
             </Link>
             <Link to="/signup" className="navbutton">
-            <img
-              src={sign}
-              alt=""
-              className="wame2"
-              onClick={() => {
-                logout();
-                setConfigIsOpen(false);
-              }}
-            />
+              <img
+                src={sign}
+                alt=""
+                className="wame2"
+                onClick={() => {
+                  logout();
+                  setConfigIsOpen(false);
+                }}
+              />
               Registro
             </Link>
           </>

@@ -3,7 +3,6 @@ import ListInputs from "../components/ListInputs";
 import ProfitAndLoss from "../components/ProfitAndLoss";
 import useGlobalStore from "../store/Store";
 import Interest from "../components/Interest";
-import NoLogged from "../components/NoLogged";
 import "./Home.css";
 import Verify from "./Verify";
 import { useState } from "react";
@@ -12,6 +11,7 @@ import Notes from "../components/Notes";
 import Menu from "../components/Menu";
 import Graphs from "../components/Graphs";
 import Divide from "../components/Divide";
+import Login from "./Login";
 
 const Home = () => {
   const login = useGlobalStore((state) => state.login);
@@ -60,7 +60,7 @@ const Home = () => {
           <Verify />
         )
       ) : (
-        <NoLogged />
+        <Login/>
       )}
     </div>
   );
