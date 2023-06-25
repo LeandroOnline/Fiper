@@ -94,8 +94,7 @@ const ListInputs = () => {
     const date = new Date(element.date);
     return (
       <p className="time">
-        {date.getDate()}-{date.getMonth() + 1}-{date.getFullYear()}
-        <br></br>
+        {date.getDate()}-{date.getMonth() + 1}-{date.getFullYear()} ~ 
         {date?.getHours().toLocaleString("en-US", {
           minimumIntegerDigits: 2,
           useGrouping: false,
@@ -182,21 +181,6 @@ const ListInputs = () => {
                       onKeyDown={(e) => handleKeyDown(e)}
                     />
                   </div>
-                  {/* <div className="buttons">
-                    <button
-                      onClick={() => {
-                        setModificar(!modificar);
-                        setInputValue("");
-                        setDetalleValue("");
-                      }}
-                      className="inputCancelar"
-                    >
-                      Cancelar
-                    </button>
-                    <button type="submit" className="inputAplicar">
-                      Aplicar
-                    </button>
-                  </div> */}
                 </form>
               </>
             ) : (
@@ -220,8 +204,7 @@ const ListInputs = () => {
                     }}
                   />
                 </div>
-                <div className="dividePoint"></div>
-                <p
+                <div
                   className={
                     element.input === 0
                       ? "neutral"
@@ -232,10 +215,8 @@ const ListInputs = () => {
                 >
                   {element.input === 0 ? "$" : element.input > 0 ? "+ " : "- "}
                   {element.input >= 0 ? element.input : element.input * -1}
-                </p>
-                <div className="dividePoint"></div>
-
-                {Dates(element)}
+                  {Dates(element)}
+                </div>
                 <div className="dividePoint"></div>
                 <span className="details">{element.detalle}</span>
               </div>

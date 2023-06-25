@@ -74,6 +74,7 @@
   font-weight: 200;
   width: 140px;
   padding: var(--space2);
+  
 }
 .positive {
   color: rgb(1, 155, 1);
@@ -103,12 +104,12 @@
   padding-bottom: var(--space3);
 }
 
-.imgButton{
+.imgButton {
   all: unset;
   background: rgba(255, 255, 255, 0);
 }
 
-.imgButton:hover{
+.imgButton:hover {
   all: unset;
   background: rgba(255, 255, 255, 0);
 }
@@ -135,14 +136,6 @@
   box-shadow: 2px 2px 4px hsl(218, 25%, 5%) inset,
     -2px -2px 4px hsl(218, 20%, 30%) inset;
   background: var(--level3);
-}
-
-.divide {
-  width: 100%;
-  height: var(--space1);
-  background-color: var(--level2);
-  box-shadow: 2px 2px 4px hsl(218, 25%, 5%) inset,
-    -2px -2px 4px hsl(218, 20%, 30%) inset;
 }
 
 .navList {
@@ -178,7 +171,7 @@
 .time {
   font-weight: 200;
   color: var(--placeholder);
-  font-size: 14px;
+  font-size: 12px;
   padding: var(--space2);
 }
 
@@ -203,7 +196,7 @@
 }
 
 .dividePoint {
-  width: 2px;
-  height: 32px;
-  box-shadow: 1px 1px 3px hsl(218, 25%, 5%), -1px -1px 3px hsl(218, 20%, 30%);
+  width: 1px;
+  height: 40px;
+  box-shadow: 1px 1px 2px hsl(218, 25%, 5%), -1px -1px 2px hsl(218, 20%, 30%);
 }
