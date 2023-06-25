@@ -9,6 +9,7 @@ import ok from "../assets/correcto.png";
 import cancel from "../assets/cancelar.png";
 import axiosCheckNote from "../api/axiosCheckNote";
 import done from "../assets/hecho.png";
+import useErrorHandler from "../hooks/useErrorHandler"
 
 const Note = ({ title, text, id, check }) => {
   const setNoteDeletedOrUpdate = useGlobalStore(
@@ -21,20 +22,20 @@ const Note = ({ title, text, id, check }) => {
   const deleteNote = async (id) => {
     await axiosDeleteNote(id).then((e) => {
       setNoteDeletedOrUpdate();
-    });
+    }).catch((err) => setPopupConfig(useErrorHandler(err)));;
   };
 
   const updateNote = async (id, title, text) => {
     await axiosUpdateNote(id, title, text).then((e) => {
       setUpdateMenu(false);
       setNoteDeletedOrUpdate();
-    });
+    }).catch((err) => setPopupConfig(useErrorHandler(err)));;
   };
 
   const checkNote = async (id) => {
     await axiosCheckNote(id).then((e) => {
       setNoteDeletedOrUpdate();
-    });
+    }).catch((err) => setPopupConfig(useErrorHandler(err)));;
   };
 
   return (
@@ -75,8 +76,12 @@ const Note = ({ title, text, id, check }) => {
       ) : (
         <div className="noteContainer">
           <div
-            className={check ? " checkNoteGreenBorder" : "checkNoteGray"}
-            onClick={() => checkNote(id)}
+            className={
+              check ? " checkNoteGreenBorder" : "checkNoteGray"
+            }
+            onClick={() => {
+              checkNote(id);
+            }}
           >
             <div className={check ? "checkNoteGreen" : "none"}>
               <img

@@ -177,11 +177,11 @@ const Navbar = memo(() => {
               />
             </div>
 
-            <a href={wame} target="_blank" className="awsp">
-              <img src={wsp} alt="" className="wame" />
-            </a>
             <a href={donar} target="_blank" className="cafeContainer">
               <img src={cafe} alt="" className="cafe" />
+            </a>
+            <a href={wame} target="_blank" className="awsp">
+              <img src={wsp} alt="" className="wame" />
             </a>
             <img
               src={exit}
