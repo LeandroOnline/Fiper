@@ -14,7 +14,8 @@
   width: 300px;
   align-items: center;
   transition: 1s;
-  box-shadow: 1px 1px 8px hsl(218, 25%, 5%), -1px -1px 8px hsl(218, 20%, 30%), 1px 1px 8px hsl(218, 25%, 5%) inset, -1px -1px 8px hsl(218, 20%, 30%) inset;
+  box-shadow: 1px 1px 8px hsl(218, 25%, 5%), -1px -1px 8px hsl(218, 20%, 30%),
+    1px 1px 8px hsl(218, 25%, 5%) inset, -1px -1px 8px hsl(218, 20%, 30%) inset;
   border: 1px solid var(--level1);
 }
 
@@ -105,14 +106,15 @@
 
 .remember {
   all: unset;
-  color: var(--level4);
   background: none;
   transition: 0.5s;
-  margin-top: var(--space3);
   text-align: start;
   width: calc(100% - 4px);
-  font-size: 16px;
   margin-left: 4px;
+  color: var(-title);
+  font-size: 14px;
+  font-weight: 200;
+  margin-top: var(--space2);
 }
 
 .remember:hover {
