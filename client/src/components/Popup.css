@@ -10,7 +10,8 @@
   justify-content: center;
   align-items: center;
   transition: 0.5s;
-  box-shadow: 16px 16px 32px var(--shadow), inset -1px -1px 4px var(--shadow), inset 1px 1px 4px var(--text);
+  box-shadow: 16px 16px 32px var(--shadow), inset -2px -2px 4px var(--shadow),
+    inset 1px 1px 4px var(--text);
   border: 1px solid var(--level1);
   flex-direction: column;
   z-index: 30;
@@ -30,7 +31,8 @@
   transition: 0.5s;
   flex-direction: column;
   z-index: 30;
-  box-shadow: 35px 35px 68px 0px var(--shadow), inset -1px -1px 4px var(--shadow), inset 1px 1px 4px var(--text);
+  box-shadow: 35px 35px 68px 0px var(--shadow),
+    inset -1px -1px 4px var(--shadow), inset 1px 1px 4px var(--text);
   border: 1px solid var(--level1);
 }
 

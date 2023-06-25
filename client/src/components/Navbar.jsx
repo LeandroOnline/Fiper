@@ -229,7 +229,7 @@ const Navbar = memo(() => {
             setConfigIsOpen(false);
             setSound();
           }}
-          className="navbutton"
+          className="navOption"
         >
           {sound ? "Silenciar" : "Activar sonido"}
           <img src={sound ? notification : mute} alt="" className="sound" />
@@ -237,7 +237,7 @@ const Navbar = memo(() => {
 
         <div className="lineMerge"></div>
         <div
-          className={updateNicknameMenu ? "" : "navbutton"}
+          className={updateNicknameMenu ? "" : "navOption"}
           onClick={() => {
             updateNicknameMenu ? null : setUpdateNicknameMenu(true);
             setPassword(false);
@@ -273,7 +273,7 @@ const Navbar = memo(() => {
         </div>
         <div className="lineMerge"></div>
         <div
-          className={password ? "" : "navbutton"}
+          className={password ? "" : "navOption"}
           onClick={() => {
             password ? null : setPassword(true);
             setUpdateNicknameMenu(false);
@@ -312,7 +312,7 @@ const Navbar = memo(() => {
           )}
         </div>
         <div className="lineMerge"></div>
-        <div onClick={() => deleteUser()} className="navbutton">
+        <div onClick={() => deleteUser()} className="navOption">
           Eliminar Cuenta
         </div>
       </div>
