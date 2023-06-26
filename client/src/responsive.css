@@ -1,52 +1,41 @@
 @media (max-width: 550px) {
-
-    :root {
-        /* spaces */
-        /* --space1: 4px;
-        --space2: 8px;
-        --space3: 16px;
-        --space4: 32px;
-        --space5: 64px;
-        --space6: 94px; */
-        --space1: 3px;
-        --space2: 6px;
-        --space3: 12px;
-        --space4: 24px;
-        --space5: 48px;
-        --space6: 64px;
-      
-        /* sizes */
-        /* --small: 11px;
-        --middle: 14px;
-        --normal: 24px;
-        --big: 36px; */
-        --small: 11,2px;
-        --middle: 11,2px; /*bold*/
-        --normal: 14px;
-        --subtitle: 17,5px;
-        --title: 17,5px;/*bold*/
-      }
-      
-  .row {
-    width: 100vw;
-    top: 0;
-    left: 0;
-    position: static;
-  }
-  .totalcontainer {
-    flex-direction: column-reverse;
-    height: 80vh;
-  }
-  .divideVertical {
+  .footerContainer {
     display: none;
   }
-  .menuContainer {
-    top: 0;
-    left: var(--space2);
+
+  .row {
+    left: 0;
+    bottom: 0;
+    flex-direction: column-reverse;
   }
+
   .homecontainer {
-    width: calc(100% - 88px);
-    /* width: 100%; */
-    padding: 0;
+    overflow: auto;
+    width: 100%;
+    padding: var(--space3);
+  }
+
+  .menuContainer {
+    flex-direction: row;
+    bottom: 0;
+    background-color: var(--level1);
+    z-index: 50;
+    position: sticky;
+    width: 100%;
+    padding: var(--space3);
+    border-top: 2px solid var(--level2);
+  }
+
+
+  .totalcontainer {
+    flex-wrap: wrap;
+    height: auto;
+  }
+  .profitAndLosse {
+    width: 100px;
+  }
+
+  .inputContainer{
+    flex-direction: column;
   }
 }
