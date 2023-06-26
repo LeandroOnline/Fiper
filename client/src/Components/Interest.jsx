@@ -7,7 +7,6 @@ const Interest = () => {
   const [tasaInteresAnual, setTasaInteresAnual] = useState();
   const [periodo, setPeriodo] = useState(12);
   const [reinversion, setReinversion] = useState();
-
   const compoundInterest = (rate, per, cap = 1, re) => {
     let mesProm = 30.416666667;
 
@@ -109,7 +108,7 @@ const Interest = () => {
             value={reinversion ? reinversion : false}
             onChange={(e) => setReinversion(e.target.value)}
           />
-          <p className="level">◆ Capital inicial:</p>
+          <p className="level">◆ Capital inicial: (opcional)</p>
           <input
             className="interestInputs marginCero"
             type="number"
@@ -122,25 +121,40 @@ const Interest = () => {
           <div className="resultCenter">
             <div className="resultContainer">
               <h3 className="calculadoraTitleResult">
-                Tasa Efectiva Anual (TEA)
+                Tasa Efectiva Anual (TEA):
               </h3>
               <p className="calculadoraTextResult">
                 {newInt.TEA === "NaN" ? 0 : newInt.TEA}%
               </p>
             </div>
             <div className="resultContainer">
-              <h3 className="calculadoraTitleResult">Incremento del capital</h3>
-              <p className="calculadoraTextResult">
-                {newInt.TE === "NaN" ? 0 : newInt.TE}%
-              </p>
+              <h3 className="calculadoraTitleResult">
+                Incremento del capital:
+              </h3>
+              <div className="incrementContainer">
+                <p className="calculadoraTextResult">
+                  $
+                  {newInt.TE === "NaN"
+                    ? 0
+                    : ((capitalInicial * newInt.TE) / 100).toLocaleString(
+                        "es-ES",
+                        { minimumFractionDigits: 2 }
+                      )}
+                </p>
+                <p className="calculadoraTextResultPorcent">
+                  +{newInt.TE === "NaN" ? 0 : newInt.TE}%
+                </p>
+              </div>
             </div>
             <div className="resultContainer">
-              <h3 className="calculadoraTitleResult">Acumulacion</h3>
+              <h3 className="calculadoraTitleResult">Acumulacion:</h3>
               <p className="calculadoraTextResult">
                 $
                 {capitalInicial === "NaN" || !capitalInicial
                   ? 0
-                  : data[data.length - 1].toFixed(2)}
+                  : data[data.length - 1].toLocaleString("es-ES", {
+                      minimumFractionDigits: 2,
+                    })}
               </p>
             </div>
           </div>

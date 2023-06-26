@@ -20,10 +20,11 @@
         --middle: 14px;
         --normal: 24px;
         --big: 36px; */
-        --small: 9px;
-        --middle: 11px;
+        --small: 11,2px;
+        --middle: 11,2px; /*bold*/
         --normal: 14px;
-        --big: 24px;
+        --subtitle: 17,5px;
+        --title: 17,5px;/*bold*/
       }
       
   .row {

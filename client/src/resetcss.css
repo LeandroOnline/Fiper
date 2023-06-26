@@ -1,28 +1,36 @@
 :root {
   /* sombras */
   --shadow: hsl(218, 25%, 5%);
+  /* luz */
+  --ligth: hsl(218, 90%, 55%, 0.2);
+  /* bordes y lineas */
+  --primario: hsl(218, 90%, 55%);
 
-  /* background */
+  /* background color*/
   --level1: hsl(218, 25%, 15%);
   --level2: hsl(218, 25%, 20%);
   --level3: hsl(218, 25%, 25%);
   --level4: hsl(218, 25%, 35%);
 
-  /* placeholder */
-  --placeholder: hsl(218, 25%, 50%);
-
-  /* text */
+  /* text color */
+  /* placeholder medium (placeholder) and bold (level, descriptions) */
+  --placeholder: hsl(218, 25%, 60%);
   /* texto normal*/
-  --text: hsl(218, 25%, 60%);
-  /* titulo */
-  --title: hsl(218, 25%, 70%);
-  /* resultado */
-  --result: hsl(218, 25%, 80%);
+  --text: hsl(218, 25%, 70%);
+  /* title, buttons and result */
+  --title: hsl(218, 25%, 80%);
 
-  --primario: hsl(218, 90%, 55%);
-
-  /* luz */
-  --ligth: hsl(218, 90%, 55%, 0.2);
+  /* sizes */
+  /* descripcion de boton */
+  --small: 11px;
+  /* Descripciones y contenido */
+  --middle: 14px;
+  /* comentarios o tamaño normal */
+  --normal: 16px;
+  /* titulos */
+  --big: 20px;
+  /* "encabezado principal" o "encabezado de página" */
+  --extra: 26px; 
 
   /* spaces */
   --space1: 4px;
@@ -31,12 +39,6 @@
   --space4: 32px;
   --space5: 64px;
   --space6: 94px;
-
-  /* sizes */
-  --small: 11px;
-  --middle: 14px;
-  --normal: 24px;
-  --big: 36px;
 }
 
 body {
@@ -47,11 +49,6 @@ canvas {
   border-radius: 15px;
 }
 
-@font-face {
-  font-family: "Poppins";
-  src: url("./assets//font/Poppins/Poppins-Thin.ttf") format("opentype");
-  font-weight: 100;
-}
 @font-face {
   font-family: "Poppins";
   src: url("./assets//font/Poppins/Poppins-Light.ttf") format("opentype");
@@ -72,7 +69,7 @@ a:hover {
 }
 
 button {
-  font-weight: 400;
+  font-weight: 300;
   box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 30%);
   border-radius: 15px;
   padding: var(--space2) var(--space3);
@@ -83,13 +80,13 @@ button {
   justify-content: center;
   background-color: var(--primario);
   border: 1px solid var(--level1);
-  color: var(--result);
+  color: var(--title);
 }
 
 button:hover {
   background-color: var(--primario);
   transition: 0.5s;
-  color: var(--result);
+  border: 1px solid var(--primario);
 }
 
 input {
@@ -117,7 +114,7 @@ input:-webkit-autofill:active {
   padding: 0;
   text-decoration: none;
   font-family: Poppins;
-  font-weight: 100;
+  font-weight: 200;
   font-size: var(--normal);
   box-sizing: border-box;
   color: var(--text);

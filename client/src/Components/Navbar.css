@@ -7,10 +7,9 @@
 }
 
 .title {
-  font-weight: 700;
+  font-weight: 300;
   font-size: var(--big);
-  color: var(--result);
-  line-height: 0.8;
+  color: var(--title);
 }
 
 .navMenu {
@@ -54,13 +53,15 @@
 }
 
 .navOption {
-  font-weight: 200;
+  font-weight: 300;
   display: flex;
   transition: 0.5s;
+  color: var(--text);
+  cursor: pointer;
 }
 
 .navOption:hover {
-  filter: brightness(140%);
+  color: var(--title);
   transition: 0.5s;
 }
 
@@ -183,7 +184,7 @@
   transition: 1s;
   color: var(--text);
   font-size: var(--middle);
-  font-weight: 300;
+  font-weight: 200;
 }
 
 .cancelConfirm {

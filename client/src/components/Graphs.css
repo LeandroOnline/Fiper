@@ -58,8 +58,8 @@ canvas {
 }
 
 .datoTitle {
-  color: var(--title);
-  font-weight: 200;
+  color: var(--placeholder);
+  font-weight: 300;
   font-size: var(--middle);
 }
 
@@ -72,6 +72,7 @@ canvas {
 }
 
 .datoResult {
-  color: var(--result);
+  color: var(--title);
   font-weight: 300;
+  font-size: var(--big);
 }

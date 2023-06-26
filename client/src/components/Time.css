@@ -1,7 +1,7 @@
 .timeContainer {
   padding: var(--space3);
-  width: 300px;
-  height: 100px;
+  width: 210px;
+  height: 80px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -9,11 +9,11 @@
   gap: var(--space3);
   box-shadow: 2px 2px 8px hsl(218, 25%, 5%) inset,
     -2px -2px 8px hsl(218, 20%, 30%) inset;
-  margin-left: var(--space3);
 }
 
 .hour {
   font-size: var(--big);
+  color: var(--placeholder);
 }
 
 .inDay {
@@ -24,10 +24,12 @@
 
 .inDay p {
   font-size: var(--middle);
+  color: var(--placeholder);
+
 }
 
 .divideVerticalTime {
-  height: 68px;
+  height: 100%;
   width: var(--space1);
   background-color: var(--level2);
   box-shadow: 2px 2px 4px hsl(218, 25%, 5%) inset,

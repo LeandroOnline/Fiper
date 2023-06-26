@@ -24,19 +24,44 @@ const Graphs = () => {
     <div id="graphs" className="graphsContainer">
       <div className="datosContainer">
         <div className="datoContainer">
-          <h1 className="datoTitle">Egresos ultimo mes:</h1>
-          <p className="datoResult">$ {losses[month]}</p>
+          <h1 className="datoTitle">NETO mes actual:</h1>
+          <div className="incrementContainer">
+            <p className="datoResult">$ {netPerMonth[month]}</p>
+            <p className="calculadoraTextResultPorcent">
+              {netPerMonth[month - 1] !== 0
+                ? ((netPerMonth[month] * 100) / netPerMonth[month - 1]).toFixed(
+                    0
+                  ) + "%"
+                : "+0%"}
+            </p>
+          </div>
+
+          {console.log(netPerMonth[month - 1])}
         </div>
         <div className="divideVertical"></div>
         <div className="datoContainer">
-          <h1 className="datoTitle">NETO mes actual:</h1>
-          <p className="datoResult">$ {netPerMonth[month]}</p>
+          <h1 className="datoTitle">Egresos ultimo mes:</h1>
+          <div className="incrementContainer">
+            <p className="datoResult">$ {losses[month]}</p>
+            <p className="calculadoraTextResultPorcent">
+              {losses[month - 1] !== 0
+                ? ((losses[month] * 100) / losses[month - 1]).toFixed(0) + "%"
+                : "+0%"}
+            </p>
+          </div>
         </div>
         <div className="divideVertical"></div>
 
         <div className="datoContainer">
           <h1 className="datoTitle">Ingresos ultimo mes:</h1>
-          <p className="datoResult">$ {profits[month]}</p>
+          <div className="incrementContainer">
+            <p className="datoResult">$ {profits[month]}</p>
+            <p className="calculadoraTextResultPorcent">
+              {profits[month - 1] !== 0
+                ? ((profits[month] * 100) / profits[month - 1]).toFixed(0) + "%"
+                : "+0%"}
+            </p>
+          </div>
         </div>
       </div>
       <div className="AreaAndColumnContainer">

@@ -74,11 +74,6 @@
   width: 100%;
 }
 
-.loginButtons:hover {
-  width: 100%;
-  filter: brightness(110%);
-}
-
 .loginButtonSecondary {
   width: 100%;
   font-size: 14px;

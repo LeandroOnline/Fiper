@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   padding: var(--space3);
-  gap: var(--space3);
+  gap: var(--space2);
   width: 100%;
   height: calc(20vh - 16px);
   box-shadow: 1px 1px 8px hsl(218, 25%, 5%), -1px -1px 8px hsl(218, 20%, 30%),
@@ -58,7 +58,7 @@
 }
 
 .profitAndLosse {
-  width: 120px;
+  width: 150px;
   height: 100px;
   padding: var(--space2);
   display: flex;
@@ -70,13 +70,15 @@
 
 .profitAndLosseTitle {
   font-size: var(--middle);
-  font-weight: 200;
-  color: var(--title);
+  font-weight: 300;
+  color: var(--placeholder);
 }
 
 .profitAndLosseResult {
   font-weight: 300;
-  color: var(--result);
+  color: var(--title);
+  font-size: var(--big);
+
 }
 
 .divideVertical {

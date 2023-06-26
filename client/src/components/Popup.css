@@ -48,7 +48,7 @@
   width: 100%;
   border: 1px solid var(--primario);
   background-color: rgb(255, 255, 255, 0);
-  color: var(--result);
+  color: var(--title);
   padding: var(--space2) var(--space3);
 }
 
@@ -61,12 +61,8 @@
   width: 100%;
   border: 1px solid var(--level2);
   background-color: var(--primario);
-  color: var(--result);
+  color: var(--title);
   padding: var(--space2) var(--space3);
-}
-
-.popupButtonCancel:hover {
-  filter: brightness(110%);
 }
 
 .popupButtonsContainer {
