@@ -1,3 +1,51 @@
 @media (max-width: 550px) {
-  
+
+    :root {
+        /* spaces */
+        /* --space1: 4px;
+        --space2: 8px;
+        --space3: 16px;
+        --space4: 32px;
+        --space5: 64px;
+        --space6: 94px; */
+        --space1: 3px;
+        --space2: 6px;
+        --space3: 12px;
+        --space4: 24px;
+        --space5: 48px;
+        --space6: 64px;
+      
+        /* sizes */
+        /* --small: 11px;
+        --middle: 14px;
+        --normal: 24px;
+        --big: 36px; */
+        --small: 9px;
+        --middle: 11px;
+        --normal: 14px;
+        --big: 24px;
+      }
+      
+  .row {
+    width: 100vw;
+    top: 0;
+    left: 0;
+    position: static;
+  }
+  .totalcontainer {
+    flex-direction: column-reverse;
+    height: 80vh;
+  }
+  .divideVertical {
+    display: none;
+  }
+  .menuContainer {
+    top: 0;
+    left: var(--space2);
+  }
+  .homecontainer {
+    width: calc(100% - 88px);
+    /* width: 100%; */
+    padding: 0;
+  }
 }
