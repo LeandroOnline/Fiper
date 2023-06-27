@@ -157,14 +157,15 @@
   .notesContainer {
     width: 100%;
   }
-  /* menu */
+  /* MENU */
   .menuContainer {
     flex-direction: row;
-    bottom: 0;
+    bottom: 0px;
     background-color: var(--level1);
     z-index: 50;
     position: sticky;
     width: 100%;
+    height: 10vh;
     padding: var(--space3);
     gap: var(--space3);
     border-top: 2px solid var(--level2);
