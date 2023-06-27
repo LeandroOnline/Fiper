@@ -4,6 +4,11 @@
     height: 100vh;
   }
 
+  *{
+  box-sizing: border-box;
+
+  }
+
   :root {
     --space1: 2px;
     --space2: 4px;
