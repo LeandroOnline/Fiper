@@ -1,6 +1,6 @@
 :root {
   /* sombras */
-  --shadow: hsl(218, 25%, 10%);
+  --shadow: hsl(218, 25%, 5%);
   /* luz */
   --ligth: hsl(218, 90%, 55%, 0.2);
   /* bordes y lineas */
@@ -8,9 +8,9 @@
 
   /* background color*/
   --level1: hsl(216, 26%, 15%);
-  --level2: hsl(218, 25%, 25%);
-  --level3: hsl(218, 25%, 35%);
-  --level4: hsl(218, 25%, 45%);
+  --level2: hsl(218, 25%, 20%);
+  --level3: hsl(218, 25%, 25%);
+  --level4: hsl(218, 25%, 30%);
  
 
   /* text color */
