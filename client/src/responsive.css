@@ -22,7 +22,8 @@
     overflow: auto;
     width: 100%;
     height: 100%;
-    padding: var(--space4) var(--space4) 0 var(--space4);
+    padding: var(--space4);
+    margin-top: calc(var(--space5) + var(--space5));
   }
 
   /* saco todos los recuadros contenedores */
@@ -35,14 +36,14 @@
     box-shadow: none;
     /* padding: 0; */
     /* background solo para ver contenedor */
-    background: var(--level2);
+    /* background: var(--level2); */
+    border: 1px solid var(--level2);
   }
 
   /* Saco elementos para funcionalidad limitada */
   .footerContainer,
   .timeContainer,
   .gauge,
-  .divideVertical,
   .time,
   .dividePoint {
     display: none;
@@ -51,25 +52,26 @@
   /* Total Superior */
   .totalcontainer {
     flex-wrap: wrap;
-    height: 50px;
     gap: var(--space3);
-    padding: 0;
+    padding: var(--space4);
     background: none;
+    height: 100%;
+
   }
   .profitAndLosse {
-    width: calc(25% - var(--space2) - 2px);
-    height: auto;
-    background: var(--level2);
-    padding: var(--space3);
-    align-items: start;
-    justify-content: start;
-    height: 100%;
+    /* width: calc(20% - var(--space2) - 2px); */
+    height: 100px;
+    /* padding: var(--space3); */
   }
-  .profitAndLosseTitle {
+  .profitAndLosseTitle, .datoTitle {
     font-size: var(--small);
   }
-  .profitAndLosseResult {
-    font-size: var(--small);
+  .datoResult, .profitAndLosseResult{
+    font-size: var(--middle);
+  }
+
+  .divideVertical {
+    height: 40px;
   }
 
   /* Inputs */
@@ -81,7 +83,8 @@
 
   .input {
     width: 100%;
-    background: var(--level3);
+    background: var(--level2);
+    /* border: 1px solid var(--level2); */
     padding: var(--space3);
   }
 
@@ -195,5 +198,8 @@
   .navMenu {
     box-shadow: 4px 4px 16px var(--shadow), inset -1px -1px 4px var(--shadow),
       inset 1px 1px 2px var(--text);
+    gap: var(--space4);
+    padding: var(--space3) var(--space4);
+    top: var(--space4);
   }
 }

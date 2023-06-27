@@ -13,7 +13,7 @@
   height: 100%;
   overflow: auto;
   box-shadow:
-    2px 2px 8px hsl(218, 25%, 5%) inset, -2px -2px 8px hsl(218, 20%, 40%) inset;
+    2px 2px 8px hsl(218, 25%, 5%) inset, -2px -2px 8px hsl(218, 20%, 30%) inset;
   /* border: 2px solid var(--level1); */
   display: flex;
   flex-direction: column;

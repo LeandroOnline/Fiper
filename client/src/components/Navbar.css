@@ -18,7 +18,7 @@
   align-items: center;
   flex-direction: row;
   position: fixed;
-  top: var(--space3);
+  top: var(--space2);
   z-index: 20;
   transition: 0.5s;
   gap: var(--space3);

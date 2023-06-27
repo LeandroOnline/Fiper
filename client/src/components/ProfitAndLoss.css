@@ -7,10 +7,32 @@
   width: 100%;
   height: calc(20vh - 16px);
   box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 30%),
-  2px 2px 8px hsl(218, 25%, 5%) inset, -2px -2px 8px hsl(218, 20%, 40%) inset;
+    2px 2px 8px hsl(218, 25%, 5%) inset, -2px -2px 8px hsl(218, 20%, 30%) inset;
   border: 1px solid var(--level1);
   margin-bottom: var(--space4);
   position: relative;
+}
+
+.lastMonth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: var(--middle);
+  width: 100%;
+  font-weight: 300;
+  gap: var(--space3)
+}
+
+.datos {
+  display: flex;
+  gap: var(--space3)
+
+}
+
+.datoTitle {
+  color: var(--placeholder);
+  font-weight: 200;
+  font-size: var(--middle);
 }
 
 .pie {
@@ -78,7 +100,6 @@
   font-weight: 300;
   color: var(--title);
   font-size: var(--big);
-
 }
 
 .divideVertical {

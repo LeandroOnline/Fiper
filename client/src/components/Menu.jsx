@@ -15,7 +15,7 @@ const Menu = () => {
         spy={true}
         smooth={true}
         onSetActive={() => setPosition("home")}
-        offset={-90}
+        offset={-80}
         duration={500}
       >
         <div className={position === "home" ? "pressed" : "menuItem"}>
@@ -28,7 +28,7 @@ const Menu = () => {
         spy={true}
         smooth={true}
         onSetActive={() => setPosition("notes")}
-        offset={-90}
+        offset={-80}
         duration={500}
       >
         <div className={position === "notes" ? "pressed" : "menuItem"}>
@@ -41,7 +41,7 @@ const Menu = () => {
         spy={true}
         smooth={true}
         onSetActive={() => setPosition("interest")}
-        offset={-90}
+        offset={-80}
         duration={500}
       >
         <div className={position === "interest" ? "pressed" : "menuItem"}>
@@ -54,7 +54,7 @@ const Menu = () => {
         spy={true}
         smooth={true}
         onSetActive={() => setPosition("graphs")}
-        offset={-90}
+        offset={-80}
         duration={500}
       >
         <div className={position === "graphs" ? "pressed" : "menuItem"}>
@@ -67,7 +67,7 @@ const Menu = () => {
         spy={true}
         smooth={true}
         onSetActive={() => setPosition("divide")}
-        offset={-90}
+        offset={-80}
         duration={500}
       >
         <div className={position === "divide" ? "pressed" : "menuItem"}>

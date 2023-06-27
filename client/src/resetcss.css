@@ -8,9 +8,9 @@
 
   /* background color -> aumento del 8% de brillo en cada nivel*/
   --level1: hsl(216, 26%, 15%);
-  --level2: hsl(218, 25%, 23%);
-  --level3: hsl(218, 25%, 31%);
-  --level4: hsl(218, 25%, 39%);
+  --level2: hsl(218, 25%, 20%);
+  --level3: hsl(218, 25%, 25%);
+  --level4: hsl(218, 25%, 30%);
 
   /* text color */
   /* placeholder medium (placeholder) and bold (level, descriptions) */
@@ -36,7 +36,7 @@
   --space3: 16px;
   --space4: 32px;
   --space5: 64px;
-  --space6: 94px;
+  --space6: 80px;
 }
 
 body {

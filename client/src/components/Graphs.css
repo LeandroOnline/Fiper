@@ -56,12 +56,6 @@ canvas {
     -1px -1px 8px hsl(218, 20%, 30%) inset;
 }
 
-.datoTitle {
-  color: var(--placeholder);
-  font-weight: 300;
-  font-size: var(--middle);
-}
-
 .datoContainer {
   display: flex;
   gap: var(--space2);
