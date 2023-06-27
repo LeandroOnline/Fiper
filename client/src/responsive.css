@@ -32,12 +32,10 @@
   .notesContainer,
   .interescontainer,
   .graphsContainer,
-  .listcontainer {
+  .listcontainer,.AreaAndColumnContainer {
     box-shadow: none;
-    /* padding: 0; */
-    /* background solo para ver contenedor */
     background: var(--level2);
-    /* border: 4px solid var(--level2); */
+    border: none;
   }
 
   /* Saco elementos para funcionalidad limitada */
