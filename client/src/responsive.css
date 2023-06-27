@@ -21,7 +21,7 @@
   .homecontainer {
     overflow: auto;
     width: 100%;
-    height: 100%;
+    height: 90vh;
     padding: var(--space4);
   }
 
