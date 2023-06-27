@@ -1,73 +1,68 @@
 import "./Graphs.css";
-import columnDataFormat from "../helpers/columnDataFormat";
 import { Column } from "@ant-design/plots";
 import useGlobalStore from "../store/Store";
 import configColumnGraph from "../utils/configColumnGraph";
-import { useEffect } from "react";
 import { Area } from "@ant-design/plots";
-import areaDataFormat from "../helpers/areaDataFormat";
 import configAreaGraph from "../utils/configAreaGraph";
+import totalNeto from "../helpers/totalNeto";
+import dolarBlue from "../utils/dolarBlue";
+
+import { useState } from "react";
 
 const Graphs = () => {
-  const { inputs, setNetPerMonth, setProfitsAndLosses } = useGlobalStore();
-  const { dataGraph, netPerMonth } = areaDataFormat(inputs);
-  const { data, profits, losses } = columnDataFormat(inputs);
-  const date = new Date();
-  const month = date.getMonth();
+  const losses = useGlobalStore((state) => state.losses);
+  const profits = useGlobalStore((state) => state.profits);
+  const dataArea = useGlobalStore((state) => state.dataArea);
+  const dataColumn = useGlobalStore((state) => state.dataColumn);
+  const inputs = useGlobalStore((state) => state.inputs);
 
-  useEffect(() => {
-    setNetPerMonth(netPerMonth);
-    setProfitsAndLosses(profits, losses);
-  }, [inputs]);
+  const [dolar, setDolar] = useState("");
+  dolarBlue().then((data) => setDolar(data));
+
+  const total = (profits) => {
+    let total = 0;
+    profits.forEach((prof) => (total += prof));
+    return total;
+  };
 
   return (
     <div id="graphs" className="graphsContainer">
       <div className="datosContainer">
-        <div className="datoContainer">
-          <h1 className="datoTitle">NETO mes actual:</h1>
-          <div className="incrementContainer">
-            <p className="datoResult">$ {netPerMonth[month]}</p>
-            <p className="calculadoraTextResultPorcent">
-              {netPerMonth[month - 1] !== 0
-                ? ((netPerMonth[month] * 100) / netPerMonth[month - 1]).toFixed(
-                    0
-                  ) + "%"
-                : "+0%"}
-            </p>
-          </div>
-
-          {console.log(netPerMonth[month - 1])}
+        <div className="profitAndLosse">
+          <h1 className="profitAndLosseTitle">Total: </h1>
+          <p className="profitAndLosseResult">
+            $ {inputs ? totalNeto(inputs) : "0"}
+          </p>
         </div>
         <div className="divideVertical"></div>
-        <div className="datoContainer">
-          <h1 className="datoTitle">Egresos ultimo mes:</h1>
-          <div className="incrementContainer">
-            <p className="datoResult">$ {losses[month]}</p>
-            <p className="calculadoraTextResultPorcent">
-              {losses[month - 1] !== 0
-                ? ((losses[month] * 100) / losses[month - 1]).toFixed(0) + "%"
-                : "+0%"}
-            </p>
-          </div>
+        <div className="profitAndLosse">
+          <h1 className="profitAndLosseTitle">Ganancias: </h1>
+          <p className="profitAndLosseResult">
+            $ {profits ? total(profits) : "0"}
+          </p>
         </div>
         <div className="divideVertical"></div>
 
-        <div className="datoContainer">
-          <h1 className="datoTitle">Ingresos ultimo mes:</h1>
-          <div className="incrementContainer">
-            <p className="datoResult">$ {profits[month]}</p>
-            <p className="calculadoraTextResultPorcent">
-              {profits[month - 1] !== 0
-                ? ((profits[month] * 100) / profits[month - 1]).toFixed(0) + "%"
-                : "+0%"}
-            </p>
-          </div>
+        <div className="profitAndLosse">
+          <h1 className="profitAndLosseTitle">Gastos: </h1>
+          <p className="profitAndLosseResult">
+            $ {losses ? total(losses) : "0"}
+          </p>
+        </div>
+        <div className="divideVertical"></div>
+
+        <div className="profitAndLosse">
+          <h1 className="profitAndLosseTitle">Dolar BLue: </h1>
+          <p className="profitAndLosseResult">$ {dolar}</p>
         </div>
       </div>
       <div className="AreaAndColumnContainer">
-        <Area {...configAreaGraph(dataGraph)} className="AreaContainer" />
+        <Area {...configAreaGraph(dataArea)} className="AreaContainer" />
         <div className="divideGraphs"></div>
-        <Column {...configColumnGraph(data)} className="ColumnContainer" />
+        <Column
+          {...configColumnGraph(dataColumn)}
+          className="ColumnContainer"
+        />
       </div>
     </div>
   );

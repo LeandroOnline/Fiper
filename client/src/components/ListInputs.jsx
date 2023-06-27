@@ -122,7 +122,7 @@ const ListInputs = () => {
         {inputs.length !== 0 ? <Search /> : null}
         {inputs.length == 0 ? (
           <p className="totalInputs">
-            Sin entradas, por favor ingresa un valor
+            Sin entradas.
           </p>
         ) : filtered ? (
           <p className="totalInputs">${totalNeto(filtered)}</p>

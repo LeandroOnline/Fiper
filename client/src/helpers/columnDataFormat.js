@@ -14,7 +14,7 @@ const columnDataFormat = (inputs) => {
     "Diciembre",
   ];
 
-  const data = Array.from({ length: 24 }, () => 0);
+  const dataColumn = Array.from({ length: 24 }, () => 0);
   const profits = Array.from({ length: 12 }, () => 0);
   const losses = Array.from({ length: 12 }, () => 0);
 
@@ -23,23 +23,23 @@ const columnDataFormat = (inputs) => {
     let month = date.getMonth();
 
     if (input.input >= 0) {
-      data[month] += input.input;
+      dataColumn[month] += input.input;
       profits[month] += input.input;
     } else {
-      data[month + 12] += input.input * -1;
+      dataColumn[month + 12] += input.input * -1;
       losses[month] += input.input * -1;
     }
   });
 
   // Formateo la data para ser leida por la grafica
-  for (let i = 0; i < data.length; i++) {
-    data[i] = {
+  for (let i = 0; i < dataColumn.length; i++) {
+    dataColumn[i] = {
       name: i < 12 ? "Ingresos" : "Egresos",
       date: i < 12 ? monthNumber[i] : monthNumber[i - 12],
-      value: data[i],
+      value: dataColumn[i],
     };
   }
-  return { data, profits, losses };
+  return { dataColumn, profits, losses };
 };
 
 export default columnDataFormat;

@@ -3,7 +3,7 @@
   border-radius: 15px;
   box-shadow: 2px 2px 4px hsl(218, 25%, 5%) inset,
     -2px -2px 4px hsl(218, 20%, 30%) inset;
-  height: 26px;
   padding: var(--space2) var(--space3);
   margin-right: var(--space2);
+  border: 1px solid var(--level1);
 }

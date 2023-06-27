@@ -7,7 +7,7 @@
   padding: var(--space2);
   background: var(--level2);
   border-radius: 15px;
-  box-shadow: 2px 2px 16px var(--shadow), inset -1px -1px 4px var(--shadow), inset 1px 1px 4px var(--text);
+  box-shadow: 4px 4px 16px var(--shadow), inset -1px -1px 4px var(--shadow), inset 1px 1px 4px var(--text);
     border: 1px solid var(--level1);
 }
 
@@ -174,10 +174,4 @@
   filter: invert();
   opacity: 100%;
   padding: 1.5px;
-}
-
-@media (max-width: 550px) {
-  .noteContainer {
-    width: calc((100% - 15px) / 2);
-  }
 }

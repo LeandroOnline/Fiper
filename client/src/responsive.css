@@ -8,8 +8,8 @@
     --space6: 64px;
   }
 
-  button{
-    padding: var(--space3);
+  button {
+    padding: var(--space3) var(--space4);
   }
 
   .row {
@@ -22,7 +22,7 @@
     overflow: auto;
     width: 100%;
     height: 100%;
-    padding: var(--space3);
+    padding: var(--space4);
   }
 
   /* saco todos los recuadros contenedores */
@@ -30,78 +30,130 @@
   .inputContainer,
   .notesContainer,
   .interescontainer,
-  .graphsContainer {
+  .graphsContainer,
+  .listcontainer {
     box-shadow: none;
+    /* padding: 0; */
+    /* background solo para ver contenedor */
+    background: var(--level2);
   }
 
   /* Saco elementos para funcionalidad limitada */
   .footerContainer,
   .timeContainer,
-  .gauge {
+  .gauge,
+  .divideVertical,
+  .time,
+  .dividePoint {
     display: none;
   }
 
   /* Total Superior */
   .totalcontainer {
     flex-wrap: wrap;
-    height: auto;
+    height: 50px;
+    gap: var(--space3);
+    padding: 0;
+    background: none;
   }
   .profitAndLosse {
-    width: 75px;
+    width: calc(25% - var(--space2) - 2px);
     height: auto;
-  }
-  .divideVertical {
-    height: 42px;
+    background: var(--level2);
+    padding: var(--space3);
+    align-items: start;
+    justify-content: start;
+    height: 100%;
   }
   .profitAndLosseTitle {
     font-size: var(--small);
   }
   .profitAndLosseResult {
-    font-size: var(--middle);
+    font-size: var(--small);
   }
 
   /* Inputs */
   .inputContainer {
     flex-direction: column;
     height: 100%;
+    padding: var(--space4);
+
   }
 
   .input {
     width: 100%;
+    background: var(--level3);
+    padding: var(--space3);
   }
 
-  .inputTextItem{
-    height: 70px;
+  .inputPriceItem {
+    padding: var(--space3) var(--space4);
+    border: 1px solid var(--level1);
+    background: var(--level4);
   }
-  .totalInputs {
-    display: none;
+  .inputTextItem {
+    height: 70px;
   }
 
   .navAndListContainer {
     width: 100%;
-    margin-top: var(--space4);
+    /* margin-top: var(--space4); */
+    padding: var(--space3);
+    border: 1px solid var(--level3);
   }
 
-  .navList{
+  .navList {
     justify-content: space-between;
     gap: var(--space3);
-
+    flex-wrap: wrap-reverse;
   }
-  .SearchInput{
-    width: 60%;
+  .SearchInput {
+    width: 100%;
+    padding: var(--space3) var(--space4);
+    border: 1px solid var(--level1);
+    margin: 0 0 var(--space2) 0;
   }
 
-  .clearAll{
-    width: 40%;
+  .clearAll,
+  .totalInputs {
+    width: calc(50% - var(--space3));
   }
 
-  .listcontainer{
+  .totalInputs {
+    background: linear-gradient(90deg, var(--level4), rgba(255, 255, 255, 0));
+    border: 1px solid var(--level3);
+    padding: 8px 16px;
+  }
+
+  .listcontainer {
     height: 100%;
     overflow: auto;
+    background: var(--level2);
   }
 
+  .listElement {
+    /* box-shadow: 1px 1px 8px var(--shadow), inset -1px -1px 2px var(--shadow),
+      inset 1px 1px 2px var(--text); */
+    box-shadow: none;
+    background: var(--level3);
+  }
+
+  .inputOptions {
+    flex-direction: row;
+  }
+  .img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .positive,
+  .negative,
+  .neutral {
+    font-size: var(--normal);
+    width: 110px;
+  }
   /* Notas */
-  .notesContainer{
+  .notesContainer {
     width: 100%;
   }
   /* menu */
@@ -135,7 +187,8 @@
     width: 30px;
   }
 
-  .config, .configOpen {
+  .config,
+  .configOpen {
     width: 28px;
   }
 

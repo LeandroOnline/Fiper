@@ -14,7 +14,7 @@ const format = (inputs) => {
     "Diciembre",
   ];
 
-  const dataGraph = []; // data sin formato
+  const dataArea = []; // data sin formato
   const netPerMonth = Array.from({ length: 12 }, () => 0);
 
   // sumo los ingresos y egresos para tener el valor neto por mes
@@ -26,11 +26,11 @@ const format = (inputs) => {
 
   // formateo data con los valores neto
   for (let i = 0; i < 13; i++) {
-    dataGraph[i] = {
+    dataArea[i] = {
       timePeriod: monthNumber[i],
       value: netPerMonth[i],
     };
   }
-  return { dataGraph, netPerMonth };
+  return { dataArea, netPerMonth };
 };
 export default format;

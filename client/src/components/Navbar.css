@@ -25,7 +25,7 @@
   padding: var(--space2) var(--space3);
   backdrop-filter: blur(10px);
   border-radius: 50px;
-  box-shadow: 8px 8px 32px var(--shadow), inset -2px -2px 4px var(--shadow),
+  box-shadow: 4px 4px 16px var(--shadow), inset -2px -2px 4px var(--shadow),
     inset 1px 1px 4px var(--text);
   border: 1px solid var(--level1);
 }
@@ -126,7 +126,7 @@
   gap: 15px;
   padding: var(--space4);
   z-index: 10;
-  box-shadow: 8px 8px 32px var(--shadow), inset -2px -2px 4px var(--shadow),
+  box-shadow: 4px 4px 16px var(--shadow), inset -2px -2px 4px var(--shadow),
     inset 1px 1px 4px var(--text);
   border: 1px solid var(--level1);
 }

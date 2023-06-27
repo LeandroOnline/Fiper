@@ -20,6 +20,10 @@ const useGlobalStore = create(
       noteDeletedOrUpdate: false,
       sound: true,
       nickname: false,
+      dataArea:[],
+      dataColumn:[],
+      setDataArea: (e)=> set({dataArea: e}),
+      setDataColumn: (e)=> set({dataColumn: e}),
       setNickname: (e) => set({ nickname: e }),
       setSound: () => set({ sound: !get().sound }),
       setNoteDeletedOrUpdate: () =>

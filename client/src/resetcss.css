@@ -1,16 +1,17 @@
 :root {
   /* sombras */
-  --shadow: hsl(218, 25%, 5%);
+  --shadow: hsl(218, 25%, 10%);
   /* luz */
   --ligth: hsl(218, 90%, 55%, 0.2);
   /* bordes y lineas */
   --primario: hsl(218, 90%, 55%);
 
   /* background color*/
-  --level1: hsl(218, 25%, 15%);
+  --level1: hsl(216, 26%, 15%);
   --level2: hsl(218, 25%, 20%);
   --level3: hsl(218, 25%, 25%);
-  --level4: hsl(218, 25%, 35%);
+  --level4: hsl(218, 25%, 30%);
+ 
 
   /* text color */
   /* placeholder medium (placeholder) and bold (level, descriptions) */
@@ -89,8 +90,8 @@ button:hover {
 
 input {
   all: unset;
-  padding: 8px;
-  height: 26px;
+  padding: calc(var(--space2) + 1px) var(--space3);
+  /* height: 26px; */
 }
 
 input[type="number"]::-webkit-inner-spin-button,

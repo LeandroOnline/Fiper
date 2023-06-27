@@ -5,8 +5,8 @@
   display: flex;
   flex-direction: column;
   gap: var(--space4);
-  box-shadow: 1px 1px 8px hsl(218, 25%, 5%), -1px -1px 8px hsl(218, 20%, 30%),
-    1px 1px 8px hsl(218, 25%, 5%) inset, -1px -1px 8px hsl(218, 20%, 30%) inset;
+  box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 30%),
+  2px 2px 8px hsl(218, 25%, 5%) inset, -2px -2px 8px hsl(218, 20%, 40%) inset;
   border: 1px solid var(--level1);
   margin: 0 0 var(--space5) 0;
 }

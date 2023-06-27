@@ -19,8 +19,10 @@
 }
 
 .inputContainer {
-  box-shadow: 1px 1px 8px hsl(218, 25%, 5%), -1px -1px 8px hsl(218, 20%, 30%),
-    1px 1px 8px hsl(218, 25%, 5%) inset, -1px -1px 8px hsl(218, 20%, 30%) inset;
+  box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 30%),
+  2px 2px 8px hsl(218, 25%, 5%) inset, -2px -2px 8px hsl(218, 20%, 40%) inset;
+  background: var(--level2);
+
   border: 1px solid var(--level1);
   padding: var(--space3);
   gap: var(--space4);
