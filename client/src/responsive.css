@@ -36,8 +36,7 @@
     box-shadow: none;
     /* padding: 0; */
     /* background solo para ver contenedor */
-    /* background: var(--level2); */
-    border: 1px solid var(--level2);
+    /* border: 4px solid var(--level2); */
   }
 
   /* Saco elementos para funcionalidad limitada */
@@ -79,13 +78,15 @@
     flex-direction: column;
     height: 100%;
     padding: var(--space4);
+    background: var(--level2);
+
   }
 
   .input {
     width: 100%;
     background: var(--level2);
     /* border: 1px solid var(--level2); */
-    padding: var(--space3);
+    /* padding: var(--space3); */
   }
 
   .inputPriceItem {
@@ -100,9 +101,11 @@
 
   .navAndListContainer {
     width: 100%;
-    /* margin-top: var(--space4); */
+    margin-top: var(--space4);
     padding: var(--space3);
-    border: 1px solid var(--level3);
+    /* border: 4px solid var(--level3); */
+    background: var(--level3);
+
   }
 
   .navList {
@@ -131,13 +134,15 @@
   .listcontainer {
     height: 100%;
     overflow: auto;
-    background: var(--level2);
+    margin-top: var(--space2);
+    padding: 0;
+    height: 100px;
   }
 
   .listElement {
     box-shadow: none;
-    background: var(--level3);
-    border: 1px solid var(--level2);
+    background: var(--level4);
+    border: 1px solid var(--level4);
   }
 
   .inputOptions {
