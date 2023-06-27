@@ -15,11 +15,11 @@
 
   /* text color */
   /* placeholder medium (placeholder) and bold (level, descriptions) */
-  --placeholder: hsl(218, 25%, 60%);
+  --placeholder: hsl(218, 25%, 65%);
   /* texto normal*/
-  --text: hsl(218, 25%, 70%);
+  --text: hsl(218, 25%, 75%);
   /* title, buttons and result */
-  --title: hsl(218, 25%, 80%);
+  --title: hsl(218, 25%, 85%);
 
   /* sizes */
   /* descripcion de boton */
@@ -120,6 +120,7 @@ input:-webkit-autofill:active {
   text-shadow: 0px 0px 5px hsl(218, 25%, 20%, 0.5);
   border-radius: 15px;
   line-height: 1.2;
+  text-rendering: optimizeLegibility;
 }
 
 /* Barras de desplazamiento */
