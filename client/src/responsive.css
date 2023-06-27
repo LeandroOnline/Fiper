@@ -162,6 +162,8 @@
   .notesContainer,
   .notesGridContainer {
     width: 100%;
+    overflow:visible;
+    height: 100%;
   }
   .notesContainer {
     flex-direction: column;
@@ -222,6 +224,7 @@
   /* Interest */
   .interescontainer {
     padding: var(--space4);
+    height: 100%;
   }
 
   .selectContainer {
@@ -233,8 +236,9 @@
   .calculadoraResultContainer {
     width: 50%;
   }
-
+  
   .calculadoraResultContainer{
+    padding: var(--space4);
     height:fit-content;
   }
   .interestInputs {
