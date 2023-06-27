@@ -73,6 +73,10 @@
     height: 40px;
   }
 
+  .calculadoraTextResultPorcent{
+    font-size: var(--small);
+  }
+
   /* Inputs */
   .inputContainer {
     flex-direction: column;
