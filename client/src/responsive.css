@@ -1,4 +1,9 @@
 @media (max-width: 550px) {
+  body {
+    width: 100vw;
+    height: 100vh;
+  }
+
   :root {
     --space1: 2px;
     --space2: 4px;
@@ -73,7 +78,7 @@
     height: 40px;
   }
 
-  .calculadoraTextResultPorcent{
+  .calculadoraTextResultPorcent {
     font-size: var(--small);
   }
 
@@ -153,12 +158,12 @@
   .imgButton {
     display: flex;
   }
-  .inputTextItemUpdate{
+  .inputTextItemUpdate {
     box-sizing: border-box;
     padding: var(--space3);
   }
 
-  .inputsUpdate{
+  .inputsUpdate {
     flex-direction: column;
   }
 
@@ -285,11 +290,11 @@
     height: 200px !important;
   }
 
-  .dolarDesktop{
+  .dolarDesktop {
     display: none;
   }
 
-  .dolarMovile{
+  .dolarMovile {
     display: flex;
   }
 }
