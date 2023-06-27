@@ -7,10 +7,10 @@
   --primario: hsl(218, 90%, 55%);
 
   /* background color*/
-  --level1: hsl(216, 26%, 15%);
-  --level2: hsl(218, 25%, 20%);
-  --level3: hsl(218, 25%, 25%);
-  --level4: hsl(218, 25%, 30%);
+  --level1: hsl(216, 26%, 20%);
+  --level2: hsl(218, 25%, 30%);
+  --level3: hsl(218, 25%, 40%);
+  --level4: hsl(218, 25%, 50%);
  
 
   /* text color */
