@@ -6,20 +6,19 @@
   /* bordes y lineas */
   --primario: hsl(218, 90%, 55%);
 
-  /* background color*/
+  /* background color -> aumento del 8% de brillo en cada nivel*/
   --level1: hsl(216, 26%, 15%);
-  --level2: hsl(218, 25%, 20%);
-  --level3: hsl(218, 25%, 25%);
-  --level4: hsl(218, 25%, 30%);
- 
+  --level2: hsl(218, 25%, 23%);
+  --level3: hsl(218, 25%, 31%);
+  --level4: hsl(218, 25%, 39%);
 
   /* text color */
   /* placeholder medium (placeholder) and bold (level, descriptions) */
-  --placeholder: hsl(218, 25%, 65%);
+  --placeholder: hsl(218, 25%, 60%);
   /* texto normal*/
-  --text: hsl(218, 25%, 75%);
+  --text: hsl(218, 25%, 80%);
   /* title, buttons and result */
-  --title: hsl(218, 25%, 85%);
+  --title: hsl(218, 25%, 90%);
 
   /* sizes */
   /* descripcion de boton */

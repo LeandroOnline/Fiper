@@ -89,10 +89,12 @@
   .inputPriceItem {
     padding: var(--space3) var(--space4);
     border: 1px solid var(--level1);
-    background: var(--level4);
+    background: var(--level3);
   }
   .inputTextItem {
     height: 70px;
+    background: var(--level3);
+
   }
 
   .navAndListContainer {
@@ -132,10 +134,9 @@
   }
 
   .listElement {
-    /* box-shadow: 1px 1px 8px var(--shadow), inset -1px -1px 2px var(--shadow),
-      inset 1px 1px 2px var(--text); */
     box-shadow: none;
     background: var(--level3);
+    border: 1px solid var(--level2);
   }
 
   .inputOptions {
