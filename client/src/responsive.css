@@ -57,6 +57,8 @@
   .menuItem {
     padding: var(--space2);
     gap: var(--space2);
+    box-shadow: none;
+
   }
 
   /* navbar */
