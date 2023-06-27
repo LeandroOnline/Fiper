@@ -4,9 +4,8 @@
     height: 100vh;
   }
 
-  *{
-  box-sizing: border-box;
-
+  * {
+    box-sizing: border-box;
   }
 
   :root {
@@ -43,7 +42,9 @@
   .interescontainer,
   .graphsContainer,
   .listcontainer,
-  .AreaAndColumnContainer {
+  .AreaAndColumnContainer,
+  .notesGridContainer,
+  .noteContainer {
     box-shadow: none;
     background: var(--level2);
     border: none;
@@ -56,6 +57,32 @@
   .time,
   .dividePoint {
     display: none;
+  }
+
+  /* MENU */
+  .menuContainer {
+    flex-direction: row;
+    bottom: 0px;
+    background-color: var(--level1);
+    z-index: 50;
+    position: sticky;
+    width: 100vw;
+    height: 10vh;
+    padding: var(--space3);
+    gap: var(--space3);
+    border-top: 2px solid var(--level2);
+  }
+
+  .menuItemImg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .pressed,
+  .menuItem {
+    padding: var(--space2);
+    gap: var(--space2);
+    box-shadow: none;
   }
 
   /* Total Superior */
@@ -180,47 +207,29 @@
   }
 
   /* Notas */
-  .notesContainer,
+
+  .notesContainer {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    padding: var(--space4);
+    background: var(--level2);
+  }
   .notesGridContainer {
     width: 100%;
     overflow: visible;
     height: 100%;
+    padding: 0;
   }
-  .notesContainer {
-    flex-direction: column;
-    padding: var(--space4);
+  .noteContainer {
+    background: var(--level3);
+    border: var(--space3) solid var(--level3);
   }
   .addNoteAndGraph {
     width: 100%;
   }
   .titleNote {
     padding: var(--space3) var(--space4);
-  }
-
-  /* MENU */
-  .menuContainer {
-    flex-direction: row;
-    bottom: 0px;
-    background-color: var(--level1);
-    z-index: 50;
-    position: sticky;
-    width: 100vw;
-    height: 10vh;
-    padding: var(--space3);
-    gap: var(--space3);
-    border-top: 2px solid var(--level2);
-  }
-
-  .menuItemImg {
-    width: 20px;
-    height: 20px;
-  }
-
-  .pressed,
-  .menuItem {
-    padding: var(--space2);
-    gap: var(--space2);
-    box-shadow: none;
   }
 
   /* navbar */
