@@ -6,7 +6,7 @@
   flex-direction: column;
   gap: var(--space4);
   box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 30%),
-  2px 2px 8px hsl(218, 25%, 5%) inset, -2px -2px 8px hsl(218, 20%, 40%) inset;
+    2px 2px 8px hsl(218, 25%, 5%) inset, -2px -2px 8px hsl(218, 20%, 40%) inset;
   border: 1px solid var(--level1);
   margin: 0 0 var(--space5) 0;
 }
@@ -31,7 +31,7 @@
   margin-bottom: var(--space3);
 }
 
-.marginCero{
+.marginCero {
   margin: 0;
 }
 
@@ -67,11 +67,10 @@
   align-items: center;
   font-size: var(--middle);
   font-weight: 300;
-  border: 1px solid rgba(255, 255, 255, 0);
+  border: 1px solid var(--level1);
   transition: 0.4s;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: var(--level1);
   color: var(--placeholder);
-
 }
 
 .select:hover {
@@ -127,32 +126,32 @@
   font-size: var(--big);
 }
 
-.calculadoraTitleResult{
+.calculadoraTitleResult {
   font-size: var(--middle);
   font-weight: 300;
   color: var(--placeholder);
 }
 
-.calculadoraTextResultPorcent{
+.calculadoraTextResultPorcent {
   font-size: var(--middle);
   /* font-weight: 200; */
   color: var(--placeholder);
 }
 
-.incrementContainer{
+.incrementContainer {
   display: flex;
   align-items: end;
-  gap: var(--space2)
+  gap: var(--space2);
 }
 
-.resultCenter{
+.resultCenter {
   display: flex;
   flex-direction: column;
-  gap: var(--space3)
+  gap: var(--space3);
 }
 
-.resultContainer{
+.resultContainer {
   display: flex;
   flex-direction: column;
-  gap: var(--space2)
+  gap: var(--space2);
 }

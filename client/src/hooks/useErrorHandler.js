@@ -2,7 +2,7 @@ const useErrorHandler = (err) => {
   if (err.code === "ECONNABORTED") {
     return {
       type: "warning",
-      text: "Estamos en sobrecarga, por favor regrese luego",
+      text: "Experimentamos sobrecarga, intente nuevamente o pruebe luego",
       activate: true,
       toConfirm: true,
       query: false,
@@ -12,7 +12,7 @@ const useErrorHandler = (err) => {
     console.log(err);
     return {
       type: "error",
-      text: "Estamos en mantenimiento, por favor regrese luego",
+      text: "Disculpe, estamos en mantenimiento, por favor intente mas tarde",
       activate: true,
       toConfirm: true,
       query: false,

@@ -108,7 +108,7 @@ const Notes = () => {
             onChange={(e) => setText(useSanitize(e.target.value))}
             className="inputNote"
           />
-          <button className="clearAll" type="submit">
+          <button className="addNoteButton" type="submit">
             Agregar
           </button>
         </form>

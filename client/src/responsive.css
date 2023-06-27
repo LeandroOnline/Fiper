@@ -36,6 +36,7 @@
     box-shadow: none;
     /* padding: 0; */
     /* background solo para ver contenedor */
+    background: var(--level2);
     /* border: 4px solid var(--level2); */
   }
 
@@ -55,17 +56,18 @@
     padding: var(--space4);
     background: none;
     height: 100%;
-
   }
   .profitAndLosse {
     /* width: calc(20% - var(--space2) - 2px); */
     height: 100px;
     /* padding: var(--space3); */
   }
-  .profitAndLosseTitle, .datoTitle {
+  .profitAndLosseTitle,
+  .datoTitle {
     font-size: var(--small);
   }
-  .datoResult, .profitAndLosseResult{
+  .datoResult,
+  .profitAndLosseResult {
     font-size: var(--middle);
   }
 
@@ -79,33 +81,26 @@
     height: 100%;
     padding: var(--space4);
     background: var(--level2);
-
   }
 
   .input {
     width: 100%;
     background: var(--level2);
-    /* border: 1px solid var(--level2); */
-    /* padding: var(--space3); */
   }
 
   .inputPriceItem {
     padding: var(--space3) var(--space4);
     border: 1px solid var(--level1);
-    background: var(--level3);
   }
   .inputTextItem {
     height: 70px;
-    background: var(--level3);
   }
 
   .navAndListContainer {
     width: 100%;
     margin-top: var(--space4);
-    padding: var(--space3);
-    /* border: 4px solid var(--level3); */
+    padding: var(--space4);
     background: var(--level3);
-
   }
 
   .navList {
@@ -116,8 +111,11 @@
   .SearchInput {
     width: 100%;
     padding: var(--space3) var(--space4);
-    border: 1px solid var(--level1);
+    border: 1px solid var(--level3);
     margin: 0 0 var(--space2) 0;
+    background: none;
+    box-shadow: 2px 2px 4px hsl(218, 25%, 15%) inset,
+      -2px -2px 4px hsl(218, 20%, 40%) inset;
   }
 
   .clearAll,
@@ -136,7 +134,7 @@
     overflow: auto;
     margin-top: var(--space2);
     padding: 0;
-    height: 100px;
+    background: none;
   }
 
   .listElement {
@@ -159,10 +157,23 @@
     font-size: var(--normal);
     width: 110px;
   }
+
   /* Notas */
-  .notesContainer {
+  .notesContainer,
+  .notesGridContainer {
     width: 100%;
   }
+  .notesContainer {
+    flex-direction: column;
+    padding: var(--space4);
+  }
+  .addNoteAndGraph {
+    width: 100%;
+  }
+  .titleNote {
+    padding: var(--space3) var(--space4);
+  }
+
   /* MENU */
   .menuContainer {
     flex-direction: row;
@@ -206,5 +217,48 @@
     gap: var(--space4);
     padding: var(--space3) var(--space4);
     top: var(--space4);
+  }
+
+  /* Interest */
+  .interescontainer {
+    padding: var(--space4);
+  }
+
+  .selectContainer {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .interestInputsContainer,
+  .calculadoraResultContainer {
+    width: 50%;
+  }
+
+  .calculadoraResultContainer{
+    height:fit-content;
+  }
+  .interestInputs {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .level {
+    font-size: var(--small);
+  }
+
+  .select {
+    background: var(--level3);
+    box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 30%),
+      1px 1px 20px hsl(218, 25%, 10%) inset,
+      -1px -1px 20px hsl(218, 20%, 30%) inset;
+    border: 1px solid var(--level2);
+  }
+  .calculadoraTitleResult{
+    font-size: var(--small);
+  }
+
+  .calculadoraTextResult{
+    font-size: var(--middle);
+
   }
 }
