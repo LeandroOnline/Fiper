@@ -6,6 +6,7 @@ import dolarBlue from "../utils/dolarBlue";
 import columnDataFormat from "../helpers/columnDataFormat";
 import { useEffect } from "react";
 import areaDataFormat from "../helpers/areaDataFormat";
+import formatNumber from "../helpers/formatNumber";
 
 const Total = memo(() => {
   const inputs = useGlobalStore((state) => state.inputs);
@@ -33,7 +34,7 @@ const Total = memo(() => {
 
   const numeroGrande = 13412432452243;
   const numeroFormateado = numeroGrande.toPrecision(4);
-  console.log(numeroFormateado);
+
   return (
     <div className="totalcontainer" id="home">
       <div className="lastMonth">
@@ -42,7 +43,7 @@ const Total = memo(() => {
           <div className="datoContainer">
             <h1 className="datoTitle">Total:</h1>
             <div className="incrementContainer">
-              <p className="datoResult">$ {netPerMonth[month]}</p>
+              <p className="datoResult">$ {formatNumber(netPerMonth[month])}</p>
               <p className="calculadoraTextResultPorcent">
                 {netPerMonth[month - 1] !== 0
                   ? (
@@ -57,7 +58,7 @@ const Total = memo(() => {
           <div className="datoContainer">
             <h1 className="datoTitle">Egresos:</h1>
             <div className="incrementContainer">
-              <p className="datoResult">$ {losses[month]}</p>
+              <p className="datoResult">$ {formatNumber(losses[month])}</p>
               <p className="calculadoraTextResultPorcent">
                 {losses[month - 1] !== 0
                   ? ((losses[month] * 100) / losses[month - 1]).toFixed(0) + "%"
@@ -69,7 +70,7 @@ const Total = memo(() => {
           <div className="datoContainer">
             <h1 className="datoTitle">Ingresos:</h1>
             <div className="incrementContainer">
-              <p className="datoResult">$ {profits[month]}</p>
+              <p className="datoResult">$ {formatNumber(profits[month])}</p>
               <p className="calculadoraTextResultPorcent">
                 {profits[month - 1] !== 0
                   ? ((profits[month] * 100) / profits[month - 1]).toFixed(0) +
@@ -78,7 +79,7 @@ const Total = memo(() => {
               </p>
             </div>
           </div>
-      <Time />
+          <Time />
         </div>
       </div>
     </div>

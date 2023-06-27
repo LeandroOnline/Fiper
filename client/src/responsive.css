@@ -32,7 +32,8 @@
   .notesContainer,
   .interescontainer,
   .graphsContainer,
-  .listcontainer,.AreaAndColumnContainer {
+  .listcontainer,
+  .AreaAndColumnContainer {
     box-shadow: none;
     background: var(--level2);
     border: none;
@@ -52,13 +53,12 @@
     flex-wrap: wrap;
     gap: var(--space3);
     padding: var(--space4);
-    background: none;
+    background: var(--level2);
     height: 100%;
   }
   .profitAndLosse {
-    /* width: calc(20% - var(--space2) - 2px); */
+    width: calc(25% - var(--space2) - 2px);
     height: 100px;
-    /* padding: var(--space3); */
   }
   .profitAndLosseTitle,
   .datoTitle {
@@ -144,9 +144,17 @@
   .inputOptions {
     flex-direction: row;
   }
-  .img {
-    width: 24px;
-    height: 24px;
+
+  .imgButton {
+    display: flex;
+  }
+  .inputTextItemUpdate{
+    box-sizing: border-box;
+    padding: var(--space3);
+  }
+
+  .inputsUpdate{
+    flex-direction: column;
   }
 
   .positive,
@@ -160,7 +168,7 @@
   .notesContainer,
   .notesGridContainer {
     width: 100%;
-    overflow:visible;
+    overflow: visible;
     height: 100%;
   }
   .notesContainer {
@@ -225,6 +233,12 @@
     height: 100%;
   }
 
+  .interest {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .selectContainer {
     flex-direction: column;
     width: 100%;
@@ -234,10 +248,9 @@
   .calculadoraResultContainer {
     width: 50%;
   }
-  
-  .calculadoraResultContainer{
+
+  .calculadoraResultContainer {
     padding: var(--space4);
-    height:fit-content;
   }
   .interestInputs {
     width: 100%;
@@ -255,12 +268,23 @@
       -1px -1px 20px hsl(218, 20%, 30%) inset;
     border: 1px solid var(--level2);
   }
-  .calculadoraTitleResult{
+  .calculadoraTitleResult {
     font-size: var(--small);
   }
 
-  .calculadoraTextResult{
+  .calculadoraTextResult {
     font-size: var(--middle);
+  }
 
+  .tinyArea {
+    height: 200px !important;
+  }
+
+  .dolarDesktop{
+    display: none;
+  }
+
+  .dolarMovile{
+    display: flex;
   }
 }
