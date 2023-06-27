@@ -24,19 +24,16 @@ const Search = () => {
     filterValue(value);
   }, [value]);
 
-
   return (
-    <div>
-      <input
-        className="SearchInput"
-        value={value}
-        onChange={(e) => {
-          setValue(e.target.value);
-        }}
-        type="text"
-        placeholder="Busca"
-      />
-    </div>
+    <input
+      className="SearchInput"
+      value={value}
+      onChange={(e) => {
+        setValue(e.target.value);
+      }}
+      type="text"
+      placeholder="Busca"
+    />
   );
 };
 export default Search;

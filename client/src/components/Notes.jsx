@@ -86,49 +86,47 @@ const Notes = () => {
   const reversedNotes = [...notes].reverse();
 
   return (
-    <>
-      <div className="notesContainer" id="notes">
-        <Popup config={{ popupConfig, setPopupConfig }} />
-        <div className="addNoteAndGraph">
-          <form
-            action=""
-            className="formNote"
-            onSubmit={(e) => addNote(e, title, text)}
-          >
-            <input
-              type="text"
-              placeholder="Titulo"
-              value={title}
-              onChange={(e) => setTitle(useSanitize(e.target.value))}
-              className="titleNote"
-            />
-            <textarea
-              type="text"
-              placeholder="Texto"
-              value={text}
-              onChange={(e) => setText(useSanitize(e.target.value))}
-              className="inputNote"
-            />
-            <button className="clearAll" type="submit">
-              Agregar
-            </button>
-          </form>
-          <Gauge {...config} className="gauge" />
-        </div>
-
-        <div className="notesGridContainer">
-          {reversedNotes.map((note, index) => (
-            <Note
-              title={note.title}
-              text={note.text}
-              key={index}
-              id={note._id}
-              check={note.check}
-            />
-          ))}
-        </div>
+    <div className="notesContainer" id="notes">
+      <Popup config={{ popupConfig, setPopupConfig }} />
+      <div className="addNoteAndGraph">
+        <form
+          action=""
+          className="formNote"
+          onSubmit={(e) => addNote(e, title, text)}
+        >
+          <input
+            type="text"
+            placeholder="Titulo"
+            value={title}
+            onChange={(e) => setTitle(useSanitize(e.target.value))}
+            className="titleNote"
+          />
+          <textarea
+            type="text"
+            placeholder="Texto"
+            value={text}
+            onChange={(e) => setText(useSanitize(e.target.value))}
+            className="inputNote"
+          />
+          <button className="clearAll" type="submit">
+            Agregar
+          </button>
+        </form>
+        <Gauge {...config} className="gauge" />
       </div>
-    </>
+
+      <div className="notesGridContainer">
+        {reversedNotes.map((note, index) => (
+          <Note
+            title={note.title}
+            text={note.text}
+            key={index}
+            id={note._id}
+            check={note.check}
+          />
+        ))}
+      </div>
+    </div>
   );
 };
 export default Notes;

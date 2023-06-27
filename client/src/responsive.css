@@ -8,8 +8,8 @@
     --space6: 64px;
   }
 
-  .footerContainer {
-    display: none;
+  button{
+    padding: var(--space3);
   }
 
   .row {
@@ -21,21 +21,89 @@
   .homecontainer {
     overflow: auto;
     width: 100%;
+    height: 100%;
     padding: var(--space3);
   }
 
+  /* saco todos los recuadros contenedores */
+  .totalcontainer,
+  .inputContainer,
+  .notesContainer,
+  .interescontainer,
+  .graphsContainer {
+    box-shadow: none;
+  }
+
+  /* Saco elementos para funcionalidad limitada */
+  .footerContainer,
+  .timeContainer,
+  .gauge {
+    display: none;
+  }
+
+  /* Total Superior */
   .totalcontainer {
     flex-wrap: wrap;
     height: auto;
   }
   .profitAndLosse {
-    width: 100px;
+    width: 75px;
+    height: auto;
+  }
+  .divideVertical {
+    height: 42px;
+  }
+  .profitAndLosseTitle {
+    font-size: var(--small);
+  }
+  .profitAndLosseResult {
+    font-size: var(--middle);
   }
 
+  /* Inputs */
   .inputContainer {
     flex-direction: column;
+    height: 100%;
   }
 
+  .input {
+    width: 100%;
+  }
+
+  .inputTextItem{
+    height: 70px;
+  }
+  .totalInputs {
+    display: none;
+  }
+
+  .navAndListContainer {
+    width: 100%;
+    margin-top: var(--space4);
+  }
+
+  .navList{
+    justify-content: space-between;
+    gap: var(--space3);
+
+  }
+  .SearchInput{
+    width: 60%;
+  }
+
+  .clearAll{
+    width: 40%;
+  }
+
+  .listcontainer{
+    height: 100%;
+    overflow: auto;
+  }
+
+  /* Notas */
+  .notesContainer{
+    width: 100%;
+  }
   /* menu */
   .menuContainer {
     flex-direction: row;
@@ -51,6 +119,7 @@
 
   .menuItemImg {
     width: 20px;
+    height: 20px;
   }
 
   .pressed,
@@ -58,12 +127,20 @@
     padding: var(--space2);
     gap: var(--space2);
     box-shadow: none;
-
   }
 
   /* navbar */
   .cafe,
   .wame {
     width: 30px;
+  }
+
+  .config, .configOpen {
+    width: 28px;
+  }
+
+  .navMenu {
+    box-shadow: 4px 4px 16px var(--shadow), inset -1px -1px 4px var(--shadow),
+      inset 1px 1px 2px var(--text);
   }
 }

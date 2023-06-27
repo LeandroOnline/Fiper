@@ -94,7 +94,7 @@ const ListInputs = () => {
     const date = new Date(element.date);
     return (
       <p className="time">
-        {date.getDate()}-{date.getMonth() + 1}-{date.getFullYear()} ~ 
+        {date.getDate()}-{date.getMonth() + 1}-{date.getFullYear()} ~
         {date?.getHours().toLocaleString("en-US", {
           minimumIntegerDigits: 2,
           useGrouping: false,
@@ -120,7 +120,6 @@ const ListInputs = () => {
     <div className="navAndListContainer">
       <div className="navList">
         {inputs.length !== 0 ? <Search /> : null}
-
         {inputs.length == 0 ? (
           <p className="totalInputs">
             Sin entradas, por favor ingresa un valor
@@ -130,6 +129,7 @@ const ListInputs = () => {
         ) : (
           <p className="totalInputs">Subtotal: $</p>
         )}
+
         {inputs.length > 0 ? (
           <button className="clearAll" onClick={() => clearTrue()}>
             Limpiar
