@@ -20,7 +20,7 @@
 
   .homecontainer {
     overflow: auto;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     padding: var(--space4);
     margin-top: calc(var(--space5) + var(--space5));
@@ -109,6 +109,7 @@
     justify-content: space-between;
     gap: var(--space3);
     flex-wrap: wrap-reverse;
+    margin: 0;
   }
   .SearchInput {
     width: 100%;
@@ -134,7 +135,7 @@
   .listcontainer {
     height: 100%;
     overflow: auto;
-    margin-top: var(--space2);
+    margin-top: var(--space4);
     padding: 0;
     background: none;
   }
@@ -193,7 +194,7 @@
     background-color: var(--level1);
     z-index: 50;
     position: sticky;
-    width: 100%;
+    width: 100vw;
     height: 10vh;
     padding: var(--space3);
     gap: var(--space3);
