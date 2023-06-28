@@ -144,7 +144,7 @@
   }
 
   .previews {
-    height: 40vh;
+    margin-bottom: var(--space5);
     gap: var(--space4);
     padding: var(--space3);
   }
