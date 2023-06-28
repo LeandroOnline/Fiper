@@ -15,6 +15,8 @@
   .desktopPrev,
   .movilePrev {
     border-radius: 7px !important;
+    border-width: 0.5px;
+
   }
 
   .desktopPrev img,
