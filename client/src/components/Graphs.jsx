@@ -35,7 +35,7 @@ const Graphs = () => {
   return (
     <div id="graphs" className="graphsContainer">
       <div className="datosContainer">
-        Historial de meses
+        Historial mensual
         <div className="rowDatos">
           <div className="profitAndLosse">
             <h1 className="profitAndLosseTitle">Total: </h1>

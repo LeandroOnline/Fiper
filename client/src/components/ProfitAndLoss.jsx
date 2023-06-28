@@ -7,6 +7,7 @@ import columnDataFormat from "../helpers/columnDataFormat";
 import { useEffect } from "react";
 import areaDataFormat from "../helpers/areaDataFormat";
 import formatNumber from "../helpers/formatNumber";
+import lastOnesFromThisMonth from "../helpers/lastOnesFromThisMonth";
 
 const Total = memo(() => {
   const inputs = useGlobalStore((state) => state.inputs);
@@ -32,8 +33,37 @@ const Total = memo(() => {
   const [dolar, setDolar] = useState("");
   dolarBlue().then((data) => setDolar(data));
 
-  const numeroGrande = 13412432452243;
-  const numeroFormateado = numeroGrande.toPrecision(4);
+  const result = lastOnesFromThisMonth(inputs);
+  const { lastProfit = 0, lastLoss = 0, lastOne = 0 } = result || {};
+
+  const netIncrement = () => {
+    const net = netPerMonth[month];
+    const prevValue = net + lastOne * -1 === 0 ? 100 : net + lastOne * -1;
+    const fact =
+      (net < 0 && lastOne < 0 && prevValue < 0) ||
+      (net >= 0 && lastOne > 0 && prevValue < 0)
+        ? -1
+        : 1;
+    if (net !== "undefined") {
+      return (((lastOne * 100) / prevValue) * fact).toFixed(0);
+    } else {
+      return 0;
+    }
+  };
+
+  const profitIncrement = profits[month]
+    ? (
+        (lastProfit * 100) /
+        (profits[month] - (lastProfit === profits[month] ? 0 : lastProfit))
+      ).toFixed(0)
+    : 0;
+
+  const lossesIncrement = losses[month]
+    ? (
+        (lastLoss * 100) /
+        (losses[month] - (lastLoss * -1 === losses[month] ? 0 : lastLoss * -1))
+      ).toFixed(0)
+    : 0;
 
   return (
     <div className="totalcontainer" id="home">
@@ -45,12 +75,9 @@ const Total = memo(() => {
             <div className="incrementContainer">
               <p className="datoResult">$ {formatNumber(netPerMonth[month])}</p>
               <p className="calculadoraTextResultPorcent">
-                {netPerMonth[month - 1] !== 0
-                  ? (
-                      (netPerMonth[month] * 100) /
-                      netPerMonth[month - 1]
-                    ).toFixed(0) + "%"
-                  : "+0%"}
+                {netIncrement() > 0
+                  ? `+${netIncrement()}%`
+                  : `${netIncrement()}%`}
               </p>
             </div>
           </div>
@@ -60,10 +87,7 @@ const Total = memo(() => {
             <div className="incrementContainer">
               <p className="datoResult">$ {formatNumber(profits[month])}</p>
               <p className="calculadoraTextResultPorcent">
-                {profits[month - 1] !== 0
-                  ? ((profits[month] * 100) / profits[month - 1]).toFixed(0) +
-                    "%"
-                  : "+0%"}
+                +{profitIncrement}%
               </p>
             </div>
           </div>
@@ -73,15 +97,13 @@ const Total = memo(() => {
             <div className="incrementContainer">
               <p className="datoResult">$ {formatNumber(losses[month])}</p>
               <p className="calculadoraTextResultPorcent">
-                {losses[month - 1] !== 0
-                  ? ((losses[month] * 100) / losses[month - 1]).toFixed(0) + "%"
-                  : "+0%"}
+                +{lossesIncrement * -1}%
               </p>
             </div>
           </div>
         </div>
       </div>
-          <Time />
+      <Time />
     </div>
   );
 });
