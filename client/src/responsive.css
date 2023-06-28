@@ -220,7 +220,7 @@
 
   .pressed,
   .menuItem {
-    padding: var(--space2);
+    padding: var(--space3) 0;
     gap: var(--space2);
     box-shadow: none;
   }
