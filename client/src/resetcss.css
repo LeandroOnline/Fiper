@@ -91,7 +91,6 @@ button:hover {
 input {
   all: unset;
   padding: calc(var(--space2) + 1px) var(--space3);
-  /* height: 26px; */
 }
 
 input[type="number"]::-webkit-inner-spin-button,

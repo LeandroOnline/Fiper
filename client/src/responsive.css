@@ -7,6 +7,11 @@
     --space5: 32px;
     --space6: 64px;
   }
+
+  button {
+    padding: var(--space3) var(--space4);
+  }
+
   .profitAndLosseTitle,
   .datoTitle {
     font-size: var(--small);
@@ -36,6 +41,75 @@
   .calculadoraTextResult {
     font-size: var(--middle);
   }
+
+  /* NAVBAR */
+  .cafe,
+  .wame {
+    width: 30px;
+  }
+
+  .config,
+  .configOpen {
+    width: 28px;
+  }
+
+  .navMenu {
+    box-shadow: 4px 4px 16px var(--shadow), inset -1px -1px 4px var(--shadow),
+      inset 1px 1px 2px var(--text);
+    gap: var(--space4);
+    padding: var(--space3) var(--space4);
+    top: var(--space4);
+  }
+
+  .wame2 {
+    height: 26px;
+    width: 30px;
+  }
+
+  /* LOGIN y SIGN */
+  .login {
+    padding: var(--space5);
+  }
+  .inputFormContainer {
+    margin-top: var(--space4);
+  }
+
+  .loginInput {
+    padding: calc(var(--space3) + 1px) var(--space4);
+  }
+
+  .remember {
+    margin-top: var(--space3);
+  }
+
+  .loginButtonSecondary {
+    margin: var(--space2);
+  }
+
+  .SignTitle {
+    margin-bottom: var(--space4);
+  }
+
+  .buttonforms {
+    margin-top: var(--space5);
+    gap: var(--space4);
+  }
+
+  .secondaryAction {
+    margin-left: var(--space2);
+  }
+
+  .sign {
+    padding: var(--space5);
+  }
+
+  .minimum {
+    margin-top: var(--space2);
+  }
+
+  .SignText {
+    margin: var(--space2);
+  }
 }
 
 @media (max-width: 1000px) {
@@ -46,10 +120,6 @@
 
   * {
     box-sizing: border-box;
-  }
-
-  button {
-    padding: var(--space3) var(--space4);
   }
 
   .row {
@@ -130,26 +200,9 @@
     height: 100px;
   }
 
-  /* .datoResult,
-  .profitAndLosseResult {
-    font-size: var(--small);
-  } */
-  /* .profitAndLosseTitle,
-  .datoTitle {
-    font-size: var(--small);
-  }
-  .datoResult,
-  .profitAndLosseResult {
-    font-size: var(--middle);
-  } */
-
   .divideVertical {
     height: 40px;
   }
-
-  /* .calculadoraTextResultPorcent {
-    font-size: var(--small);
-  } */
 
   /* Inputs */
   .inputContainer {
@@ -236,15 +289,6 @@
     flex-direction: column;
   }
 
-  /* .positive,
-  .negative,
-  .neutral {
-    font-size: var(--normal);
-    width: 110px;
-  } */
-
-  /* Notas */
-
   .notesContainer {
     width: 100%;
     height: 100%;
@@ -267,25 +311,6 @@
   }
   .titleNote {
     padding: var(--space3) var(--space4);
-  }
-
-  /* navbar */
-  .cafe,
-  .wame {
-    width: 30px;
-  }
-
-  .config,
-  .configOpen {
-    width: 28px;
-  }
-
-  .navMenu {
-    box-shadow: 4px 4px 16px var(--shadow), inset -1px -1px 4px var(--shadow),
-      inset 1px 1px 2px var(--text);
-    gap: var(--space4);
-    padding: var(--space3) var(--space4);
-    top: var(--space4);
   }
 
   /* Interest */
@@ -318,10 +343,6 @@
     box-sizing: border-box;
   }
 
-  /* .level {
-    font-size: var(--small);
-  } */
-
   .select {
     background: var(--level2);
     box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 30%),
@@ -329,13 +350,6 @@
       -1px -1px 20px hsl(218, 20%, 30%) inset;
     border: 1px solid var(--level2);
   }
-  /* .calculadoraTitleResult {
-    font-size: var(--small);
-  } */
-
-  /* .calculadoraTextResult {
-    font-size: var(--middle);
-  } */
 
   .tinyArea {
     height: 200px !important;
@@ -362,28 +376,13 @@
     padding: var(--space4);
     gap: var(--space4);
   }
-}
 
-@media (max-width: 1015px) {
-  .selectContainer {
-    flex-direction: column;
-  }
-
-  .interescontainer {
-    height: 90vh;
-  }
-
-  .clearAll {
-    width: 100%;
-  }
-
-  .totalInputs {
-    display: none;
-  }
+  
 }
 
 @media (max-height: 700px) {
-  .interescontainer, .graphsContainer {
+  .interescontainer,
+  .graphsContainer {
     padding: var(--space3);
     width: 100%;
     height: 100%;
