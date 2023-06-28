@@ -116,6 +116,11 @@ const Notes = () => {
       </div>
 
       <div className="notesGridContainer">
+        {reversedNotes.length === 0 ? (
+          <p className="noteContainer">
+            Sin notas a la vista ¡Hora de agregar una!
+          </p>
+        ) : null}
         {reversedNotes.map((note, index) => (
           <Note
             title={note.title}

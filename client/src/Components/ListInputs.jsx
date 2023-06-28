@@ -122,7 +122,7 @@ const ListInputs = () => {
       <div className="navList">
         {inputs.length !== 0 ? <Search /> : null}
         {inputs.length == 0 ? (
-          <p className="totalInputs">Sin entradas.</p>
+          <p className="totalInputs">Ingrese un valor para continuar</p>
         ) : filtered ? (
           <p className="totalInputs">${totalNeto(filtered)}</p>
         ) : (
@@ -137,7 +137,11 @@ const ListInputs = () => {
       </div>
       <div className="listcontainer">
         <Popup config={{ popupConfig, setPopupConfig }} />
-
+        {reversedInputs.length == 0 ? (
+          <p className="listElement">
+            No encontramos ningun ingreso en su cuenta. ¡Crea uno ahora mismo!
+          </p>
+        ) : null}
         {reversedInputs.map((element, key) => (
           <div key={key}>
             {modificar && element._id === idElemento ? (
