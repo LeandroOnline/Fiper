@@ -36,7 +36,6 @@
   height: 100%;
   width: 100%;
   margin-top: var(--space3);
-
 }
 
 .loginInput {
@@ -144,7 +143,6 @@
   background: none;
   transition: 0.5s;
   border: 1px solid rgba(255, 255, 255, 0);
-
 }
 
 .inputAndSendRemember {
@@ -180,4 +178,46 @@
   width: 80px;
   left: calc(100% - 80px);
   border-radius: 0 15px 15px 0;
+}
+
+.previews {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.desktopPrev {
+  box-shadow: 20px 20px 40px hsl(218, 25%, 5%),
+    -5px -5px 10px hsl(218, 25%, 5%) inset,
+    5px 5px 10px hsl(218, 20%, 50%) inset;
+  margin-right: var(--space4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5vw;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.01);
+  height: fit-content;
+}
+.desktopPrev img {
+  height: 22vw;
+  border: 2px solid rgba(0, 0, 0, 0.4);
+}
+
+.movilePrev {
+  box-shadow: 20px 20px 40px hsl(218, 25%, 5%),
+    -5px -5px 10px hsl(218, 25%, 5%) inset,
+    5px 5px 10px hsl(218, 20%, 50%) inset;
+  margin-right: var(--space4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5vw;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.01);
+  height: fit-content;
+}
+.movilePrev img {
+  height: 22vw;
+  border: 2px solid rgba(0, 0, 0, 0.4);
 }

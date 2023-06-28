@@ -27,8 +27,7 @@
 
 .datos {
   display: flex;
-  gap: var(--space3)
-
+  gap: var(--space3);
 }
 
 .datoTitle {

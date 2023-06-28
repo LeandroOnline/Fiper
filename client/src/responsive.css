@@ -12,6 +12,16 @@
     padding: var(--space3) var(--space4);
   }
 
+  .desktopPrev,
+  .movilePrev {
+    border-radius: 7px !important;
+  }
+
+  .desktopPrev img,
+  .movilePrev img{
+    border-radius: 7px !important;
+  }
+
   .profitAndLosseTitle,
   .datoTitle {
     font-size: var(--small);
@@ -126,6 +136,30 @@
     left: 0;
     bottom: 0;
     flex-direction: column-reverse;
+  }
+
+  .logincontainer {
+    flex-direction: column;
+  }
+
+  .previews {
+    height: 40vh;
+    gap: var(--space4);
+    margin-bottom: var(--space5);
+    padding: var(--space3);
+  }
+
+  .desktopPrev,
+  .movilePrev {
+    border-radius: 15px;
+    margin: 0;
+  }
+
+  .desktopPrev img,
+  .movilePrev img{
+    border-radius: 15px;
+    height: 30vw;
+    box-sizing: border-box;
   }
 
   .homecontainer {
@@ -369,9 +403,8 @@
     height: fit-content;
     gap: var(--space3);
   }
-  .lastMonth{
+  .lastMonth {
     gap: var(--space3);
-
   }
 
   .AreaAndColumnContainer {

@@ -11,6 +11,8 @@ import axiosRemember from "../api/axiosRemember";
 import useErrorHandler from "../hooks/useErrorHandler";
 import key from "../assets/llave.png";
 import email from "../assets/@.png";
+import desktop from "../assets/desktop.png";
+import movile from "../assets/movile.png";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -110,6 +112,14 @@ const Login = () => {
   return (
     <div className="logincontainer">
       <Popup config={{ popupConfig, setPopupConfig }} />
+      <div className="previews">
+        <div className="desktopPrev">
+          <img src={desktop} alt="" />
+        </div>
+        <div className="movilePrev">
+          <img src={movile} alt="" />
+        </div>
+      </div>
       {login && checkVerify ? (
         <div className="login">Ya has ingresado</div>
       ) : login && !checkVerify ? (
