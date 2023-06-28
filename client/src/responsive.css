@@ -16,11 +16,13 @@
   .movilePrev {
     border-radius: 7px !important;
     border-width: 0.5px;
-
+    box-shadow: 10px 10px 25px hsl(218, 25%, 5%),
+    -5px -5px 10px hsl(218, 25%, 5%) inset,
+    5px 5px 10px hsl(218, 20%, 50%) inset;
   }
 
   .desktopPrev img,
-  .movilePrev img{
+  .movilePrev img {
     border-radius: 5px !important;
     border-width: 0.5px;
   }
@@ -158,7 +160,7 @@
   }
 
   .desktopPrev img,
-  .movilePrev img{
+  .movilePrev img {
     border-radius: 15px;
     height: 30vw;
     box-sizing: border-box;
@@ -419,6 +421,35 @@
   }
 }
 
+@media (max-height: 500px) {
+  .logincontainer {
+    flex-direction: row;
+  }
+
+  .movilePrev img,
+  .desktopPrev img {
+    height: 20vw;
+    border: 2px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .previews {
+    margin-bottom: 0;
+    margin-right: var(--space5);
+  }
+
+  .desktopPrev,
+  .movilePrev {
+    border-radius: 7px !important;
+    border-width: 0.5px;
+  }
+
+  .desktopPrev img,
+  .movilePrev img {
+    border-radius: 5px !important;
+    border-width: 0.5px;
+  }
+}
+
 @media (max-height: 700px) {
   .interescontainer,
   .graphsContainer {
@@ -435,6 +466,34 @@
     --space5: 32px;
     --space6: 64px;
   }
+
+  .logincontainer {
+    flex-direction: row;
+  }
+
+  .movilePrev img,
+  .desktopPrev img {
+    height: 20vw;
+    border: 2px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .previews {
+    margin-bottom: 0;
+    margin-right: var(--space5);
+  }
+
+  .desktopPrev,
+  .movilePrev {
+    border-radius: 15px !important;
+    border-width: 0.5px;
+  }
+
+  .desktopPrev img,
+  .movilePrev img {
+    border-radius: 10px !important;
+    border-width: 0.5px;
+  }
+
   .profitAndLosseTitle,
   .datoTitle {
     font-size: var(--small);
