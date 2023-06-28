@@ -146,7 +146,6 @@
   .previews {
     height: 40vh;
     gap: var(--space4);
-    margin-bottom: var(--space5);
     padding: var(--space3);
   }
 
