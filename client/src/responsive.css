@@ -18,7 +18,7 @@
   }
   .datoResult,
   .profitAndLosseResult {
-    font-size: var(--middle);
+    font-size: var(--small);
   }
 
   .calculadoraTextResultPorcent {
@@ -196,8 +196,8 @@
     height: 100%;
   }
   .profitAndLosse {
-    width: calc(25% - var(--space2) - 2px);
-    height: 100px;
+    width: calc(33% - var(--space2) - 2px);
+    height: fit-content;
   }
 
   .divideVertical {
@@ -365,7 +365,13 @@
 
   .datosContainer {
     background: var(--level3);
+    padding: var(--space4);
     height: fit-content;
+    gap: var(--space3);
+  }
+  .lastMonth{
+    gap: var(--space3);
+
   }
 
   .AreaAndColumnContainer {
@@ -376,8 +382,6 @@
     padding: var(--space4);
     gap: var(--space4);
   }
-
-  
 }
 
 @media (max-height: 700px) {

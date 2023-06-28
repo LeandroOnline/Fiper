@@ -56,18 +56,6 @@ const Total = memo(() => {
           </div>
           <div className="divideVertical"></div>
           <div className="datoContainer">
-            <h1 className="datoTitle">Egresos:</h1>
-            <div className="incrementContainer">
-              <p className="datoResult">$ {formatNumber(losses[month])}</p>
-              <p className="calculadoraTextResultPorcent">
-                {losses[month - 1] !== 0
-                  ? ((losses[month] * 100) / losses[month - 1]).toFixed(0) + "%"
-                  : "+0%"}
-              </p>
-            </div>
-          </div>
-          <div className="divideVertical"></div>
-          <div className="datoContainer">
             <h1 className="datoTitle">Ingresos:</h1>
             <div className="incrementContainer">
               <p className="datoResult">$ {formatNumber(profits[month])}</p>
@@ -75,6 +63,18 @@ const Total = memo(() => {
                 {profits[month - 1] !== 0
                   ? ((profits[month] * 100) / profits[month - 1]).toFixed(0) +
                     "%"
+                  : "+0%"}
+              </p>
+            </div>
+          </div>
+          <div className="divideVertical"></div>
+          <div className="datoContainer">
+            <h1 className="datoTitle">Egresos:</h1>
+            <div className="incrementContainer">
+              <p className="datoResult">$ {formatNumber(losses[month])}</p>
+              <p className="calculadoraTextResultPorcent">
+                {losses[month - 1] !== 0
+                  ? ((losses[month] * 100) / losses[month - 1]).toFixed(0) + "%"
                   : "+0%"}
               </p>
             </div>

@@ -19,11 +19,12 @@ const ListInputs = () => {
   const [modificar, setModificar] = useState(false);
   const [idElemento, setIdElemento] = useState("");
   const [popupConfig, setPopupConfig] = useState({ toConfirm: true });
-  const [detalleValue, setDetalleValue] = useState("");
-  const [inputValue, setInputValue] = useState("");
   const { inputs, reset, setReset, storeGetAllInputs, filtered } =
     useGlobalStore();
   const sound = useGlobalStore((state) => state.sound);
+
+  const [detalleValue, setDetalleValue] = useState("");
+  const [inputValue, setInputValue] = useState("");
 
   const detalle = (e) => {
     const sanitize = useSanitize(e.target.value);
@@ -121,9 +122,7 @@ const ListInputs = () => {
       <div className="navList">
         {inputs.length !== 0 ? <Search /> : null}
         {inputs.length == 0 ? (
-          <p className="totalInputs">
-            Sin entradas.
-          </p>
+          <p className="totalInputs">Sin entradas.</p>
         ) : filtered ? (
           <p className="totalInputs">${totalNeto(filtered)}</p>
         ) : (
@@ -143,11 +142,7 @@ const ListInputs = () => {
           <div key={key}>
             {modificar && element._id === idElemento ? (
               <>
-                <form
-                  onSubmit={(e) => updateItem(e)}
-                  // className="listInputDetail"
-                  className="listElement"
-                >
+                <form onSubmit={(e) => updateItem(e)} className="listElement">
                   <div className="inputOptions">
                     <img
                       className="img"
@@ -168,14 +163,16 @@ const ListInputs = () => {
                       placeholder="+ / -"
                       type="number"
                       name="input"
-                      value={inputValue}
+                      value={inputValue === "" ? element.input : inputValue}
                       onChange={(e) => setInputValue(e.target.value)}
                       className="inputPriceItemUpdate"
                     />
                     <textarea
                       placeholder="Detalle"
                       name="detalle"
-                      value={detalleValue}
+                      value={
+                        detalleValue === "" ? element.detalle : detalleValue
+                      }
                       onChange={(e) => detalle(e)}
                       className="inputTextItemUpdate"
                       onKeyDown={(e) => handleKeyDown(e)}
