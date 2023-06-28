@@ -116,8 +116,4 @@
   height: 50px;
 }
 
-@media (max-width: 915px) {
-  .notesContainer {
-    width: 90%;
-  }
-}
+

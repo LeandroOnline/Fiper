@@ -1,13 +1,4 @@
 @media (max-width: 550px) {
-  body {
-    width: 100vw;
-    height: 100vh;
-  }
-
-  * {
-    box-sizing: border-box;
-  }
-
   :root {
     --space1: 2px;
     --space2: 4px;
@@ -15,6 +6,46 @@
     --space4: 16px;
     --space5: 32px;
     --space6: 64px;
+  }
+  .profitAndLosseTitle,
+  .datoTitle {
+    font-size: var(--small);
+  }
+  .datoResult,
+  .profitAndLosseResult {
+    font-size: var(--middle);
+  }
+
+  .calculadoraTextResultPorcent {
+    font-size: var(--small);
+  }
+
+  .positive,
+  .negative,
+  .neutral {
+    font-size: var(--normal);
+    width: 110px;
+  }
+
+  .level {
+    font-size: var(--small);
+  }
+  .calculadoraTitleResult {
+    font-size: var(--small);
+  }
+  .calculadoraTextResult {
+    font-size: var(--middle);
+  }
+}
+
+@media (max-width: 1000px) {
+  body {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  * {
+    box-sizing: border-box;
   }
 
   button {
@@ -44,7 +75,8 @@
   .listcontainer,
   .AreaAndColumnContainer,
   .notesGridContainer,
-  .noteContainer {
+  .noteContainer,
+  .lastMonth {
     box-shadow: none;
     background: var(--level2);
     border: none;
@@ -97,22 +129,27 @@
     width: calc(25% - var(--space2) - 2px);
     height: 100px;
   }
-  .profitAndLosseTitle,
+
+  /* .datoResult,
+  .profitAndLosseResult {
+    font-size: var(--small);
+  } */
+  /* .profitAndLosseTitle,
   .datoTitle {
     font-size: var(--small);
   }
   .datoResult,
   .profitAndLosseResult {
     font-size: var(--middle);
-  }
+  } */
 
   .divideVertical {
     height: 40px;
   }
 
-  .calculadoraTextResultPorcent {
+  /* .calculadoraTextResultPorcent {
     font-size: var(--small);
-  }
+  } */
 
   /* Inputs */
   .inputContainer {
@@ -199,12 +236,12 @@
     flex-direction: column;
   }
 
-  .positive,
+  /* .positive,
   .negative,
   .neutral {
     font-size: var(--normal);
     width: 110px;
-  }
+  } */
 
   /* Notas */
 
@@ -281,24 +318,24 @@
     box-sizing: border-box;
   }
 
-  .level {
+  /* .level {
     font-size: var(--small);
-  }
+  } */
 
   .select {
-    background: var(--level3);
+    background: var(--level2);
     box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 30%),
       1px 1px 20px hsl(218, 25%, 10%) inset,
       -1px -1px 20px hsl(218, 20%, 30%) inset;
     border: 1px solid var(--level2);
   }
-  .calculadoraTitleResult {
+  /* .calculadoraTitleResult {
     font-size: var(--small);
-  }
+  } */
 
-  .calculadoraTextResult {
+  /* .calculadoraTextResult {
     font-size: var(--middle);
-  }
+  } */
 
   .tinyArea {
     height: 200px !important;
@@ -310,5 +347,83 @@
 
   .dolarMovile {
     display: flex;
+  }
+
+  .datosContainer {
+    background: var(--level3);
+    height: fit-content;
+  }
+
+  .AreaAndColumnContainer {
+    padding: 0;
+  }
+
+  .graphsContainer {
+    padding: var(--space4);
+    gap: var(--space4);
+  }
+}
+
+@media (max-width: 1015px) {
+  .selectContainer {
+    flex-direction: column;
+  }
+
+  .interescontainer {
+    height: 90vh;
+  }
+
+  .clearAll {
+    width: 100%;
+  }
+
+  .totalInputs {
+    display: none;
+  }
+}
+
+@media (max-height: 700px) {
+  .interescontainer, .graphsContainer {
+    padding: var(--space3);
+    width: 100%;
+    height: 100%;
+  }
+
+  :root {
+    --space1: 2px;
+    --space2: 4px;
+    --space3: 8px;
+    --space4: 16px;
+    --space5: 32px;
+    --space6: 64px;
+  }
+  .profitAndLosseTitle,
+  .datoTitle {
+    font-size: var(--small);
+  }
+  .datoResult,
+  .profitAndLosseResult {
+    font-size: var(--middle);
+  }
+
+  .calculadoraTextResultPorcent {
+    font-size: var(--small);
+  }
+
+  .positive,
+  .negative,
+  .neutral {
+    font-size: var(--normal);
+    width: 110px;
+  }
+
+  .level {
+    font-size: var(--small);
+  }
+  .calculadoraTitleResult {
+    font-size: var(--small);
+  }
+  .calculadoraTextResult {
+    font-size: var(--middle);
   }
 }

@@ -1,7 +1,7 @@
 .timeContainer {
   padding: var(--space3);
-  width: 210px;
-  height: 80px;
+  min-width: 210px;
+  height: 100%;
   box-sizing: border-box;
   display: flex;
   align-items: center;

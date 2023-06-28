@@ -3,9 +3,10 @@
   align-items: center;
   justify-content: center;
   padding: var(--space3);
-  gap: var(--space2);
+  gap: var(--space3);
   width: 100%;
-  height: calc(20vh - 16px);
+  max-height: 134px;
+  height: 134px;
   box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 30%),
     2px 2px 8px hsl(218, 25%, 5%) inset, -2px -2px 8px hsl(218, 20%, 30%) inset;
   border: 1px solid var(--level1);
@@ -17,10 +18,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   font-size: var(--middle);
   width: 100%;
+  height: 100%;
   font-weight: 300;
-  gap: var(--space3)
+  gap: var(--space2);
 }
 
 .datos {

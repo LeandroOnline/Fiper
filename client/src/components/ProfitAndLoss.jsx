@@ -79,9 +79,9 @@ const Total = memo(() => {
               </p>
             </div>
           </div>
-          <Time />
         </div>
       </div>
+          <Time />
     </div>
   );
 });

@@ -8,6 +8,7 @@
 
 .homecontainer {
   width: 80%;
+  max-width: 1300px;
   height: 100%;
   display: flex;
   align-items: center;
