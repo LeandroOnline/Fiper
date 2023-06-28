@@ -19,7 +19,8 @@
 
   .desktopPrev img,
   .movilePrev img{
-    border-radius: 7px !important;
+    border-radius: 5px !important;
+    border-width: 0.5px;
   }
 
   .profitAndLosseTitle,
