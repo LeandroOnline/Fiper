@@ -32,7 +32,7 @@ const Search = () => {
         setValue(e.target.value);
       }}
       type="text"
-      placeholder="Busca"
+      placeholder="Buscar"
     />
   );
 };
