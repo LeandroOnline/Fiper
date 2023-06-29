@@ -24,6 +24,7 @@ const Interest = () => {
         : 1;
 
     let historyCap = [parseFloat(cap)];
+    let historyCapNormal = [parseFloat(cap)];
     let reinvestment = re ? re : per;
     let add = addition ? parseFloat(addition) : 0;
     for (let i = 0; i < reinvestment; i++) {
@@ -32,9 +33,17 @@ const Interest = () => {
           historyCap[historyCap.length - 1] +
           (historyCap[historyCap.length - 1] * ((rate / 365) * Per)) / 100
       );
+      historyCapNormal.push(
+        historyCapNormal[historyCapNormal.length - 1] +
+          (historyCapNormal[historyCapNormal.length - 1] *
+            ((rate / 365) * Per)) /
+            100
+      );
     }
 
-    let TEA = (((historyCap[per] - cap) * 100) / cap).toFixed(2);
+    let TEA = (((historyCapNormal[per] - cap) * 100) / (cap ? cap : 1)).toFixed(
+      2
+    );
     let TE = (((historyCap[historyCap.length - 1] - cap) * 100) / cap).toFixed(
       2
     );
