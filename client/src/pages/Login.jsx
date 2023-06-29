@@ -115,8 +115,7 @@ const Login = () => {
       <div className="center">
         <h1 className="description">Potencia tus Finanzas</h1>
         <h2 className="subDescription">
-          Organiza tus ingresos, calcula interes compuesto, crea notas, analiza
-          el historial con estadisticas y mucho mas 💯.
+        Organiza tus ingresos, calcula el interés compuesto, crea notas, analiza el historial con estadísticas ... y mucho más! 💯".
         </h2>
 
         <div className="previews">
