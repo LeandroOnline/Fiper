@@ -112,82 +112,90 @@ const Login = () => {
   return (
     <div className="logincontainer">
       <Popup config={{ popupConfig, setPopupConfig }} />
-      <div className="previews">
-        <div className="desktopPrev">
-          <img src={desktop} alt="" />
+      <div className="center">
+        <h1 className="description">Potencia tus Finanzas</h1>
+        <h2 className="subDescription">
+          Organiza tus ingresos, calcula interes compuesto, crea notas, analiza
+          el historial con estadisticas y mucho mas 💯.
+        </h2>
+
+        <div className="previews">
+          <div className="desktopPrev">
+            <img src={desktop} alt="" />
+          </div>
+          <div className="movilePrev">
+            <img src={movile} alt="" />
+          </div>
         </div>
-        <div className="movilePrev">
-          <img src={movile} alt="" />
-        </div>
-      </div>
-      {login && checkVerify ? (
-        <div className="login">Ya has ingresado</div>
-      ) : login && !checkVerify ? (
-        <Verify />
-      ) : (
-        <div className="login">
-          <form className="loginForm" onSubmit={(e) => Log(e)}>
-            <p className="SignTitle">Inicio de Sesión</p>
-            <div className="inputFormContainer">
-              <input
-                className="loginInput"
-                placeholder="... email"
-                name="email"
-                required
-              />
-              <img src={email} alt="" className="emailAndKey" />
-            </div>
-            <div className="inputFormContainer">
-              <input
-                className="loginInput"
-                placeholder="... contraseña"
-                name="password"
-                required
-                type={keyStatus ? "text" : "password"}
-              />
-              <img
-                src={key}
-                alt=""
-                className="emailAndKey hoverKey"
-                onClick={() => setKeyStatus(!keyStatus)}
-              />
-            </div>
-            {rememberActivate ? (
-              <div className="inputAndSendRemember">
+        {login && checkVerify ? (
+          <div className="login">Ya has ingresado</div>
+        ) : login && !checkVerify ? (
+          <Verify />
+        ) : (
+          <div className="login">
+            <form className="loginForm" onSubmit={(e) => Log(e)}>
+              <p className="SignTitle">Inicio de Sesión</p>
+              <div className="inputFormContainer">
                 <input
-                  className="inputRemember"
-                  type="text"
-                  placeholder="Ingresa tu correo"
-                  value={rememberInput}
-                  onChange={(e) => setRememberInput(e.target.value)}
+                  className="loginInput"
+                  placeholder="... email"
+                  name="email"
+                  required
                 />
-                <button
-                  className="sendRemember"
-                  onClick={() => Remember(rememberInput)}
-                >
-                  Enviar
-                </button>
+                <img src={email} alt="" className="emailAndKey" />
               </div>
-            ) : (
-              <button
-                className="remember"
-                onClick={() => setRememberActivate(!rememberActivate)}
-              >
-                Olvido la contraseña?
-              </button>
-            )}
-            <div className="buttonforms">
-              <button type="submit" className="loginButtons">
-                Ingresar
-              </button>
-              <Link to="/signup" className="loginButtonSecondary">
-                No tienes cuenta?{" "}
-                <span className="secondaryAction">registrate</span>
-              </Link>
-            </div>
-          </form>
-        </div>
-      )}
+              <div className="inputFormContainer">
+                <input
+                  className="loginInput"
+                  placeholder="... contraseña"
+                  name="password"
+                  required
+                  type={keyStatus ? "text" : "password"}
+                />
+                <img
+                  src={key}
+                  alt=""
+                  className="emailAndKey hoverKey"
+                  onClick={() => setKeyStatus(!keyStatus)}
+                />
+              </div>
+              {rememberActivate ? (
+                <div className="inputAndSendRemember">
+                  <input
+                    className="inputRemember"
+                    type="text"
+                    placeholder="Ingresa tu correo"
+                    value={rememberInput}
+                    onChange={(e) => setRememberInput(e.target.value)}
+                  />
+                  <button
+                    className="sendRemember"
+                    onClick={() => Remember(rememberInput)}
+                  >
+                    Enviar
+                  </button>
+                </div>
+              ) : (
+                <button
+                  className="remember"
+                  onClick={() => setRememberActivate(!rememberActivate)}
+                >
+                  Olvido la contraseña?
+                </button>
+              )}
+              <div className="buttonforms">
+                <button type="submit" className="loginButtons">
+                  Ingresar
+                </button>
+                <Link to="/signup" className="loginButtonSecondary">
+                  No tienes cuenta?{" "}
+                  <span className="secondaryAction">registrate</span>
+                </Link>
+              </div>
+            </form>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

@@ -1,17 +1,46 @@
 .logincontainer {
   display: flex;
   border-width: 2px;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
   height: 100vh;
+  align-items:center;
+  justify-content: center;
+  width: fit-content;
+  flex-wrap: wrap;
+  gap: 10px
+}
+
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100vw;
+}
+.description {
+  font-size: var(--big);
+  font-weight: 300;
+  color: var(--text);
+  width: 100%;
+  text-align: center;
+  margin: var(--space4) var(--space4) var(--space2) var(--space4);
+}
+
+.subDescription{
+  font-size: var(--middle);
+  font-weight: 200;
+  color: var(--placeholder);
+  width: 100%;
+  text-align: center;
+  margin: 0 var(--space4) var(--space4) var(--space4);
 }
 
 .login {
   display: flex;
   flex-direction: column;
   padding: var(--space4);
+  margin: var(--space4);
   width: 300px;
+  height: fit-content;
   align-items: center;
   transition: 1s;
   box-shadow: 1px 1px 8px hsl(218, 25%, 5%), -1px -1px 8px hsl(218, 20%, 30%),
@@ -184,40 +213,45 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  margin: var(--space4);
+  gap: var(--space4);
 }
 
 .desktopPrev {
   box-shadow: 20px 20px 40px hsl(218, 25%, 5%),
     -5px -5px 10px hsl(218, 25%, 5%) inset,
     5px 5px 10px hsl(218, 20%, 50%) inset;
-  margin-right: var(--space4);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0.5vw;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.01);
+  border-radius: 1vw;
+  border: 0.1vw solid rgba(255, 255, 255, 0.01);
   height: fit-content;
 }
 .desktopPrev img {
-  height: 22vw;
-  border: 2px solid rgba(0, 0, 0, 0.4);
+  max-height: 350px;
+  height: 24vw;
+  border: 0.1vw solid rgba(0, 0, 0, 0.4);
+  border-radius: 0.7vw;
 }
 
 .movilePrev {
   box-shadow: 20px 20px 40px hsl(218, 25%, 5%),
     -5px -5px 10px hsl(218, 25%, 5%) inset,
     5px 5px 10px hsl(218, 20%, 50%) inset;
-  margin-right: var(--space4);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0.5vw;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.01);
+  border-radius: 1vw;
+  border: 0.1vw solid rgba(255, 255, 255, 0.01);
   height: fit-content;
 }
 .movilePrev img {
-  height: 22vw;
-  border: 2px solid rgba(0, 0, 0, 0.4);
+  border-radius: 0.7vw;
+  height: 24vw;
+  max-height: 350px;
+  border: 0.1vw solid rgba(0, 0, 0, 0.4);
 }

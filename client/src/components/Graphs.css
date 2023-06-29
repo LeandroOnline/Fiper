@@ -41,7 +41,7 @@
 .AreaContainer,
 .ColumnContainer {
   width: 100% !important;
-  height: 50% !important;
+  height: calc(50% - var(--space2)) !important;
   padding: var(--space3);
   background: var(--level2);
   box-shadow: 2px 2px 8px hsl(218, 25%, 5%) inset,
@@ -90,4 +90,5 @@ canvas {
   background-color: var(--level2) !important;
   box-shadow: none !important;
   border: 1px solid var(--primario) !important;
+  color: var(--text) !important;
 }

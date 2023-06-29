@@ -1,169 +1,35 @@
-@media (max-width: 550px) {
-  :root {
-    --space1: 2px;
-    --space2: 4px;
-    --space3: 8px;
-    --space4: 16px;
-    --space5: 32px;
-    --space6: 64px;
+@media (max-width: 1000px) {
+  .timeContainer,
+  .totalInputs {
+    display: none;
   }
-
-  button {
-    padding: var(--space3) var(--space4);
+  .selectContainer {
+    flex-wrap: wrap;
   }
-
-  .desktopPrev,
-  .movilePrev {
-    border-radius: 7px !important;
-    border-width: 0.5px;
-    box-shadow: 10px 10px 25px hsl(218, 25%, 5%),
-    -5px -5px 10px hsl(218, 25%, 5%) inset,
-    5px 5px 10px hsl(218, 20%, 50%) inset;
+  .select,
+  .selected {
+    width: calc(50% - var(--space2));
   }
-
-  .desktopPrev img,
-  .movilePrev img {
-    border-radius: 5px !important;
-    border-width: 0.5px;
-  }
-
-  .profitAndLosseTitle,
-  .datoTitle {
-    font-size: var(--small);
-  }
-  .datoResult,
-  .profitAndLosseResult {
-    font-size: var(--small);
-  }
-
-  .calculadoraTextResultPorcent {
-    font-size: var(--small);
-  }
-
-  .positive,
-  .negative,
-  .neutral {
-    font-size: var(--normal);
-    width: 110px;
-  }
-
-  .level {
-    font-size: var(--small);
-  }
-  .calculadoraTitleResult {
-    font-size: var(--small);
-  }
-  .calculadoraTextResult {
-    font-size: var(--middle);
-  }
-
-  /* NAVBAR */
-  .cafe,
-  .wame {
-    width: 30px;
-  }
-
-  .config,
-  .configOpen {
-    width: 28px;
-  }
-
-  .navMenu {
-    box-shadow: 4px 4px 16px var(--shadow), inset -1px -1px 4px var(--shadow),
-      inset 1px 1px 2px var(--text);
-    gap: var(--space4);
-    padding: var(--space3) var(--space4);
-    top: var(--space4);
-  }
-
-  .wame2 {
-    height: 26px;
-    width: 30px;
-  }
-
-  /* LOGIN y SIGN */
-  .login {
-    padding: var(--space5);
-  }
-  .inputFormContainer {
-    margin-top: var(--space4);
-  }
-
-  .loginInput {
-    padding: calc(var(--space3) + 1px) var(--space4);
-  }
-
-  .remember {
-    margin-top: var(--space3);
-  }
-
-  .loginButtonSecondary {
-    margin: var(--space2);
-  }
-
-  .SignTitle {
-    margin-bottom: var(--space4);
-  }
-
-  .buttonforms {
-    margin-top: var(--space5);
-    gap: var(--space4);
-  }
-
-  .secondaryAction {
-    margin-left: var(--space2);
-  }
-
-  .sign {
-    padding: var(--space5);
-  }
-
-  .minimum {
-    margin-top: var(--space2);
-  }
-
-  .SignText {
-    margin: var(--space2);
+  .interescontainer {
+    height: 100vh;
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 800px) {
+  .movilePrev img,
+  .desktopPrev img {
+    height: 30vw;
+  }
+
   body {
     width: 100vw;
     height: 100vh;
-  }
-
-  * {
-    box-sizing: border-box;
   }
 
   .row {
     left: 0;
     bottom: 0;
     flex-direction: column-reverse;
-  }
-
-  .logincontainer {
-    flex-direction: column;
-  }
-
-  .previews {
-    margin-bottom: var(--space5);
-    gap: var(--space4);
-    padding: var(--space3);
-  }
-
-  .desktopPrev,
-  .movilePrev {
-    border-radius: 15px;
-    margin: 0;
-  }
-
-  .desktopPrev img,
-  .movilePrev img {
-    border-radius: 15px;
-    height: 30vw;
-    box-sizing: border-box;
   }
 
   .homecontainer {
@@ -207,7 +73,7 @@
     z-index: 50;
     position: sticky;
     width: 100vw;
-    height: 10vh;
+    height: 100%;
     padding: var(--space3);
     gap: var(--space3);
     border-top: 2px solid var(--level2);
@@ -220,9 +86,10 @@
 
   .pressed,
   .menuItem {
-    padding: var(--space3) 0;
+    padding: var(--space2);
     gap: var(--space2);
     box-shadow: none;
+    box-sizing: border-box;
   }
 
   /* Total Superior */
@@ -421,43 +288,7 @@
   }
 }
 
-@media (max-height: 500px) {
-  .logincontainer {
-    flex-direction: row;
-  }
-
-  .movilePrev img,
-  .desktopPrev img {
-    height: 20vw;
-    border: 2px solid rgba(0, 0, 0, 0.4);
-  }
-
-  .previews {
-    margin-bottom: 0;
-    margin-right: var(--space5);
-  }
-
-  .desktopPrev,
-  .movilePrev {
-    border-radius: 7px !important;
-    border-width: 0.5px;
-  }
-
-  .desktopPrev img,
-  .movilePrev img {
-    border-radius: 5px !important;
-    border-width: 0.5px;
-  }
-}
-
-@media (max-height: 700px) {
-  .interescontainer,
-  .graphsContainer {
-    padding: var(--space3);
-    width: 100%;
-    height: 100%;
-  }
-
+@media (max-width: 550px) {
   :root {
     --space1: 2px;
     --space2: 4px;
@@ -466,32 +297,12 @@
     --space5: 32px;
     --space6: 64px;
   }
-
-  .logincontainer {
-    flex-direction: row;
-  }
-
-  .movilePrev img,
-  .desktopPrev img {
-    height: 20vw;
-    border: 2px solid rgba(0, 0, 0, 0.4);
-  }
-
   .previews {
-    margin-bottom: 0;
-    margin-right: var(--space5);
+    display: none;
   }
 
-  .desktopPrev,
-  .movilePrev {
-    border-radius: 15px !important;
-    border-width: 0.5px;
-  }
-
-  .desktopPrev img,
-  .movilePrev img {
-    border-radius: 10px !important;
-    border-width: 0.5px;
+  button {
+    padding: var(--space3) var(--space4);
   }
 
   .profitAndLosseTitle,
@@ -500,7 +311,7 @@
   }
   .datoResult,
   .profitAndLosseResult {
-    font-size: var(--middle);
+    font-size: var(--small);
   }
 
   .calculadoraTextResultPorcent {
@@ -522,5 +333,112 @@
   }
   .calculadoraTextResult {
     font-size: var(--middle);
+  }
+
+  .select,
+  .selected {
+    width: calc(100% - var(--space2));
+  }
+
+  /* NAVBAR */
+  .cafe,
+  .wame {
+    width: 30px;
+  }
+
+  .config,
+  .configOpen {
+    width: 28px;
+  }
+
+  .navMenu {
+    box-shadow: 4px 4px 16px var(--shadow), inset -1px -1px 4px var(--shadow),
+      inset 1px 1px 2px var(--text);
+    gap: var(--space4);
+    padding: var(--space3) var(--space4);
+    top: var(--space4);
+  }
+
+  .wame2 {
+    height: 26px;
+    width: 30px;
+  }
+
+  /* LOGIN y SIGN */
+  .login {
+    padding: var(--space5);
+  }
+  .inputFormContainer {
+    margin-top: var(--space4);
+  }
+
+  .loginInput {
+    padding: calc(var(--space3) + 1px) var(--space4);
+  }
+
+  .remember {
+    margin-top: var(--space3);
+  }
+
+  .loginButtonSecondary {
+    margin: var(--space2);
+  }
+
+  .SignTitle {
+    margin-bottom: var(--space4);
+  }
+
+  .buttonforms {
+    margin-top: var(--space5);
+    gap: var(--space4);
+  }
+
+  .secondaryAction {
+    margin-left: var(--space2);
+  }
+
+  .sign {
+    padding: var(--space5);
+  }
+
+  .minimum {
+    margin-top: var(--space2);
+  }
+
+  .SignText {
+    margin: var(--space2);
+  }
+}
+
+@media (max-height: 700px), (max-width: 550px) {
+  .inputContainer,
+  .notesContainer,
+  .interescontainer,
+  .graphsContainer {
+    height: fit-content;
+  }
+
+  /* .allScreen{
+  height: 100%;
+} */
+
+  .description {
+    margin-top: calc(var(--space6) + var(--space4));
+  }
+
+  .tinyArea {
+    display: none !important;
+  }
+
+  .footerContainer,
+  .gauge {
+    display: none;
+  }
+}
+
+@media (max-height: 700px), (max-width: 1100px) {
+  .movilePrev img, .desktopPrev img {
+    border-radius: 0.7vw;
+    height: 15vw;
   }
 }

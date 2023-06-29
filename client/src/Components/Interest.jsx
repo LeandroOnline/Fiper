@@ -6,8 +6,10 @@ const Interest = () => {
   const [capitalInicial, setCapitalInicial] = useState();
   const [tasaInteresAnual, setTasaInteresAnual] = useState();
   const [periodo, setPeriodo] = useState(12);
+  const [addition, setAddition] = useState(0);
   const [reinversion, setReinversion] = useState();
-  const compoundInterest = (rate, per, cap = 1, re) => {
+
+  const compoundInterest = (rate, per, cap = 1, re, addition = 0) => {
     let mesProm = 30.416666667;
 
     let Per =
@@ -23,10 +25,11 @@ const Interest = () => {
 
     let historyCap = [parseFloat(cap)];
     let reinvestment = re ? re : per;
-
+    let add = addition ? parseFloat(addition) : 0;
     for (let i = 0; i < reinvestment; i++) {
       historyCap.push(
-        historyCap[historyCap.length - 1] +
+        add +
+          historyCap[historyCap.length - 1] +
           (historyCap[historyCap.length - 1] * ((rate / 365) * Per)) / 100
       );
     }
@@ -42,7 +45,8 @@ const Interest = () => {
     tasaInteresAnual,
     periodo,
     capitalInicial,
-    reinversion
+    reinversion,
+    addition
   );
 
   const data = newInt.historyCap;
@@ -110,11 +114,19 @@ const Interest = () => {
           />
           <p className="level">◆ Capital inicial: (opcional)</p>
           <input
-            className="interestInputs marginCero"
+            className="interestInputs"
             type="number"
             placeholder="Capital"
             value={capitalInicial ? capitalInicial : false}
             onChange={(e) => setCapitalInicial(e.target.value)}
+          />
+          <p className="level">◆ Adición por periodo: (opcional)</p>
+          <input
+            className="interestInputs marginCero"
+            type="number"
+            placeholder="Addition"
+            value={addition ? addition : false}
+            onChange={(e) => setAddition(e.target.value)}
           />
         </div>
         <div className="calculadoraResultContainer">
