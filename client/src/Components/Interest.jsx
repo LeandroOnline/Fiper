@@ -163,7 +163,7 @@ const Interest = () => {
                       )}
                 </p>
                 <p className="calculadoraTextResultPorcent">
-                  +{newInt.TE === "NaN" || !capitalInicial ? 0 : newInt.TE}%
+                  +{newInt.TE === "NaN" || !capitalInicial? 0 : newInt.TE}%
                 </p>
               </div>
             </div>
