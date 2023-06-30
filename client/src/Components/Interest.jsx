@@ -155,7 +155,7 @@ const Interest = () => {
               <div className="incrementContainer">
                 <p className="calculadoraTextResult">
                   $
-                  {newInt.TE === "NaN"
+                  {newInt.TE === "NaN" || !capitalInicial
                     ? 0
                     : ((capitalInicial * newInt.TE) / 100).toLocaleString(
                         "es-ES",
@@ -163,7 +163,7 @@ const Interest = () => {
                       )}
                 </p>
                 <p className="calculadoraTextResultPorcent">
-                  +{newInt.TE === "NaN" ? 0 : newInt.TE}%
+                  +{newInt.TE === "NaN" || !capitalInicial ? 0 : newInt.TE}%
                 </p>
               </div>
             </div>
