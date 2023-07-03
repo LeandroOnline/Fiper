@@ -175,12 +175,12 @@ const Login = () => {
                   </button>
                 </div>
               ) : (
-                <button
+                <div
                   className="remember"
                   onClick={() => setRememberActivate(!rememberActivate)}
                 >
                   Olvido la contraseña?
-                </button>
+                </div>
               )}
               <div className="buttonforms">
                 <button type="submit" className="loginButtons">

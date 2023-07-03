@@ -2,14 +2,14 @@
   display: flex;
   border-width: 2px;
   height: 100vh;
-  align-items:center;
+  align-items: center;
   justify-content: center;
   width: fit-content;
   flex-wrap: wrap;
-  gap: 10px
+  gap: 10px;
 }
 
-.center{
+.center {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,7 +25,7 @@
   margin: var(--space4) var(--space4) var(--space2) var(--space4);
 }
 
-.subDescription{
+.subDescription {
   font-size: var(--middle);
   font-weight: 200;
   color: var(--placeholder);
@@ -165,6 +165,7 @@
   font-weight: 200;
   margin-top: var(--space2);
   border: 1px solid rgba(255, 255, 255, 0);
+  cursor: pointer;
 }
 
 .remember:hover {
@@ -182,14 +183,14 @@
 }
 
 .inputRemember {
-  padding: var(--space2) var(--space3);
+  padding: 8px 0 8px 16px;
   transition: 1s;
-  width: calc(100% - 113px);
-  height: 26px;
+  width: calc(100% - 97px);
   background: var(--level2);
   border-radius: 15px 0 0 15px;
-  font-size: 14px;
-  font-weight: 200;
+  font-size: var(--normal);
+  color: var(--placeholder);
+  border: 1px solid var(--primario);
 }
 
 .sendRemember {
