@@ -36,12 +36,7 @@ const Total = memo(() => {
   dolarBlue().then((data) => setDolar(data));
 
   const result = lastOnesFromThisMonth(inputs);
-  const {
-    lastProfit = 0,
-    lastLoss = 0,
-    lastOne = 0,
-    lastPending = 0,
-  } = result || {};
+  const { lastProfit = 0, lastLoss = 0, lastOne = 0 } = result || {};
 
   const netIncrement = () => {
     const net = netPerMonth[month];
@@ -82,8 +77,8 @@ const Total = memo(() => {
               <p className="datoResult">$ {formatNumber(netPerMonth[month])}</p>
               <p className="calculadoraTextResultPorcent">
                 {netIncrement() > 0
-                  ? `+${netIncrement()}%`
-                  : `${netIncrement()}%`}
+                  ? `+${formatNumber(netIncrement())}%`
+                  : `${formatNumber(netIncrement())}%`}
               </p>
             </div>
           </div>

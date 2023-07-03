@@ -9,7 +9,7 @@ export default function lastOnesFromThisMonth(arr) {
     let takeMonth = takeDate.getMonth();
 
     if (currentMonth === takeMonth) {
-      if (lastOne === 0) lastOne = arr[i].input;
+      if (lastOne === 0 && arr[i].tipo !== "Pending") lastOne = arr[i].input;
       if (lastLoss === 0) {
         if (arr[i].input < 0) {
           lastLoss = arr[i].input;
