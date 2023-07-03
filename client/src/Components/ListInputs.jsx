@@ -134,7 +134,7 @@ const ListInputs = () => {
   const search = filtered ? filtered : inputs;
 
   const reversedInputs = [...search].reverse();
-  console.log(inputValue);
+
   return (
     <div className="navAndListContainer">
       <div className="navList">
