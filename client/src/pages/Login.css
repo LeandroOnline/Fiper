@@ -43,8 +43,7 @@
   height: fit-content;
   align-items: center;
   transition: 1s;
-  box-shadow: 1px 1px 8px hsl(218, 25%, 5%), -1px -1px 8px hsl(218, 20%, 30%),
-    1px 1px 8px hsl(218, 25%, 5%) inset, -1px -1px 8px hsl(218, 20%, 30%) inset;
+  box-shadow: 2px 2px 8px hsl(218, 25%, 5%), -2px -2px 8px hsl(218, 20%, 30%), 2px 2px 8px hsl(218, 25%, 5%) inset, -2px -2px 8px hsl(218, 20%, 30%) inset;
   border: 1px solid var(--level1);
 }
 
