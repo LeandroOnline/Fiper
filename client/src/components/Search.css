@@ -6,4 +6,5 @@
   padding: var(--space2) var(--space3);
   margin-right: var(--space2);
   border: 1px solid var(--level1);
+  width: 100%;
 }

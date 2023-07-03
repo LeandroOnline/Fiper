@@ -1,6 +1,5 @@
 @media (max-width: 1000px) {
-  .timeContainer,
-  .totalInputs {
+  .timeContainer {
     display: none;
   }
   .selectContainer {

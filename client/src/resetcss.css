@@ -122,33 +122,6 @@ input:-webkit-autofill:active {
   text-rendering: optimizeLegibility;
 }
 
-/* Barras de desplazamiento */
-/* Ancho de la barra de desplazamiento */
-/* ::-webkit-scrollbar {
-  width: 8px; 
-} */
-
-/* Riel de la barra de desplazamiento */
-/* Borde redondeado del riel */
-/* Color de fondo del riel */
-/* ::-webkit-scrollbar-track {
-  background-color: #f1f1f100; 
-  border-radius: 4px; 
-} */
-/* Pulsador de la barra de desplazamiento */
-/* Color del pulsador */
-/* Borde redondeado del pulsador */
-/* ::-webkit-scrollbar-thumb {
-  background-color: var(--level3); 
-  border-radius: 4px; 
-} */
-
-/* Al pasar el mouse sobre la barra de desplazamiento */
-/* Color del pulsador al pasar el mouse */
-/* ::-webkit-scrollbar-thumb:hover {
-  background-color: #555; 
-} */
-
 *::placeholder {
   color: var(--placeholder);
 }
