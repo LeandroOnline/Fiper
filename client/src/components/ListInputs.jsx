@@ -91,7 +91,7 @@ const ListInputs = () => {
       .catch((err) => setPopupConfig(useErrorHandler(err)));
   };
 
-  const inputPaid = async (id,input, detalle,  paid) => {
+  const inputPaid = async (id, input, detalle, paid) => {
     await axiosUpdateItem(id, input, detalle, paid)
       .then((data) => {
         setReset();
@@ -134,7 +134,7 @@ const ListInputs = () => {
   const search = filtered ? filtered : inputs;
 
   const reversedInputs = [...search].reverse();
-
+  console.log(inputValue);
   return (
     <div className="navAndListContainer">
       <div className="navList">
@@ -182,19 +182,17 @@ const ListInputs = () => {
                   </div>
                   <div className="inputsUpdate">
                     <input
-                      placeholder="+ / -"
                       type="number"
                       name="input"
-                      value={inputValue === "" ? element.input : inputValue}
+                      placeholder={element.input}
+                      value={inputValue}
                       onChange={(e) => setInputValue(e.target.value)}
                       className="inputPriceItemUpdate"
                     />
                     <textarea
-                      placeholder="Detalle"
+                      placeholder={element.detalle}
                       name="detalle"
-                      value={
-                        detalleValue === "" ? element.detalle : detalleValue
-                      }
+                      value={detalleValue}
                       onChange={(e) => detalle(e)}
                       className="inputTextItemUpdate"
                       onKeyDown={(e) => handleKeyDown(e)}
@@ -240,7 +238,12 @@ const ListInputs = () => {
                     <button
                       className="paid"
                       onClick={() => {
-                        inputPaid(element._id,element.input, element.detalle,true);
+                        inputPaid(
+                          element._id,
+                          element.input,
+                          element.detalle,
+                          true
+                        );
                       }}
                     >
                       Pasar a ingresos
