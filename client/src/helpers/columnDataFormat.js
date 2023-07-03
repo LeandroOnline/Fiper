@@ -19,15 +19,17 @@ const columnDataFormat = (inputs) => {
   const losses = Array.from({ length: 12 }, () => 0);
 
   inputs.map((input) => {
-    let date = new Date(input.date);
-    let month = date.getMonth();
+    if (input.tipo !== "Pending") {
+      let date = new Date(input.date);
+      let month = date.getMonth();
 
-    if (input.input >= 0) {
-      dataColumn[month] += input.input;
-      profits[month] += input.input;
-    } else {
-      dataColumn[month + 12] += input.input * -1;
-      losses[month] += input.input * -1;
+      if (input.input >= 0) {
+        dataColumn[month] += input.input;
+        profits[month] += input.input;
+      } else {
+        dataColumn[month + 12] += input.input * -1;
+        losses[month] += input.input * -1;
+      }
     }
   });
 

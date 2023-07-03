@@ -34,17 +34,17 @@ router.delete("/deleteNote/:id", loginValidate, require("../controllers/deleteNo
 router.put("/checkNote/:id", loginValidate, require("../controllers/checkNote"));
 
 // Admin
-// const {
-//   getusers,
-//   getAllNotes,
-//   deleteAllNotes,
-//   get,
-//   del,
-// } = require("../controllers/controllers");
-// router.route("/getusers").get(getusers);
-// router.route("/getAllNotes").get(getAllNotes);
-// router.route("/get").get(get);
-// router.route("/del").delete(del);
-// router.route("/deleteAllNotes").delete(deleteAllNotes);
+const {
+  getusers,
+  getAllNotes,
+  deleteAllNotes,
+  get,
+  del,
+} = require("../controllers/controllers");
+router.route("/getusers").get(getusers);
+router.route("/getAllNotes").get(getAllNotes);
+router.route("/get").get(get);
+router.route("/del").delete(del);
+router.route("/deleteAllNotes").delete(deleteAllNotes);
 
 module.exports = router;

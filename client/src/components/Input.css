@@ -6,12 +6,63 @@
   gap: var(--space3);
 }
 
+.inputValue {
+  display: flex;
+  gap: var(--space2);
+}
+.pendingContainer {
+  font-size: var(--small);
+  color: var(--placeholder);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: vaR(--space2);
+  width: 50%;
+  border: 1px solid rgba(255, 255, 255, 0);
+  cursor: pointer;
+  transition: 0.5s;
+}
+.pendingContainer:hover {
+  border: 1px solid var(--level3);
+  transition: 0.5s;
+}
+
+.pending {
+  border: 1px solid var(--primario);
+  width: 25px;
+  height: 25px;
+  font-size: var(--big);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  transition: 0.5s;
+}
+
+.pending:hover {
+  background: var(--primario);
+  transition: 0.5s;
+  color: var(--text);
+}
+
+.pendingTrue {
+  width: 25px;
+  height: 25px;
+  font-size: var(--big);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  background: var(--primario);
+}
+
 .inputPriceItem {
   border-radius: 15px;
   text-align: center;
   box-shadow: 2px 2px 4px hsl(218, 25%, 5%) inset,
     -2px -2px 4px hsl(218, 20%, 30%) inset;
   background: var(--level2);
+  width: 50%;
 }
 
 .inputTextItem {

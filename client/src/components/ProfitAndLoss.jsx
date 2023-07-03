@@ -14,11 +14,12 @@ const Total = memo(() => {
   const setDataArea = useGlobalStore((state) => state.setDataArea);
   const setDataColumn = useGlobalStore((state) => state.setDataColumn);
   const setNetPerMonth = useGlobalStore((state) => state.setNetPerMonth);
+  const setPendingValue = useGlobalStore((state) => state.setPendingValue);
   const setProfitsAndLosses = useGlobalStore(
     (state) => state.setProfitsAndLosses
   );
 
-  const { dataArea, netPerMonth } = areaDataFormat(inputs);
+  const { dataArea, netPerMonth, pendingValue } = areaDataFormat(inputs);
   const { dataColumn, profits, losses } = columnDataFormat(inputs);
   const date = new Date();
   const month = date.getMonth();
@@ -28,13 +29,19 @@ const Total = memo(() => {
     setProfitsAndLosses(profits, losses);
     setDataArea(dataArea);
     setDataColumn(dataColumn);
+    setPendingValue(pendingValue);
   }, [inputs]);
 
   const [dolar, setDolar] = useState("");
   dolarBlue().then((data) => setDolar(data));
 
   const result = lastOnesFromThisMonth(inputs);
-  const { lastProfit = 0, lastLoss = 0, lastOne = 0 } = result || {};
+  const {
+    lastProfit = 0,
+    lastLoss = 0,
+    lastOne = 0,
+    lastPending = 0,
+  } = result || {};
 
   const netIncrement = () => {
     const net = netPerMonth[month];
@@ -64,7 +71,6 @@ const Total = memo(() => {
         (losses[month] - (lastLoss * -1 === losses[month] ? 0 : lastLoss * -1))
       ).toFixed(0)
     : 0;
-
   return (
     <div className="totalcontainer" id="home">
       <div className="lastMonth">
@@ -99,6 +105,13 @@ const Total = memo(() => {
               <p className="calculadoraTextResultPorcent">
                 +{lossesIncrement * -1}%
               </p>
+            </div>
+          </div>
+          <div className="divideVertical"></div>
+          <div className="datoContainer">
+            <h1 className="datoTitle">Pendiente:</h1>
+            <div className="incrementContainer">
+              <p className="datoResult">$ {pendingValue}</p>
             </div>
           </div>
         </div>

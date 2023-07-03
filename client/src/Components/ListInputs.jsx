@@ -207,15 +207,16 @@ const ListInputs = () => {
                 </div>
                 <div
                   className={
-                    element.input === 0
+                    element.tipo === "Pending"
                       ? "neutral"
-                      : element.input > 0
+                      : element.tipo === "Ingresos"
                       ? "positive"
                       : "negative"
                   }
                 >
                   {element.input === 0 ? "$" : element.input > 0 ? "+ " : "- "}
                   {element.input >= 0 ? element.input : element.input * -1}
+                  {element.tipo === "Pending"? " Pendiente":null}
                   {Dates(element)}
                 </div>
                 <div className="dividePoint"></div>

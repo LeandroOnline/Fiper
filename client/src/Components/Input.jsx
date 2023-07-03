@@ -14,6 +14,7 @@ const Input = () => {
   const [popupConfig, setPopupConfig] = useState({ toConfirm: true });
   const [detalleValue, setDetalleValue] = useState("");
   const [inputValue, setInputValue] = useState("");
+  const [pending, setPending] = useState(false);
 
   const detalle = (e) => {
     const sanitize = useSanitize(e.target.value);
@@ -31,7 +32,7 @@ const Input = () => {
         fast: true,
       });
     } else {
-      await axiosAdd(inputValue, detalleValue)
+      await axiosAdd(inputValue, detalleValue, pending)
         .then((data) => {
           if (data === "Added input") {
             setPopupConfig({
@@ -43,6 +44,7 @@ const Input = () => {
             setReset();
             setDetalleValue("");
             setInputValue("");
+            setPending(false);
             const audio = new Audio(coin);
             sound ? audio.play() : null;
           }
@@ -66,14 +68,25 @@ const Input = () => {
         onSubmit={(e) => post(e, inputValue, detalleValue)}
         id="myForm"
       >
-        <input
-          placeholder="+ / -"
-          type="number"
-          name="input"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          className="inputPriceItem"
-        />
+        <div className="inputValue">
+          <input
+            placeholder="+ / -"
+            type="number"
+            name="input"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            className="inputPriceItem"
+          />
+          <div
+            className="pendingContainer"
+            onClick={() => setPending(!pending)}
+          >
+            Pendiente{" "}
+            <div className={pending ? "pendingTrue" : "pending"}>
+              {pending ? "✓" : null}
+            </div>
+          </div>
+        </div>
         <textarea
           placeholder="Detalle"
           name="detalle"

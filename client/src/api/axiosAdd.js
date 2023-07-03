@@ -1,13 +1,14 @@
 import API from "./apiUrl";
 import axios from "axios";
 
-const Add = async (inputValue, detalleValue) =>
+const Add = async (inputValue, detalleValue, pending) =>
   await axios
     .post(
       API + "/addInput",
       {
         input: inputValue,
         detalle: detalleValue,
+        pending: pending,
         token: sessionStorage.getItem("user"),
       },
       { timeout: 6000 }

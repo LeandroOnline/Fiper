@@ -16,14 +16,18 @@ const format = (inputs) => {
 
   const dataArea = []; // data sin formato
   const netPerMonth = Array.from({ length: 12 }, () => 0);
+  let pendingValue = 0;
 
   // sumo los ingresos y egresos para tener el valor neto por mes
   inputs.map((input) => {
-    const date = new Date(input.date);
-    const month = date.getMonth();
-    netPerMonth[month] += input.input;
+    if (input.tipo !== "Pending") {
+      const date = new Date(input.date);
+      const month = date.getMonth();
+      netPerMonth[month] += input.input;
+    }else{
+      pendingValue += input.input;
+    }
   });
-
   // formateo data con los valores neto
   for (let i = 0; i < 13; i++) {
     dataArea[i] = {
@@ -31,6 +35,6 @@ const format = (inputs) => {
       value: netPerMonth[i],
     };
   }
-  return { dataArea, netPerMonth };
+  return { dataArea, netPerMonth, pendingValue };
 };
 export default format;
