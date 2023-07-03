@@ -111,7 +111,7 @@ const Total = memo(() => {
           <div className="datoContainer">
             <h1 className="datoTitle">Pendiente:</h1>
             <div className="incrementContainer">
-              <p className="datoResult">$ {pendingValue}</p>
+              <p className="datoResult">$ {formatNumber(pendingValue)}</p>
             </div>
           </div>
         </div>
