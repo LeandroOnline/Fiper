@@ -74,7 +74,25 @@ const ListInputs = () => {
 
   const updateItem = async (e) => {
     e.preventDefault();
-    await axiosUpdateItem(idElemento, inputValue, detalleValue)
+    await axiosUpdateItem(idElemento, inputValue, detalleValue, false)
+      .then((data) => {
+        setReset();
+        if (data === "Updated") {
+          setPopupConfig({
+            type: "ok",
+            text: "Item Actualizado",
+            activate: true,
+          });
+          setModificar(!modificar);
+          setDetalleValue("");
+          setInputValue("");
+        }
+      })
+      .catch((err) => setPopupConfig(useErrorHandler(err)));
+  };
+
+  const inputPaid = async (id,input, detalle,  paid) => {
+    await axiosUpdateItem(id, input, detalle, paid)
       .then((data) => {
         setReset();
         if (data === "Updated") {
@@ -216,9 +234,20 @@ const ListInputs = () => {
                 >
                   {element.input === 0 ? "$" : element.input > 0 ? "+ " : "- "}
                   {element.input >= 0 ? element.input : element.input * -1}
-                  {element.tipo === "Pending"? " Pendiente":null}
+                  {element.tipo === "Pending" ? " Pendiente" : null}
                   {Dates(element)}
+                  {element.tipo === "Pending" ? (
+                    <button
+                      className="paid"
+                      onClick={() => {
+                        inputPaid(element._id,element.input, element.detalle,true);
+                      }}
+                    >
+                      Pasar a ingresos
+                    </button>
+                  ) : null}
                 </div>
+
                 <div className="dividePoint"></div>
                 <span className="details">{element.detalle}</span>
               </div>

@@ -81,10 +81,10 @@ const Input = () => {
             className="pendingContainer"
             onClick={() => setPending(!pending)}
           >
-            Pendiente{" "}
             <div className={pending ? "pendingTrue" : "pending"}>
               {pending ? "✓" : null}
             </div>
+            Pendiente
           </div>
         </div>
         <textarea

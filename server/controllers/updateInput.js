@@ -4,7 +4,7 @@ const updateInput = async (req, res) => {
   try {
     const input = await Inputs.findById(req.params.id);
     const inputType =
-      input.tipo === "Pending"
+      input.tipo === "Pending" && !req.body.paid
         ? "Pending"
         : req.body.input < 0
         ? "Egresos"

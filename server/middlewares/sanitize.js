@@ -6,7 +6,7 @@ const Sanitize = (req, res, next) => {
   const text = req.body.text ? req.body.text : "";
 
   const sanitizeTipo = tipo.replace(/<(?:.|\n)*?>/gm, "");
-  const sanitizeInput = input.replace(/<(?:.|\n)*?>/gm, "");
+  const sanitizeInput = input.toString().replace(/<(?:.|\n)*?>/gm, "");
   const sanitizeDetalle = detalle.replace(/<(?:.|\n)*?>/gm, "");
   const sanitizeTitle = title.replace(/<(?:.|\n)*?>/gm, "");
   const sanitizeText = text.replace(/<(?:.|\n)*?>/gm, "");
