@@ -41,10 +41,10 @@ const {
   get,
   del,
 } = require("../controllers/controllers");
-router.route("/getusers").get(getusers);
-router.route("/getAllNotes").get(getAllNotes);
-router.route("/get").get(get);
-router.route("/del").delete(del);
-router.route("/deleteAllNotes").delete(deleteAllNotes);
+// router.route("/getusers").get(getusers);
+// router.route("/getAllNotes").get(getAllNotes);
+// router.route("/get").get(get);
+// router.route("/del").delete(del);
+// router.route("/deleteAllNotes").delete(deleteAllNotes);
 
 module.exports = router;
