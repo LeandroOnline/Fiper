@@ -117,7 +117,7 @@ const Interest = () => {
           <input
             className="interestInputs"
             type="number"
-            placeholder="Automatico"
+            placeholder={"Automatico: " + periodo}
             value={reinversion ? reinversion : false}
             onChange={(e) => setReinversion(e.target.value)}
           />
@@ -163,7 +163,7 @@ const Interest = () => {
                       )}
                 </p>
                 <p className="calculadoraTextResultPorcent">
-                  +{newInt.TE === "NaN" || !capitalInicial? 0 : newInt.TE}%
+                  +{newInt.TE === "NaN" || !capitalInicial ? 0 : newInt.TE}%
                 </p>
               </div>
             </div>
