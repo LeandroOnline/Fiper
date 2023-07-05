@@ -22,7 +22,7 @@ const SignUp = () => {
     const VerifySyntax = useVerifySyntax(email, password);
     if (VerifySyntax) {
       const send = {
-        email: email,
+        email: email.toLowerCase(),
         password: password,
       };
       axiosSign(send)
