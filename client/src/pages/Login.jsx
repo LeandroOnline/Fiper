@@ -31,7 +31,8 @@ const Login = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    const verify = useVerifySyntax(email, password);
+    const verify = useVerifySyntax(email);
+    console.log(verify)
     if (verify) {
       await axiosLogin(email, password)
         .then((data) => {

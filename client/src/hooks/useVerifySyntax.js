@@ -11,7 +11,7 @@ const useVerify = (email = "", password = "") => {
     const strongPasswordRegex = /^(?=.*\d)(?=.*[A-Z]).{7,}$/;
     cleanPassword = strongPasswordRegex.test(password);
   } else {
-    cleanPassword = false;
+    cleanPassword = true;
   }
   return cleanEmail && cleanPassword;
 };
