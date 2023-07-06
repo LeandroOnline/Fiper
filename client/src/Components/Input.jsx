@@ -60,6 +60,15 @@ const Input = () => {
     }
   };
 
+  const handleInputChange = (event) => {
+    const value = event;
+    const regex = /^-?\d*$/;
+
+    if (regex.test(value)) {
+      setInputValue(value);
+    }
+  };
+
   return (
     <>
       <Popup config={{ popupConfig, setPopupConfig }} />
@@ -71,10 +80,10 @@ const Input = () => {
         <div className="inputValue">
           <input
             placeholder="+ / -"
-            type="number"
+            type="text"
             name="input"
             value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
+            onChange={(e) => handleInputChange(e.target.value)}
             className="inputPriceItem"
           />
           <div
