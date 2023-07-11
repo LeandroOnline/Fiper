@@ -133,7 +133,7 @@ const Interest = () => {
           <input
             className="interestInputs marginCero"
             type="number"
-            placeholder="Addition"
+            placeholder="Adición"
             value={addition ? addition : false}
             onChange={(e) => setAddition(e.target.value)}
           />
