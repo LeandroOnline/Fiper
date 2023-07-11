@@ -9,7 +9,7 @@ const login = async (email, password) =>
         email: email,
         password: password,
       },
-      { timeout: 6000 }
+      { timeout: 8000 }
     )
     .then((data) => data.data);
 

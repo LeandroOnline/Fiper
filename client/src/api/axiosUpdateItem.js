@@ -11,7 +11,7 @@ const update = async (idElement, inputValue, detalleValue, paid) =>
         paid: paid,
         token: sessionStorage.getItem("user"),
       },
-      { timeout: 6000 }
+      { timeout: 8000 }
     )
     .then((data) => data.data);
 

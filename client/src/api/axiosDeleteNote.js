@@ -7,7 +7,7 @@ const axiosDeleteNote = async (id) =>
       data: {
         token: sessionStorage.getItem("user"),
       },
-      timeout: 6000,
+      timeout: 8000,
     })
     .then((data) => data.data)
 

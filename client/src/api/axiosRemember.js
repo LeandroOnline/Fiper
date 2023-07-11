@@ -8,7 +8,7 @@ const remember = async (email) =>
       {
         email: email,
       },
-      { timeout: 6000 }
+      { timeout: 8000 }
     )
     .then((data) => data.data);
 

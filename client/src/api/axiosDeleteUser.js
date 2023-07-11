@@ -5,7 +5,7 @@ const deleteUser = async () =>
   await axios
     .delete(API + "/deleteUser", {
       data: { token: sessionStorage.getItem("user") },
-      timeout: 6000,
+      timeout: 8000,
     })
     .then((data) => {
       sessionStorage.removeItem("user");

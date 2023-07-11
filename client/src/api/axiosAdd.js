@@ -11,7 +11,7 @@ const Add = async (inputValue, detalleValue, pending) =>
         pending: pending,
         token: sessionStorage.getItem("user"),
       },
-      { timeout: 6000 }
+      { timeout: 8000 }
     )
     .then((data) => data.data);
 

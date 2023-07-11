@@ -10,7 +10,7 @@ const update = async (id, title, text) =>
         text: text,
         token: sessionStorage.getItem("user"),
       },
-      { timeout: 6000 }
+      { timeout: 8000 }
     )
     .then((data) => data.data)
 
