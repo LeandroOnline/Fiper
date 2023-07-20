@@ -185,14 +185,14 @@ const ListInputs = () => {
                       type="number"
                       name="input"
                       placeholder={element.input}
-                      value={inputValue}
+                      value={inputValue ? inputValue : element.input}
                       onChange={(e) => setInputValue(e.target.value)}
                       className="inputPriceItemUpdate"
                     />
                     <textarea
                       placeholder={element.detalle}
                       name="detalle"
-                      value={detalleValue}
+                      value={detalleValue ? detalleValue : element.detalle}
                       onChange={(e) => detalle(e)}
                       className="inputTextItemUpdate"
                       onKeyDown={(e) => handleKeyDown(e)}
