@@ -160,7 +160,7 @@ const Navbar = memo(() => {
     <div className="navcontainer">
       <Popup config={{ popupConfig, setPopupConfig }} />
       <div className="navMenu">
-        <h1 className="title">FIPE</h1>
+        <h1 className="title">FIPER</h1>
         {login ? (
           <>
             <div className="nickname">

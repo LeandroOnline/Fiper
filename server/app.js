@@ -6,7 +6,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ['http://localhost:5173', 'https://fipe.savat.ar'],
+    origin: ['http://localhost:5173', 'https://fiper.savat.ar', 'www.fiper.savat.ar'],
     credentials: true,
   })
 );
