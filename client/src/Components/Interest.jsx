@@ -69,7 +69,7 @@ const Interest = () => {
   };
 
   return (
-    <div className="interescontainer" id="interest">
+    <div className="interescontainer" id="interest" data-aos="fade-up">
       <div className="interest">
         <div className="interestInputsContainer">
           <p className="level">◆ TNA: </p>
@@ -79,6 +79,8 @@ const Interest = () => {
             placeholder="TNA %"
             value={tasaInteresAnual ? tasaInteresAnual : false}
             onChange={(e) => setTasaInteresAnual(e.target.value)}
+            data-aos="zoom-in"
+            data-aos-delay="300"
           />
           <p className="level">◆ Periodo: </p>
           <div className="selectContainer">

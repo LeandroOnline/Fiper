@@ -86,7 +86,7 @@ const Notes = () => {
   const reversedNotes = [...notes].reverse();
 
   return (
-    <div className="notesContainer" id="notes">
+    <div className="notesContainer" id="notes" data-aos="fade-up">
       <Popup config={{ popupConfig, setPopupConfig }} />
       <div className="addNoteAndGraph">
         <form
@@ -108,7 +108,12 @@ const Notes = () => {
             onChange={(e) => setText(useSanitize(e.target.value))}
             className="inputNote"
           />
-          <button className="addNoteButton" type="submit">
+          <button
+            className="addNoteButton"
+            type="submit"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
             Agregar
           </button>
         </form>

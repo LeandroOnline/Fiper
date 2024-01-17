@@ -9,13 +9,13 @@ import { Link } from "react-scroll";
 const Menu = () => {
   const [position, setPosition] = useState("home");
   return (
-    <div className="menuContainer">
+    <div className="menuContainer" data-aos="fade-right" data-aos-delay="1000">
       <Link
         to="home"
         spy={true}
         smooth={true}
         onSetActive={() => setPosition("home")}
-        offset={-80}
+        offset={-200}
         duration={500}
       >
         <div className={position === "home" ? "pressed" : "menuItem"}>
@@ -28,7 +28,7 @@ const Menu = () => {
         spy={true}
         smooth={true}
         onSetActive={() => setPosition("notes")}
-        offset={-80}
+        offset={-200}
         duration={500}
       >
         <div className={position === "notes" ? "pressed" : "menuItem"}>
@@ -41,7 +41,7 @@ const Menu = () => {
         spy={true}
         smooth={true}
         onSetActive={() => setPosition("interest")}
-        offset={-80}
+        offset={-200}
         duration={500}
       >
         <div className={position === "interest" ? "pressed" : "menuItem"}>
@@ -54,7 +54,7 @@ const Menu = () => {
         spy={true}
         smooth={true}
         onSetActive={() => setPosition("graphs")}
-        offset={-80}
+        offset={-200}
         duration={500}
       >
         <div className={position === "graphs" ? "pressed" : "menuItem"}>

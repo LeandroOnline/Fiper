@@ -32,7 +32,7 @@ const Login = () => {
     const email = e.target.email.value.toLowerCase();
     const password = e.target.password.value;
     const verify = useVerifySyntax(email);
-    console.log(verify)
+    console.log(verify);
     if (verify) {
       await axiosLogin(email, password)
         .then((data) => {
@@ -111,15 +111,16 @@ const Login = () => {
   };
 
   return (
-    <div className="logincontainer">
+    <div className="logincontainer" data-aos="fade-up">
       <Popup config={{ popupConfig, setPopupConfig }} />
       <div className="center">
         <h1 className="description">Potencia tus Finanzas</h1>
         <h2 className="subDescription">
-        Organiza tus ingresos, calcula el interés compuesto, crea notas, analiza el historial con estadísticas ... y mucho más! 💯".
+          Organiza tus ingresos, calcula el interés compuesto, crea notas,
+          analiza el historial con estadísticas ... y mucho más! 💯".
         </h2>
 
-        <div className="previews">
+        <div className="previews" data-aos="fade-right">
           <div className="desktopPrev">
             <img src={desktop} alt="" />
           </div>
@@ -132,7 +133,7 @@ const Login = () => {
         ) : login && !checkVerify ? (
           <Verify />
         ) : (
-          <div className="login">
+          <div className="login" data-aos="fade-left">
             <form className="loginForm" onSubmit={(e) => Log(e)}>
               <p className="SignTitle">Inicio de Sesión</p>
               <div className="inputFormContainer">
@@ -184,7 +185,12 @@ const Login = () => {
                 </div>
               )}
               <div className="buttonforms">
-                <button type="submit" className="loginButtons">
+                <button
+                  type="submit"
+                  className="loginButtons"
+                  data-aos="zoom-in"
+                  data-aos-delay="300"
+                >
                   Ingresar
                 </button>
                 <Link to="/signup" className="loginButtonSecondary">

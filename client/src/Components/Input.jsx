@@ -76,6 +76,8 @@ const Input = () => {
         className="input"
         onSubmit={(e) => post(e, inputValue, detalleValue)}
         id="myForm"
+        data-aos="fade-down"
+        data-aos-delay="300"
       >
         <div className="inputValue">
           <input
@@ -104,7 +106,7 @@ const Input = () => {
           className="inputTextItem"
           onKeyDown={(e) => handleKeyDown(e)}
         />
-        <button type="submit">Enter</button>
+        <button type="submit" data-aos="zoom-in" data-aos-delay="700">Enter</button>
       </form>
     </>
   );

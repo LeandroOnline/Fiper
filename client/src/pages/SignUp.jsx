@@ -70,7 +70,7 @@ const SignUp = () => {
   }, [pass1]);
 
   return (
-    <div className="signcontainer">
+    <div className="signcontainer" data-aos="fade-up">
       <Popup config={{ popupConfig, setPopupConfig }} />
       <form className="sign" onSubmit={(e) => Sign(e)}>
         <h1 className="SignTitle">Registro</h1>
@@ -116,11 +116,17 @@ const SignUp = () => {
         </div>
 
         <div className="buttonforms">
-          <button className="loginButtons" type="submit">
+          <button
+            className="loginButtons"
+            type="submit"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
             Registrarse
           </button>
           <Link to="/" className="loginButtonSecondary">
-            Ya tienes cuenta? <span className="secondaryAction">inicia sesion</span>
+            Ya tienes cuenta?{" "}
+            <span className="secondaryAction">inicia sesion</span>
           </Link>
         </div>
       </form>

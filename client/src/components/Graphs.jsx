@@ -33,7 +33,7 @@ const Graphs = () => {
   };
 
   return (
-    <div id="graphs" className="graphsContainer">
+    <div id="graphs" className="graphsContainer" data-aos="fade-up">
       <div className="datosContainer">
         Historial mensual
         <div className="rowDatos">
@@ -82,12 +82,6 @@ const Graphs = () => {
               </p>
             </div>
           </div>
-          {/* <div className="divideVertical"></div>
-          <div className="profitAndLosse">
-            <h1 className="profitAndLosseTitle dolarDesktop">Dolar BLue: </h1>
-            <h1 className="profitAndLosseTitle dolarMovile">D. BLue: </h1>
-            <p className="profitAndLosseResult">$ {dolar}</p>
-          </div> */}
         </div>
       </div>
 

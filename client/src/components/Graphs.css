@@ -9,7 +9,7 @@
   height: calc(60vh - 16px);
   width: 100%;
   flex-direction: column;
-  margin-bottom: calc(var(--space5) + 16px);
+  margin-bottom: calc(var(--space5) + 102px);
   height: 80vh;
 }
 
@@ -36,17 +36,19 @@
   border: 1px solid var(--level1);
   padding: var(--space3);
   gap: var(--space3);
+  justify-content: center;
 }
 
 .AreaContainer,
 .ColumnContainer {
   width: 100% !important;
-  height: calc(50% - var(--space2)) !important;
+  height: calc(45% - var(--space2)) !important;
   padding: var(--space3);
   background: var(--level2);
   box-shadow: 2px 2px 8px hsl(218, 25%, 5%) inset,
     -2px -2px 8px hsl(218, 20%, 30%) inset;
   border: 1px solid var(--level1);
+  box-sizing: border-box;
 }
 
 canvas {
@@ -86,7 +88,7 @@ canvas {
   align-items: center;
 }
 
-.g2-tooltip{
+.g2-tooltip {
   background-color: var(--level2) !important;
   box-shadow: none !important;
   border: 1px solid var(--primario) !important;

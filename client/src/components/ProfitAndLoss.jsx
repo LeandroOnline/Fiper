@@ -67,7 +67,7 @@ const Total = memo(() => {
       ).toFixed(0)
     : 0;
   return (
-    <div className="totalcontainer" id="home">
+    <div className="totalcontainer" id="home" data-aos="zoom-out">
       <div className="lastMonth">
         Mes en curso
         <div className="datos">
