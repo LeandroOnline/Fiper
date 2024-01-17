@@ -9,7 +9,7 @@ import { Link } from "react-scroll";
 const Menu = () => {
   const [position, setPosition] = useState("home");
   return (
-    <div className="menuContainer" data-aos="fade-right" data-aos-delay="1000">
+    <div className="menuContainer">
       <Link
         to="home"
         spy={true}
