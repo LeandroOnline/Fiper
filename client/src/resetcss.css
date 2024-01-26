@@ -73,7 +73,7 @@ button {
   border-radius: 15px;
   padding: var(--space2) var(--space3);
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.5s !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,7 +84,7 @@ button {
 
 button:hover {
   background-color: var(--primario);
-  transition: 0.5s;
+  transition: 0.5s !important;
   border: 1px solid var(--primario);
 }
 

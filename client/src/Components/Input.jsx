@@ -106,7 +106,14 @@ const Input = () => {
           className="inputTextItem"
           onKeyDown={(e) => handleKeyDown(e)}
         />
-        <button type="submit" data-aos="zoom-in" data-aos-delay="700">Enter</button>
+        <button
+          type="submit"
+          data-aos="zoom-in"
+          data-aos-delay="700"
+          className="button"
+        >
+          Enter
+        </button>
       </form>
     </>
   );
