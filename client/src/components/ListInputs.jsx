@@ -161,7 +161,7 @@ const ListInputs = () => {
           </p>
         ) : null}
         {reversedInputs.map((element, key) => (
-          <div key={key} >
+          <div key={key}>
             {modificar && element._id === idElemento ? (
               <>
                 <form onSubmit={(e) => updateItem(e)} className="listElement">

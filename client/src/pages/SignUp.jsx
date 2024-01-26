@@ -70,7 +70,7 @@ const SignUp = () => {
   }, [pass1]);
 
   return (
-    <div className="signcontainer" data-aos="fade-up">
+    <div className="signcontainer" data-aos="fade-up" data-aos-delay="300">
       <Popup config={{ popupConfig, setPopupConfig }} />
       <form className="sign" onSubmit={(e) => Sign(e)}>
         <h1 className="SignTitle">Registro</h1>

@@ -111,7 +111,7 @@ const Login = () => {
   };
 
   return (
-    <div className="logincontainer" data-aos="fade-up">
+    <div className="logincontainer" data-aos="fade-up" >
       <Popup config={{ popupConfig, setPopupConfig }} />
       <div className="center">
         <h1 className="description">Potencia tus Finanzas</h1>
@@ -120,7 +120,7 @@ const Login = () => {
           analiza el historial con estadísticas ... y mucho más! 💯".
         </h2>
 
-        <div className="previews" data-aos="fade-right">
+        <div className="previews" data-aos="fade-right" data-aos-delay="500">
           <div className="desktopPrev">
             <img src={desktop} alt="" />
           </div>
@@ -133,7 +133,7 @@ const Login = () => {
         ) : login && !checkVerify ? (
           <Verify />
         ) : (
-          <div className="login" data-aos="fade-left">
+          <div className="login" data-aos="fade-left" data-aos-delay="500">
             <form className="loginForm" onSubmit={(e) => Log(e)}>
               <p className="SignTitle">Inicio de Sesión</p>
               <div className="inputFormContainer">
